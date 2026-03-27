@@ -532,40 +532,40 @@ data class Prescription(
 ## 16. Önerilen Proje Klasör ve Dosya Yapısı
 
 ```text
-AppointmentApp/
-├── app/
-│   ├── src/main/
-│   │   ├── java/com/example/appointmentapp/
-│   │   │   ├── data/
-│   │   │   │   ├── model/
-│   │   │   │   │   ├── User.kt
+AppointmentApp/ // Proje kök klasörü; tüm Android modülleri, Gradle ayarları ve dokümantasyon burada tutulur
+├── app/ // Uygulamanın Android application modülü; çalıştırılabilir APK bu modülden üretilir
+│   ├── src/main/ // Production kaynakları; kod, manifest ve kaynak dosyaları burada bulunur
+│   │   ├── java/com/example/appointmentapp/ // Kotlin kodlarının ana paket kökü; MVVM katmanları burada organize edilir
+│   │   │   ├── data/ // Veri katmanı; model, uzak veri kaynakları ve repository implementasyonları burada yer alır
+│   │   │   │   ├── model/ // Firestore ve uygulama içi veri temsilleri (data class) burada tanımlanır
+│   │   │   │   │   ├── User.kt // model klasörünün ilk dosyası; temel kullanıcı veri yapısını tanımlar
 │   │   │   │   │   ├── Patient.kt
 │   │   │   │   │   ├── Doctor.kt
 │   │   │   │   │   ├── Hospital.kt
-│   │   │   │   │   ├── City.kt                  // Şehir bilgisini ve seçim ekranlarında kullanılacak temel alanları temsil eder
+│   │   │   │   │   ├── City.kt
 │   │   │   │   │   ├── Appointment.kt
 │   │   │   │   │   ├── Prescription.kt
 │   │   │   │   │   └── TimeSlot.kt
-│   │   │   │   ├── remote/
-│   │   │   │   │   └── firebase/
-│   │   │   │   │       ├── AuthDataSource.kt    // Firebase Authentication giriş, çıkış ve mevcut oturum işlemlerini yürütür
+│   │   │   │   ├── remote/ // Uzak veri erişim katmanı; API/Firebase gibi dış kaynak bağlantıları burada konumlanır
+│   │   │   │   │   └── firebase/ // Firestore ve Firebase Auth ile doğrudan konuşan DataSource sınıfları bu klasörde olmalıdır
+│   │   │   │   │       ├── AuthDataSource.kt // firebase klasörünün ilk dosyası; kimlik doğrulama erişimini yönetir
 │   │   │   │   │       ├── UserDataSource.kt
 │   │   │   │   │       ├── CityDataSource.kt
 │   │   │   │   │       ├── HospitalDataSource.kt
 │   │   │   │   │       ├── DoctorDataSource.kt
 │   │   │   │   │       ├── AppointmentDataSource.kt
 │   │   │   │   │       └── PrescriptionDataSource.kt
-│   │   │   │   └── repository/
-│   │   │   │       ├── AuthRepository.kt        // Auth ve kullanıcı verisini birleştirerek üst katmana anlamlı veri döndürür
+│   │   │   │   └── repository/ // DataSource sonuçlarını domain'e uygun veri akışına dönüştüren repository sınıfları burada olmalıdır
+│   │   │   │       ├── AuthRepository.kt // repository klasörünün ilk dosyası; auth akışını domain'e taşır
 │   │   │   │       ├── UserRepository.kt
 │   │   │   │       ├── CityRepository.kt
 │   │   │   │       ├── HospitalRepository.kt
 │   │   │   │       ├── DoctorRepository.kt
 │   │   │   │       ├── AppointmentRepository.kt
 │   │   │   │       └── PrescriptionRepository.kt
-│   │   │   ├── domain/
-│   │   │   │   └── usecase/
-│   │   │   │       ├── LoginUserUseCase.kt      // Giriş doğrulama kurallarını uygular ve giriş akışını başlatır
+│   │   │   ├── domain/ // İş kuralları katmanı; UI ve data katmanından bağımsız use-case yapıları burada tutulur
+│   │   │   │   └── usecase/ // Her biri tek sorumluluk taşıyan iş akışı sınıfları bu klasörde bulunmalıdır
+│   │   │   │       ├── LoginUserUseCase.kt // usecase klasörünün ilk dosyası; giriş iş kuralını çalıştırır
 │   │   │   │       ├── RegisterPatientUseCase.kt
 │   │   │   │       ├── LogoutUserUseCase.kt
 │   │   │   │       ├── GetCurrentUserUseCase.kt
@@ -581,79 +581,79 @@ AppointmentApp/
 │   │   │   │       ├── CreatePrescriptionUseCase.kt
 │   │   │   │       ├── GetPatientPrescriptionsUseCase.kt
 │   │   │   │       └── GetDoctorPrescriptionsUseCase.kt
-│   │   │   ├── ui/
-│   │   │   │   ├── main/
-│   │   │   │   │   └── MainActivity.kt          // Uygulamanın tek activity yapısını ve ana container görevini taşır
-│   │   │   │   ├── splash/
-│   │   │   │   │   └── SplashFragment.kt
-│   │   │   │   ├── auth/
-│   │   │   │   │   ├── login/
-│   │   │   │   │   │   ├── LoginFragment.kt
+│   │   │   ├── ui/ // Sunum katmanı; Fragment, ViewModel, adapter ve UI state bileşenleri burada bulunur
+│   │   │   │   ├── main/ // Tek-activity mimarisi için ana activity ve host bileşenleri burada tutulur
+│   │   │   │   │   └── MainActivity.kt // main klasörünün ilk dosyası; tek activity host yapısını taşır
+│   │   │   │   ├── splash/ // Uygulama açılış yönlendirme ekranı ile ilgili sınıflar burada bulunur
+│   │   │   │   │   └── SplashFragment.kt // splash klasörünün ilk dosyası; başlangıç yönlendirmesini yapar
+│   │   │   │   ├── auth/ // Kimlik doğrulama akışı; giriş ve kayıt ekranları burada organize edilir
+│   │   │   │   │   ├── login/ // Giriş ekranı UI ve state yönetimi bu alt klasörde olmalıdır
+│   │   │   │   │   │   ├── LoginFragment.kt // login klasörünün ilk dosyası; giriş ekranı UI katmanıdır
 │   │   │   │   │   │   └── LoginViewModel.kt
-│   │   │   │   │   └── register/
-│   │   │   │   │       ├── RegisterFragment.kt
+│   │   │   │   │   └── register/ // Hasta kayıt akışı UI ve state yönetimi burada bulunmalıdır
+│   │   │   │   │       ├── RegisterFragment.kt // register klasörünün ilk dosyası; kayıt ekranı UI katmanıdır
 │   │   │   │   │       └── RegisterViewModel.kt
-│   │   │   │   ├── common/
-│   │   │   │   │   ├── adapter/
-│   │   │   │   │   │   ├── CityAdapter.kt       // RecyclerView listelerinde veri bağlama ve tıklama yönetimini üstlenir
+│   │   │   │   ├── common/ // Uygulama genelinde ortak kullanılan UI yardımcı bileşenleri burada tutulur
+│   │   │   │   │   ├── adapter/ // RecyclerView adapter sınıfları; listeleme ekranlarında yeniden kullanılmalıdır
+│   │   │   │   │   │   ├── CityAdapter.kt // adapter klasörünün ilk dosyası; şehir listesi item bağlamasını yapar
 │   │   │   │   │   │   ├── HospitalAdapter.kt
 │   │   │   │   │   │   ├── DoctorAdapter.kt
 │   │   │   │   │   │   ├── TimeSlotAdapter.kt
 │   │   │   │   │   │   ├── AppointmentAdapter.kt
 │   │   │   │   │   │   └── PrescriptionAdapter.kt
-│   │   │   │   │   ├── state/
-│   │   │   │   │   │   └── UiState.kt
-│   │   │   │   │   └── component/
-│   │   │   │   │       └── LoadingDialog.kt
-│   │   │   │   ├── patient/
-│   │   │   │   │   ├── home/
-│   │   │   │   │   │   ├── PatientHomeFragment.kt // Hasta ana ekranı ve hasta modülüne giriş noktasıdır
+│   │   │   │   │   ├── state/ // UI durum sınıfları; loading-success-error gibi ortak state tanımları burada olmalıdır
+│   │   │   │   │   │   └── UiState.kt // state klasörünün ilk dosyası; ortak UI durum tipini tanımlar
+│   │   │   │   │   └── component/ // Ortak dialog, custom view gibi tekrar kullanılabilir UI parçaları bulunmalıdır
+│   │   │   │   │       └── LoadingDialog.kt // component klasörünün ilk dosyası; ortak yükleniyor diyaloğunu sağlar
+│   │   │   │   ├── patient/ // Hasta rolüne ait ekranlar ve ViewModel sınıfları bu klasörde yer almalıdır
+│   │   │   │   │   ├── home/ // Hasta ana ekranı ve hasta akışına geçiş noktası burada bulunmalıdır
+│   │   │   │   │   │   ├── PatientHomeFragment.kt // home klasörünün ilk dosyası; hasta panel giriş ekranıdır
 │   │   │   │   │   │   └── PatientHomeViewModel.kt
-│   │   │   │   │   ├── cities/
-│   │   │   │   │   │   ├── CityListFragment.kt
+│   │   │   │   │   ├── cities/ // Şehir seçimi ekranına ait dosyalar bu alt klasörde bulunmalıdır
+│   │   │   │   │   │   ├── CityListFragment.kt // cities klasörünün ilk dosyası; şehir seçim listesini gösterir
 │   │   │   │   │   │   └── CityListViewModel.kt
-│   │   │   │   │   ├── hospitals/
-│   │   │   │   │   │   ├── HospitalListFragment.kt
+│   │   │   │   │   ├── hospitals/ // Hastane seçimi ekranı dosyaları bu alt klasörde bulunmalıdır
+│   │   │   │   │   │   ├── HospitalListFragment.kt // hospitals klasörünün ilk dosyası; hastane listesini gösterir
 │   │   │   │   │   │   └── HospitalListViewModel.kt
-│   │   │   │   │   ├── doctors/
-│   │   │   │   │   │   ├── DoctorListFragment.kt
+│   │   │   │   │   ├── doctors/ // Doktor seçimi ekranı dosyaları bu alt klasörde bulunmalıdır
+│   │   │   │   │   │   ├── DoctorListFragment.kt // doctors klasörünün ilk dosyası; doktor listesini gösterir
 │   │   │   │   │   │   └── DoctorListViewModel.kt
-│   │   │   │   │   ├── slots/
-│   │   │   │   │   │   ├── TimeSlotFragment.kt
+│   │   │   │   │   ├── slots/ // Slot seçimi ekranı dosyaları burada konumlandırılmalıdır
+│   │   │   │   │   │   ├── TimeSlotFragment.kt // slots klasörünün ilk dosyası; uygun saat slotlarını listeler
 │   │   │   │   │   │   └── TimeSlotViewModel.kt
-│   │   │   │   │   ├── appointments/
-│   │   │   │   │   │   ├── MyAppointmentsFragment.kt
+│   │   │   │   │   ├── appointments/ // Hastanın randevu liste/detay ekranları burada tutulmalıdır
+│   │   │   │   │   │   ├── MyAppointmentsFragment.kt // appointments klasörünün ilk dosyası; hasta randevu listesini gösterir
 │   │   │   │   │   │   ├── AppointmentDetailFragment.kt
 │   │   │   │   │   │   └── AppointmentViewModel.kt
-│   │   │   │   │   └── prescriptions/
-│   │   │   │   │       ├── MyPrescriptionsFragment.kt
+│   │   │   │   │   └── prescriptions/ // Hastanın reçete liste/detay ekranları bu klasörde bulunmalıdır
+│   │   │   │   │       ├── MyPrescriptionsFragment.kt // prescriptions klasörünün ilk dosyası; hasta reçete listesini gösterir
 │   │   │   │   │       ├── PrescriptionDetailFragment.kt
 │   │   │   │   │       └── PrescriptionViewModel.kt
-│   │   │   │   └── doctor/
-│   │   │   │       ├── home/
-│   │   │   │       │   ├── DoctorHomeFragment.kt  // Doktor ana ekranı ve doktor modülüne giriş noktasıdır
+│   │   │   │   └── doctor/ // Doktor rolüne ait ekranlar ve ViewModel sınıfları bu klasörde yer almalıdır
+│   │   │   │       ├── home/ // Doktor ana paneli dosyaları burada bulunmalıdır
+│   │   │   │       │   ├── DoctorHomeFragment.kt // home klasörünün ilk dosyası; doktor panel giriş ekranıdır
 │   │   │   │       │   └── DoctorHomeViewModel.kt
-│   │   │   │       ├── appointments/
-│   │   │   │       │   ├── DoctorAppointmentsFragment.kt
+│   │   │   │       ├── appointments/ // Doktor randevu liste ve detay yönetimi bu klasörde olmalıdır
+│   │   │   │       │   ├── DoctorAppointmentsFragment.kt // appointments klasörünün ilk dosyası; doktor randevu listesini gösterir
 │   │   │   │       │   ├── DoctorAppointmentDetailFragment.kt
 │   │   │   │       │   └── DoctorAppointmentsViewModel.kt
-│   │   │   │       └── prescription/
-│   │   │   │           ├── CreatePrescriptionFragment.kt
+│   │   │   │       └── prescription/ // Doktorun reçete oluşturma ekranı ve state yönetimi burada olmalıdır
+│   │   │   │           ├── CreatePrescriptionFragment.kt // prescription klasörünün ilk dosyası; reçete oluşturma ekranıdır
 │   │   │   │           └── CreatePrescriptionViewModel.kt
-│   │   │   ├── navigation/
-│   │   │   │   ├── AppNavGraph.kt                // Ekran geçiş kurallarını ve rota tanımlarını merkezi biçimde toplar
+│   │   │   ├── navigation/ // Navigation tanımları; ekran yönlendirme kuralları merkezi olarak burada tutulur
+│   │   │   │   ├── AppNavGraph.kt // navigation klasörünün ilk dosyası; ekran geçiş grafiğini tanımlar
 │   │   │   │   └── Route.kt
-│   │   │   ├── utils/
-│   │   │   │   ├── Constants.kt                  // Sabit değerler, alan adları ve tekrar eden anahtarlar burada tutulur
+│   │   │   ├── utils/ // Yardımcı fonksiyonlar ve tekrar kullanılabilir utility sınıfları burada bulunmalıdır
+│   │   │   │   ├── Constants.kt // utils klasörünün ilk dosyası; ortak sabit değerleri tutar
 │   │   │   │   ├── DateUtils.kt
 │   │   │   │   ├── Extensions.kt
 │   │   │   │   ├── ValidationUtils.kt
 │   │   │   │   └── PrescriptionCodeGenerator.kt
-│   │   │   └── di/
-│   │   │       └── ServiceLocator.kt             // DataSource, Repository ve UseCase bağımlılıklarını üretir
-│   │   ├── res/
-│   │   │   ├── layout/
-│   │   │   │   ├── activity_main.xml             // Ana container ve fragment yerleşimi burada tanımlanır
+│   │   │   └── di/ // Bağımlılıkların oluşturulduğu ve katmanlara enjekte edildiği yapı burada yer almalıdır
+│   │   │       └── ServiceLocator.kt // di klasörünün ilk dosyası; bağımlılık üretimini merkezileştirir
+│   │   ├── res/ // XML tabanlı UI ve görsel kaynaklar; tüm Android resource dosyaları burada bulunur
+│   │   │   ├── layout/ // Activity, Fragment ve RecyclerView item XML tasarımları bu klasörde olmalıdır
+│   │   │   │   ├── activity_main.xml // layout klasörünün ilk dosyası; ana activity container düzenini içerir
 │   │   │   │   ├── fragment_splash.xml
 │   │   │   │   ├── fragment_login.xml
 │   │   │   │   ├── fragment_register.xml
@@ -676,21 +676,21 @@ AppointmentApp/
 │   │   │   │   ├── item_time_slot.xml
 │   │   │   │   ├── item_appointment.xml
 │   │   │   │   └── item_prescription.xml
-│   │   │   ├── drawable/
-│   │   │   │   └── ...                           // Arka planlar, shape dosyaları ve ikon benzeri görsel kaynaklar bulunur
-│   │   │   ├── mipmap/
-│   │   │   │   └── ...                           // Uygulama başlatıcı ikonları bu klasörde tutulur
-│   │   │   ├── menu/
-│   │   │   │   └── ...                           // Toolbar veya alt menü tanımları burada yer alır
-│   │   │   ├── navigation/
-│   │   │   │   └── nav_graph.xml                 // Navigation Component grafik tanımı burada tutulur
-│   │   │   └── values/
-│   │   │       ├── colors.xml                    // Renk sistemi, yazı ve tema destek değerleri burada tanımlanır
+│   │   │   ├── drawable/ // Shape, selector, vector icon ve arkaplan gibi çizimsel kaynaklar burada tutulmalıdır
+│   │   │   │   └── ... // Buton arkaplanı, durum etiketleri ve dekoratif çizim dosyaları bu klasörde bulunmalıdır
+│   │   │   ├── mipmap/ // Launcher icon yoğunluk varyantları burada bulunmalıdır
+│   │   │   │   └── ... // Uygulama ikonunun mdpi-hdpi-xhdpi vb. boyut dosyaları burada yer almalıdır
+│   │   │   ├── menu/ // Toolbar, bottom navigation veya overflow menü XML tanımları burada tutulmalıdır
+│   │   │   │   └── ... // Menü öğelerinin id, icon ve title tanımlarını içeren dosyalar burada olmalıdır
+│   │   │   ├── navigation/ // Navigation Component graph XML dosyaları burada konumlandırılmalıdır
+│   │   │   │   └── nav_graph.xml // navigation klasörünün ilk dosyası; fragment geçişlerini tanımlar
+│   │   │   └── values/ // Tema, renk, metin ve ölçü gibi global kaynaklar burada tutulmalıdır
+│   │   │       ├── colors.xml // values klasörünün ilk dosyası; uygulamanın renk paletini tanımlar
 │   │   │       ├── strings.xml
 │   │   │       ├── themes.xml
 │   │   │       └── dimens.xml
-│   │   └── AndroidManifest.xml
-├── build.gradle.kts
+│   │   └── AndroidManifest.xml // src/main içindeki ilk dosya; uygulama bileşen ve izin tanımlarını içerir
+├── build.gradle.kts // proje kökündeki ilk dosya; üst seviye Gradle yapılandırmasını içerir
 ├── settings.gradle.kts
 └── README.md
 ```
