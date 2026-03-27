@@ -48,26 +48,33 @@ class SplashFragment : Fragment() {
 
                     is SplashNavigationState.GoToLogin -> {
                         binding.progressBar.visibility = View.GONE
-                        findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
+                        navigateIfCurrent(R.id.action_splashFragment_to_loginFragment)
                     }
 
                     is SplashNavigationState.GoToPatientHome -> {
                         binding.progressBar.visibility = View.GONE
-                        findNavController().navigate(R.id.action_splashFragment_to_patientHomeFragment)
+                        navigateIfCurrent(R.id.action_splashFragment_to_patientHomeFragment)
                     }
 
                     is SplashNavigationState.GoToDoctorHome -> {
                         binding.progressBar.visibility = View.GONE
-                        findNavController().navigate(R.id.action_splashFragment_to_doctorHomeFragment)
+                        navigateIfCurrent(R.id.action_splashFragment_to_doctorHomeFragment)
                     }
 
                     is SplashNavigationState.Error -> {
                         binding.progressBar.visibility = View.GONE
                         Toast.makeText(requireContext(), state.message, Toast.LENGTH_SHORT).show()
-                        findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
+                        navigateIfCurrent(R.id.action_splashFragment_to_loginFragment)
                     }
                 }
             }
+        }
+    }
+
+    private fun navigateIfCurrent(actionId: Int) {
+        val navController = findNavController()
+        if (navController.currentDestination?.id == R.id.splashFragment) {
+            navController.navigate(actionId)
         }
     }
 

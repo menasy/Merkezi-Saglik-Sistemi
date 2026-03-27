@@ -47,7 +47,7 @@ class LoginFragment : Fragment() {
         }
 
         binding.tvGoRegister.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+            navigateIfCurrent(R.id.action_loginFragment_to_registerFragment)
         }
     }
 
@@ -68,11 +68,11 @@ class LoginFragment : Fragment() {
 
                         when (state.data.role) {
                             "patient" -> {
-                                findNavController().navigate(R.id.action_loginFragment_to_patientHomeFragment)
+                                navigateIfCurrent(R.id.action_loginFragment_to_patientHomeFragment)
                             }
 
                             "doctor" -> {
-                                findNavController().navigate(R.id.action_loginFragment_to_doctorHomeFragment)
+                                navigateIfCurrent(R.id.action_loginFragment_to_doctorHomeFragment)
                             }
 
                             else -> {
@@ -93,6 +93,13 @@ class LoginFragment : Fragment() {
                     }
                 }
             }
+        }
+    }
+
+    private fun navigateIfCurrent(actionId: Int) {
+        val navController = findNavController()
+        if (navController.currentDestination?.id == R.id.loginFragment) {
+            navController.navigate(actionId)
         }
     }
 

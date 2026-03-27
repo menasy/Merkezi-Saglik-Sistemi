@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context="com.menasy.merkezisagliksistemi.ui.splash.SplashFragment">
+
+    <LinearLayout
+        android:id="@+id/layoutSplashCenter"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.42">
+
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="88dp"
+            android:layout_height="88dp"
+            android:contentDescription="Uygulama logosu"
+            android:src="@mipmap/ic_launcher_round" />
+
+        <TextView
+            android:id="@+id/tvAppName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="Merkezi Sağlık Sistemi"
+            android:textAppearance="?attr/textAppearanceHeadlineSmall"
+            android:textColor="@color/text_primary" />
+
+        <TextView
+            android:id="@+id/tvSplashDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="Oturum kontrolü yapılıyor..."
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="@color/text_secondary" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:indeterminateTint="@color/primary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutSplashCenter" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

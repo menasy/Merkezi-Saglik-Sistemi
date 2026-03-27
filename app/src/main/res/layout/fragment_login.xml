@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context="com.menasy.merkezisagliksistemi.ui.auth.login.LoginFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nsvLogin"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutLoginContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/layoutLoginBody"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.45">
+
+                <TextView
+                    android:id="@+id/tvLoginTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Giriş Yap"
+                    android:textAppearance="?attr/textAppearanceHeadlineMedium"
+                    android:textColor="@color/text_primary" />
+
+                <TextView
+                    android:id="@+id/tvLoginSubtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Hasta ve doktor hesabınızla giriş yapabilirsiniz."
+                    android:textAppearance="?attr/textAppearanceBodyMedium"
+                    android:textColor="@color/text_secondary" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardLoginForm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    app:cardBackgroundColor="@color/surface"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/primary_light"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tilEmail"
+                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="E-posta"
+                            app:boxBackgroundColor="@color/surface"
+                            app:boxStrokeColor="@color/primary"
+                            app:hintTextColor="@color/text_secondary">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etEmail"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:autofillHints="emailAddress"
+                                android:imeOptions="actionNext"
+                                android:inputType="textEmailAddress"
+                                android:textColor="@color/text_primary"
+                                android:textColorHint="@color/text_secondary" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tilPassword"
+                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:hint="Şifre"
+                            app:boxBackgroundColor="@color/surface"
+                            app:boxStrokeColor="@color/primary"
+                            app:endIconMode="password_toggle"
+                            app:hintTextColor="@color/text_secondary">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etPassword"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:autofillHints="password"
+                                android:imeOptions="actionDone"
+                                android:inputType="textPassword"
+                                android:textColor="@color/text_primary"
+                                android:textColorHint="@color/text_secondary" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnLogin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="24dp"
+                            android:text="Giriş Yap"
+                            android:textColor="@color/background"
+                            app:backgroundTint="@color/primary" />
+
+                        <TextView
+                            android:id="@+id/tvGoRegister"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:gravity="center"
+                            android:text="Hesabın yok mu? Kayıt ol"
+                            android:textAppearance="?attr/textAppearanceBodyMedium"
+                            android:textColor="@color/text_primary" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/primary"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.menasy.merkezisagliksistemi.R
 import com.menasy.merkezisagliksistemi.databinding.FragmentRegisterBinding
 import com.menasy.merkezisagliksistemi.ui.common.state.UiState
 import kotlinx.coroutines.launch
@@ -70,7 +71,7 @@ class RegisterFragment : Fragment() {
         }
 
         binding.tvGoLogin.setOnClickListener {
-            findNavController().navigateUp()
+            navigateBackToLogin()
         }
     }
 
@@ -94,7 +95,7 @@ class RegisterFragment : Fragment() {
                             Toast.LENGTH_SHORT
                         ).show()
                         viewModel.clearState()
-                        findNavController().navigateUp()
+                        navigateBackToLogin()
                     }
 
                     is UiState.Error -> {
@@ -103,6 +104,15 @@ class RegisterFragment : Fragment() {
                     }
                 }
             }
+        }
+    }
+
+    private fun navigateBackToLogin() {
+        val navController = findNavController()
+        if (!navController.navigateUp() &&
+            navController.currentDestination?.id == R.id.registerFragment
+        ) {
+            navController.navigate(R.id.loginFragment)
         }
     }
 

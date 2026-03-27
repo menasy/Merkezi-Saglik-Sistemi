@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.menasy.merkezisagliksistemi.ui.splash.SplashFragment"
+        android:label="Splash">
+
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_splashFragment_to_patientHomeFragment"
+            app:destination="@id/patientHomeFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_splashFragment_to_doctorHomeFragment"
+            app:destination="@id/doctorHomeFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.menasy.merkezisagliksistemi.ui.auth.login.LoginFragment"
+        android:label="Login">
+
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+
+        <action
+            android:id="@+id/action_loginFragment_to_patientHomeFragment"
+            app:destination="@id/patientHomeFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_loginFragment_to_doctorHomeFragment"
+            app:destination="@id/doctorHomeFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.menasy.merkezisagliksistemi.ui.auth.register.RegisterFragment"
+        android:label="Register" />
+
+    <fragment
+        android:id="@+id/patientHomeFragment"
+        android:name="com.menasy.merkezisagliksistemi.ui.patient.home.PatientHomeFragment"
+        android:label="PatientHome" />
+
+    <fragment
+        android:id="@+id/doctorHomeFragment"
+        android:name="com.menasy.merkezisagliksistemi.ui.doctor.home.DoctorHomeFragment"
+        android:label="DoctorHome" />
+
+</navigation>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context="com.menasy.merkezisagliksistemi.ui.doctor.home.DoctorHomeFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nsvDoctorHome"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutDoctorContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/layoutDoctorBody"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.1">
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Doktor Ana Sayfa"
+                    android:textAppearance="?attr/textAppearanceHeadlineMedium"
+                    android:textColor="@color/text_primary" />
+
+                <TextView
+                    android:id="@+id/tvDoctorSubtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Randevu yönetimi ve reçete işlemleri için başlangıç ekranı."
+                    android:textAppearance="?attr/textAppearanceBodyMedium"
+                    android:textColor="@color/text_secondary" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardDoctorSummary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    app:cardBackgroundColor="@color/surface"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/primary_light"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <TextView
+                            android:id="@+id/tvDoctorSummaryTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Hoş geldiniz"
+                            android:textAppearance="?attr/textAppearanceTitleMedium"
+                            android:textColor="@color/text_primary" />
+
+                        <TextView
+                            android:id="@+id/tvDoctorSummaryDescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Yakında bu alanda günlük randevu özeti ve bekleyen işlemler gösterilecektir."
+                            android:textAppearance="?attr/textAppearanceBodyMedium"
+                            android:textColor="@color/text_secondary" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardDoctorFutureArea"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="20dp"
+                    app:cardBackgroundColor="@color/surface"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/primary_light"
+                    app:strokeWidth="1dp">
+
+                    <TextView
+                        android:id="@+id/tvDoctorFutureAreaDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp"
+                        android:text="Bu alan, ileride randevu listesi ve reçete aksiyon kartları için genişletilecektir."
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:textColor="@color/text_secondary" />
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
