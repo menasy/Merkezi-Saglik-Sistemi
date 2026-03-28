@@ -68,7 +68,37 @@
     <fragment
         android:id="@+id/appointmentSearchFragment"
         android:name="com.menasy.merkezisagliksistemi.ui.patient.appointment.AppointmentSearchFragment"
-        android:label="AppointmentSearch" />
+        android:label="AppointmentSearch">
+
+        <action
+            android:id="@+id/action_appointmentSearchFragment_to_appointmentResultsFragment"
+            app:destination="@id/appointmentResultsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/appointmentResultsFragment"
+        android:name="com.menasy.merkezisagliksistemi.ui.patient.appointment.AppointmentResultsFragment"
+        android:label="AppointmentResults">
+
+        <action
+            android:id="@+id/action_appointmentResultsFragment_to_doctorAvailabilityFragment"
+            app:destination="@id/doctorAvailabilityFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/doctorAvailabilityFragment"
+        android:name="com.menasy.merkezisagliksistemi.ui.patient.appointment.DoctorAvailabilityFragment"
+        android:label="DoctorAvailability">
+
+        <action
+            android:id="@+id/action_doctorAvailabilityFragment_to_appointmentConfirmationFragment"
+            app:destination="@id/appointmentConfirmationFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/appointmentConfirmationFragment"
+        android:name="com.menasy.merkezisagliksistemi.ui.patient.appointment.AppointmentConfirmationFragment"
+        android:label="AppointmentConfirmation" />
 
     <fragment
         android:id="@+id/doctorHomeFragment"

@@ -106,8 +106,30 @@ class AuthDataSource(
         }
     }
 
+    suspend fun getCurrentUserFullName(): Result<String> {
+        return try {
+            val uid = auth.currentUser?.uid
+                ?: return Result.failure(Exception("No active session found"))
+
+            val snapshot = firestore.collection("users")
+                .document(uid)
+                .get()
+                .await()
+
+            if (!snapshot.exists()) {
+                return Result.failure(Exception("User record not found in Firestore"))
+            }
+
+            val fullName = snapshot.getString("fullName")
+                ?: return Result.failure(Exception("Full name information not found"))
+
+            Result.success(fullName)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
     fun logout() {
         auth.signOut()
     }
 }
-

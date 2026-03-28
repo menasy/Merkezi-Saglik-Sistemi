@@ -49,7 +49,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Randevu ve reçete işlemleriniz için hazır bir başlangıç ekranı."
+                    android:text="Randevu arama, saat secme ve onay adimlarina buradan baslayabilirsiniz."
                     android:textAppearance="?attr/textAppearanceBodyMedium"
                     android:textColor="@color/text_secondary" />
 
@@ -83,7 +83,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="Yakında bu alanda yaklaşan randevularınız ve özet bilgileriniz gösterilecektir."
+                            android:text="Secilen tarih araligina gore uygun doktor ve saatleri listeleyebilirsiniz."
                             android:textAppearance="?attr/textAppearanceBodyMedium"
                             android:textColor="@color/text_secondary" />
                     </LinearLayout>
@@ -106,7 +106,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="20dp"
-                        android:text="Bu alan, ileride randevu kartları ve hızlı işlemler için genişletilecektir."
+                        android:text="Akis: Tarih/filtre secimi -> uygun randevular -> saat secimi -> randevu onayi"
                         android:textAppearance="?attr/textAppearanceBodyMedium"
                         android:textColor="@color/text_secondary" />
                 </com.google.android.material.card.MaterialCardView>

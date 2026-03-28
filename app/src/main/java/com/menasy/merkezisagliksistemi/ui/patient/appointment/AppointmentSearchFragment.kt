@@ -9,7 +9,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.datepicker.MaterialDatePicker
+import com.menasy.merkezisagliksistemi.R
 import com.menasy.merkezisagliksistemi.databinding.FragmentAppointmentSearchBinding
 import kotlinx.coroutines.launch
 import java.time.Instant
@@ -87,12 +89,8 @@ class AppointmentSearchFragment : Fragment() {
         binding.btnSearchAppointments.setOnClickListener {
             val result = viewModel.buildSearchCriteria()
             result.fold(
-                onSuccess = {
-                    Toast.makeText(
-                        requireContext(),
-                        "Randevu arama kriterleri hazirlandi",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                onSuccess = { criteria ->
+                    navigateToResults(criteria)
                 },
                 onFailure = { exception ->
                     Toast.makeText(
@@ -101,6 +99,26 @@ class AppointmentSearchFragment : Fragment() {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+            )
+        }
+    }
+
+    private fun navigateToResults(criteria: AppointmentSearchCriteria) {
+        val args = AppointmentSearchArgs(
+            startDateMillis = criteria.startDateMillis,
+            endDateMillis = criteria.endDateMillis,
+            cityId = criteria.cityId,
+            districtId = criteria.districtId,
+            branchId = criteria.branchId,
+            hospitalId = criteria.hospitalId,
+            doctorId = criteria.doctorId
+        )
+
+        val navController = findNavController()
+        if (navController.currentDestination?.id == R.id.appointmentSearchFragment) {
+            navController.navigate(
+                R.id.action_appointmentSearchFragment_to_appointmentResultsFragment,
+                args.toBundle()
             )
         }
     }

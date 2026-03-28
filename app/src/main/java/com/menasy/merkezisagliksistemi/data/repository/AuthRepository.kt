@@ -40,6 +40,10 @@ class AuthRepository(
         return authDataSource.getCurrentUserRole()
     }
 
+    suspend fun getCurrentUserFullName(): Result<String> {
+        return authDataSource.getCurrentUserFullName()
+    }
+
     fun logout() {
         authDataSource.logout()
     }

@@ -12,4 +12,8 @@ class GetCurrentUserUseCase(
     suspend fun getCurrentUserRole(): Result<String> {
         return authRepository.getCurrentUserRole()
     }
+
+    suspend fun getCurrentUserFullName(): Result<String> {
+        return authRepository.getCurrentUserFullName()
+    }
 }
