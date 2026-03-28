@@ -9,6 +9,7 @@ import com.menasy.merkezisagliksistemi.domain.usecase.GetHospitalsByDistrictUseC
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import java.time.Instant
 import java.time.LocalDate
@@ -56,48 +57,47 @@ class AppointmentResultsViewModel(
         if (isLoaded) return
 
         viewModelScope.launch {
-            _uiState.value = _uiState.value.copy(
-                isLoading = true,
-                errorMessage = null,
-                emptyMessage = null
-            )
-
-            val doctorsResult = getDoctorsUseCase(
-                cityId = args.cityId,
-                branchId = args.branchId,
-                districtId = args.districtId,
-                hospitalId = args.hospitalId
-            )
+            _uiState.update {
+                it.copy(isLoading = true, errorMessage = null, emptyMessage = null)
+            }
 
             val hospitalsResult = getHospitalsByDistrictUseCase(
                 cityId = args.cityId,
-                districtId = args.districtId,
-                branchId = args.branchId
+                districtId = args.districtId
             )
 
+            val hospitals = hospitalsResult.getOrElse { error ->
+                _uiState.update {
+                    it.copy(isLoading = false, errorMessage = error.message ?: "Hastaneler listelenemedi")
+                }
+                return@launch
+            }
+
             val branchesResult = getBranchesUseCase()
-
-            val doctors = doctorsResult.getOrElse {
-                _uiState.value = _uiState.value.copy(
-                    isLoading = false,
-                    errorMessage = it.message ?: "Hekimler listelenemedi"
-                )
+            val branches = branchesResult.getOrElse { error ->
+                _uiState.update {
+                    it.copy(isLoading = false, errorMessage = error.message ?: "Poliklinik bilgisi alınamadı")
+                }
                 return@launch
             }
 
-            val hospitals = hospitalsResult.getOrElse {
-                _uiState.value = _uiState.value.copy(
-                    isLoading = false,
-                    errorMessage = it.message ?: "Hastaneler listelenemedi"
+            val doctorsResult = if (!args.hospitalId.isNullOrBlank()) {
+                getDoctorsUseCase(
+                    hospitalId = args.hospitalId,
+                    branchId = args.branchId
                 )
-                return@launch
+            } else {
+                val hospitalIds = hospitals.map { it.id }
+                getDoctorsUseCase.byHospitalIds(
+                    hospitalIds = hospitalIds,
+                    branchId = args.branchId
+                )
             }
 
-            val branches = branchesResult.getOrElse {
-                _uiState.value = _uiState.value.copy(
-                    isLoading = false,
-                    errorMessage = it.message ?: "Poliklinik bilgisi alinamadi"
-                )
+            val doctors = doctorsResult.getOrElse { error ->
+                _uiState.update {
+                    it.copy(isLoading = false, errorMessage = error.message ?: "Hekimler listelenemedi")
+                }
                 return@launch
             }
 
@@ -106,12 +106,14 @@ class AppointmentResultsViewModel(
                 .distinctBy { doctor -> doctor.id }
 
             if (filteredDoctors.isEmpty()) {
-                _uiState.value = _uiState.value.copy(
-                    isLoading = false,
-                    appointments = emptyList(),
-                    emptyMessage = "Secilen filtrelere uygun randevu bulunamadi.",
-                    resultSummary = "0 uygun randevu bulundu"
-                )
+                _uiState.update {
+                    it.copy(
+                        isLoading = false,
+                        appointments = emptyList(),
+                        emptyMessage = "Seçilen filtrelere uygun randevu bulunamadı.",
+                        resultSummary = "0 uygun randevu bulundu"
+                    )
+                }
                 isLoaded = true
                 return@launch
             }
@@ -132,12 +134,14 @@ class AppointmentResultsViewModel(
                 }
                 .sortedBy { item -> item.appointmentDateMillis }
 
-            _uiState.value = _uiState.value.copy(
-                isLoading = false,
-                appointments = appointmentItems,
-                resultSummary = "${appointmentItems.size} uygun randevu bulundu",
-                emptyMessage = null
-            )
+            _uiState.update {
+                it.copy(
+                    isLoading = false,
+                    appointments = appointmentItems,
+                    resultSummary = "${appointmentItems.size} uygun randevu bulundu",
+                    emptyMessage = null
+                )
+            }
             isLoaded = true
         }
     }
@@ -162,7 +166,7 @@ class AppointmentResultsViewModel(
             branchName = branchName,
             appointmentDateMillis = appointmentDateMillis,
             appointmentDateLabel = DISPLAY_DATE_FORMATTER.format(appointmentDate),
-            daysLeftText = if (daysLeft <= 1) "1 gun kaldi" else "$daysLeft gun kaldi",
+            daysLeftText = if (daysLeft <= 1) "1 gün kaldı" else "$daysLeft gün kaldı",
             slotStartHour = slotStartHour,
             slotEndHour = slotEndHour,
             slotDurationMinutes = slotDurationMinutes

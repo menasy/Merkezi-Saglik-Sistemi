@@ -13,13 +13,11 @@ class HospitalRepository(
 
     suspend fun getHospitals(
         cityId: String,
-        districtId: String?,
-        branchId: String?
+        districtId: String?
     ): Result<List<Hospital>> {
         return hospitalDataSource.getHospitals(
             cityId = cityId,
-            districtId = districtId,
-            branchId = branchId
+            districtId = districtId
         )
     }
 }

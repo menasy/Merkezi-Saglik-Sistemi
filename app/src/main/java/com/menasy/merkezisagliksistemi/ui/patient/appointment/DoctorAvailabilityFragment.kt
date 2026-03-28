@@ -44,7 +44,7 @@ class DoctorAvailabilityFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (availabilityArgs == null) {
-            Toast.makeText(requireContext(), "Doktor uygunluk bilgisi bulunamadi", Toast.LENGTH_SHORT)
+            Toast.makeText(requireContext(), "Doktor uygunluk bilgisi bulunamadı", Toast.LENGTH_SHORT)
                 .show()
             findNavController().navigateUp()
             return
@@ -89,7 +89,7 @@ class DoctorAvailabilityFragment : Fragment() {
                 onFailure = { exception ->
                     Toast.makeText(
                         requireContext(),
-                        exception.message ?: "Lutfen bir saat secin",
+                        exception.message ?: "Lütfen bir saat seçin",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
@@ -104,7 +104,7 @@ class DoctorAvailabilityFragment : Fragment() {
                 binding.tvDoctorName.text = state.doctorName
                 binding.tvHospitalName.text = state.hospitalName
                 binding.tvBranchName.text = state.branchName
-                binding.tvSelectedSlotValue.text = state.selectedSummaryText ?: "Henuz secilmedi"
+                binding.tvSelectedSlotValue.text = state.selectedSummaryText ?: "Henüz seçilmedi"
                 binding.btnContinueToConfirmation.isEnabled =
                     state.selectedDateMillis != null && state.selectedTimeLabel != null
 

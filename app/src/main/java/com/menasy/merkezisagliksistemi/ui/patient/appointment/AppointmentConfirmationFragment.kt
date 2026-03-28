@@ -41,7 +41,7 @@ class AppointmentConfirmationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (confirmationArgs == null) {
-            Toast.makeText(requireContext(), "Randevu onay bilgisi bulunamadi", Toast.LENGTH_SHORT)
+            Toast.makeText(requireContext(), "Randevu onay bilgisi bulunamadı", Toast.LENGTH_SHORT)
                 .show()
             findNavController().navigateUp()
             return
@@ -69,7 +69,7 @@ class AppointmentConfirmationFragment : Fragment() {
                 onFailure = { exception ->
                     Toast.makeText(
                         requireContext(),
-                        exception.message ?: "Randevu onayi sirasinda bir sorun olustu",
+                        exception.message ?: "Randevu onayı sırasında bir sorun oluştu",
                         Toast.LENGTH_SHORT
                     ).show()
                 }

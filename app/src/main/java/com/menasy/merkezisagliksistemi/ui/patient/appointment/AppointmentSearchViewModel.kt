@@ -15,6 +15,7 @@ import com.menasy.merkezisagliksistemi.domain.usecase.GetHospitalsByDistrictUseC
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import java.util.concurrent.TimeUnit
 
@@ -42,7 +43,8 @@ data class AppointmentSearchUiState(
     val selectedDoctorId: String? = null,
     val startDateMillis: Long? = null,
     val endDateMillis: Long? = null,
-    val errorMessage: String? = null
+    val errorMessage: String? = null,
+    val isDoctorFieldEnabled: Boolean = false
 )
 
 class AppointmentSearchViewModel(
@@ -58,108 +60,117 @@ class AppointmentSearchViewModel(
 
     fun loadInitialData() {
         viewModelScope.launch {
-            _uiState.value = _uiState.value.copy(isLoading = true, errorMessage = null)
+            _uiState.update { it.copy(isLoading = true, errorMessage = null) }
 
             val citiesResult = getCitiesUseCase()
             val branchesResult = getBranchesUseCase()
 
-            val cities = citiesResult.getOrElse {
-                _uiState.value = _uiState.value.copy(
-                    isLoading = false,
-                    errorMessage = it.message ?: "Iller yuklenemedi"
-                )
+            val cities = citiesResult.getOrElse { error ->
+                _uiState.update {
+                    it.copy(isLoading = false, errorMessage = error.message ?: "İller yüklenemedi")
+                }
                 return@launch
             }
 
-            val branches = branchesResult.getOrElse {
-                _uiState.value = _uiState.value.copy(
-                    isLoading = false,
-                    errorMessage = it.message ?: "Poliklinikler yuklenemedi"
-                )
+            val branches = branchesResult.getOrElse { error ->
+                _uiState.update {
+                    it.copy(isLoading = false, errorMessage = error.message ?: "Poliklinikler yüklenemedi")
+                }
                 return@launch
             }
 
-            _uiState.value = _uiState.value.copy(
-                isLoading = false,
-                cities = cities,
-                branches = branches
-            )
+            _uiState.update {
+                it.copy(isLoading = false, cities = cities, branches = branches)
+            }
         }
     }
 
     fun onCitySelected(cityId: String) {
         viewModelScope.launch {
-            _uiState.value = _uiState.value.copy(
-                isLoading = true,
-                selectedCityId = cityId,
-                selectedDistrictId = null,
-                selectedHospitalId = null,
-                selectedDoctorId = null,
-                districts = emptyList(),
-                hospitals = emptyList(),
-                doctors = emptyList(),
-                errorMessage = null
-            )
+            _uiState.update {
+                it.copy(
+                    isLoading = true,
+                    selectedCityId = cityId,
+                    selectedDistrictId = null,
+                    selectedHospitalId = null,
+                    selectedDoctorId = null,
+                    districts = emptyList(),
+                    hospitals = emptyList(),
+                    doctors = emptyList(),
+                    isDoctorFieldEnabled = false,
+                    errorMessage = null
+                )
+            }
 
             val districtsResult = getDistrictsByCityUseCase(cityId)
-            val districts = districtsResult.getOrElse {
-                _uiState.value = _uiState.value.copy(
-                    isLoading = false,
-                    errorMessage = it.message ?: "Ilceler yuklenemedi"
-                )
+            val districts = districtsResult.getOrElse { error ->
+                _uiState.update {
+                    it.copy(isLoading = false, errorMessage = error.message ?: "İlçeler yüklenemedi")
+                }
                 return@launch
             }
 
-            _uiState.value = _uiState.value.copy(
-                isLoading = false,
-                districts = districts
-            )
-
-            refreshHospitalsAndDoctors()
+            _uiState.update { it.copy(districts = districts) }
+            refreshHospitals()
         }
     }
 
     fun onDistrictSelected(districtId: String?) {
         viewModelScope.launch {
-            _uiState.value = _uiState.value.copy(
-                selectedDistrictId = districtId,
-                selectedHospitalId = null,
-                selectedDoctorId = null,
-                hospitals = emptyList(),
-                doctors = emptyList(),
-                errorMessage = null
-            )
-            refreshHospitalsAndDoctors()
+            _uiState.update {
+                it.copy(
+                    selectedDistrictId = districtId,
+                    selectedHospitalId = null,
+                    selectedDoctorId = null,
+                    hospitals = emptyList(),
+                    doctors = emptyList(),
+                    isDoctorFieldEnabled = false,
+                    errorMessage = null
+                )
+            }
+            refreshHospitals()
         }
     }
 
     fun onBranchSelected(branchId: String) {
         viewModelScope.launch {
-            _uiState.value = _uiState.value.copy(
-                selectedBranchId = branchId,
-                selectedHospitalId = null,
-                selectedDoctorId = null,
-                doctors = emptyList(),
-                errorMessage = null
-            )
-            refreshHospitalsAndDoctors()
+            _uiState.update {
+                it.copy(
+                    selectedBranchId = branchId,
+                    selectedHospitalId = null,
+                    selectedDoctorId = null,
+                    hospitals = emptyList(),
+                    doctors = emptyList(),
+                    isDoctorFieldEnabled = false,
+                    errorMessage = null
+                )
+            }
+            refreshHospitals()
         }
     }
 
     fun onHospitalSelected(hospitalId: String?) {
         viewModelScope.launch {
-            _uiState.value = _uiState.value.copy(
-                selectedHospitalId = hospitalId,
-                selectedDoctorId = null,
-                doctors = emptyList(),
-                errorMessage = null
-            )
-            refreshDoctorsOnly()
+            val isSpecificHospitalSelected = !hospitalId.isNullOrBlank()
+
+            _uiState.update {
+                it.copy(
+                    selectedHospitalId = hospitalId,
+                    selectedDoctorId = null,
+                    doctors = emptyList(),
+                    isDoctorFieldEnabled = isSpecificHospitalSelected,
+                    errorMessage = null
+                )
+            }
+
+            if (isSpecificHospitalSelected) {
+                refreshDoctors()
+            }
         }
     }
 
     fun onDoctorSelected(doctorId: String?) {
-        _uiState.value = _uiState.value.copy(selectedDoctorId = doctorId)
+        _uiState.update { it.copy(selectedDoctorId = doctorId) }
     }
 
     fun onDateRangeSelected(
@@ -167,36 +178,38 @@ class AppointmentSearchViewModel(
         endDateMillis: Long
     ): Result<Unit> {
         if (endDateMillis < startDateMillis) {
-            return Result.failure(Exception("Bitis tarihi baslangic tarihinden once olamaz"))
+            return Result.failure(Exception("Bitiş tarihi başlangıç tarihinden önce olamaz"))
         }
 
         val selectedDays = TimeUnit.MILLISECONDS.toDays(endDateMillis - startDateMillis) + 1
         if (selectedDays > MAX_RANGE_DAYS) {
-            return Result.failure(Exception("Tarih araligi en fazla 15 gun olabilir"))
+            return Result.failure(Exception("Tarih aralığı en fazla 15 gün olabilir"))
         }
 
-        _uiState.value = _uiState.value.copy(
-            startDateMillis = startDateMillis,
-            endDateMillis = endDateMillis,
-            errorMessage = null
-        )
+        _uiState.update {
+            it.copy(
+                startDateMillis = startDateMillis,
+                endDateMillis = endDateMillis,
+                errorMessage = null
+            )
+        }
         return Result.success(Unit)
     }
 
     fun buildSearchCriteria(): Result<AppointmentSearchCriteria> {
         val state = _uiState.value
         val cityId = state.selectedCityId
-            ?: return Result.failure(Exception("Il secimi zorunludur"))
+            ?: return Result.failure(Exception("İl seçimi zorunludur"))
         val branchId = state.selectedBranchId
-            ?: return Result.failure(Exception("Poliklinik secimi zorunludur"))
+            ?: return Result.failure(Exception("Poliklinik seçimi zorunludur"))
         val startDate = state.startDateMillis
-            ?: return Result.failure(Exception("Baslangic tarihi secilmelidir"))
+            ?: return Result.failure(Exception("Başlangıç tarihi seçilmelidir"))
         val endDate = state.endDateMillis
-            ?: return Result.failure(Exception("Bitis tarihi secilmelidir"))
+            ?: return Result.failure(Exception("Bitiş tarihi seçilmelidir"))
 
         val selectedDays = TimeUnit.MILLISECONDS.toDays(endDate - startDate) + 1
         if (selectedDays > MAX_RANGE_DAYS) {
-            return Result.failure(Exception("Tarih araligi en fazla 15 gun olabilir"))
+            return Result.failure(Exception("Tarih aralığı en fazla 15 gün olabilir"))
         }
 
         return Result.success(
@@ -212,82 +225,85 @@ class AppointmentSearchViewModel(
         )
     }
 
-    private suspend fun refreshHospitalsAndDoctors() {
+    private suspend fun refreshHospitals() {
         val currentState = _uiState.value
-        val cityId = currentState.selectedCityId ?: return
+        val cityId = currentState.selectedCityId ?: run {
+            _uiState.update { it.copy(isLoading = false) }
+            return
+        }
 
-        _uiState.value = currentState.copy(isLoading = true, errorMessage = null)
+        _uiState.update { it.copy(isLoading = true, errorMessage = null) }
 
         val hospitalsResult = getHospitalsByDistrictUseCase(
             cityId = cityId,
-            districtId = currentState.selectedDistrictId,
+            districtId = currentState.selectedDistrictId
+        )
+
+        hospitalsResult.fold(
+            onSuccess = { hospitals ->
+                _uiState.update {
+                    it.copy(
+                        isLoading = false,
+                        hospitals = hospitals,
+                        selectedHospitalId = null,
+                        selectedDoctorId = null,
+                        doctors = emptyList(),
+                        isDoctorFieldEnabled = false
+                    )
+                }
+            },
+            onFailure = { error ->
+                _uiState.update {
+                    it.copy(
+                        isLoading = false,
+                        errorMessage = error.message ?: "Hastaneler yüklenemedi"
+                    )
+                }
+            }
+        )
+    }
+
+    private suspend fun refreshDoctors() {
+        val currentState = _uiState.value
+        val hospitalId = currentState.selectedHospitalId
+
+        if (hospitalId.isNullOrBlank()) {
+            _uiState.update {
+                it.copy(
+                    doctors = emptyList(),
+                    selectedDoctorId = null,
+                    isDoctorFieldEnabled = false
+                )
+            }
+            return
+        }
+
+        _uiState.update { it.copy(isLoading = true, errorMessage = null) }
+
+        val doctorsResult = getDoctorsUseCase(
+            hospitalId = hospitalId,
             branchId = currentState.selectedBranchId
         )
 
-        val hospitals = hospitalsResult.getOrElse {
-            _uiState.value = _uiState.value.copy(
-                isLoading = false,
-                errorMessage = it.message ?: "Hastaneler yuklenemedi"
-            )
-            return
-        }
-
-        val updatedHospitalSelection =
-            if (currentState.selectedHospitalId in hospitals.map { it.id }) {
-                currentState.selectedHospitalId
-            } else {
-                null
-            }
-
-        _uiState.value = _uiState.value.copy(
-            hospitals = hospitals,
-            selectedHospitalId = updatedHospitalSelection,
-            doctors = emptyList(),
-            selectedDoctorId = null
-        )
-
-        refreshDoctorsOnly()
-    }
-
-    private suspend fun refreshDoctorsOnly() {
-        val state = _uiState.value
-        val cityId = state.selectedCityId ?: run {
-            _uiState.value = state.copy(isLoading = false)
-            return
-        }
-        val branchId = state.selectedBranchId ?: run {
-            _uiState.value = state.copy(
-                doctors = emptyList(),
-                selectedDoctorId = null,
-                isLoading = false
-            )
-            return
-        }
-
-        val doctorsResult = getDoctorsUseCase(
-            cityId = cityId,
-            branchId = branchId,
-            districtId = state.selectedDistrictId,
-            hospitalId = state.selectedHospitalId
-        )
-
-        _uiState.value = doctorsResult.fold(
+        doctorsResult.fold(
             onSuccess = { doctors ->
-                state.copy(
-                    isLoading = false,
-                    doctors = doctors,
-                    selectedDoctorId = state.selectedDoctorId?.takeIf { selectedId ->
-                        doctors.any { doctor -> doctor.id == selectedId }
-                    }
-                )
+                _uiState.update {
+                    it.copy(
+                        isLoading = false,
+                        doctors = doctors,
+                        selectedDoctorId = null
+                    )
+                }
             },
-            onFailure = { exception ->
-                state.copy(
-                    isLoading = false,
-                    doctors = emptyList(),
-                    selectedDoctorId = null,
-                    errorMessage = exception.message ?: "Hekimler yuklenemedi"
-                )
+            onFailure = { error ->
+                _uiState.update {
+                    it.copy(
+                        isLoading = false,
+                        doctors = emptyList(),
+                        selectedDoctorId = null,
+                        errorMessage = error.message ?: "Hekimler yüklenemedi"
+                    )
+                }
             }
         )
     }

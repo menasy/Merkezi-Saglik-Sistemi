@@ -13,8 +13,9 @@
         android:layout_height="0dp"
         android:clipToPadding="false"
         android:fillViewport="true"
-        android:paddingHorizontal="20dp"
+        android:paddingStart="16dp"
         android:paddingTop="16dp"
+        android:paddingEnd="16dp"
         android:paddingBottom="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,16 +31,17 @@
                 android:id="@+id/tvAppointmentTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Randevu Ara"
+                android:text="Genel Arama"
                 android:textAppearance="?attr/textAppearanceHeadlineSmall"
-                android:textColor="@color/text_primary" />
+                android:textColor="@color/primary_dark"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvAppointmentSubtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="Tarih araligi ve filtreleri secerek uygun randevulari listeleyin."
+                android:layout_marginTop="4dp"
+                android:text="Tarih ve filtre seçerek uygun randevuyu bulun"
                 android:textAppearance="?attr/textAppearanceBodyMedium"
                 android:textColor="@color/text_secondary" />
 
@@ -47,9 +49,9 @@
                 android:id="@+id/cardDateRange"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="14dp"
                 app:cardBackgroundColor="@color/surface"
-                app:cardCornerRadius="16dp"
+                app:cardCornerRadius="14dp"
                 app:cardElevation="0dp"
                 app:strokeColor="@color/primary_light"
                 app:strokeWidth="1dp">
@@ -58,85 +60,66 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="14dp">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Tarih Araligi"
+                        android:drawablePadding="8dp"
+                        android:gravity="center_vertical"
+                        android:text="Tarih"
                         android:textAppearance="?attr/textAppearanceTitleMedium"
-                        android:textColor="@color/text_primary" />
+                        android:textColor="@color/primary_dark"
+                        android:textStyle="bold"
+                        app:drawableStartCompat="@android:drawable/ic_menu_my_calendar" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSelectDateRange"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="12dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:text="Tarih Seçiniz"
+                        android:textAllCaps="false"
+                        android:textColor="@color/text_primary"
+                        app:strokeColor="@color/primary_light" />
 
                     <TextView
                         android:id="@+id/tvDateRangeHint"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="En fazla 15 gunluk aralik secebilirsiniz."
+                        android:layout_marginTop="8dp"
+                        android:text="En fazla 15 gün seçebilirsiniz."
                         android:textAppearance="?attr/textAppearanceBodySmall"
                         android:textColor="@color/text_secondary" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="8dp"
                         android:orientation="horizontal">
 
-                        <LinearLayout
+                        <TextView
+                            android:id="@+id/tvStartDateValue"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:text="Başlangıç: -"
+                            android:textAppearance="?attr/textAppearanceBodyMedium"
+                            android:textColor="@color/text_primary" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Baslangic"
-                                android:textAppearance="?attr/textAppearanceBodySmall"
-                                android:textColor="@color/text_secondary" />
-
-                            <TextView
-                                android:id="@+id/tvStartDateValue"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:text="-"
-                                android:textAppearance="?attr/textAppearanceBodyLarge"
-                                android:textColor="@color/text_primary" />
-                        </LinearLayout>
-
-                        <LinearLayout
+                        <TextView
+                            android:id="@+id/tvEndDateValue"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Bitis"
-                                android:textAppearance="?attr/textAppearanceBodySmall"
-                                android:textColor="@color/text_secondary" />
-
-                            <TextView
-                                android:id="@+id/tvEndDateValue"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:text="-"
-                                android:textAppearance="?attr/textAppearanceBodyLarge"
-                                android:textColor="@color/text_primary" />
-                        </LinearLayout>
+                            android:gravity="end"
+                            android:text="Bitiş: -"
+                            android:textAppearance="?attr/textAppearanceBodyMedium"
+                            android:textColor="@color/text_primary" />
                     </LinearLayout>
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnSelectDateRange"
-                        style="@style/Widget.Material3.Button.TonalButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:text="Tarih Araligi Sec"
-                        app:icon="@android:drawable/ic_menu_my_calendar" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -144,9 +127,9 @@
                 android:id="@+id/cardFilters"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
+                android:layout_marginTop="12dp"
                 app:cardBackgroundColor="@color/surface"
-                app:cardCornerRadius="16dp"
+                app:cardCornerRadius="14dp"
                 app:cardElevation="0dp"
                 app:strokeColor="@color/primary_light"
                 app:strokeWidth="1dp">
@@ -155,97 +138,124 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Filtreler"
+                        android:textAppearance="?attr/textAppearanceTitleMedium"
+                        android:textColor="@color/text_primary"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tvFilterLegend"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
                         android:text="* zorunlu alan"
                         android:textAppearance="?attr/textAppearanceBodySmall"
                         android:textColor="@color/text_secondary" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tilCity"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        style="@style/Widget.MerkeziSaglik.ExposedDropdown"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:hint="Il *">
+                        android:hint="İl *">
 
                         <com.google.android.material.textfield.MaterialAutoCompleteTextView
                             android:id="@+id/actCity"
+                            style="@style/Widget.MerkeziSaglik.AutoComplete"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="none" />
+                            android:inputType="none"
+                            android:textColor="@color/text_primary"
+                            android:textColorHint="@color/text_secondary" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tilDistrict"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        style="@style/Widget.MerkeziSaglik.ExposedDropdown"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:hint="Ilce (Opsiyonel)">
+                        android:layout_marginTop="10dp"
+                        android:hint="İlçe (Opsiyonel)">
 
                         <com.google.android.material.textfield.MaterialAutoCompleteTextView
                             android:id="@+id/actDistrict"
+                            style="@style/Widget.MerkeziSaglik.AutoComplete"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="none" />
+                            android:inputType="none"
+                            android:textColor="@color/text_primary"
+                            android:textColorHint="@color/text_secondary" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tilBranch"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        style="@style/Widget.MerkeziSaglik.ExposedDropdown"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="10dp"
                         android:hint="Poliklinik *">
 
                         <com.google.android.material.textfield.MaterialAutoCompleteTextView
                             android:id="@+id/actBranch"
+                            style="@style/Widget.MerkeziSaglik.AutoComplete"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="none" />
+                            android:inputType="none"
+                            android:textColor="@color/text_primary"
+                            android:textColorHint="@color/text_secondary" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tilHospital"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        style="@style/Widget.MerkeziSaglik.ExposedDropdown"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="10dp"
                         android:hint="Hastane (Opsiyonel)">
 
                         <com.google.android.material.textfield.MaterialAutoCompleteTextView
                             android:id="@+id/actHospital"
+                            style="@style/Widget.MerkeziSaglik.AutoComplete"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="none" />
+                            android:inputType="none"
+                            android:textColor="@color/text_primary"
+                            android:textColorHint="@color/text_secondary" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tilDoctor"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        style="@style/Widget.MerkeziSaglik.ExposedDropdown"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="10dp"
                         android:hint="Hekim (Opsiyonel)">
 
                         <com.google.android.material.textfield.MaterialAutoCompleteTextView
                             android:id="@+id/actDoctor"
+                            style="@style/Widget.MerkeziSaglik.AutoComplete"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="none" />
+                            android:inputType="none"
+                            android:textColor="@color/text_primary"
+                            android:textColorHint="@color/text_secondary" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnSearchAppointments"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="18dp"
-                        android:text="Randevu Ara" />
+                        android:layout_height="52dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Randevu Ara"
+                        android:textAllCaps="false"
+                        android:textStyle="bold"
+                        app:icon="@android:drawable/ic_menu_search" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>

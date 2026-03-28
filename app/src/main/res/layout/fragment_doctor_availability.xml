@@ -108,7 +108,7 @@
                 android:id="@+id/tvSelectedSlotLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Secilen Saat"
+                android:text="Seçilen Saat"
                 android:textAppearance="?attr/textAppearanceBodySmall"
                 android:textColor="@color/text_secondary" />
 
@@ -117,7 +117,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:text="Henuz secilmedi"
+                android:text="Henüz seçilmedi"
                 android:textAppearance="?attr/textAppearanceBodyLarge"
                 android:textColor="@color/text_primary" />
 
@@ -127,7 +127,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:enabled="false"
-                android:text="Randevu Onayina Gec" />
+                android:text="Randevu Onayına Geç" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 

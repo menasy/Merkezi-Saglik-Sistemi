@@ -11,17 +11,32 @@ class DoctorRepository(
         return doctorDataSource.getBranches()
     }
 
+    /**
+     * Gets doctors for a specific hospital.
+     * @param hospitalId Required - if null, returns empty list
+     * @param branchId Optional - filters by branch if provided
+     */
     suspend fun getDoctors(
-        cityId: String,
-        branchId: String,
-        districtId: String?,
-        hospitalId: String?
+        hospitalId: String?,
+        branchId: String?
     ): Result<List<Doctor>> {
         return doctorDataSource.getDoctors(
-            cityId = cityId,
-            branchId = branchId,
-            districtId = districtId,
-            hospitalId = hospitalId
+            hospitalId = hospitalId,
+            branchId = branchId
+        )
+    }
+
+    /**
+     * Gets doctors from multiple hospitals.
+     * Used for search results when no specific hospital is selected.
+     */
+    suspend fun getDoctorsByHospitalIds(
+        hospitalIds: List<String>,
+        branchId: String?
+    ): Result<List<Doctor>> {
+        return doctorDataSource.getDoctorsByHospitalIds(
+            hospitalIds = hospitalIds,
+            branchId = branchId
         )
     }
 }

@@ -14,7 +14,7 @@
         android:background="@color/surface"
         android:minHeight="?attr/actionBarSize"
         android:navigationIcon="@drawable/ic_arrow_back_24"
-        android:title="Randevu Sonuclari"
+        android:title="Randevu Sonuçları"
         android:titleTextColor="@color/text_primary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,7 +76,7 @@
         app:layout_constraintEnd_toEndOf="@id/rvAppointmentResults"
         app:layout_constraintStart_toStartOf="@id/rvAppointmentResults"
         app:layout_constraintTop_toTopOf="@id/rvAppointmentResults"
-        tools:text="Secilen filtrelere uygun randevu bulunamadi."
+        tools:text="Seçilen filtrelere uygun randevu bulunamadı."
         tools:visibility="visible" />
 
     <ProgressBar

@@ -19,7 +19,7 @@ data class AppointmentConfirmationUiState(
     val branchName: String = "",
     val dateLabel: String = "",
     val timeLabel: String = "",
-    val patientName: String = "Yukleniyor...",
+    val patientName: String = "Yükleniyor...",
     val errorMessage: String? = null
 )
 
@@ -48,7 +48,7 @@ class AppointmentConfirmationViewModel(
 
         viewModelScope.launch {
             val patientNameResult = getCurrentUserUseCase.getCurrentUserFullName()
-            val patientName = patientNameResult.getOrElse { "Giris yapan kullanici" }
+            val patientName = patientNameResult.getOrElse { "Giriş yapan kullanıcı" }
 
             _uiState.value = _uiState.value.copy(
                 isLoading = false,
@@ -58,7 +58,7 @@ class AppointmentConfirmationViewModel(
     }
 
     fun confirm(): Result<String> {
-        return Result.success("Randevu olusturma islemi bir sonraki asamada aktiflestirilecek.")
+        return Result.success("Randevu oluşturma işlemi bir sonraki aşamada aktifleştirilecek.")
     }
 
     private fun formatDate(millis: Long): String {

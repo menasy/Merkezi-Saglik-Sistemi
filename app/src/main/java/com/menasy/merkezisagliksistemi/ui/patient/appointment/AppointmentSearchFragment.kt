@@ -135,6 +135,8 @@ class AppointmentSearchFragment : Fragment() {
                 bindDoctorOptions(state)
                 bindDateRange(state.startDateMillis, state.endDateMillis)
 
+                bindDoctorFieldEnabled(state.isDoctorFieldEnabled)
+
                 state.errorMessage?.let { message ->
                     Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
                 }
@@ -203,17 +205,28 @@ class AppointmentSearchFragment : Fragment() {
         )
     }
 
+    private fun bindDoctorFieldEnabled(isEnabled: Boolean) {
+        binding.tilDoctor.isEnabled = isEnabled
+        binding.actDoctor.isEnabled = isEnabled
+        binding.tilDoctor.hint = if (isEnabled) {
+            "Hekim (Opsiyonel)"
+        } else {
+            "Hekim (Önce hastane seçin)"
+        }
+    }
+
     private fun bindDateRange(startDateMillis: Long?, endDateMillis: Long?) {
         val startText = startDateMillis?.let { millis -> formatDate(millis) } ?: "-"
         val endText = endDateMillis?.let { millis -> formatDate(millis) } ?: "-"
 
-        binding.tvStartDateValue.text = startText
-        binding.tvEndDateValue.text = endText
+        binding.tvStartDateValue.text = "Başlangıç: $startText"
+        binding.tvEndDateValue.text = "Bitiş: $endText"
     }
 
     private fun showDateRangePicker() {
         val picker = MaterialDatePicker.Builder.dateRangePicker()
-            .setTitleText("Tarih araligi secin")
+            .setTitleText("Tarih aralığı seçin")
+            .setTheme(R.style.ThemeOverlay_MerkeziSaglik_DateRangePicker)
             .build()
 
         picker.addOnPositiveButtonClickListener { range ->
@@ -224,7 +237,7 @@ class AppointmentSearchFragment : Fragment() {
             result.exceptionOrNull()?.let { exception ->
                 Toast.makeText(
                     requireContext(),
-                    exception.message ?: "Tarih araligi gecersiz",
+                    exception.message ?: "Tarih aralığı geçersiz",
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -238,7 +251,12 @@ class AppointmentSearchFragment : Fragment() {
         selectedLabel: String?,
         input: com.google.android.material.textfield.MaterialAutoCompleteTextView
     ) {
-        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, labels)
+        val adapter = ArrayAdapter(
+            requireContext(),
+            R.layout.item_dropdown_option,
+            android.R.id.text1,
+            labels
+        )
         input.setAdapter(adapter)
         if (selectedLabel == null) {
             input.setText("", false)
@@ -265,6 +283,6 @@ class AppointmentSearchFragment : Fragment() {
     )
 
     private companion object {
-        const val FARKETMEZ = "Farketmez"
+        const val FARKETMEZ = "Fark etmez"
     }
 }

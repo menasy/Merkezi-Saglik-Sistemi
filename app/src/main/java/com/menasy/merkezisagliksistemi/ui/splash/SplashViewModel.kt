@@ -32,7 +32,7 @@ class SplashViewModel(
 
             if (seedResult.isFailure) {
                 _navigationState.value = SplashNavigationState.Error(
-                    seedResult.exceptionOrNull()?.message ?: "Baslangic verileri yuklenemedi"
+                    seedResult.exceptionOrNull()?.message ?: "Başlangıç verileri yüklenemedi"
                 )
                 return@launch
             }
@@ -55,12 +55,12 @@ class SplashViewModel(
                 when (role) {
                     "patient" -> SplashNavigationState.GoToPatientHome
                     "doctor" -> SplashNavigationState.GoToDoctorHome
-                    else -> SplashNavigationState.Error("Gecersiz kullanici rolu")
+                    else -> SplashNavigationState.Error("Geçersiz kullanıcı rolü")
                 }
             },
             onFailure = { exception ->
                 SplashNavigationState.Error(
-                    exception.message ?: "Oturum kontrolu sirasinda hata olustu"
+                    exception.message ?: "Oturum kontrolü sırasında hata oluştu"
                 )
             }
         )

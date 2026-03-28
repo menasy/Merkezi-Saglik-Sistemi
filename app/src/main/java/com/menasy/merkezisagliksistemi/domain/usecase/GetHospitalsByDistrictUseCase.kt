@@ -8,13 +8,11 @@ class GetHospitalsByDistrictUseCase(
 ) {
     suspend operator fun invoke(
         cityId: String,
-        districtId: String?,
-        branchId: String?
+        districtId: String?
     ): Result<List<Hospital>> {
         return hospitalRepository.getHospitals(
             cityId = cityId,
-            districtId = districtId,
-            branchId = branchId
+            districtId = districtId
         )
     }
 }

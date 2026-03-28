@@ -308,14 +308,6 @@ val doctors = listOf(
         roomInfo = "F-117"
     ),
     Doctor(
-        id = "dr_umran_ince",
-        userId = "doctor_umran_ince",
-        fullName = "Uzm. Dr. Ümran İnce",
-        branchId = "ortopedi_ve_travmalotoji",
-        hospitalId = "899446",
-        roomInfo = "G-118"
-    ),
-    Doctor(
         id = "dr_ahmet_kaya",
         userId = "doctor_ahmet_kaya",
         fullName = "Dr. Ahmet Kaya",
@@ -447,7 +439,7 @@ val doctors = listOf(
         id = "dr_hakan_dogan",
         userId = "doctor_hakan_dogan",
         fullName = "Prof. Dr. Hakan Doğan",
-        branchId = "acil_tip_101",
+        branchId = "acil_tip",
         hospitalId = "177292",
         roomInfo = "H-135"
     ),
@@ -487,7 +479,7 @@ val doctors = listOf(
         id = "dr_mert_korkmaz",
         userId = "doctor_mert_korkmaz",
         fullName = "Op. Dr. Mert Korkmaz",
-        branchId = "aile_hekimligi_106",
+        branchId = "aile_hekimligi",
         hospitalId = "416070",
         roomInfo = "E-120"
     ),
@@ -500,42 +492,18 @@ val doctors = listOf(
         roomInfo = "F-121"
     ),
     Doctor(
-        id = "dr_oguzhan_yildiz",
-        userId = "doctor_oguzhan_yildiz",
-        fullName = "Op. Dr. Oğuzhan Yıldız",
-        branchId = "anatomi",
-        hospitalId = "29",
-        roomInfo = "G-122"
-    ),
-    Doctor(
         id = "dr_batuhan_kaplan",
         userId = "doctor_batuhan_kaplan",
         fullName = "Op. Dr. Batuhan Kaplan",
-        branchId = "anesteziyoloji_ve_reanimasyon_109",
+        branchId = "anesteziyoloji_ve_reanimasyon",
         hospitalId = "5996",
         roomInfo = "H-123"
-    ),
-    Doctor(
-        id = "dr_enes_demirtas",
-        userId = "doctor_enes_demirtas",
-        fullName = "Uzm. Dr. Enes Demirtaş",
-        branchId = "askeri_psikiyatri",
-        hospitalId = "625541",
-        roomInfo = "A-124"
-    ),
-    Doctor(
-        id = "dr_samet_eroglu",
-        userId = "doctor_samet_eroglu",
-        fullName = "Uzm. Dr. Samet Eroğlu",
-        branchId = "askeri_saglik_hizmetleri",
-        hospitalId = "5893",
-        roomInfo = "B-125"
     ),
     Doctor(
         id = "dr_furkan_keskin",
         userId = "doctor_furkan_keskin",
         fullName = "Dr. Furkan Keskin",
-        branchId = "beyin_ve_sinir_cerrahisi_112",
+        branchId = "beyin_ve_sinir_cerrahisi",
         hospitalId = "1128",
         roomInfo = "C-126"
     ),
@@ -546,14 +514,6 @@ val doctors = listOf(
         branchId = "cerrahi_onkoloji",
         hospitalId = "6824",
         roomInfo = "D-127"
-    ),
-    Doctor(
-        id = "dr_kerem_duman",
-        userId = "doctor_kerem_duman",
-        fullName = "Dr. Kerem Duman",
-        branchId = "cevre_sagligi",
-        hospitalId = "3374",
-        roomInfo = "E-128"
     ),
     Doctor(
         id = "dr_taha_aksu",
@@ -567,7 +527,7 @@ val doctors = listOf(
         id = "dr_harun_can",
         userId = "doctor_harun_can",
         fullName = "Op. Dr. Harun Can",
-        branchId = "cocuk_cerrahisi_116",
+        branchId = "cocuk_cerrahisi",
         hospitalId = "5389",
         roomInfo = "G-130"
     ),
@@ -612,14 +572,6 @@ val doctors = listOf(
         roomInfo = "D-135"
     ),
     Doctor(
-        id = "dr_ridvan_ates",
-        userId = "doctor_ridvan_ates",
-        fullName = "Dr. Rıdvan Ateş",
-        branchId = "sigarayi_biraktirma_poliklinigi",
-        hospitalId = "27911",
-        roomInfo = "E-136"
-    ),
-    Doctor(
         id = "dr_sinan_cetin",
         userId = "doctor_sinan_cetin",
         fullName = "Prof. Dr. Sinan Çetin",
@@ -647,7 +599,7 @@ val doctors = listOf(
         id = "dr_zafer_bozkurt",
         userId = "doctor_zafer_bozkurt",
         fullName = "Op. Dr. Zafer Bozkurt",
-        branchId = "cocuk_kardiyolojisi_126",
+        branchId = "cocuk_kardiyolojisi",
         hospitalId = "41252",
         roomInfo = "A-140"
     ),
@@ -663,7 +615,7 @@ val doctors = listOf(
         id = "dr_dogan_simsir",
         userId = "doctor_dogan_simsir",
         fullName = "Dr. Doğan Şimşir",
-        branchId = "cocuk_nefrolojisi_128",
+        branchId = "cocuk_nefrolojisi",
         hospitalId = "3318",
         roomInfo = "C-142"
     ),
@@ -671,7 +623,7 @@ val doctors = listOf(
         id = "dr_orhan_avci",
         userId = "doctor_orhan_avci",
         fullName = "Uzm. Dr. Orhan Avcı",
-        branchId = "cocuk_norolojisi_129",
+        branchId = "cocuk_norolojisi",
         hospitalId = "177459",
         roomInfo = "D-143"
     ),
@@ -695,7 +647,7 @@ val doctors = listOf(
         id = "dr_tufan_dinc",
         userId = "doctor_tufan_dinc",
         fullName = "Dr. Tufan Dinç",
-        branchId = "cocuk_sagligi_ve_hastaliklari_132",
+        branchId = "cocuk_sagligi_ve_hastaliklari",
         hospitalId = "177044",
         roomInfo = "G-146"
     ),
@@ -716,18 +668,10 @@ val doctors = listOf(
         roomInfo = "A-148"
     ),
     Doctor(
-        id = "dr_yakup_sezer",
-        userId = "doctor_yakup_sezer",
-        fullName = "Uzm. Dr. Yakup Sezer",
-        branchId = "cocuk_yogun_bakimi",
-        hospitalId = "1128",
-        roomInfo = "B-149"
-    ),
-    Doctor(
         id = "dr_musa_karatas",
         userId = "doctor_musa_karatas",
         fullName = "Doc. Dr. Musa Karataş",
-        branchId = "deri_ve_zuhrevi_hastaliklari_136",
+        branchId = "deri_ve_zuhrevi_hastaliklari",
         hospitalId = "177709",
         roomInfo = "C-130"
     ),
@@ -751,7 +695,7 @@ val doctors = listOf(
         id = "dr_firat_gul",
         userId = "doctor_firat_gul",
         fullName = "Op. Dr. Fırat Gül",
-        branchId = "endokrinoloji_ve_metabolizma_hastaliklari_139",
+        branchId = "endokrinoloji_ve_metabolizma_hastaliklari",
         hospitalId = "34975",
         roomInfo = "F-133"
     ),
@@ -759,17 +703,9 @@ val doctors = listOf(
         id = "dr_rauf_arslan",
         userId = "doctor_rauf_arslan",
         fullName = "Dr. Rauf Arslan",
-        branchId = "enfeksiyon_hastaliklari_ve_klinik_mikrobiyoloji_140",
+        branchId = "enfeksiyon_hastaliklari_ve_klinik_mikrobiyoloji",
         hospitalId = "731072",
         roomInfo = "G-134"
-    ),
-    Doctor(
-        id = "dr_kemal_aydin",
-        userId = "doctor_kemal_aydin",
-        fullName = "Uzm. Dr. Kemal Aydın",
-        branchId = "epidemiyoloji",
-        hospitalId = "728842",
-        roomInfo = "H-135"
     ),
     Doctor(
         id = "dr_cevdet_cakir",
@@ -780,18 +716,10 @@ val doctors = listOf(
         roomInfo = "A-136"
     ),
     Doctor(
-        id = "dr_nihat_akin",
-        userId = "doctor_nihat_akin",
-        fullName = "Op. Dr. Nihat Akın",
-        branchId = "fizyoloji",
-        hospitalId = "38798",
-        roomInfo = "B-137"
-    ),
-    Doctor(
         id = "dr_taner_kalkan",
         userId = "doctor_taner_kalkan",
         fullName = "Doc. Dr. Taner Kalkan",
-        branchId = "gastroenteroloji_144",
+        branchId = "gastroenteroloji",
         hospitalId = "34975",
         roomInfo = "C-138"
     ),
@@ -815,7 +743,7 @@ val doctors = listOf(
         id = "dr_selahattin_gunes",
         userId = "doctor_selahattin_gunes",
         fullName = "Uzm. Dr. Selahattin Güneş",
-        branchId = "genel_cerrahi_147",
+        branchId = "genel_cerrahi",
         hospitalId = "651698",
         roomInfo = "F-141"
     ),
@@ -831,7 +759,7 @@ val doctors = listOf(
         id = "dr_tarik_ozsoy",
         userId = "doctor_tarik_ozsoy",
         fullName = "Doc. Dr. Tarık Özsoy",
-        branchId = "gogus_cerrahisi_149",
+        branchId = "gogus_cerrahisi",
         hospitalId = "3547",
         roomInfo = "H-143"
     ),
@@ -847,7 +775,7 @@ val doctors = listOf(
         id = "dr_metehan_kurt",
         userId = "doctor_metehan_kurt",
         fullName = "Dr. Metehan Kurt",
-        branchId = "goz_hastaliklari_151",
+        branchId = "goz_hastaliklari",
         hospitalId = "2196",
         roomInfo = "B-145"
     ),
@@ -860,42 +788,18 @@ val doctors = listOf(
         roomInfo = "C-146"
     ),
     Doctor(
-        id = "dr_doruk_ozturk",
-        userId = "doctor_doruk_ozturk",
-        fullName = "Dr. Doruk Öztürk",
-        branchId = "harp_cerrahisi",
-        hospitalId = "348984",
-        roomInfo = "D-147"
-    ),
-    Doctor(
-        id = "dr_ege_karatas",
-        userId = "doctor_ege_karatas",
-        fullName = "Dr. Ege Karataş",
-        branchId = "hava_ve_uzay_hekimligi",
-        hospitalId = "682803",
-        roomInfo = "E-148"
-    ),
-    Doctor(
         id = "dr_deniz_aydin",
         userId = "doctor_deniz_aydin",
         fullName = "Dr. Deniz Aydın",
-        branchId = "hematoloji_155",
+        branchId = "hematoloji",
         hospitalId = "14182",
         roomInfo = "F-149"
-    ),
-    Doctor(
-        id = "dr_yigit_can",
-        userId = "doctor_yigit_can",
-        fullName = "Dr. Yiğit Can",
-        branchId = "histoloji_ve_embriyoloji",
-        hospitalId = "809300",
-        roomInfo = "G-150"
     ),
     Doctor(
         id = "dr_alperen_sahin",
         userId = "doctor_alperen_sahin",
         fullName = "Dr. Alperen Şahin",
-        branchId = "ic_hastaliklari_157",
+        branchId = "ic_hastaliklari",
         hospitalId = "177300",
         roomInfo = "H-151"
     ),
@@ -919,7 +823,7 @@ val doctors = listOf(
         id = "dr_atakan_demir",
         userId = "doctor_atakan_demir",
         fullName = "Uzm. Dr. Atakan Demir",
-        branchId = "jinekolojik_onkoloji_cerrahisi_160",
+        branchId = "jinekolojik_onkoloji_cerrahisi",
         hospitalId = "3459",
         roomInfo = "C-154"
     ),
@@ -927,7 +831,7 @@ val doctors = listOf(
         id = "dr_ruzgar_arslan",
         userId = "doctor_ruzgar_arslan",
         fullName = "Doc. Dr. Rüzgar Arslan",
-        branchId = "kadin_hastaliklari_ve_dogum_161",
+        branchId = "kadin_hastaliklari_ve_dogum",
         hospitalId = "5448",
         roomInfo = "D-155"
     ),
@@ -935,7 +839,7 @@ val doctors = listOf(
         id = "dr_bora_kilic",
         userId = "doctor_bora_kilic",
         fullName = "Uzm. Dr. Bora Kılıç",
-        branchId = "kalp_ve_damar_cerrahisi_162",
+        branchId = "kalp_ve_damar_cerrahisi",
         hospitalId = "8070",
         roomInfo = "E-156"
     ),
@@ -943,23 +847,15 @@ val doctors = listOf(
         id = "dr_tunahan_cetin",
         userId = "doctor_tunahan_cetin",
         fullName = "Uzm. Dr. Tunahan Çetin",
-        branchId = "kardiyoloji_163",
+        branchId = "kardiyoloji",
         hospitalId = "883819",
         roomInfo = "F-157"
-    ),
-    Doctor(
-        id = "dr_okan_ozdemir",
-        userId = "doctor_okan_ozdemir",
-        fullName = "Dr. Okan Özdemir",
-        branchId = "klinik_norofizyoloji",
-        hospitalId = "1687",
-        roomInfo = "G-158"
     ),
     Doctor(
         id = "dr_sefa_yilmaz",
         userId = "doctor_sefa_yilmaz",
         fullName = "Uzm. Dr. Sefa Yılmaz",
-        branchId = "kulak_burun_bogaz_hastaliklari_165",
+        branchId = "kulak_burun_bogaz_hastaliklari",
         hospitalId = "883819",
         roomInfo = "H-159"
     ),
@@ -967,7 +863,7 @@ val doctors = listOf(
         id = "dr_talha_kara",
         userId = "doctor_talha_kara",
         fullName = "Dr. Talha Kara",
-        branchId = "nefroloji_166",
+        branchId = "nefroloji",
         hospitalId = "3359",
         roomInfo = "A-140"
     ),
@@ -975,7 +871,7 @@ val doctors = listOf(
         id = "dr_alp_eren",
         userId = "doctor_alp_eren",
         fullName = "Dr. Alp Eren",
-        branchId = "neonatoloji_167",
+        branchId = "neonatoloji",
         hospitalId = "899455",
         roomInfo = "B-141"
     ),
@@ -983,7 +879,7 @@ val doctors = listOf(
         id = "dr_kadirhan_acar",
         userId = "doctor_kadirhan_acar",
         fullName = "Dr. Kadirhan Acar",
-        branchId = "noroloji_168",
+        branchId = "noroloji",
         hospitalId = "1889",
         roomInfo = "C-142"
     ),
@@ -991,7 +887,7 @@ val doctors = listOf(
         id = "dr_mucahit_yalin",
         userId = "doctor_mucahit_yalin",
         fullName = "Uzm. Dr. Mücahit Yalın",
-        branchId = "nukleer_tip_169",
+        branchId = "nukleer_tip",
         hospitalId = "2196",
         roomInfo = "D-143"
     ),
@@ -1023,7 +919,7 @@ val doctors = listOf(
         id = "dr_ilker_aydin",
         userId = "doctor_ilker_aydin",
         fullName = "Doc. Dr. İlker Aydın",
-        branchId = "perinatoloji_173",
+        branchId = "perinatoloji",
         hospitalId = "3215",
         roomInfo = "H-147"
     ),
@@ -1039,7 +935,7 @@ val doctors = listOf(
         id = "dr_efe_dursun",
         userId = "doctor_efe_dursun",
         fullName = "Dr. Efe Dursun",
-        branchId = "plastik_rekonstruktif_ve_estetik_cerrahi_175",
+        branchId = "plastik_rekonstruktif_ve_estetik_cerrahi",
         hospitalId = "6720",
         roomInfo = "B-149"
     ),
@@ -1055,7 +951,7 @@ val doctors = listOf(
         id = "dr_erdem_bulut",
         userId = "doctor_erdem_bulut",
         fullName = "Dr. Erdem Bulut",
-        branchId = "radyasyon_onkolojisi_177",
+        branchId = "radyasyon_onkolojisi",
         hospitalId = "4341",
         roomInfo = "D-151"
     ),
@@ -1079,7 +975,7 @@ val doctors = listOf(
         id = "dr_saban_taskin",
         userId = "doctor_saban_taskin",
         fullName = "Op. Dr. Şaban Taşkın",
-        branchId = "romatoloji_180",
+        branchId = "romatoloji",
         hospitalId = "3457",
         roomInfo = "G-154"
     ),
@@ -1087,17 +983,9 @@ val doctors = listOf(
         id = "dr_recep_ali_kaya",
         userId = "doctor_recep_ali_kaya",
         fullName = "Uzm. Dr. Recep Ali Kaya",
-        branchId = "ruh_sagligi_ve_hastaliklari_181",
+        branchId = "ruh_sagligi_ve_hastaliklari",
         hospitalId = "1128",
         roomInfo = "H-155"
-    ),
-    Doctor(
-        id = "dr_irfan_demir",
-        userId = "doctor_irfan_demir",
-        fullName = "Uzm. Dr. İrfan Demir",
-        branchId = "sitopatoloji",
-        hospitalId = "3199",
-        roomInfo = "A-156"
     ),
     Doctor(
         id = "dr_mesut_cakmak",
@@ -1116,14 +1004,6 @@ val doctors = listOf(
         roomInfo = "C-158"
     ),
     Doctor(
-        id = "dr_zekeriya_yavuz",
-        userId = "doctor_zekeriya_yavuz",
-        fullName = "Op. Dr. Zekeriya Yavuz",
-        branchId = "temel_immunoloji",
-        hospitalId = "2640",
-        roomInfo = "D-159"
-    ),
-    Doctor(
         id = "dr_ahmet_furkan_yilmaz",
         userId = "doctor_ahmet_furkan_yilmaz",
         fullName = "Uzm. Dr. Ahmet Furkan Yılmaz",
@@ -1135,7 +1015,7 @@ val doctors = listOf(
         id = "dr_mehmet_akif_arslan",
         userId = "doctor_mehmet_akif_arslan",
         fullName = "Uzm. Dr. Mehmet Akif Arslan",
-        branchId = "tibbi_ekoloji_ve_hidroklimatoloji_187",
+        branchId = "tibbi_ekoloji_ve_hidroklimatoloji",
         hospitalId = "6824",
         roomInfo = "F-161"
     ),
@@ -1151,7 +1031,7 @@ val doctors = listOf(
         id = "dr_mustafa_can",
         userId = "doctor_mustafa_can",
         fullName = "Uzm. Dr. Mustafa Can",
-        branchId = "tibbi_genetik_189",
+        branchId = "tibbi_genetik",
         hospitalId = "4493",
         roomInfo = "H-163"
     ),
@@ -1175,7 +1055,7 @@ val doctors = listOf(
         id = "dr_naci_yildiz",
         userId = "doctor_naci_yildiz",
         fullName = "Dr. Naci Yıldız",
-        branchId = "tibbi_onkoloji_192",
+        branchId = "tibbi_onkoloji",
         hospitalId = "3305",
         roomInfo = "C-166"
     ),
@@ -1191,7 +1071,7 @@ val doctors = listOf(
         id = "dr_tevfik_gunes",
         userId = "doctor_tevfik_gunes",
         fullName = "Uzm. Dr. Tevfik Güneş",
-        branchId = "tibbi_patoloji_194",
+        branchId = "tibbi_patoloji",
         hospitalId = "1207",
         roomInfo = "E-168"
     ),
@@ -1207,17 +1087,9 @@ val doctors = listOf(
         id = "dr_sukru_kaplan",
         userId = "doctor_sukru_kaplan",
         fullName = "Op. Dr. Şükrü Kaplan",
-        branchId = "uroloji_196",
+        branchId = "uroloji",
         hospitalId = "3401",
         roomInfo = "G-100"
-    ),
-    Doctor(
-        id = "dr_habip_kurt",
-        userId = "doctor_habip_kurt",
-        fullName = "Uzm. Dr. Habip Kurt",
-        branchId = "genel_yogun_bakim",
-        hospitalId = "177124",
-        roomInfo = "H-101"
     ),
     Doctor(
         id = "dr_celil_karaca",
@@ -1236,62 +1108,6 @@ val doctors = listOf(
         roomInfo = "B-103"
     ),
     Doctor(
-        id = "dr_sakir_simsek",
-        userId = "doctor_sakir_simsek",
-        fullName = "Dr. Şakir Şimşek",
-        branchId = "palyatif_bakim_unitesi",
-        hospitalId = "27911",
-        roomInfo = "C-104"
-    ),
-    Doctor(
-        id = "dr_cemil_ozdemir",
-        userId = "doctor_cemil_ozdemir",
-        fullName = "Uzm. Dr. Cemil Özdemir",
-        branchId = "saglik_kurulu",
-        hospitalId = "560",
-        roomInfo = "D-105"
-    ),
-    Doctor(
-        id = "dr_sadik_tas",
-        userId = "doctor_sadik_tas",
-        fullName = "Dr. Sadık Taş",
-        branchId = "geleneksel_tamamlayici_tip_unitesi",
-        hospitalId = "896368",
-        roomInfo = "E-106"
-    ),
-    Doctor(
-        id = "dr_halis_tunc",
-        userId = "doctor_halis_tunc",
-        fullName = "Uzm. Dr. Halis Tunç",
-        branchId = "birlestirilen_toplum_sagligi_merkezleri",
-        hospitalId = "6647",
-        roomInfo = "F-107"
-    ),
-    Doctor(
-        id = "dr_turgay_avci",
-        userId = "doctor_turgay_avci",
-        fullName = "Dr. Turgay Avcı",
-        branchId = "pandemi_klinigi",
-        hospitalId = "3459",
-        roomInfo = "G-108"
-    ),
-    Doctor(
-        id = "dr_muslum_eren",
-        userId = "doctor_muslum_eren",
-        fullName = "Dr. Müslüm Eren",
-        branchId = "pandemi_klinigi_301",
-        hospitalId = "177041",
-        roomInfo = "H-109"
-    ),
-    Doctor(
-        id = "dr_necmettin_korkmaz",
-        userId = "doctor_necmettin_korkmaz",
-        fullName = "Dr. Necmettin Korkmaz",
-        branchId = "covid_19_asi_uygulama",
-        hospitalId = "6230",
-        roomInfo = "A-110"
-    ),
-    Doctor(
         id = "dr_rasim_uysal",
         userId = "doctor_rasim_uysal",
         fullName = "Uzm. Dr. Rasim Uysal",
@@ -1303,7 +1119,7 @@ val doctors = listOf(
         id = "dr_ozcan_demirtas",
         userId = "doctor_ozcan_demirtas",
         fullName = "Op. Dr. Özcan Demirtaş",
-        branchId = "tibbi_ekoloji_ve_hidroklimatoloji_2100",
+        branchId = "tibbi_ekoloji_ve_hidroklimatoloji",
         hospitalId = "148",
         roomInfo = "C-112"
     ),
@@ -1311,7 +1127,7 @@ val doctors = listOf(
         id = "dr_sami_koc",
         userId = "doctor_sami_koc",
         fullName = "Doc. Dr. Sami Koç",
-        branchId = "ortodontoloji_4000",
+        branchId = "ortodontoloji",
         hospitalId = "14578",
         roomInfo = "D-113"
     ),
@@ -1335,7 +1151,7 @@ val doctors = listOf(
         id = "dr_emin_kilicaslan",
         userId = "doctor_emin_kilicaslan",
         fullName = "Dr. Emin Kılıçaslan",
-        branchId = "spor_hekimligi_4500",
+        branchId = "spor_hekimligi",
         hospitalId = "177042",
         roomInfo = "G-116"
     ),
@@ -1343,7 +1159,7 @@ val doctors = listOf(
         id = "dr_sami_yildiz",
         userId = "doctor_sami_yildiz",
         fullName = "Prof. Dr. Sami Yıldız",
-        branchId = "cocuk_gastroenterolojisi_5180",
+        branchId = "cocuk_gastroenterolojisi",
         hospitalId = "6452",
         roomInfo = "H-117"
     ),
@@ -1359,7 +1175,7 @@ val doctors = listOf(
         id = "dr_mithat_caliskan",
         userId = "doctor_mithat_caliskan",
         fullName = "Doc. Dr. Mithat Çalışkan",
-        branchId = "cocuk_enfeksiyon_hastaliklari_5190",
+        branchId = "cocuk_enfeksiyon_hastaliklari",
         hospitalId = "3459",
         roomInfo = "B-119"
     ),
@@ -1367,7 +1183,7 @@ val doctors = listOf(
         id = "dr_sefaettin_duman",
         userId = "doctor_sefaettin_duman",
         fullName = "Uzm. Dr. Sefaettin Duman",
-        branchId = "cocuk_gogus_hastaliklari_5202",
+        branchId = "cocuk_gogus_hastaliklari",
         hospitalId = "177154",
         roomInfo = "C-120"
     ),
@@ -1378,14 +1194,6 @@ val doctors = listOf(
         branchId = "onkoloji_cerrahi",
         hospitalId = "2977",
         roomInfo = "D-121"
-    ),
-    Doctor(
-        id = "dr_ercument_kaya",
-        userId = "doctor_ercument_kaya",
-        fullName = "Dr. Ercüment Kaya",
-        branchId = "genel_klinik",
-        hospitalId = "6275",
-        roomInfo = "E-122"
     ),
     Doctor(
         id = "dr_ufuk_arslan",
@@ -1404,18 +1212,10 @@ val doctors = listOf(
         roomInfo = "G-124"
     ),
     Doctor(
-        id = "dr_kutay_demir",
-        userId = "doctor_kutay_demir",
-        fullName = "Op. Dr. Kutay Demir",
-        branchId = "peridontoloji",
-        hospitalId = "378230",
-        roomInfo = "H-125"
-    ),
-    Doctor(
         id = "dr_poyraz_aydin",
         userId = "doctor_poyraz_aydin",
         fullName = "Dr. Poyraz Aydın",
-        branchId = "periodontoloji_5371",
+        branchId = "periodontoloji",
         hospitalId = "2455",
         roomInfo = "A-126"
     ),
@@ -1423,7 +1223,7 @@ val doctors = listOf(
         id = "dr_ayaz_yilmaz",
         userId = "doctor_ayaz_yilmaz",
         fullName = "Op. Dr. Ayaz Yılmaz",
-        branchId = "algoloji_5390",
+        branchId = "algoloji",
         hospitalId = "193762",
         roomInfo = "B-127"
     ),
@@ -1431,7 +1231,7 @@ val doctors = listOf(
         id = "dr_batur_sahin",
         userId = "doctor_batur_sahin",
         fullName = "Dr. Batur Şahin",
-        branchId = "el_cerrahisi_5400",
+        branchId = "el_cerrahisi",
         hospitalId = "2123",
         roomInfo = "C-128"
     ),
@@ -1444,14 +1244,6 @@ val doctors = listOf(
         roomInfo = "D-129"
     ),
     Doctor(
-        id = "dr_miran_koc",
-        userId = "doctor_miran_koc",
-        fullName = "Uzm. Dr. Miran Koç",
-        branchId = "sigarayi_biraktirma_klinigi",
-        hospitalId = "87864",
-        roomInfo = "E-110"
-    ),
-    Doctor(
         id = "dr_uraz_celik",
         userId = "doctor_uraz_celik",
         fullName = "Dr. Uraz Çelik",
@@ -1460,292 +1252,12 @@ val doctors = listOf(
         roomInfo = "F-111"
     ),
     Doctor(
-        id = "dr_alper_dogan",
-        userId = "doctor_alper_dogan",
-        fullName = "Uzm. Dr. Alper Doğan",
-        branchId = "amatem",
-        hospitalId = "690653",
-        roomInfo = "G-112"
-    ),
-    Doctor(
-        id = "dr_tan_bora",
-        userId = "doctor_tan_bora",
-        fullName = "Dr. Tan Bora",
-        branchId = "bagimlilik_poliklinigi",
-        hospitalId = "642968",
-        roomInfo = "H-113"
-    ),
-    Doctor(
-        id = "dr_mertcan_kurt",
-        userId = "doctor_mertcan_kurt",
-        fullName = "Op. Dr. Mertcan Kurt",
-        branchId = "cematem",
-        hospitalId = "402556",
-        roomInfo = "A-114"
-    ),
-    Doctor(
-        id = "dr_ozgur_polat",
-        userId = "doctor_ozgur_polat",
-        fullName = "Dr. Özgür Polat",
-        branchId = "tibbi_genetik_tani_merkezi",
-        hospitalId = "4873",
-        roomInfo = "B-115"
-    ),
-    Doctor(
-        id = "dr_cagri_ozkan",
-        userId = "doctor_cagri_ozkan",
-        fullName = "Dr. Çağrı Özkan",
-        branchId = "acil_cerrahi_yogun_bakim",
-        hospitalId = "416070",
-        roomInfo = "C-116"
-    ),
-    Doctor(
-        id = "dr_ferdi_akin",
-        userId = "doctor_ferdi_akin",
-        fullName = "Uzm. Dr. Ferdi Akın",
-        branchId = "acil_dahiliye_yogun_bakim",
-        hospitalId = "3457",
-        roomInfo = "D-117"
-    ),
-    Doctor(
-        id = "dr_murat_han_yildiz",
-        userId = "doctor_murat_han_yildiz",
-        fullName = "Dr. Murat Han Yıldız",
-        branchId = "acil_yogun_bakim",
-        hospitalId = "2632",
-        roomInfo = "E-118"
-    ),
-    Doctor(
-        id = "dr_nesim_turgut",
-        userId = "doctor_nesim_turgut",
-        fullName = "Op. Dr. Nesim Turgut",
-        branchId = "ameliyathane_yogun_bakim",
-        hospitalId = "38332",
-        roomInfo = "F-119"
-    ),
-    Doctor(
-        id = "dr_baran_akcay",
-        userId = "doctor_baran_akcay",
-        fullName = "Dr. Baran Akçay",
-        branchId = "anestezi_ve_reanimasyon_yogun_bakim",
-        hospitalId = "324085",
-        roomInfo = "G-120"
-    ),
-    Doctor(
-        id = "dr_bilgin_esen",
-        userId = "doctor_bilgin_esen",
-        fullName = "Op. Dr. Bilgin Esen",
-        branchId = "beyin_cerrahi_yogun_bakim",
-        hospitalId = "631921",
-        roomInfo = "H-121"
-    ),
-    Doctor(
-        id = "dr_halis_akcay",
-        userId = "doctor_halis_akcay",
-        fullName = "Uzm. Dr. Halis Akçay",
-        branchId = "cerrahi_yogun_bakim",
-        hospitalId = "11701",
-        roomInfo = "A-122"
-    ),
-    Doctor(
-        id = "dr_sahin_turgut",
-        userId = "doctor_sahin_turgut",
-        fullName = "Op. Dr. Şahin Turgut",
-        branchId = "cocuk_cerrahi_yogun_bakim",
-        hospitalId = "5608",
-        roomInfo = "B-123"
-    ),
-    Doctor(
-        id = "dr_eyyup_bas",
-        userId = "doctor_eyyup_bas",
-        fullName = "Doc. Dr. Eyyüp Baş",
-        branchId = "cocuk_enfeksiyon_yogun_bakim",
-        hospitalId = "896368",
-        roomInfo = "C-124"
-    ),
-    Doctor(
-        id = "dr_mahir_sungur",
-        userId = "doctor_mahir_sungur",
-        fullName = "Dr. Mahir Sungur",
-        branchId = "dahiliye_yogun_bakim",
-        hospitalId = "343333",
-        roomInfo = "D-125"
-    ),
-    Doctor(
-        id = "dr_necip_ince",
-        userId = "doctor_necip_ince",
-        fullName = "Op. Dr. Necip İnce",
-        branchId = "endokrinoloji_yogun_bakim",
-        hospitalId = "43",
-        roomInfo = "E-126"
-    ),
-    Doctor(
-        id = "dr_sami_bas",
-        userId = "doctor_sami_bas",
-        fullName = "Doc. Dr. Sami Baş",
-        branchId = "enfeksiyon_yogun_bakim",
-        hospitalId = "3506",
-        roomInfo = "F-127"
-    ),
-    Doctor(
-        id = "dr_rojhat_yilmaz",
-        userId = "doctor_rojhat_yilmaz",
-        fullName = "Uzm. Dr. Rojhat Yılmaz",
-        branchId = "gastroenterolojik_cerrahi_yogun_bakim",
-        hospitalId = "2498",
-        roomInfo = "G-128"
-    ),
-    Doctor(
-        id = "dr_bedirhan_akcay",
-        userId = "doctor_bedirhan_akcay",
-        fullName = "Uzm. Dr. Bedirhan Akçay",
-        branchId = "gastroenteroloji_yogun_bakim",
-        hospitalId = "5929",
-        roomInfo = "H-129"
-    ),
-    Doctor(
         id = "dr_mazlum_turgut",
         userId = "doctor_mazlum_turgut",
         fullName = "Prof. Dr. Mazlum Turgut",
-        branchId = "genel_cerrahi_197015",
+        branchId = "genel_cerrahi",
         hospitalId = "2498",
         roomInfo = "A-130"
-    ),
-    Doctor(
-        id = "dr_nihat_bas",
-        userId = "doctor_nihat_bas",
-        fullName = "Op. Dr. Nihat Baş",
-        branchId = "gogus_cerrahi_yogun_bakim",
-        hospitalId = "678783",
-        roomInfo = "B-131"
-    ),
-    Doctor(
-        id = "dr_yunus_emre_esen",
-        userId = "doctor_yunus_emre_esen",
-        fullName = "Op. Dr. Yunus Emre Esen",
-        branchId = "gogus_hastaliklari_yogun_bakim",
-        hospitalId = "177111",
-        roomInfo = "C-132"
-    ),
-    Doctor(
-        id = "dr_husnu_akcay",
-        userId = "doctor_husnu_akcay",
-        fullName = "Doc. Dr. Hüsnü Akçay",
-        branchId = "hematoloji_yogun_bakim",
-        hospitalId = "348984",
-        roomInfo = "D-133"
-    ),
-    Doctor(
-        id = "dr_cihat_turgut",
-        userId = "doctor_cihat_turgut",
-        fullName = "Uzm. Dr. Cihat Turgut",
-        branchId = "kadin_dogum_yogun_bakim",
-        hospitalId = "2947",
-        roomInfo = "E-134"
-    ),
-    Doctor(
-        id = "dr_nedim_yilmaz",
-        userId = "doctor_nedim_yilmaz",
-        fullName = "Prof. Dr. Nedim Yılmaz",
-        branchId = "koroner_yogun_bakim",
-        hospitalId = "6005",
-        roomInfo = "F-135"
-    ),
-    Doctor(
-        id = "dr_emin_bas",
-        userId = "doctor_emin_bas",
-        fullName = "Op. Dr. Emin Baş",
-        branchId = "kvc_yogun_bakim",
-        hospitalId = "205125",
-        roomInfo = "G-136"
-    ),
-    Doctor(
-        id = "dr_adnan_ince",
-        userId = "doctor_adnan_ince",
-        fullName = "Dr. Adnan İnce",
-        branchId = "nefroloji_yogun_bakim",
-        hospitalId = "280",
-        roomInfo = "H-137"
-    ),
-    Doctor(
-        id = "dr_sait_sungur",
-        userId = "doctor_sait_sungur",
-        fullName = "Dr. Sait Sungur",
-        branchId = "noroloji_yogun_bakim",
-        hospitalId = "416070",
-        roomInfo = "A-138"
-    ),
-    Doctor(
-        id = "dr_resit_akcay",
-        userId = "doctor_resit_akcay",
-        fullName = "Dr. Reşit Akçay",
-        branchId = "onkoloji_yogun_bakim",
-        hospitalId = "6108",
-        roomInfo = "B-139"
-    ),
-    Doctor(
-        id = "dr_zubeyir_turgut",
-        userId = "doctor_zubeyir_turgut",
-        fullName = "Prof. Dr. Zübeyir Turgut",
-        branchId = "organ_nakli_yogun_bakim",
-        hospitalId = "783",
-        roomInfo = "C-120"
-    ),
-    Doctor(
-        id = "dr_ziya_esen",
-        userId = "doctor_ziya_esen",
-        fullName = "Dr. Ziya Esen",
-        branchId = "ortopedi_yogun_bakim",
-        hospitalId = "2244",
-        roomInfo = "D-121"
-    ),
-    Doctor(
-        id = "dr_medeni_bas",
-        userId = "doctor_medeni_bas",
-        fullName = "Doc. Dr. Medeni Baş",
-        branchId = "pediatri_yogun_bakim",
-        hospitalId = "5164",
-        roomInfo = "E-122"
-    ),
-    Doctor(
-        id = "dr_siyar_yilmaz",
-        userId = "doctor_siyar_yilmaz",
-        fullName = "Uzm. Dr. Şiyar Yılmaz",
-        branchId = "post_op_yogun_bakim",
-        hospitalId = "205125",
-        roomInfo = "F-123"
-    ),
-    Doctor(
-        id = "dr_cemsit_akcay",
-        userId = "doctor_cemsit_akcay",
-        fullName = "Prof. Dr. Cemşit Akçay",
-        branchId = "uroloji_yogun_bakim",
-        hospitalId = "3175",
-        roomInfo = "G-124"
-    ),
-    Doctor(
-        id = "dr_haydar_turgut",
-        userId = "doctor_haydar_turgut",
-        fullName = "Uzm. Dr. Haydar Turgut",
-        branchId = "yanik_yogun_bakim",
-        hospitalId = "348984",
-        roomInfo = "H-125"
-    ),
-    Doctor(
-        id = "dr_halef_ince",
-        userId = "doctor_halef_ince",
-        fullName = "Dr. Halef İnce",
-        branchId = "yenidogan_cerrahi_yogun_bakim",
-        hospitalId = "651698",
-        roomInfo = "A-126"
-    ),
-    Doctor(
-        id = "dr_ferman_sungur",
-        userId = "doctor_ferman_sungur",
-        fullName = "Uzm. Dr. Ferman Sungur",
-        branchId = "yenidogan_yogun_bakim",
-        hospitalId = "177459",
-        roomInfo = "B-127"
     ),
     Doctor(
         id = "dr_rifat_bas",
@@ -2052,14 +1564,6 @@ val doctors = listOf(
         roomInfo = "H-145"
     ),
     Doctor(
-        id = "dr_yasemin_yuce",
-        userId = "doctor_yasemin_yuce",
-        fullName = "Op. Dr. Yasemin Yüce",
-        branchId = "ortopedi_ve_travmalotoji",
-        hospitalId = "665361",
-        roomInfo = "A-146"
-    ),
-    Doctor(
         id = "dr_aylin_altun",
         userId = "doctor_aylin_altun",
         fullName = "Dr. Aylin Altun",
@@ -2191,7 +1695,7 @@ val doctors = listOf(
         id = "dr_amina_can",
         userId = "doctor_amina_can",
         fullName = "Dr. Amina Can",
-        branchId = "acil_tip_101",
+        branchId = "acil_tip",
         hospitalId = "4452",
         roomInfo = "B-143"
     ),
@@ -2231,7 +1735,7 @@ val doctors = listOf(
         id = "dr_zehra_nur_kaya",
         userId = "doctor_zehra_nur_kaya",
         fullName = "Dr. Zehra Nur Kaya",
-        branchId = "aile_hekimligi_106",
+        branchId = "aile_hekimligi",
         hospitalId = "4527",
         roomInfo = "G-148"
     ),
@@ -2244,42 +1748,18 @@ val doctors = listOf(
         roomInfo = "H-149"
     ),
     Doctor(
-        id = "dr_nursel_arslan",
-        userId = "doctor_nursel_arslan",
-        fullName = "Dr. Nursel Arslan",
-        branchId = "anatomi",
-        hospitalId = "324085",
-        roomInfo = "A-150"
-    ),
-    Doctor(
         id = "dr_sultan_sahin",
         userId = "doctor_sultan_sahin",
         fullName = "Uzm. Dr. Sultan Şahin",
-        branchId = "anesteziyoloji_ve_reanimasyon_109",
+        branchId = "anesteziyoloji_ve_reanimasyon",
         hospitalId = "656195",
         roomInfo = "B-151"
-    ),
-    Doctor(
-        id = "dr_emel_kilic",
-        userId = "doctor_emel_kilic",
-        fullName = "Op. Dr. Emel Kılıç",
-        branchId = "askeri_psikiyatri",
-        hospitalId = "177154",
-        roomInfo = "C-152"
-    ),
-    Doctor(
-        id = "dr_nermin_dogan",
-        userId = "doctor_nermin_dogan",
-        fullName = "Dr. Nermin Doğan",
-        branchId = "askeri_saglik_hizmetleri",
-        hospitalId = "887155",
-        roomInfo = "D-153"
     ),
     Doctor(
         id = "dr_yeter_yildirim",
         userId = "doctor_yeter_yildirim",
         fullName = "Uzm. Dr. Yeter Yıldırım",
-        branchId = "beyin_ve_sinir_cerrahisi_112",
+        branchId = "beyin_ve_sinir_cerrahisi",
         hospitalId = "731072",
         roomInfo = "E-154"
     ),
@@ -2290,14 +1770,6 @@ val doctors = listOf(
         branchId = "cerrahi_onkoloji",
         hospitalId = "3459",
         roomInfo = "F-155"
-    ),
-    Doctor(
-        id = "dr_saadet_celik",
-        userId = "doctor_saadet_celik",
-        fullName = "Dr. Saadet Çelik",
-        branchId = "cevre_sagligi",
-        hospitalId = "3230",
-        roomInfo = "G-156"
     ),
     Doctor(
         id = "dr_kadriye_kaplan",
@@ -2311,7 +1783,7 @@ val doctors = listOf(
         id = "dr_arzu_tekin",
         userId = "doctor_arzu_tekin",
         fullName = "Uzm. Dr. Arzu Tekin",
-        branchId = "cocuk_cerrahisi_116",
+        branchId = "cocuk_cerrahisi",
         hospitalId = "5929",
         roomInfo = "A-158"
     ),
@@ -2356,14 +1828,6 @@ val doctors = listOf(
         roomInfo = "F-163"
     ),
     Doctor(
-        id = "dr_seher_duman",
-        userId = "doctor_seher_duman",
-        fullName = "Op. Dr. Seher Duman",
-        branchId = "sigarayi_biraktirma_poliklinigi",
-        hospitalId = "4452",
-        roomInfo = "G-164"
-    ),
-    Doctor(
         id = "dr_songul_gunes",
         userId = "doctor_songul_gunes",
         fullName = "Uzm. Dr. Songül Güneş",
@@ -2391,7 +1855,7 @@ val doctors = listOf(
         id = "dr_leyla_simsek",
         userId = "doctor_leyla_simsek",
         fullName = "Uzm. Dr. Leyla Şimşek",
-        branchId = "cocuk_kardiyolojisi_126",
+        branchId = "cocuk_kardiyolojisi",
         hospitalId = "5901",
         roomInfo = "C-168"
     ),
@@ -2407,7 +1871,7 @@ val doctors = listOf(
         id = "dr_pinar_ozkan",
         userId = "doctor_pinar_ozkan",
         fullName = "Dr. Pınar Özkan",
-        branchId = "cocuk_nefrolojisi_128",
+        branchId = "cocuk_nefrolojisi",
         hospitalId = "5901",
         roomInfo = "E-100"
     ),
@@ -2415,7 +1879,7 @@ val doctors = listOf(
         id = "dr_duygu_bulut",
         userId = "doctor_duygu_bulut",
         fullName = "Op. Dr. Duygu Bulut",
-        branchId = "cocuk_norolojisi_129",
+        branchId = "cocuk_norolojisi",
         hospitalId = "625541",
         roomInfo = "F-101"
     ),
@@ -2439,7 +1903,7 @@ val doctors = listOf(
         id = "dr_nihal_uslu",
         userId = "doctor_nihal_uslu",
         fullName = "Dr. Nihal Uslu",
-        branchId = "cocuk_sagligi_ve_hastaliklari_132",
+        branchId = "cocuk_sagligi_ve_hastaliklari",
         hospitalId = "896368",
         roomInfo = "A-104"
     ),
@@ -2460,18 +1924,10 @@ val doctors = listOf(
         roomInfo = "C-106"
     ),
     Doctor(
-        id = "dr_gulbahar_koc",
-        userId = "doctor_gulbahar_koc",
-        fullName = "Prof. Dr. Gülbahar Koç",
-        branchId = "cocuk_yogun_bakimi",
-        hospitalId = "177292",
-        roomInfo = "D-107"
-    ),
-    Doctor(
         id = "dr_meral_tunc",
         userId = "doctor_meral_tunc",
         fullName = "Dr. Meral Tunç",
-        branchId = "deri_ve_zuhrevi_hastaliklari_136",
+        branchId = "deri_ve_zuhrevi_hastaliklari",
         hospitalId = "196186",
         roomInfo = "E-108"
     ),
@@ -2495,7 +1951,7 @@ val doctors = listOf(
         id = "dr_munevver_aydin",
         userId = "doctor_munevver_aydin",
         fullName = "Doc. Dr. Münevver Aydın",
-        branchId = "endokrinoloji_ve_metabolizma_hastaliklari_139",
+        branchId = "endokrinoloji_ve_metabolizma_hastaliklari",
         hospitalId = "899450",
         roomInfo = "H-111"
     ),
@@ -2503,17 +1959,9 @@ val doctors = listOf(
         id = "dr_feride_korkmaz",
         userId = "doctor_feride_korkmaz",
         fullName = "Dr. Feride Korkmaz",
-        branchId = "enfeksiyon_hastaliklari_ve_klinik_mikrobiyoloji_140",
+        branchId = "enfeksiyon_hastaliklari_ve_klinik_mikrobiyoloji",
         hospitalId = "1221",
         roomInfo = "A-112"
-    ),
-    Doctor(
-        id = "dr_zeliha_kalkan",
-        userId = "doctor_zeliha_kalkan",
-        fullName = "Dr. Zeliha Kalkan",
-        branchId = "epidemiyoloji",
-        hospitalId = "45170",
-        roomInfo = "B-113"
     ),
     Doctor(
         id = "dr_hatun_aksoy",
@@ -2524,18 +1972,10 @@ val doctors = listOf(
         roomInfo = "C-114"
     ),
     Doctor(
-        id = "dr_mediha_tan",
-        userId = "doctor_mediha_tan",
-        fullName = "Uzm. Dr. Mediha Tan",
-        branchId = "fizyoloji",
-        hospitalId = "1297",
-        roomInfo = "D-115"
-    ),
-    Doctor(
         id = "dr_meryem_keser",
         userId = "doctor_meryem_keser",
         fullName = "Dr. Meryem Keser",
-        branchId = "gastroenteroloji_144",
+        branchId = "gastroenteroloji",
         hospitalId = "5293",
         roomInfo = "E-116"
     ),
@@ -2559,7 +1999,7 @@ val doctors = listOf(
         id = "dr_nergiz_bayrak",
         userId = "doctor_nergiz_bayrak",
         fullName = "Dr. Nergiz Bayrak",
-        branchId = "genel_cerrahi_147",
+        branchId = "genel_cerrahi",
         hospitalId = "6349",
         roomInfo = "H-119"
     ),
@@ -2575,7 +2015,7 @@ val doctors = listOf(
         id = "dr_nisanur_karatas",
         userId = "doctor_nisanur_karatas",
         fullName = "Uzm. Dr. Nisanur Karataş",
-        branchId = "gogus_cerrahisi_149",
+        branchId = "gogus_cerrahisi",
         hospitalId = "334666",
         roomInfo = "B-121"
     ),
@@ -2591,7 +2031,7 @@ val doctors = listOf(
         id = "dr_melis_cakir",
         userId = "doctor_melis_cakir",
         fullName = "Dr. Melis Çakır",
-        branchId = "goz_hastaliklari_151",
+        branchId = "goz_hastaliklari",
         hospitalId = "656194",
         roomInfo = "D-123"
     ),
@@ -2604,42 +2044,18 @@ val doctors = listOf(
         roomInfo = "E-124"
     ),
     Doctor(
-        id = "dr_ilayda_demir",
-        userId = "doctor_ilayda_demir",
-        fullName = "Dr. İlayda Demir",
-        branchId = "harp_cerrahisi",
-        hospitalId = "177459",
-        roomInfo = "F-125"
-    ),
-    Doctor(
-        id = "dr_buse_kilic",
-        userId = "doctor_buse_kilic",
-        fullName = "Dr. Buse Kılıç",
-        branchId = "hava_ve_uzay_hekimligi",
-        hospitalId = "38798",
-        roomInfo = "G-126"
-    ),
-    Doctor(
         id = "dr_yagmur_sahin",
         userId = "doctor_yagmur_sahin",
         fullName = "Uzm. Dr. Yağmur Şahin",
-        branchId = "hematoloji_155",
+        branchId = "hematoloji",
         hospitalId = "896368",
         roomInfo = "H-127"
-    ),
-    Doctor(
-        id = "dr_helin_yildiz",
-        userId = "doctor_helin_yildiz",
-        fullName = "Uzm. Dr. Helin Yıldız",
-        branchId = "histoloji_ve_embriyoloji",
-        hospitalId = "397657",
-        roomInfo = "A-128"
     ),
     Doctor(
         id = "dr_sila_arslan",
         userId = "doctor_sila_arslan",
         fullName = "Dr. Sıla Arslan",
-        branchId = "ic_hastaliklari_157",
+        branchId = "ic_hastaliklari",
         hospitalId = "3324",
         roomInfo = "B-129"
     ),
@@ -2663,7 +2079,7 @@ val doctors = listOf(
         id = "dr_ada_aydin",
         userId = "doctor_ada_aydin",
         fullName = "Dr. Ada Aydın",
-        branchId = "jinekolojik_onkoloji_cerrahisi_160",
+        branchId = "jinekolojik_onkoloji_cerrahisi",
         hospitalId = "401",
         roomInfo = "E-112"
     ),
@@ -2671,7 +2087,7 @@ val doctors = listOf(
         id = "dr_lina_dogan",
         userId = "doctor_lina_dogan",
         fullName = "Doc. Dr. Lina Doğan",
-        branchId = "kadin_hastaliklari_ve_dogum_161",
+        branchId = "kadin_hastaliklari_ve_dogum",
         hospitalId = "182855",
         roomInfo = "F-113"
     ),
@@ -2679,7 +2095,7 @@ val doctors = listOf(
         id = "dr_defne_ozdemir",
         userId = "doctor_defne_ozdemir",
         fullName = "Op. Dr. Defne Özdemir",
-        branchId = "kalp_ve_damar_cerrahisi_162",
+        branchId = "kalp_ve_damar_cerrahisi",
         hospitalId = "326972",
         roomInfo = "G-114"
     ),
@@ -2687,23 +2103,15 @@ val doctors = listOf(
         id = "dr_duru_kurt",
         userId = "doctor_duru_kurt",
         fullName = "Prof. Dr. Duru Kurt",
-        branchId = "kardiyoloji_163",
+        branchId = "kardiyoloji",
         hospitalId = "402556",
         roomInfo = "H-115"
-    ),
-    Doctor(
-        id = "dr_ipek_polat",
-        userId = "doctor_ipek_polat",
-        fullName = "Op. Dr. İpek Polat",
-        branchId = "klinik_norofizyoloji",
-        hospitalId = "38798",
-        roomInfo = "A-116"
     ),
     Doctor(
         id = "dr_naz_demirtas",
         userId = "doctor_naz_demirtas",
         fullName = "Prof. Dr. Naz Demirtaş",
-        branchId = "kulak_burun_bogaz_hastaliklari_165",
+        branchId = "kulak_burun_bogaz_hastaliklari",
         hospitalId = "637568",
         roomInfo = "B-117"
     ),
@@ -2711,7 +2119,7 @@ val doctors = listOf(
         id = "dr_nehir_kaplan",
         userId = "doctor_nehir_kaplan",
         fullName = "Op. Dr. Nehir Kaplan",
-        branchId = "nefroloji_166",
+        branchId = "nefroloji",
         hospitalId = "878716",
         roomInfo = "C-118"
     ),
@@ -2719,7 +2127,7 @@ val doctors = listOf(
         id = "dr_elif_su_tekin",
         userId = "doctor_elif_su_tekin",
         fullName = "Dr. Elif Su Tekin",
-        branchId = "neonatoloji_167",
+        branchId = "neonatoloji",
         hospitalId = "401",
         roomInfo = "D-119"
     ),
@@ -2727,7 +2135,7 @@ val doctors = listOf(
         id = "dr_zeynep_mira_karaca",
         userId = "doctor_zeynep_mira_karaca",
         fullName = "Dr. Zeynep Mira Karaca",
-        branchId = "noroloji_168",
+        branchId = "noroloji",
         hospitalId = "651698",
         roomInfo = "E-120"
     ),
@@ -2735,7 +2143,7 @@ val doctors = listOf(
         id = "dr_mina_nur_gunes",
         userId = "doctor_mina_nur_gunes",
         fullName = "Dr. Mina Nur Güneş",
-        branchId = "nukleer_tip_169",
+        branchId = "nukleer_tip",
         hospitalId = "4424",
         roomInfo = "F-121"
     ),
@@ -2767,7 +2175,7 @@ val doctors = listOf(
         id = "dr_inci_eren",
         userId = "doctor_inci_eren",
         fullName = "Dr. İnci Eren",
-        branchId = "perinatoloji_173",
+        branchId = "perinatoloji",
         hospitalId = "3267",
         roomInfo = "B-125"
     ),
@@ -2783,7 +2191,7 @@ val doctors = listOf(
         id = "dr_meryem_sena_uslu",
         userId = "doctor_meryem_sena_uslu",
         fullName = "Doc. Dr. Meryem Sena Uslu",
-        branchId = "plastik_rekonstruktif_ve_estetik_cerrahi_175",
+        branchId = "plastik_rekonstruktif_ve_estetik_cerrahi",
         hospitalId = "3355",
         roomInfo = "D-127"
     ),
@@ -2799,7 +2207,7 @@ val doctors = listOf(
         id = "dr_masal_tunc",
         userId = "doctor_masal_tunc",
         fullName = "Uzm. Dr. Masal Tunç",
-        branchId = "radyasyon_onkolojisi_177",
+        branchId = "radyasyon_onkolojisi",
         hospitalId = "177349",
         roomInfo = "F-129"
     ),
@@ -2823,7 +2231,7 @@ val doctors = listOf(
         id = "dr_arya_aksoy",
         userId = "doctor_arya_aksoy",
         fullName = "Op. Dr. Arya Aksoy",
-        branchId = "romatoloji_180",
+        branchId = "romatoloji",
         hospitalId = "3219",
         roomInfo = "A-132"
     ),
@@ -2831,17 +2239,9 @@ val doctors = listOf(
         id = "dr_mihra_tan",
         userId = "doctor_mihra_tan",
         fullName = "Uzm. Dr. Mihra Tan",
-        branchId = "ruh_sagligi_ve_hastaliklari_181",
+        branchId = "ruh_sagligi_ve_hastaliklari",
         hospitalId = "896368",
         roomInfo = "B-133"
-    ),
-    Doctor(
-        id = "dr_aden_keser",
-        userId = "doctor_aden_keser",
-        fullName = "Op. Dr. Aden Keser",
-        branchId = "sitopatoloji",
-        hospitalId = "177297",
-        roomInfo = "C-134"
     ),
     Doctor(
         id = "dr_berra_gul",
@@ -2860,14 +2260,6 @@ val doctors = listOf(
         roomInfo = "E-136"
     ),
     Doctor(
-        id = "dr_azra_bayram",
-        userId = "doctor_azra_bayram",
-        fullName = "Dr. Azra Bayram",
-        branchId = "temel_immunoloji",
-        hospitalId = "4134",
-        roomInfo = "F-137"
-    ),
-    Doctor(
         id = "dr_hira_kocak",
         userId = "doctor_hira_kocak",
         fullName = "Uzm. Dr. Hira Koçak",
@@ -2879,7 +2271,7 @@ val doctors = listOf(
         id = "dr_nida_kalkan",
         userId = "doctor_nida_kalkan",
         fullName = "Uzm. Dr. Nida Kalkan",
-        branchId = "tibbi_ekoloji_ve_hidroklimatoloji_187",
+        branchId = "tibbi_ekoloji_ve_hidroklimatoloji",
         hospitalId = "1207",
         roomInfo = "H-139"
     ),
@@ -2895,7 +2287,7 @@ val doctors = listOf(
         id = "dr_sema_yildirim",
         userId = "doctor_sema_yildirim",
         fullName = "Uzm. Dr. Sema Yıldırım",
-        branchId = "tibbi_genetik_189",
+        branchId = "tibbi_genetik",
         hospitalId = "87864",
         roomInfo = "B-121"
     ),
@@ -2919,7 +2311,7 @@ val doctors = listOf(
         id = "dr_benan_celik",
         userId = "doctor_benan_celik",
         fullName = "Uzm. Dr. Benan Çelik",
-        branchId = "tibbi_onkoloji_192",
+        branchId = "tibbi_onkoloji",
         hospitalId = "631921",
         roomInfo = "E-124"
     ),
@@ -2935,7 +2327,7 @@ val doctors = listOf(
         id = "dr_rojin_demir",
         userId = "doctor_rojin_demir",
         fullName = "Dr. Rojin Demir",
-        branchId = "tibbi_patoloji_194",
+        branchId = "tibbi_patoloji",
         hospitalId = "4341",
         roomInfo = "G-126"
     ),
@@ -2951,17 +2343,9 @@ val doctors = listOf(
         id = "dr_dicle_yilmaz",
         userId = "doctor_dicle_yilmaz",
         fullName = "Uzm. Dr. Dicle Yılmaz",
-        branchId = "uroloji_196",
+        branchId = "uroloji",
         hospitalId = "2196",
         roomInfo = "A-128"
-    ),
-    Doctor(
-        id = "dr_hevi_akcay",
-        userId = "doctor_hevi_akcay",
-        fullName = "Uzm. Dr. Hevi Akçay",
-        branchId = "genel_yogun_bakim",
-        hospitalId = "5901",
-        roomInfo = "B-129"
     ),
     Doctor(
         id = "dr_ruken_turgut",
@@ -2980,62 +2364,6 @@ val doctors = listOf(
         roomInfo = "D-131"
     ),
     Doctor(
-        id = "dr_newroz_bas",
-        userId = "doctor_newroz_bas",
-        fullName = "Uzm. Dr. Newroz Baş",
-        branchId = "palyatif_bakim_unitesi",
-        hospitalId = "4680",
-        roomInfo = "E-132"
-    ),
-    Doctor(
-        id = "dr_rozerin_ince",
-        userId = "doctor_rozerin_ince",
-        fullName = "Dr. Rozerin İnce",
-        branchId = "saglik_kurulu",
-        hospitalId = "87864",
-        roomInfo = "F-133"
-    ),
-    Doctor(
-        id = "dr_delal_sungur",
-        userId = "doctor_delal_sungur",
-        fullName = "Dr. Delal Sungur",
-        branchId = "geleneksel_tamamlayici_tip_unitesi",
-        hospitalId = "177351",
-        roomInfo = "G-134"
-    ),
-    Doctor(
-        id = "dr_zilan_yildiz",
-        userId = "doctor_zilan_yildiz",
-        fullName = "Prof. Dr. Zilan Yıldız",
-        branchId = "birlestirilen_toplum_sagligi_merkezleri",
-        hospitalId = "3459",
-        roomInfo = "H-135"
-    ),
-    Doctor(
-        id = "dr_viyan_kaya",
-        userId = "doctor_viyan_kaya",
-        fullName = "Prof. Dr. Viyan Kaya",
-        branchId = "pandemi_klinigi",
-        hospitalId = "87864",
-        roomInfo = "A-136"
-    ),
-    Doctor(
-        id = "dr_avin_demir",
-        userId = "doctor_avin_demir",
-        fullName = "Op. Dr. Avin Demir",
-        branchId = "pandemi_klinigi_301",
-        hospitalId = "809300",
-        roomInfo = "B-137"
-    ),
-    Doctor(
-        id = "dr_helin_turgut",
-        userId = "doctor_helin_turgut",
-        fullName = "Uzm. Dr. Helin Turgut",
-        branchId = "covid_19_asi_uygulama",
-        hospitalId = "3031",
-        roomInfo = "C-138"
-    ),
-    Doctor(
         id = "dr_ronya_akcay",
         userId = "doctor_ronya_akcay",
         fullName = "Uzm. Dr. Ronya Akçay",
@@ -3047,7 +2375,7 @@ val doctors = listOf(
         id = "dr_evin_esen",
         userId = "doctor_evin_esen",
         fullName = "Uzm. Dr. Evin Esen",
-        branchId = "tibbi_ekoloji_ve_hidroklimatoloji_2100",
+        branchId = "tibbi_ekoloji_ve_hidroklimatoloji",
         hospitalId = "3384",
         roomInfo = "E-140"
     ),
@@ -3055,7 +2383,7 @@ val doctors = listOf(
         id = "dr_mizgin_bas",
         userId = "doctor_mizgin_bas",
         fullName = "Uzm. Dr. Mizgin Baş",
-        branchId = "ortodontoloji_4000",
+        branchId = "ortodontoloji",
         hospitalId = "324085",
         roomInfo = "F-141"
     ),
@@ -3079,7 +2407,7 @@ val doctors = listOf(
         id = "dr_bercem_yilmaz",
         userId = "doctor_bercem_yilmaz",
         fullName = "Uzm. Dr. Berçem Yılmaz",
-        branchId = "spor_hekimligi_4500",
+        branchId = "spor_hekimligi",
         hospitalId = "13",
         roomInfo = "A-144"
     ),
@@ -3087,7 +2415,7 @@ val doctors = listOf(
         id = "dr_rojda_turgut",
         userId = "doctor_rojda_turgut",
         fullName = "Op. Dr. Rojda Turgut",
-        branchId = "cocuk_gastroenterolojisi_5180",
+        branchId = "cocuk_gastroenterolojisi",
         hospitalId = "899450",
         roomInfo = "B-145"
     ),
@@ -3103,7 +2431,7 @@ val doctors = listOf(
         id = "dr_dilsah_esen",
         userId = "doctor_dilsah_esen",
         fullName = "Uzm. Dr. Dilşah Esen",
-        branchId = "cocuk_enfeksiyon_hastaliklari_5190",
+        branchId = "cocuk_enfeksiyon_hastaliklari",
         hospitalId = "14313",
         roomInfo = "D-147"
     ),
@@ -3111,7 +2439,7 @@ val doctors = listOf(
         id = "dr_gulan_bas",
         userId = "doctor_gulan_bas",
         fullName = "Uzm. Dr. Gulan Baş",
-        branchId = "cocuk_gogus_hastaliklari_5202",
+        branchId = "cocuk_gogus_hastaliklari",
         hospitalId = "27911",
         roomInfo = "E-148"
     ),
@@ -3122,14 +2450,6 @@ val doctors = listOf(
         branchId = "onkoloji_cerrahi",
         hospitalId = "177571",
         roomInfo = "F-149"
-    ),
-    Doctor(
-        id = "dr_baran_turgut",
-        userId = "doctor_baran_turgut",
-        fullName = "Uzm. Dr. Baran Turgut",
-        branchId = "genel_klinik",
-        hospitalId = "3374",
-        roomInfo = "G-130"
     ),
     Doctor(
         id = "dr_serhat_akcay",
@@ -3148,18 +2468,10 @@ val doctors = listOf(
         roomInfo = "A-132"
     ),
     Doctor(
-        id = "dr_renas_ince",
-        userId = "doctor_renas_ince",
-        fullName = "Dr. Renas İnce",
-        branchId = "peridontoloji",
-        hospitalId = "606256",
-        roomInfo = "B-133"
-    ),
-    Doctor(
         id = "dr_mirza_sungur",
         userId = "doctor_mirza_sungur",
         fullName = "Doc. Dr. Mirza Sungur",
-        branchId = "periodontoloji_5371",
+        branchId = "periodontoloji",
         hospitalId = "260",
         roomInfo = "C-134"
     ),
@@ -3167,7 +2479,7 @@ val doctors = listOf(
         id = "dr_aram_yilmaz",
         userId = "doctor_aram_yilmaz",
         fullName = "Uzm. Dr. Aram Yılmaz",
-        branchId = "algoloji_5390",
+        branchId = "algoloji",
         hospitalId = "651698",
         roomInfo = "D-135"
     ),
@@ -3175,7 +2487,7 @@ val doctors = listOf(
         id = "dr_amed_turgut",
         userId = "doctor_amed_turgut",
         fullName = "Doc. Dr. Amed Turgut",
-        branchId = "el_cerrahisi_5400",
+        branchId = "el_cerrahisi",
         hospitalId = "80",
         roomInfo = "E-136"
     ),
@@ -3188,14 +2500,6 @@ val doctors = listOf(
         roomInfo = "F-137"
     ),
     Doctor(
-        id = "dr_ciwan_bas",
-        userId = "doctor_ciwan_bas",
-        fullName = "Op. Dr. Ciwan Baş",
-        branchId = "sigarayi_biraktirma_klinigi",
-        hospitalId = "5608",
-        roomInfo = "G-138"
-    ),
-    Doctor(
         id = "dr_delil_esen",
         userId = "doctor_delil_esen",
         fullName = "Uzm. Dr. Delil Esen",
@@ -3203,100 +2507,5 @@ val doctors = listOf(
         hospitalId = "887160",
         roomInfo = "H-139"
     ),
-    Doctor(
-        id = "dr_seyda_ince",
-        userId = "doctor_seyda_ince",
-        fullName = "Uzm. Dr. Seyda İnce",
-        branchId = "amatem",
-        hospitalId = "38798",
-        roomInfo = "A-140"
-    ),
-    Doctor(
-        id = "dr_sipan_sungur",
-        userId = "doctor_sipan_sungur",
-        fullName = "Op. Dr. Sipan Sungur",
-        branchId = "bagimlilik_poliklinigi",
-        hospitalId = "87864",
-        roomInfo = "B-141"
-    ),
-    Doctor(
-        id = "dr_berzan_yildiz",
-        userId = "doctor_berzan_yildiz",
-        fullName = "Op. Dr. Berzan Yıldız",
-        branchId = "cematem",
-        hospitalId = "322024",
-        roomInfo = "C-142"
-    ),
-    Doctor(
-        id = "dr_ferhad_kaya",
-        userId = "doctor_ferhad_kaya",
-        fullName = "Dr. Ferhad Kaya",
-        branchId = "tibbi_genetik_tani_merkezi",
-        hospitalId = "4424",
-        roomInfo = "D-143"
-    ),
-    Doctor(
-        id = "dr_rojhat_demir",
-        userId = "doctor_rojhat_demir",
-        fullName = "Op. Dr. Rojhat Demir",
-        branchId = "acil_cerrahi_yogun_bakim",
-        hospitalId = "647972",
-        roomInfo = "E-144"
-    ),
-    Doctor(
-        id = "dr_siyar_turgut",
-        userId = "doctor_siyar_turgut",
-        fullName = "Dr. Şiyar Turgut",
-        branchId = "acil_dahiliye_yogun_bakim",
-        hospitalId = "883822",
-        roomInfo = "F-145"
-    ),
-    Doctor(
-        id = "dr_miran_akcay",
-        userId = "doctor_miran_akcay",
-        fullName = "Dr. Miran Akçay",
-        branchId = "acil_yogun_bakim",
-        hospitalId = "1889",
-        roomInfo = "G-146"
-    ),
-    Doctor(
-        id = "dr_hozan_esen",
-        userId = "doctor_hozan_esen",
-        fullName = "Op. Dr. Hozan Esen",
-        branchId = "ameliyathane_yogun_bakim",
-        hospitalId = "4789",
-        roomInfo = "H-147"
-    ),
-    Doctor(
-        id = "dr_botan_bas",
-        userId = "doctor_botan_bas",
-        fullName = "Dr. Botan Baş",
-        branchId = "anestezi_ve_reanimasyon_yogun_bakim",
-        hospitalId = "2318",
-        roomInfo = "A-148"
-    ),
-    Doctor(
-        id = "dr_civan_ince",
-        userId = "doctor_civan_ince",
-        fullName = "Op. Dr. Civan İnce",
-        branchId = "beyin_cerrahi_yogun_bakim",
-        hospitalId = "6679",
-        roomInfo = "B-149"
-    ),
-    Doctor(
-        id = "dr_roni_sungur",
-        userId = "doctor_roni_sungur",
-        fullName = "Uzm. Dr. Roni Sungur",
-        branchId = "cerrahi_yogun_bakim",
-        hospitalId = "409",
-        roomInfo = "C-150"
-    ),
-    Doctor(
-        id = "dr_rewsan_yilmaz",
-        userId = "doctor_rewsan_yilmaz",
-        fullName = "Dr. Rewşan Yılmaz",
-        branchId = "cocuk_cerrahi_yogun_bakim",
-        hospitalId = "884386",
-        roomInfo = "D-151"
-    )
+    
 )

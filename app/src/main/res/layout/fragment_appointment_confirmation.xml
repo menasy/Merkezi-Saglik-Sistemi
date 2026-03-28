@@ -14,7 +14,7 @@
         android:background="@color/surface"
         android:minHeight="?attr/actionBarSize"
         android:navigationIcon="@drawable/ic_arrow_back_24"
-        android:title="Randevu Onayi"
+        android:title="Randevu Onayı"
         android:titleTextColor="@color/text_primary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

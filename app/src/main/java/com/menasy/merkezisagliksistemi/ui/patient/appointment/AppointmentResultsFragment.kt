@@ -48,7 +48,7 @@ class AppointmentResultsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (searchArgs == null) {
-            Toast.makeText(requireContext(), "Arama kriterleri bulunamadi", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Arama kriterleri bulunamadı", Toast.LENGTH_SHORT).show()
             findNavController().navigateUp()
             return
         }

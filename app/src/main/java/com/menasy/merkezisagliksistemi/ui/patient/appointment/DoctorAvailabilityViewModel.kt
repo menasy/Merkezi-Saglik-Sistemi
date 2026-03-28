@@ -122,12 +122,12 @@ class DoctorAvailabilityViewModel : ViewModel() {
     }
 
     fun buildConfirmationArgs(): Result<AppointmentConfirmationArgs> {
-        val currentArgs = args ?: return Result.failure(Exception("Randevu bilgisi bulunamadi"))
+        val currentArgs = args ?: return Result.failure(Exception("Randevu bilgisi bulunamadı"))
         val currentState = _uiState.value
         val selectedDateMillis = currentState.selectedDateMillis
-            ?: return Result.failure(Exception("Lutfen bir saat secin"))
+            ?: return Result.failure(Exception("Lütfen bir saat seçin"))
         val selectedTimeLabel = currentState.selectedTimeLabel
-            ?: return Result.failure(Exception("Lutfen bir saat secin"))
+            ?: return Result.failure(Exception("Lütfen bir saat seçin"))
 
         return Result.success(
             AppointmentConfirmationArgs(
@@ -166,7 +166,7 @@ class DoctorAvailabilityViewModel : ViewModel() {
                 daySubtitle = if (openSlotCount > 0) {
                     "$openSlotCount uygun seans"
                 } else {
-                    "Bu gun uygun seans yok"
+                    "Bu gün uygun seans yok"
                 },
                 hourBlocks = hourBlocks
             )
