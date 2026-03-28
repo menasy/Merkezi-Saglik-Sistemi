@@ -1,6 +1,5 @@
 package com.menasy.merkezisagliksistemi.ui.patient.appointment
 
-import androidx.lifecycle.ViewModel
 import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneId
@@ -8,6 +7,8 @@ import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
 import java.util.Locale
 import kotlin.math.abs
+import com.menasy.merkezisagliksistemi.ui.common.base.BaseViewModel
+import com.menasy.merkezisagliksistemi.ui.common.error.AppErrorReason
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -40,11 +41,10 @@ data class DoctorAvailabilityUiState(
     val dayAvailabilities: List<DayAvailabilityUiModel> = emptyList(),
     val selectedDateMillis: Long? = null,
     val selectedTimeLabel: String? = null,
-    val selectedSummaryText: String? = null,
-    val errorMessage: String? = null
+    val selectedSummaryText: String? = null
 )
 
-class DoctorAvailabilityViewModel : ViewModel() {
+class DoctorAvailabilityViewModel : BaseViewModel() {
 
     private val _uiState = MutableStateFlow(DoctorAvailabilityUiState())
     val uiState: StateFlow<DoctorAvailabilityUiState> = _uiState.asStateFlow()
@@ -59,8 +59,7 @@ class DoctorAvailabilityViewModel : ViewModel() {
             isLoading = true,
             doctorName = availabilityArgs.doctorName,
             hospitalName = availabilityArgs.hospitalName,
-            branchName = availabilityArgs.branchName,
-            errorMessage = null
+            branchName = availabilityArgs.branchName
         )
 
         val generatedDays = generateDayAvailabilities(availabilityArgs)
@@ -89,8 +88,7 @@ class DoctorAvailabilityViewModel : ViewModel() {
             dayAvailabilities = updatedDays,
             selectedDateMillis = null,
             selectedTimeLabel = null,
-            selectedSummaryText = null,
-            errorMessage = null
+            selectedSummaryText = null
         )
     }
 
@@ -116,30 +114,34 @@ class DoctorAvailabilityViewModel : ViewModel() {
             dayAvailabilities = updatedDays,
             selectedDateMillis = selectedDay.dateMillis,
             selectedTimeLabel = slotTimeLabel,
-            selectedSummaryText = summaryText,
-            errorMessage = null
+            selectedSummaryText = summaryText
         )
     }
 
-    fun buildConfirmationArgs(): Result<AppointmentConfirmationArgs> {
-        val currentArgs = args ?: return Result.failure(Exception("Randevu bilgisi bulunamadı"))
+    fun buildConfirmationArgs(): AppointmentConfirmationArgs? {
+        val currentArgs = args ?: run {
+            publishError(AppErrorReason.APPOINTMENT_INFO_MISSING)
+            return null
+        }
         val currentState = _uiState.value
-        val selectedDateMillis = currentState.selectedDateMillis
-            ?: return Result.failure(Exception("Lütfen bir saat seçin"))
-        val selectedTimeLabel = currentState.selectedTimeLabel
-            ?: return Result.failure(Exception("Lütfen bir saat seçin"))
+        val selectedDateMillis = currentState.selectedDateMillis ?: run {
+            publishError(AppErrorReason.SLOT_SELECTION_REQUIRED)
+            return null
+        }
+        val selectedTimeLabel = currentState.selectedTimeLabel ?: run {
+            publishError(AppErrorReason.SLOT_SELECTION_REQUIRED)
+            return null
+        }
 
-        return Result.success(
-            AppointmentConfirmationArgs(
-                doctorId = currentArgs.doctorId,
-                doctorName = currentArgs.doctorName,
-                hospitalId = currentArgs.hospitalId,
-                hospitalName = currentArgs.hospitalName,
-                branchId = currentArgs.branchId,
-                branchName = currentArgs.branchName,
-                dateMillis = selectedDateMillis,
-                timeLabel = selectedTimeLabel
-            )
+        return AppointmentConfirmationArgs(
+            doctorId = currentArgs.doctorId,
+            doctorName = currentArgs.doctorName,
+            hospitalId = currentArgs.hospitalId,
+            hospitalName = currentArgs.hospitalName,
+            branchId = currentArgs.branchId,
+            branchName = currentArgs.branchName,
+            dateMillis = selectedDateMillis,
+            timeLabel = selectedTimeLabel
         )
     }
 

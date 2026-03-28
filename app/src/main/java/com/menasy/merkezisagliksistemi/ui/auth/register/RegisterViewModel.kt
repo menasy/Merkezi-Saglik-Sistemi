@@ -3,6 +3,9 @@ package com.menasy.merkezisagliksistemi.ui.auth.register
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.menasy.merkezisagliksistemi.domain.usecase.RegisterPatientUseCase
+import com.menasy.merkezisagliksistemi.ui.common.base.BaseViewModel
+import com.menasy.merkezisagliksistemi.ui.common.error.AppErrorReason
+import com.menasy.merkezisagliksistemi.ui.common.error.OperationType
 import com.menasy.merkezisagliksistemi.ui.common.state.UiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -11,7 +14,7 @@ import kotlinx.coroutines.launch
 
 class RegisterViewModel(
     private val registerPatientUseCase: RegisterPatientUseCase
-) : ViewModel() {
+) : BaseViewModel() {
 
     private val _registerState = MutableStateFlow<UiState<Unit>>(UiState.Empty)
     val registerState: StateFlow<UiState<Unit>> = _registerState.asStateFlow()
@@ -32,12 +35,12 @@ class RegisterViewModel(
             birthDate.isBlank() ||
             gender.isBlank()
         ) {
-            _registerState.value = UiState.Error("Tüm alanlar doldurulmalıdır")
+            publishError(AppErrorReason.REQUIRED_FIELDS)
             return
         }
 
         if (tcNo.length != 11) {
-            _registerState.value = UiState.Error("TC kimlik numarası 11 haneli olmalıdır")
+            publishError(AppErrorReason.INVALID_TC_NO)
             return
         }
 
@@ -53,12 +56,20 @@ class RegisterViewModel(
                 gender = gender
             )
 
-            _registerState.value = result.fold(
+            result.fold(
                 onSuccess = {
-                    UiState.Success(Unit)
+                    _registerState.value = UiState.Success(Unit)
+                    publishSuccess(
+                        title = "Kayıt Başarılı",
+                        description = "Hesabınız oluşturuldu. Giriş yapabilirsiniz."
+                    )
                 },
                 onFailure = { exception ->
-                    UiState.Error(exception.message ?: "Kayıt işlemi başarısız")
+                    _registerState.value = UiState.Empty
+                    publishError(
+                        throwable = exception,
+                        operationType = OperationType.REGISTER
+                    )
                 }
             )
         }

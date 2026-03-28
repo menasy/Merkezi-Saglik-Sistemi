@@ -2,7 +2,7 @@ package com.menasy.merkezisagliksistemi.data.model.seedData
 
 import com.menasy.merkezisagliksistemi.data.model.Hospital
 
-val hospitals = listOf(
+private val rawHospitals = listOf(
     Hospital(
         id = "625541",
         cityId = "adana",
@@ -7691,4 +7691,9 @@ val hospitals = listOf(
         detsisCode = "64529694",
         bedCount = 20
     )
+)
+
+val hospitals: List<Hospital> = assignBranchIdsToHospitals(
+    hospitals = rawHospitals,
+    branchIds = branches.map { branch -> branch.id }
 )

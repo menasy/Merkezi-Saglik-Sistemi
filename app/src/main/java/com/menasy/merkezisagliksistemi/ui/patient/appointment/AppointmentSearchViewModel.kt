@@ -1,6 +1,5 @@
 package com.menasy.merkezisagliksistemi.ui.patient.appointment
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.menasy.merkezisagliksistemi.data.model.Branch
 import com.menasy.merkezisagliksistemi.data.model.City
@@ -12,6 +11,9 @@ import com.menasy.merkezisagliksistemi.domain.usecase.GetCitiesUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetDistrictsByCityUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetDoctorsUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetHospitalsByDistrictUseCase
+import com.menasy.merkezisagliksistemi.ui.common.base.BaseViewModel
+import com.menasy.merkezisagliksistemi.ui.common.error.AppErrorReason
+import com.menasy.merkezisagliksistemi.ui.common.error.OperationType
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -45,7 +47,6 @@ data class AppointmentSearchUiState(
     val selectedDoctorId: String? = null,
     val startDateMillis: Long? = null,
     val endDateMillis: Long? = null,
-    val errorMessage: String? = null,
     val isDoctorFieldEnabled: Boolean = false
 )
 
@@ -55,34 +56,34 @@ class AppointmentSearchViewModel(
     private val getHospitalsByDistrictUseCase: GetHospitalsByDistrictUseCase,
     private val getBranchesUseCase: GetBranchesUseCase,
     private val getDoctorsUseCase: GetDoctorsUseCase
-) : ViewModel() {
+) : BaseViewModel() {
 
     private val _uiState = MutableStateFlow(AppointmentSearchUiState())
     val uiState: StateFlow<AppointmentSearchUiState> = _uiState.asStateFlow()
 
     fun loadInitialData() {
         viewModelScope.launch {
-            _uiState.update { it.copy(isLoading = true, errorMessage = null) }
+            _uiState.update { it.copy(isLoading = true) }
 
             val citiesResult = getCitiesUseCase()
             val branchesResult = getBranchesUseCase()
 
             val cities = citiesResult.getOrElse { error ->
-                _uiState.update {
-                    it.copy(isLoading = false, errorMessage = error.message ?: "İller yüklenemedi")
-                }
+                onDataLoadFailure(error)
                 return@launch
             }
 
             val branches = branchesResult.getOrElse { error ->
-                _uiState.update {
-                    it.copy(isLoading = false, errorMessage = error.message ?: "Poliklinikler yüklenemedi")
-                }
+                onDataLoadFailure(error)
                 return@launch
             }
 
             _uiState.update {
-                it.copy(isLoading = false, cities = cities, branches = branches)
+                it.copy(
+                    isLoading = false,
+                    cities = cities,
+                    branches = branches
+                )
             }
         }
     }
@@ -99,16 +100,13 @@ class AppointmentSearchViewModel(
                     districts = emptyList(),
                     hospitals = emptyList(),
                     doctors = emptyList(),
-                    isDoctorFieldEnabled = false,
-                    errorMessage = null
+                    isDoctorFieldEnabled = false
                 )
             }
 
             val districtsResult = getDistrictsByCityUseCase(cityId)
             val districts = districtsResult.getOrElse { error ->
-                _uiState.update {
-                    it.copy(isLoading = false, errorMessage = error.message ?: "İlçeler yüklenemedi")
-                }
+                onDataLoadFailure(error)
                 return@launch
             }
 
@@ -126,8 +124,7 @@ class AppointmentSearchViewModel(
                     selectedDoctorId = null,
                     hospitals = emptyList(),
                     doctors = emptyList(),
-                    isDoctorFieldEnabled = false,
-                    errorMessage = null
+                    isDoctorFieldEnabled = false
                 )
             }
             refreshHospitals()
@@ -143,8 +140,7 @@ class AppointmentSearchViewModel(
                     selectedDoctorId = null,
                     hospitals = emptyList(),
                     doctors = emptyList(),
-                    isDoctorFieldEnabled = false,
-                    errorMessage = null
+                    isDoctorFieldEnabled = false
                 )
             }
             refreshHospitals()
@@ -160,8 +156,7 @@ class AppointmentSearchViewModel(
                     selectedHospitalId = hospitalId,
                     selectedDoctorId = null,
                     doctors = emptyList(),
-                    isDoctorFieldEnabled = isSpecificHospitalSelected,
-                    errorMessage = null
+                    isDoctorFieldEnabled = isSpecificHospitalSelected
                 )
             }
 
@@ -178,63 +173,42 @@ class AppointmentSearchViewModel(
     fun onDateRangeSelected(
         startDateMillis: Long,
         endDateMillis: Long
-    ): Result<Unit> {
-        val todayStartMillis = getTodayStartMillis()
-
-        if (startDateMillis < todayStartMillis) {
-            return Result.failure(Exception("Geçmiş tarihte randevu araması yapılamaz"))
-        }
-
-        if (endDateMillis < startDateMillis) {
-            return Result.failure(Exception("Bitiş tarihi başlangıç tarihinden önce olamaz"))
-        }
-
-        val selectedDays = TimeUnit.MILLISECONDS.toDays(endDateMillis - startDateMillis) + 1
-        if (selectedDays > MAX_RANGE_DAYS) {
-            return Result.failure(Exception("Tarih aralığı en fazla 15 gün olabilir"))
+    ): Boolean {
+        val validationError = validateDateRange(startDateMillis, endDateMillis)
+        if (validationError != null) {
+            publishError(validationError)
+            return false
         }
 
         _uiState.update {
             it.copy(
                 startDateMillis = startDateMillis,
-                endDateMillis = endDateMillis,
-                errorMessage = null
+                endDateMillis = endDateMillis
             )
         }
-        return Result.success(Unit)
+        return true
     }
 
-    fun buildSearchCriteria(): Result<AppointmentSearchCriteria> {
+    fun buildSearchCriteria(): AppointmentSearchCriteria? {
         val state = _uiState.value
-        val cityId = state.selectedCityId
-            ?: return Result.failure(Exception("İl seçimi zorunludur"))
-        val branchId = state.selectedBranchId
-            ?: return Result.failure(Exception("Poliklinik seçimi zorunludur"))
-        val startDate = state.startDateMillis
-            ?: return Result.failure(Exception("Başlangıç tarihi seçilmelidir"))
-        val endDate = state.endDateMillis
-            ?: return Result.failure(Exception("Bitiş tarihi seçilmelidir"))
+        val cityId = state.selectedCityId ?: return validationFailure(AppErrorReason.CITY_SELECTION_REQUIRED)
+        val branchId = state.selectedBranchId ?: return validationFailure(AppErrorReason.BRANCH_SELECTION_REQUIRED)
+        val startDate = state.startDateMillis ?: return validationFailure(AppErrorReason.START_DATE_REQUIRED)
+        val endDate = state.endDateMillis ?: return validationFailure(AppErrorReason.END_DATE_REQUIRED)
 
-        val todayStartMillis = getTodayStartMillis()
-        if (startDate < todayStartMillis) {
-            return Result.failure(Exception("Geçmiş tarihte randevu araması yapılamaz"))
+        val validationError = validateDateRange(startDate, endDate)
+        if (validationError != null) {
+            return validationFailure(validationError)
         }
 
-        val selectedDays = TimeUnit.MILLISECONDS.toDays(endDate - startDate) + 1
-        if (selectedDays > MAX_RANGE_DAYS) {
-            return Result.failure(Exception("Tarih aralığı en fazla 15 gün olabilir"))
-        }
-
-        return Result.success(
-            AppointmentSearchCriteria(
-                startDateMillis = startDate,
-                endDateMillis = endDate,
-                cityId = cityId,
-                districtId = state.selectedDistrictId,
-                branchId = branchId,
-                hospitalId = state.selectedHospitalId,
-                doctorId = state.selectedDoctorId
-            )
+        return AppointmentSearchCriteria(
+            startDateMillis = startDate,
+            endDateMillis = endDate,
+            cityId = cityId,
+            districtId = state.selectedDistrictId,
+            branchId = branchId,
+            hospitalId = state.selectedHospitalId,
+            doctorId = state.selectedDoctorId
         )
     }
 
@@ -245,7 +219,7 @@ class AppointmentSearchViewModel(
             return
         }
 
-        _uiState.update { it.copy(isLoading = true, errorMessage = null) }
+        _uiState.update { it.copy(isLoading = true) }
 
         val hospitalsResult = getHospitalsByDistrictUseCase(
             cityId = cityId,
@@ -254,10 +228,19 @@ class AppointmentSearchViewModel(
 
         hospitalsResult.fold(
             onSuccess = { hospitals ->
+                val selectedBranchId = currentState.selectedBranchId
+                val filteredHospitals = if (selectedBranchId.isNullOrBlank()) {
+                    hospitals
+                } else {
+                    hospitals.filter { hospital ->
+                        hospital.branchIds.isEmpty() || selectedBranchId in hospital.branchIds
+                    }
+                }
+
                 _uiState.update {
                     it.copy(
                         isLoading = false,
-                        hospitals = hospitals,
+                        hospitals = filteredHospitals,
                         selectedHospitalId = null,
                         selectedDoctorId = null,
                         doctors = emptyList(),
@@ -266,12 +249,7 @@ class AppointmentSearchViewModel(
                 }
             },
             onFailure = { error ->
-                _uiState.update {
-                    it.copy(
-                        isLoading = false,
-                        errorMessage = error.message ?: "Hastaneler yüklenemedi"
-                    )
-                }
+                onDataLoadFailure(error)
             }
         )
     }
@@ -291,7 +269,7 @@ class AppointmentSearchViewModel(
             return
         }
 
-        _uiState.update { it.copy(isLoading = true, errorMessage = null) }
+        _uiState.update { it.copy(isLoading = true) }
 
         val doctorsResult = getDoctorsUseCase(
             hospitalId = hospitalId,
@@ -313,12 +291,41 @@ class AppointmentSearchViewModel(
                     it.copy(
                         isLoading = false,
                         doctors = emptyList(),
-                        selectedDoctorId = null,
-                        errorMessage = error.message ?: "Hekimler yüklenemedi"
+                        selectedDoctorId = null
                     )
                 }
+                publishError(error, OperationType.FETCH_DATA)
             }
         )
+    }
+
+    private fun validateDateRange(startDateMillis: Long, endDateMillis: Long): AppErrorReason? {
+        val todayStartMillis = getTodayStartMillis()
+
+        if (startDateMillis < todayStartMillis) {
+            return AppErrorReason.PAST_DATE_NOT_ALLOWED
+        }
+
+        if (endDateMillis < startDateMillis) {
+            return AppErrorReason.END_DATE_BEFORE_START
+        }
+
+        val selectedDays = TimeUnit.MILLISECONDS.toDays(endDateMillis - startDateMillis) + 1
+        if (selectedDays > MAX_RANGE_DAYS) {
+            return AppErrorReason.DATE_RANGE_TOO_LONG
+        }
+
+        return null
+    }
+
+    private fun validationFailure(reason: AppErrorReason): AppointmentSearchCriteria? {
+        publishError(reason)
+        return null
+    }
+
+    private fun onDataLoadFailure(error: Throwable) {
+        _uiState.update { it.copy(isLoading = false) }
+        publishError(error, OperationType.FETCH_DATA)
     }
 
     private fun getTodayStartMillis(): Long {

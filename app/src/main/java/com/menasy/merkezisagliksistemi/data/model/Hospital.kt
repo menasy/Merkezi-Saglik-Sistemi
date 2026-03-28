@@ -6,5 +6,6 @@ data class Hospital(
     val districtId: String = "",      // ilce id
     val name: String = "",            // KURUM ADI
     val detsisCode: String = "",      // DETSIS KODU
-    val bedCount: Int = 0             // Tescil Edilen Yatak Sayisi
+    val bedCount: Int = 0,            // Tescil Edilen Yatak Sayisi
+    val branchIds: List<String> = emptyList()
 )

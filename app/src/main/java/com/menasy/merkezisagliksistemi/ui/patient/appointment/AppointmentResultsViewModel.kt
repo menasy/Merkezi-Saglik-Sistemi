@@ -1,11 +1,12 @@
 package com.menasy.merkezisagliksistemi.ui.patient.appointment
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.menasy.merkezisagliksistemi.data.model.Doctor
 import com.menasy.merkezisagliksistemi.domain.usecase.GetBranchesUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetDoctorsUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetHospitalsByDistrictUseCase
+import com.menasy.merkezisagliksistemi.ui.common.base.BaseViewModel
+import com.menasy.merkezisagliksistemi.ui.common.error.OperationType
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -38,15 +39,14 @@ data class AppointmentResultsUiState(
     val isLoading: Boolean = false,
     val resultSummary: String = "",
     val appointments: List<AppointmentResultUiModel> = emptyList(),
-    val emptyMessage: String? = null,
-    val errorMessage: String? = null
+    val emptyMessage: String? = null
 )
 
 class AppointmentResultsViewModel(
     private val getDoctorsUseCase: GetDoctorsUseCase,
     private val getHospitalsByDistrictUseCase: GetHospitalsByDistrictUseCase,
     private val getBranchesUseCase: GetBranchesUseCase
-) : ViewModel() {
+) : BaseViewModel() {
 
     private val _uiState = MutableStateFlow(AppointmentResultsUiState())
     val uiState: StateFlow<AppointmentResultsUiState> = _uiState.asStateFlow()
@@ -58,7 +58,7 @@ class AppointmentResultsViewModel(
 
         viewModelScope.launch {
             _uiState.update {
-                it.copy(isLoading = true, errorMessage = null, emptyMessage = null)
+                it.copy(isLoading = true, emptyMessage = null)
             }
 
             val hospitalsResult = getHospitalsByDistrictUseCase(
@@ -66,18 +66,38 @@ class AppointmentResultsViewModel(
                 districtId = args.districtId
             )
 
-            val hospitals = hospitalsResult.getOrElse { error ->
-                _uiState.update {
-                    it.copy(isLoading = false, errorMessage = error.message ?: "Hastaneler listelenemedi")
+            val hospitalsRaw = hospitalsResult.getOrElse { error ->
+                onDataLoadFailure(error)
+                return@launch
+            }
+            val hospitals = if (args.branchId.isNullOrBlank()) {
+                hospitalsRaw
+            } else {
+                hospitalsRaw.filter { hospital ->
+                    hospital.branchIds.isEmpty() || args.branchId in hospital.branchIds
                 }
+            }
+
+            if (hospitals.isEmpty()) {
+                _uiState.update {
+                    it.copy(
+                        isLoading = false,
+                        appointments = emptyList(),
+                        emptyMessage = "Seçilen filtrelere uygun hastane bulunamadı.",
+                        resultSummary = "0 uygun randevu bulundu"
+                    )
+                }
+                publishInfo(
+                    title = "Sonuç Bulunamadı",
+                    description = "Seçilen branş için uygun hastane bulunamadı."
+                )
+                isLoaded = true
                 return@launch
             }
 
             val branchesResult = getBranchesUseCase()
             val branches = branchesResult.getOrElse { error ->
-                _uiState.update {
-                    it.copy(isLoading = false, errorMessage = error.message ?: "Poliklinik bilgisi alınamadı")
-                }
+                onDataLoadFailure(error)
                 return@launch
             }
 
@@ -95,9 +115,7 @@ class AppointmentResultsViewModel(
             }
 
             val doctors = doctorsResult.getOrElse { error ->
-                _uiState.update {
-                    it.copy(isLoading = false, errorMessage = error.message ?: "Hekimler listelenemedi")
-                }
+                onDataLoadFailure(error)
                 return@launch
             }
 
@@ -114,6 +132,10 @@ class AppointmentResultsViewModel(
                         resultSummary = "0 uygun randevu bulundu"
                     )
                 }
+                publishInfo(
+                    title = "Randevu Bulunamadı",
+                    description = "Seçilen filtrelere uygun randevu bulunamadı."
+                )
                 isLoaded = true
                 return@launch
             }
@@ -144,6 +166,11 @@ class AppointmentResultsViewModel(
             }
             isLoaded = true
         }
+    }
+
+    private fun onDataLoadFailure(error: Throwable) {
+        _uiState.update { it.copy(isLoading = false) }
+        publishError(error, OperationType.FETCH_DATA)
     }
 
     private fun Doctor.toAppointmentResult(

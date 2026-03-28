@@ -4,17 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.menasy.merkezisagliksistemi.R
 import com.menasy.merkezisagliksistemi.databinding.FragmentLoginBinding
+import com.menasy.merkezisagliksistemi.ui.common.base.BaseFragment
+import com.menasy.merkezisagliksistemi.ui.common.error.AppErrorReason
+import com.menasy.merkezisagliksistemi.ui.common.error.OperationType
 import com.menasy.merkezisagliksistemi.ui.common.state.UiState
 import kotlinx.coroutines.launch
 
-class LoginFragment : Fragment() {
+class LoginFragment : BaseFragment() {
 
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
@@ -36,6 +37,7 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupClickListeners()
+        observeUiEvents(viewModel.uiEvents)
         observeLoginState()
     }
 
@@ -76,11 +78,7 @@ class LoginFragment : Fragment() {
                             }
 
                             else -> {
-                                Toast.makeText(
-                                    requireContext(),
-                                    "Geçersiz kullanıcı rolü",
-                                    Toast.LENGTH_SHORT
-                                ).show()
+                                showError(AppErrorReason.INVALID_USER_ROLE)
                             }
                         }
 
@@ -89,7 +87,8 @@ class LoginFragment : Fragment() {
 
                     is UiState.Error -> {
                         binding.progressBar.visibility = View.GONE
-                        Toast.makeText(requireContext(), state.message, Toast.LENGTH_SHORT).show()
+                        showError(Throwable(state.message), OperationType.LOGIN)
+                        viewModel.clearState()
                     }
                 }
             }

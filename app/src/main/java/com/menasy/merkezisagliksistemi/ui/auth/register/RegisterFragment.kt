@@ -5,17 +5,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.Toast
-import androidx.fragment.app.Fragment
+import com.google.android.material.datepicker.CalendarConstraints
+import com.google.android.material.datepicker.DateValidatorPointBackward
+import com.google.android.material.datepicker.MaterialDatePicker
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.menasy.merkezisagliksistemi.R
 import com.menasy.merkezisagliksistemi.databinding.FragmentRegisterBinding
+import com.menasy.merkezisagliksistemi.ui.common.base.BaseFragment
+import com.menasy.merkezisagliksistemi.ui.common.error.OperationType
 import com.menasy.merkezisagliksistemi.ui.common.state.UiState
 import kotlinx.coroutines.launch
+import java.time.Instant
+import java.time.LocalDate
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
+import java.util.Locale
 
-class RegisterFragment : Fragment() {
+class RegisterFragment : BaseFragment() {
 
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
@@ -23,6 +31,9 @@ class RegisterFragment : Fragment() {
     private val viewModel: RegisterViewModel by viewModels {
         RegisterViewModelFactory()
     }
+
+    private val birthDateFormatter =
+        DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.forLanguageTag("tr-TR"))
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,7 +48,9 @@ class RegisterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupGenderDropdown()
+        setupBirthDatePicker()
         setupClickListeners()
+        observeUiEvents(viewModel.uiEvents)
         observeRegisterState()
     }
 
@@ -45,10 +58,20 @@ class RegisterFragment : Fragment() {
         val genderList = listOf("Erkek", "Kadın")
         val adapter = ArrayAdapter(
             requireContext(),
-            android.R.layout.simple_list_item_1,
+            R.layout.item_dropdown_option,
+            android.R.id.text1,
             genderList
         )
         binding.actvGender.setAdapter(adapter)
+    }
+
+    private fun setupBirthDatePicker() {
+        binding.etBirthDate.setOnClickListener {
+            showBirthDatePicker()
+        }
+        binding.tilBirthDate.setEndIconOnClickListener {
+            showBirthDatePicker()
+        }
     }
 
     private fun setupClickListeners() {
@@ -89,18 +112,14 @@ class RegisterFragment : Fragment() {
 
                     is UiState.Success -> {
                         binding.progressBar.visibility = View.GONE
-                        Toast.makeText(
-                            requireContext(),
-                            "Kayıt başarılı. Giriş yapabilirsiniz.",
-                            Toast.LENGTH_SHORT
-                        ).show()
                         viewModel.clearState()
                         navigateBackToLogin()
                     }
 
                     is UiState.Error -> {
                         binding.progressBar.visibility = View.GONE
-                        Toast.makeText(requireContext(), state.message, Toast.LENGTH_SHORT).show()
+                        showError(Throwable(state.message), OperationType.REGISTER)
+                        viewModel.clearState()
                     }
                 }
             }
@@ -116,8 +135,53 @@ class RegisterFragment : Fragment() {
         }
     }
 
+    private fun showBirthDatePicker() {
+        val constraints = CalendarConstraints.Builder()
+            .setValidator(DateValidatorPointBackward.now())
+            .build()
+
+        val selectedDate = selectedBirthDateMillis() ?: MaterialDatePicker.todayInUtcMilliseconds()
+
+        val picker = MaterialDatePicker.Builder.datePicker()
+            .setTitleText("Doğum tarihi seçin")
+            .setSelection(selectedDate)
+            .setCalendarConstraints(constraints)
+            .setTheme(R.style.ThemeOverlay_MerkeziSaglik_DateRangePicker)
+            .build()
+
+        picker.addOnPositiveButtonClickListener { millis ->
+            binding.etBirthDate.setText(formatBirthDate(millis))
+        }
+
+        picker.show(parentFragmentManager, BIRTH_DATE_PICKER_TAG)
+    }
+
+    private fun selectedBirthDateMillis(): Long? {
+        val text = binding.etBirthDate.text?.toString().orEmpty().trim()
+        if (text.isBlank()) return null
+
+        return runCatching {
+            val localDate = LocalDate.parse(text, birthDateFormatter)
+            localDate
+                .atStartOfDay(ZoneId.systemDefault())
+                .toInstant()
+                .toEpochMilli()
+        }.getOrNull()
+    }
+
+    private fun formatBirthDate(millis: Long): String {
+        val date = Instant.ofEpochMilli(millis)
+            .atZone(ZoneId.systemDefault())
+            .toLocalDate()
+        return birthDateFormatter.format(date)
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private companion object {
+        const val BIRTH_DATE_PICKER_TAG = "birth_date_picker"
     }
 }

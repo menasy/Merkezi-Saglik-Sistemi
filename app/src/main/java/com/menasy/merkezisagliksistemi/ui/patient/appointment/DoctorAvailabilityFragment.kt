@@ -4,17 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.menasy.merkezisagliksistemi.R
 import com.menasy.merkezisagliksistemi.databinding.FragmentDoctorAvailabilityBinding
+import com.menasy.merkezisagliksistemi.ui.common.base.BaseFragment
+import com.menasy.merkezisagliksistemi.ui.common.error.AppErrorReason
 import kotlinx.coroutines.launch
 
-class DoctorAvailabilityFragment : Fragment() {
+class DoctorAvailabilityFragment : BaseFragment() {
 
     private var _binding: FragmentDoctorAvailabilityBinding? = null
     private val binding get() = _binding!!
@@ -44,8 +44,7 @@ class DoctorAvailabilityFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (availabilityArgs == null) {
-            Toast.makeText(requireContext(), "Doktor uygunluk bilgisi bulunamadı", Toast.LENGTH_SHORT)
-                .show()
+            showError(AppErrorReason.DOCTOR_AVAILABILITY_MISSING)
             findNavController().navigateUp()
             return
         }
@@ -53,6 +52,7 @@ class DoctorAvailabilityFragment : Fragment() {
         setupToolbar()
         setupRecyclerView()
         setupActions()
+        observeUiEvents(viewModel.uiEvents)
         observeUiState()
         viewModel.load(availabilityArgs!!)
     }
@@ -81,19 +81,8 @@ class DoctorAvailabilityFragment : Fragment() {
 
     private fun setupActions() {
         binding.btnContinueToConfirmation.setOnClickListener {
-            val confirmationResult = viewModel.buildConfirmationArgs()
-            confirmationResult.fold(
-                onSuccess = { confirmationArgs ->
-                    navigateToConfirmation(confirmationArgs)
-                },
-                onFailure = { exception ->
-                    Toast.makeText(
-                        requireContext(),
-                        exception.message ?: "Lütfen bir saat seçin",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            )
+            val confirmationArgs = viewModel.buildConfirmationArgs() ?: return@setOnClickListener
+            navigateToConfirmation(confirmationArgs)
         }
     }
 
@@ -109,10 +98,6 @@ class DoctorAvailabilityFragment : Fragment() {
                     state.selectedDateMillis != null && state.selectedTimeLabel != null
 
                 slotsAdapter.submitList(state.dayAvailabilities)
-
-                state.errorMessage?.let { message ->
-                    Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
-                }
             }
         }
     }

@@ -4,21 +4,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.menasy.merkezisagliksistemi.R
 import com.menasy.merkezisagliksistemi.databinding.FragmentAppointmentResultsBinding
+import com.menasy.merkezisagliksistemi.ui.common.base.BaseFragment
+import com.menasy.merkezisagliksistemi.ui.common.error.AppErrorReason
 import kotlinx.coroutines.launch
 import java.time.Instant
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 
-class AppointmentResultsFragment : Fragment() {
+class AppointmentResultsFragment : BaseFragment() {
 
     private var _binding: FragmentAppointmentResultsBinding? = null
     private val binding get() = _binding!!
@@ -48,13 +48,14 @@ class AppointmentResultsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (searchArgs == null) {
-            Toast.makeText(requireContext(), "Arama kriterleri bulunamadı", Toast.LENGTH_SHORT).show()
+            showError(AppErrorReason.SEARCH_CRITERIA_MISSING)
             findNavController().navigateUp()
             return
         }
 
         setupToolbar()
         setupRecyclerView()
+        observeUiEvents(viewModel.uiEvents)
         observeUiState()
         bindSearchRange()
         viewModel.loadAppointments(searchArgs!!)
@@ -95,10 +96,6 @@ class AppointmentResultsFragment : Fragment() {
                     if (state.appointments.isNotEmpty()) View.VISIBLE else View.GONE
 
                 resultAdapter.submitList(state.appointments)
-
-                state.errorMessage?.let { error ->
-                    Toast.makeText(requireContext(), error, Toast.LENGTH_SHORT).show()
-                }
             }
         }
     }

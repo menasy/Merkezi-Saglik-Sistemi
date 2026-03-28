@@ -1,8 +1,9 @@
 package com.menasy.merkezisagliksistemi.ui.patient.appointment
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.menasy.merkezisagliksistemi.domain.usecase.GetCurrentUserUseCase
+import com.menasy.merkezisagliksistemi.ui.common.base.BaseViewModel
+import com.menasy.merkezisagliksistemi.ui.common.error.OperationType
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -19,13 +20,12 @@ data class AppointmentConfirmationUiState(
     val branchName: String = "",
     val dateLabel: String = "",
     val timeLabel: String = "",
-    val patientName: String = "Yükleniyor...",
-    val errorMessage: String? = null
+    val patientName: String = "Yükleniyor..."
 )
 
 class AppointmentConfirmationViewModel(
     private val getCurrentUserUseCase: GetCurrentUserUseCase
-) : ViewModel() {
+) : BaseViewModel() {
 
     private val _uiState = MutableStateFlow(AppointmentConfirmationUiState())
     val uiState: StateFlow<AppointmentConfirmationUiState> = _uiState.asStateFlow()
@@ -42,23 +42,34 @@ class AppointmentConfirmationViewModel(
             hospitalName = args.hospitalName,
             branchName = args.branchName,
             dateLabel = formatDate(args.dateMillis),
-            timeLabel = args.timeLabel,
-            errorMessage = null
+            timeLabel = args.timeLabel
         )
 
         viewModelScope.launch {
             val patientNameResult = getCurrentUserUseCase.getCurrentUserFullName()
-            val patientName = patientNameResult.getOrElse { "Giriş yapan kullanıcı" }
-
-            _uiState.value = _uiState.value.copy(
-                isLoading = false,
-                patientName = patientName
+            patientNameResult.fold(
+                onSuccess = { patientName ->
+                    _uiState.value = _uiState.value.copy(
+                        isLoading = false,
+                        patientName = patientName
+                    )
+                },
+                onFailure = { exception ->
+                    _uiState.value = _uiState.value.copy(
+                        isLoading = false,
+                        patientName = "Giriş yapan kullanıcı"
+                    )
+                    publishError(exception, OperationType.SESSION)
+                }
             )
         }
     }
 
-    fun confirm(): Result<String> {
-        return Result.success("Randevu oluşturma işlemi bir sonraki aşamada aktifleştirilecek.")
+    fun confirm() {
+        publishInfo(
+            title = "Bilgilendirme",
+            description = "Randevu oluşturma işlemi bir sonraki aşamada aktifleştirilecek."
+        )
     }
 
     private fun formatDate(millis: Long): String {

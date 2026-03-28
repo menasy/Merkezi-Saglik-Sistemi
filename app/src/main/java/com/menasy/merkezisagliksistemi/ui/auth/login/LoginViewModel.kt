@@ -4,6 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.menasy.merkezisagliksistemi.data.model.LoginResult
 import com.menasy.merkezisagliksistemi.domain.usecase.LoginUserUseCase
+import com.menasy.merkezisagliksistemi.ui.common.base.BaseViewModel
+import com.menasy.merkezisagliksistemi.ui.common.error.AppErrorReason
+import com.menasy.merkezisagliksistemi.ui.common.error.OperationType
 import com.menasy.merkezisagliksistemi.ui.common.state.UiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -12,14 +15,14 @@ import kotlinx.coroutines.launch
 
 class LoginViewModel(
     private val loginUserUseCase: LoginUserUseCase
-) : ViewModel() {
+) : BaseViewModel() {
 
     private val _loginState = MutableStateFlow<UiState<LoginResult>>(UiState.Empty)
     val loginState: StateFlow<UiState<LoginResult>> = _loginState.asStateFlow()
 
     fun login(email: String, password: String) {
         if (email.isBlank() || password.isBlank()) {
-            _loginState.value = UiState.Error("E-posta ve şifre boş bırakılamaz")
+            publishError(AppErrorReason.EMAIL_AND_PASSWORD_REQUIRED)
             return
         }
 
@@ -28,12 +31,20 @@ class LoginViewModel(
 
             val result = loginUserUseCase(email, password)
 
-            _loginState.value = result.fold(
+            result.fold(
                 onSuccess = { loginResult ->
-                    UiState.Success(loginResult)
+                    _loginState.value = UiState.Success(loginResult)
+                    publishSuccess(
+                        title = "Giriş Başarılı",
+                        description = "Hesabınıza yönlendiriliyorsunuz."
+                    )
                 },
                 onFailure = { exception ->
-                    UiState.Error(exception.message ?: "Giriş işlemi başarısız")
+                    _loginState.value = UiState.Empty
+                    publishError(
+                        throwable = exception,
+                        operationType = OperationType.LOGIN
+                    )
                 }
             )
         }

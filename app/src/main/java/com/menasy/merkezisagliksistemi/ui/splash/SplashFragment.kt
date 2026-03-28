@@ -4,16 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.menasy.merkezisagliksistemi.R
 import com.menasy.merkezisagliksistemi.databinding.FragmentSplashBinding
+import com.menasy.merkezisagliksistemi.ui.common.base.BaseFragment
 import kotlinx.coroutines.launch
 
-class SplashFragment : Fragment() {
+class SplashFragment : BaseFragment() {
 
     private var _binding: FragmentSplashBinding? = null
     private val binding get() = _binding!!
@@ -34,6 +33,7 @@ class SplashFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        observeUiEvents(viewModel.uiEvents)
         observeNavigationState()
         viewModel.initializeApp()
     }
@@ -59,12 +59,6 @@ class SplashFragment : Fragment() {
                     is SplashNavigationState.GoToDoctorHome -> {
                         binding.progressBar.visibility = View.GONE
                         navigateIfCurrent(R.id.action_splashFragment_to_doctorHomeFragment)
-                    }
-
-                    is SplashNavigationState.Error -> {
-                        binding.progressBar.visibility = View.GONE
-                        Toast.makeText(requireContext(), state.message, Toast.LENGTH_SHORT).show()
-                        navigateIfCurrent(R.id.action_splashFragment_to_loginFragment)
                     }
                 }
             }

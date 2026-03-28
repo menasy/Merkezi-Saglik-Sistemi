@@ -5,23 +5,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.DateValidatorPointForward
 import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.menasy.merkezisagliksistemi.R
 import com.menasy.merkezisagliksistemi.databinding.FragmentAppointmentSearchBinding
+import com.menasy.merkezisagliksistemi.ui.common.base.BaseFragment
 import kotlinx.coroutines.launch
 import java.time.Instant
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 
-class AppointmentSearchFragment : Fragment() {
+class AppointmentSearchFragment : BaseFragment() {
 
     private var _binding: FragmentAppointmentSearchBinding? = null
     private val binding get() = _binding!!
@@ -51,9 +51,35 @@ class AppointmentSearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupSearchableDropdowns()
         setupListeners()
+        observeUiEvents(viewModel.uiEvents)
         observeUiState()
         viewModel.loadInitialData()
+    }
+
+    private fun setupSearchableDropdowns() {
+        configureSearchableDropdown(binding.actCity)
+        configureSearchableDropdown(binding.actDistrict)
+        configureSearchableDropdown(binding.actBranch)
+        configureSearchableDropdown(binding.actHospital)
+        configureSearchableDropdown(binding.actDoctor)
+    }
+
+    private fun configureSearchableDropdown(input: MaterialAutoCompleteTextView) {
+        input.threshold = 1
+
+        input.setOnClickListener {
+            if (input.isEnabled) {
+                input.showDropDown()
+            }
+        }
+
+        input.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus && input.isEnabled && input.adapter != null && input.adapter.count > 0) {
+                input.showDropDown()
+            }
+        }
     }
 
     private fun setupListeners() {
@@ -89,19 +115,8 @@ class AppointmentSearchFragment : Fragment() {
         }
 
         binding.btnSearchAppointments.setOnClickListener {
-            val result = viewModel.buildSearchCriteria()
-            result.fold(
-                onSuccess = { criteria ->
-                    navigateToResults(criteria)
-                },
-                onFailure = { exception ->
-                    Toast.makeText(
-                        requireContext(),
-                        exception.message ?: "Formu kontrol edin",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            )
+            val criteria = viewModel.buildSearchCriteria() ?: return@setOnClickListener
+            navigateToResults(criteria)
         }
     }
 
@@ -138,10 +153,6 @@ class AppointmentSearchFragment : Fragment() {
                 bindDateRange(state.startDateMillis, state.endDateMillis)
 
                 bindDoctorFieldEnabled(state.isDoctorFieldEnabled)
-
-                state.errorMessage?.let { message ->
-                    Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
-                }
             }
         }
     }
@@ -241,14 +252,7 @@ class AppointmentSearchFragment : Fragment() {
             val start = range.first ?: return@addOnPositiveButtonClickListener
             val end = range.second ?: return@addOnPositiveButtonClickListener
 
-            val result = viewModel.onDateRangeSelected(start, end)
-            result.exceptionOrNull()?.let { exception ->
-                Toast.makeText(
-                    requireContext(),
-                    exception.message ?: "Tarih aralığı geçersiz",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
+            viewModel.onDateRangeSelected(start, end)
         }
 
         picker.show(parentFragmentManager, "appointment_date_range_picker")
@@ -257,7 +261,7 @@ class AppointmentSearchFragment : Fragment() {
     private fun updateDropdown(
         labels: List<String>,
         selectedLabel: String?,
-        input: com.google.android.material.textfield.MaterialAutoCompleteTextView
+        input: MaterialAutoCompleteTextView
     ) {
         val adapter = ArrayAdapter(
             requireContext(),

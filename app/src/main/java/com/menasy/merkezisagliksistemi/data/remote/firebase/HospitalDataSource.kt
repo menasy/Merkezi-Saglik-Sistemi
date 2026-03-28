@@ -69,7 +69,8 @@ class HospitalDataSource(
                 val resolvedId = hospital.id.ifBlank { document.id }
                 hospital.copy(
                     id = resolvedId,
-                    name = toTurkishDisplayText(hospital.name)
+                    name = toTurkishDisplayText(hospital.name),
+                    branchIds = hospital.branchIds.distinct()
                 )
             }
         }
@@ -89,7 +90,8 @@ class HospitalDataSource(
                 val resolvedId = hospital.id.ifBlank { document.id }
                 hospital.copy(
                     id = resolvedId,
-                    name = toTurkishDisplayText(hospital.name)
+                    name = toTurkishDisplayText(hospital.name),
+                    branchIds = hospital.branchIds.distinct()
                 )
             }
         }

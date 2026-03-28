@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MerkeziSaglikSistemi</string>
+    <string name="app_name">Merkezi Sağlik Sistemi</string>
     <string name="bottom_menu_home">Ana Sayfa</string>
     <string name="bottom_menu_appointments">Randevularım</string>
     <string name="bottom_menu_prescriptions">Reçetelerim</string>
@@ -18,4 +18,5 @@
     <string name="account_todo_title">Hesabım</string>
     <string name="account_todo_description">TODO: Profil bilgileri, güvenlik ve çıkış işlemleri bu ekrana taşınacak.</string>
     <string name="account_todo_hint">Bu bölümde kısa süre içinde kişisel bilgiler ve tercih ayarları yer alacak.</string>
+    <string name="message_close">Mesajı kapat</string>
 </resources>

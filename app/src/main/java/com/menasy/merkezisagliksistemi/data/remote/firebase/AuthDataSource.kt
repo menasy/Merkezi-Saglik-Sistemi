@@ -4,8 +4,10 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.menasy.merkezisagliksistemi.data.model.Patient
 import com.menasy.merkezisagliksistemi.data.model.User
-import kotlinx.coroutines.tasks.await
 import com.menasy.merkezisagliksistemi.data.model.LoginResult
+import com.menasy.merkezisagliksistemi.ui.common.error.AppErrorReason
+import com.menasy.merkezisagliksistemi.ui.common.error.AppException
+import kotlinx.coroutines.tasks.await
 
 class AuthDataSource(
     private val auth: FirebaseAuth,
@@ -23,7 +25,7 @@ class AuthDataSource(
         return try {
             val authResult = auth.createUserWithEmailAndPassword(email, password).await()
             val uid = authResult.user?.uid
-                ?: return Result.failure(Exception("User UID not found"))
+                ?: return Result.failure(AppException(AppErrorReason.USER_UID_MISSING))
 
             val user = User(
                 id = uid,
@@ -63,7 +65,7 @@ class AuthDataSource(
         return try {
             val authResult = auth.signInWithEmailAndPassword(email, password).await()
             val uid = authResult.user?.uid
-                ?: return Result.failure(Exception("User not found"))
+                ?: return Result.failure(AppException(AppErrorReason.USER_NOT_FOUND))
 
             val snapshot = firestore.collection("users")
                 .document(uid)
@@ -71,11 +73,11 @@ class AuthDataSource(
                 .await()
 
             if (!snapshot.exists()) {
-                return Result.failure(Exception("User record not found in Firestore"))
+                return Result.failure(AppException(AppErrorReason.USER_RECORD_NOT_FOUND))
             }
 
             val role = snapshot.getString("role")
-                ?: return Result.failure(Exception("Role information not found"))
+                ?: return Result.failure(AppException(AppErrorReason.USER_ROLE_NOT_FOUND))
 
             Result.success(LoginResult(uid = uid, role = role))
         } catch (e: Exception) {
@@ -90,7 +92,7 @@ class AuthDataSource(
     suspend fun getCurrentUserRole(): Result<String> {
         return try {
             val uid = auth.currentUser?.uid
-                ?: return Result.failure(Exception("No active session found"))
+                ?: return Result.failure(AppException(AppErrorReason.NO_ACTIVE_SESSION))
 
             val snapshot = firestore.collection("users")
                 .document(uid)
@@ -98,7 +100,7 @@ class AuthDataSource(
                 .await()
 
             val role = snapshot.getString("role")
-                ?: return Result.failure(Exception("Role information not found"))
+                ?: return Result.failure(AppException(AppErrorReason.USER_ROLE_NOT_FOUND))
 
             Result.success(role)
         } catch (e: Exception) {
@@ -109,7 +111,7 @@ class AuthDataSource(
     suspend fun getCurrentUserFullName(): Result<String> {
         return try {
             val uid = auth.currentUser?.uid
-                ?: return Result.failure(Exception("No active session found"))
+                ?: return Result.failure(AppException(AppErrorReason.NO_ACTIVE_SESSION))
 
             val snapshot = firestore.collection("users")
                 .document(uid)
@@ -117,11 +119,11 @@ class AuthDataSource(
                 .await()
 
             if (!snapshot.exists()) {
-                return Result.failure(Exception("User record not found in Firestore"))
+                return Result.failure(AppException(AppErrorReason.USER_RECORD_NOT_FOUND))
             }
 
             val fullName = snapshot.getString("fullName")
-                ?: return Result.failure(Exception("Full name information not found"))
+                ?: return Result.failure(AppException(AppErrorReason.USER_FULL_NAME_NOT_FOUND))
 
             Result.success(fullName)
         } catch (e: Exception) {

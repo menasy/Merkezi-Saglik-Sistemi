@@ -23,4 +23,15 @@
 
     <color name="text_primary">#1A1A1A</color>
     <color name="text_secondary">#666666</color>
+
+    <color name="message_success">#1D7FF2</color>
+    <color name="message_info">#1D7FF2</color>
+    <color name="message_warning">#B26A00</color>
+    <color name="message_error">#D40D12</color>
+    <color name="message_description">#667085</color>
+    <color name="message_card_stroke">#E5E7EB</color>
+
+    <color name="register_chip_bg">#1FFFFFFF</color>
+    <color name="register_chip_text">#EAF4FF</color>
+    <color name="register_card_stroke">#D9E6F7</color>
 </resources>

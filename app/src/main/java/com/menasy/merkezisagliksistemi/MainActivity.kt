@@ -13,11 +13,15 @@ import androidx.navigation.NavController
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment
 import com.menasy.merkezisagliksistemi.databinding.ActivityMainBinding
+import com.menasy.merkezisagliksistemi.ui.common.message.GlobalMessageController
+import com.menasy.merkezisagliksistemi.ui.common.message.MessageHost
+import com.menasy.merkezisagliksistemi.ui.common.message.UiMessage
 import com.menasy.merkezisagliksistemi.ui.common.widget.PatientBottomMenuView
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MessageHost {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
+    private lateinit var messageController: GlobalMessageController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.navHostFragment) as NavHostFragment
         navController = navHostFragment.navController
+        messageController = GlobalMessageController(binding.globalMessageView)
 
         setupBottomMenu()
         observeDestinationChanges()
@@ -67,6 +72,9 @@ class MainActivity : AppCompatActivity() {
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { _, insets ->
             val topInset = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
             binding.navHostFragment.updatePadding(top = topInset)
+            binding.globalMessageView.updateLayoutParams<androidx.constraintlayout.widget.ConstraintLayout.LayoutParams> {
+                topMargin = topInset + dp(12)
+            }
             binding.patientBottomMenu.updateLayoutParams<androidx.constraintlayout.widget.ConstraintLayout.LayoutParams> {
                 bottomMargin = dp(6)
             }
@@ -82,5 +90,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun dp(value: Int): Int {
         return (value * resources.displayMetrics.density).toInt()
+    }
+
+    override fun showMessage(message: UiMessage) {
+        messageController.show(message)
     }
 }

@@ -4,15 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.menasy.merkezisagliksistemi.databinding.FragmentAppointmentConfirmationBinding
+import com.menasy.merkezisagliksistemi.ui.common.base.BaseFragment
+import com.menasy.merkezisagliksistemi.ui.common.error.AppErrorReason
 import kotlinx.coroutines.launch
 
-class AppointmentConfirmationFragment : Fragment() {
+class AppointmentConfirmationFragment : BaseFragment() {
 
     private var _binding: FragmentAppointmentConfirmationBinding? = null
     private val binding get() = _binding!!
@@ -41,13 +41,13 @@ class AppointmentConfirmationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (confirmationArgs == null) {
-            Toast.makeText(requireContext(), "Randevu onay bilgisi bulunamadı", Toast.LENGTH_SHORT)
-                .show()
+            showError(AppErrorReason.APPOINTMENT_CONFIRMATION_MISSING)
             findNavController().navigateUp()
             return
         }
 
         setupToolbar()
+        observeUiEvents(viewModel.uiEvents)
         observeUiState()
         setupActions()
         viewModel.load(confirmationArgs!!)
@@ -61,19 +61,7 @@ class AppointmentConfirmationFragment : Fragment() {
 
     private fun setupActions() {
         binding.btnConfirmAppointment.setOnClickListener {
-            val result = viewModel.confirm()
-            result.fold(
-                onSuccess = { message ->
-                    Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
-                },
-                onFailure = { exception ->
-                    Toast.makeText(
-                        requireContext(),
-                        exception.message ?: "Randevu onayı sırasında bir sorun oluştu",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            )
+            viewModel.confirm()
         }
     }
 
@@ -87,10 +75,6 @@ class AppointmentConfirmationFragment : Fragment() {
                 binding.tvConfirmDateValue.text = state.dateLabel
                 binding.tvConfirmTimeValue.text = state.timeLabel
                 binding.tvConfirmPatientValue.text = state.patientName
-
-                state.errorMessage?.let { message ->
-                    Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
-                }
             }
         }
     }

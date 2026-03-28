@@ -1,9 +1,11 @@
 package com.menasy.merkezisagliksistemi.ui.splash
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.menasy.merkezisagliksistemi.domain.usecase.GetCurrentUserUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.InitializeReferenceDataUseCase
+import com.menasy.merkezisagliksistemi.ui.common.base.BaseViewModel
+import com.menasy.merkezisagliksistemi.ui.common.error.AppErrorReason
+import com.menasy.merkezisagliksistemi.ui.common.error.OperationType
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -14,13 +16,12 @@ sealed class SplashNavigationState {
     data object GoToLogin : SplashNavigationState()
     data object GoToPatientHome : SplashNavigationState()
     data object GoToDoctorHome : SplashNavigationState()
-    data class Error(val message: String) : SplashNavigationState()
 }
 
 class SplashViewModel(
     private val initializeReferenceDataUseCase: InitializeReferenceDataUseCase,
     private val getCurrentUserUseCase: GetCurrentUserUseCase
-) : ViewModel() {
+) : BaseViewModel() {
 
     private val _navigationState =
         MutableStateFlow<SplashNavigationState>(SplashNavigationState.Loading)
@@ -31,9 +32,11 @@ class SplashViewModel(
             val seedResult = initializeReferenceDataUseCase()
 
             if (seedResult.isFailure) {
-                _navigationState.value = SplashNavigationState.Error(
-                    seedResult.exceptionOrNull()?.message ?: "Başlangıç verileri yüklenemedi"
+                publishError(
+                    throwable = seedResult.exceptionOrNull(),
+                    operationType = OperationType.FETCH_DATA
                 )
+                _navigationState.value = SplashNavigationState.GoToLogin
                 return@launch
             }
 
@@ -55,13 +58,18 @@ class SplashViewModel(
                 when (role) {
                     "patient" -> SplashNavigationState.GoToPatientHome
                     "doctor" -> SplashNavigationState.GoToDoctorHome
-                    else -> SplashNavigationState.Error("Geçersiz kullanıcı rolü")
+                    else -> {
+                        publishError(AppErrorReason.INVALID_USER_ROLE)
+                        SplashNavigationState.GoToLogin
+                    }
                 }
             },
             onFailure = { exception ->
-                SplashNavigationState.Error(
-                    exception.message ?: "Oturum kontrolü sırasında hata oluştu"
+                publishError(
+                    throwable = exception,
+                    operationType = OperationType.SESSION
                 )
+                SplashNavigationState.GoToLogin
             }
         )
     }
