@@ -7,7 +7,7 @@ val hospitals = listOf(
         id = "625541",
         cityId = "adana",
         name = "Adana Şehir Hastanesi",
-        district = "Yüreğir",
+        districtId = "adana_yuregir",
         detsisCode = "95134008",
         bedCount = 1640
     ),
@@ -15,7 +15,7 @@ val hospitals = listOf(
         id = "6219",
         cityId = "adana",
         name = "Kozan Devlet Hastanesi",
-        district = "Kozan",
+        districtId = "adana_kozan",
         detsisCode = "21097265",
         bedCount = 205
     ),
@@ -23,7 +23,7 @@ val hospitals = listOf(
         id = "6282",
         cityId = "adana",
         name = "Adana Yüreğir Devlet Hastanesi",
-        district = "Yüreğir",
+        districtId = "adana_yuregir",
         detsisCode = "31407676",
         bedCount = 400
     ),
@@ -31,7 +31,7 @@ val hospitals = listOf(
         id = "6289",
         cityId = "adana",
         name = "Adana Dr.Ekrem Tok Ruh Sağlığı ve Hastalıkları Hastanesi",
-        district = "Çukurova",
+        districtId = "adana_cukurova",
         detsisCode = "67971284",
         bedCount = 545
     ),
@@ -39,7 +39,7 @@ val hospitals = listOf(
         id = "6349",
         cityId = "adana",
         name = "Ceyhan Devlet Hastanesi",
-        district = "Ceyhan",
+        districtId = "adana_ceyhan",
         detsisCode = "23880721",
         bedCount = 250
     ),
@@ -47,7 +47,7 @@ val hospitals = listOf(
         id = "6870",
         cityId = "adana",
         name = "Karaisalı Devlet Hastanesi",
-        district = "Karaisalı",
+        districtId = "adana_karaisali",
         detsisCode = "55726335",
         bedCount = 25
     ),
@@ -55,7 +55,7 @@ val hospitals = listOf(
         id = "14244",
         cityId = "adana",
         name = "İmamoğlu Devlet Hastanesi",
-        district = "İmamoğlu",
+        districtId = "adana_imamoglu",
         detsisCode = "35406692",
         bedCount = 30
     ),
@@ -63,7 +63,7 @@ val hospitals = listOf(
         id = "14616",
         cityId = "adana",
         name = "Tufanbeyli Devlet Hastanesi",
-        district = "Tufanbeyli",
+        districtId = "adana_tufanbeyli",
         detsisCode = "74152542",
         bedCount = 25
     ),
@@ -71,7 +71,7 @@ val hospitals = listOf(
         id = "100751",
         cityId = "adana",
         name = "Pozantı 80.Yıl Devlet Hastanesi",
-        district = "Pozantı",
+        districtId = "adana_pozanti",
         detsisCode = "96671655",
         bedCount = 25
     ),
@@ -79,7 +79,7 @@ val hospitals = listOf(
         id = "177004",
         cityId = "adana",
         name = "Seyhan Devlet Hastanesi",
-        district = "Seyhan",
+        districtId = "adana_seyhan",
         detsisCode = "92524544",
         bedCount = 855
     ),
@@ -87,7 +87,7 @@ val hospitals = listOf(
         id = "183351",
         cityId = "adana",
         name = "Adana Fatma Kemal Timuçin Ağız ve Diş Sağlığı Hastanesi",
-        district = "Seyhan",
+        districtId = "adana_seyhan",
         detsisCode = "97240658",
         bedCount = 6
     ),
@@ -95,7 +95,7 @@ val hospitals = listOf(
         id = "637568",
         cityId = "adana",
         name = "Adana Çukurova Devlet Hastanesi",
-        district = "Çukurova",
+        districtId = "adana_cukurova",
         detsisCode = "18446528",
         bedCount = 310
     ),
@@ -103,7 +103,7 @@ val hospitals = listOf(
         id = "665836",
         cityId = "adana",
         name = "Yüreğir Karşıyaka Ağız ve Diş Sağlığı Hastanesi",
-        district = "Yüreğir",
+        districtId = "adana_yuregir",
         detsisCode = "38205570",
         bedCount = 5
     ),
@@ -111,7 +111,7 @@ val hospitals = listOf(
         id = "800513",
         cityId = "adana",
         name = "Feke İlçe Devlet Hastanesi",
-        district = "Feke",
+        districtId = "adana_feke",
         detsisCode = "",
         bedCount = 10
     ),
@@ -119,7 +119,7 @@ val hospitals = listOf(
         id = "600175",
         cityId = "adana",
         name = "Saimbeyli Şehit Uzman Çavuş Adem Ambarcı İlçe Devlet Hastanesi",
-        district = "Saimbeyli",
+        districtId = "adana_saimbeyli",
         detsisCode = "",
         bedCount = 10
     ),
@@ -127,7 +127,7 @@ val hospitals = listOf(
         id = "651848",
         cityId = "adana",
         name = "Aladağ İlçe Devlet Hastanesi",
-        district = "Aladağ",
+        districtId = "adana_aladag",
         detsisCode = "",
         bedCount = 15
     ),
@@ -135,7 +135,7 @@ val hospitals = listOf(
         id = "727977",
         cityId = "adiyaman",
         name = "Adıyaman Eğitim ve Araştırma Hastanesi",
-        district = "Merkez",
+        districtId = "adiyaman_merkez",
         detsisCode = "53911808",
         bedCount = 710
     ),
@@ -143,7 +143,7 @@ val hospitals = listOf(
         id = "6136",
         cityId = "adiyaman",
         name = "Kahta Devlet Hastanesi",
-        district = "Kahta",
+        districtId = "adiyaman_kahta",
         detsisCode = "76987401",
         bedCount = 150
     ),
@@ -151,7 +151,7 @@ val hospitals = listOf(
         id = "6155",
         cityId = "adiyaman",
         name = "Besni Devlet Hastanesi",
-        district = "Besni",
+        districtId = "adiyaman_besni",
         detsisCode = "48627562",
         bedCount = 135
     ),
@@ -159,7 +159,7 @@ val hospitals = listOf(
         id = "6170",
         cityId = "adiyaman",
         name = "Gölbaşı Devlet Hastanesi",
-        district = "Gölbaşı",
+        districtId = "adiyaman_golbasi",
         detsisCode = "40320672",
         bedCount = 84
     ),
@@ -167,7 +167,7 @@ val hospitals = listOf(
         id = "12789",
         cityId = "adiyaman",
         name = "Çelikhan Devlet Hastanesi",
-        district = "Çelikhan",
+        districtId = "adiyaman_celikhan",
         detsisCode = "43909216",
         bedCount = 25
     ),
@@ -175,7 +175,7 @@ val hospitals = listOf(
         id = "711798",
         cityId = "adiyaman",
         name = "Sincik İlçe Devlet Hastanesi",
-        district = "Sincik",
+        districtId = "adiyaman_sincik",
         detsisCode = "77524687",
         bedCount = 20
     ),
@@ -183,7 +183,7 @@ val hospitals = listOf(
         id = "716414",
         cityId = "adiyaman",
         name = "Kahta Göçeri İlçe Devlet Hastanesi",
-        district = "Kahta",
+        districtId = "adiyaman_kahta",
         detsisCode = "19422966",
         bedCount = 10
     ),
@@ -191,7 +191,7 @@ val hospitals = listOf(
         id = "799566",
         cityId = "adiyaman",
         name = "Gerger İlçe Devlet Hastanesi",
-        district = "Gerger",
+        districtId = "adiyaman_gerger",
         detsisCode = "74430702",
         bedCount = 30
     ),
@@ -199,7 +199,7 @@ val hospitals = listOf(
         id = "196626",
         cityId = "adiyaman",
         name = "Tut İlçe Devlet Hastanesi",
-        district = "Tut",
+        districtId = "adiyaman_tut",
         detsisCode = "",
         bedCount = 15
     ),
@@ -207,7 +207,7 @@ val hospitals = listOf(
         id = "711797",
         cityId = "adiyaman",
         name = "Samsat İlçe Devlet Hastanesi",
-        district = "Samsat",
+        districtId = "adiyaman_samsat",
         detsisCode = "",
         bedCount = 5
     ),
@@ -215,7 +215,7 @@ val hospitals = listOf(
         id = "5996",
         cityId = "afyonkarahisar",
         name = "Şuhut Devlet Hastanesi",
-        district = "Şuhut",
+        districtId = "afyonkarahisar_suhut",
         detsisCode = "33643654",
         bedCount = 50
     ),
@@ -223,7 +223,7 @@ val hospitals = listOf(
         id = "6042",
         cityId = "afyonkarahisar",
         name = "Sandıklı Devlet Hastanesi",
-        district = "Sandıklı",
+        districtId = "afyonkarahisar_sandikli",
         detsisCode = "78836770",
         bedCount = 100
     ),
@@ -231,7 +231,7 @@ val hospitals = listOf(
         id = "6055",
         cityId = "afyonkarahisar",
         name = "Emirdağ Devlet Hastanesi",
-        district = "Emirdağ",
+        districtId = "afyonkarahisar_emirdag",
         detsisCode = "49304614",
         bedCount = 50
     ),
@@ -239,7 +239,7 @@ val hospitals = listOf(
         id = "6083",
         cityId = "afyonkarahisar",
         name = "Dinar Devlet Hastanesi",
-        district = "Dinar",
+        districtId = "afyonkarahisar_dinar",
         detsisCode = "56840050",
         bedCount = 145
     ),
@@ -247,7 +247,7 @@ val hospitals = listOf(
         id = "6099",
         cityId = "afyonkarahisar",
         name = "Bolvadin Dr.Halil İbrahim Özsoy Devlet Hastanesi",
-        district = "Bolvadin",
+        districtId = "afyonkarahisar_bolvadin",
         detsisCode = "99645437",
         bedCount = 75
     ),
@@ -255,7 +255,7 @@ val hospitals = listOf(
         id = "6108",
         cityId = "afyonkarahisar",
         name = "Çay Devlet Hastanesi",
-        district = "Çay",
+        districtId = "afyonkarahisar_cay",
         detsisCode = "25512291",
         bedCount = 50
     ),
@@ -263,7 +263,7 @@ val hospitals = listOf(
         id = "6150",
         cityId = "afyonkarahisar",
         name = "Afyonkarahisar Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "afyonkarahisar_merkez",
         detsisCode = "52832905",
         bedCount = 880
     ),
@@ -271,7 +271,7 @@ val hospitals = listOf(
         id = "9365",
         cityId = "afyonkarahisar",
         name = "İscehisar Karamehmet Devlet Hastanesi",
-        district = "İscehisar",
+        districtId = "afyonkarahisar_iscehisar",
         detsisCode = "34422310",
         bedCount = 30
     ),
@@ -279,7 +279,7 @@ val hospitals = listOf(
         id = "384524",
         cityId = "afyonkarahisar",
         name = "Sinanpaşa Devlet Hastanesi",
-        district = "Sinanpaşa",
+        districtId = "afyonkarahisar_sinanpasa",
         detsisCode = "45927097",
         bedCount = 50
     ),
@@ -287,7 +287,7 @@ val hospitals = listOf(
         id = "384522",
         cityId = "afyonkarahisar",
         name = "Başmakçı İlçe Devlet Hastanesi",
-        district = "Başmakçı",
+        districtId = "afyonkarahisar_basmakci",
         detsisCode = "",
         bedCount = 10
     ),
@@ -295,7 +295,7 @@ val hospitals = listOf(
         id = "384521",
         cityId = "afyonkarahisar",
         name = "Bayat Dr.Mete Tan İlçe Devlet Hastanesi",
-        district = "Bayat",
+        districtId = "afyonkarahisar_bayat",
         detsisCode = "",
         bedCount = 10
     ),
@@ -303,7 +303,7 @@ val hospitals = listOf(
         id = "413666",
         cityId = "afyonkarahisar",
         name = "Çobanlar İlçe Devlet Hastanesi",
-        district = "Çobanlar",
+        districtId = "afyonkarahisar_cobanlar",
         detsisCode = "",
         bedCount = 5
     ),
@@ -311,7 +311,7 @@ val hospitals = listOf(
         id = "797636",
         cityId = "afyonkarahisar",
         name = "Dazkırı İlçe Devlet Hastanesi",
-        district = "Dazkırı",
+        districtId = "afyonkarahisar_dazkiri",
         detsisCode = "",
         bedCount = 10
     ),
@@ -319,7 +319,7 @@ val hospitals = listOf(
         id = "197842",
         cityId = "afyonkarahisar",
         name = "Haydarlı İlçe Devlet Hastanesi",
-        district = "Dinar",
+        districtId = "afyonkarahisar_dinar",
         detsisCode = "",
         bedCount = 18
     ),
@@ -327,7 +327,7 @@ val hospitals = listOf(
         id = "797613",
         cityId = "afyonkarahisar",
         name = "Evciler İlçe Devlet Hastanesi",
-        district = "Evciler",
+        districtId = "afyonkarahisar_evciler",
         detsisCode = "",
         bedCount = 10
     ),
@@ -335,7 +335,7 @@ val hospitals = listOf(
         id = "712301",
         cityId = "afyonkarahisar",
         name = "Hocalar İlçe Devlet Hastanesi",
-        district = "Hocalar",
+        districtId = "afyonkarahisar_hocalar",
         detsisCode = "",
         bedCount = 5
     ),
@@ -343,7 +343,7 @@ val hospitals = listOf(
         id = "759030",
         cityId = "afyonkarahisar",
         name = "İhsaniye İlçe Devlet Hastanesi",
-        district = "İhsaniye",
+        districtId = "afyonkarahisar_ihsaniye",
         detsisCode = "",
         bedCount = 14
     ),
@@ -351,7 +351,7 @@ val hospitals = listOf(
         id = "6028",
         cityId = "afyonkarahisar",
         name = "Sultandağı İlçe Devlet Hastanesi",
-        district = "Sultandağı",
+        districtId = "afyonkarahisar_sultandagi",
         detsisCode = "",
         bedCount = 15
     ),
@@ -359,7 +359,7 @@ val hospitals = listOf(
         id = "6005",
         cityId = "agri",
         name = "Ağrı Eğitim ve Araştırma Hastanesi",
-        district = "Merkez",
+        districtId = "agri_merkez",
         detsisCode = "54592530",
         bedCount = 370
     ),
@@ -367,7 +367,7 @@ val hospitals = listOf(
         id = "5947",
         cityId = "agri",
         name = "Eleşkirt İlçe Devlet Hastanesi",
-        district = "Eleşkirt",
+        districtId = "agri_eleskirt",
         detsisCode = "36472700",
         bedCount = 25
     ),
@@ -375,7 +375,7 @@ val hospitals = listOf(
         id = "5966",
         cityId = "agri",
         name = "Tutak İlçe Devlet Hastanesi",
-        district = "Tutak",
+        districtId = "agri_tutak",
         detsisCode = "49031444",
         bedCount = 25
     ),
@@ -383,7 +383,7 @@ val hospitals = listOf(
         id = "5976",
         cityId = "agri",
         name = "Diyadin Devlet Hastanesi",
-        district = "Diyadin",
+        districtId = "agri_diyadin",
         detsisCode = "70167892",
         bedCount = 50
     ),
@@ -391,7 +391,7 @@ val hospitals = listOf(
         id = "5980",
         cityId = "agri",
         name = "Doğubayazıt Dr. Yaşar Eryılmaz Devlet Hastanesi",
-        district = "Doğubayazıt",
+        districtId = "agri_dogubayazit",
         detsisCode = "68917221",
         bedCount = 159
     ),
@@ -399,7 +399,7 @@ val hospitals = listOf(
         id = "6857",
         cityId = "agri",
         name = "Patnos Devlet Hastanesi",
-        district = "Patnos",
+        districtId = "agri_patnos",
         detsisCode = "85724094",
         bedCount = 150
     ),
@@ -407,7 +407,7 @@ val hospitals = listOf(
         id = "389231",
         cityId = "agri",
         name = "Taşlıçay İlçe Devlet Hastanesi",
-        district = "Taşlıçay",
+        districtId = "agri_taslicay",
         detsisCode = "97674024",
         bedCount = 10
     ),
@@ -415,7 +415,7 @@ val hospitals = listOf(
         id = "710577",
         cityId = "agri",
         name = "Hamur İlçe Devlet Hastanesi",
-        district = "Hamur",
+        districtId = "agri_hamur",
         detsisCode = "84724558",
         bedCount = 19
     ),
@@ -423,7 +423,7 @@ val hospitals = listOf(
         id = "899450",
         cityId = "aksaray",
         name = "Aksaray Eğitim ve Araştırma Hastanesi",
-        district = "Merkez",
+        districtId = "aksaray_merkez",
         detsisCode = "60190804",
         bedCount = 815
     ),
@@ -431,7 +431,7 @@ val hospitals = listOf(
         id = "283",
         cityId = "aksaray",
         name = "Aksaray Ortaköy Devlet Hastanesi",
-        district = "Ortaköy",
+        districtId = "aksaray_ortakoy",
         detsisCode = "86270211",
         bedCount = 50
     ),
@@ -439,7 +439,7 @@ val hospitals = listOf(
         id = "11714",
         cityId = "aksaray",
         name = "Eskil Devlet Hastanesi",
-        district = "Eskil",
+        districtId = "aksaray_eskil",
         detsisCode = "43238813",
         bedCount = 25
     ),
@@ -447,7 +447,7 @@ val hospitals = listOf(
         id = "194278",
         cityId = "aksaray",
         name = "Gülağaç İlçe Devlet Hastanesi",
-        district = "Gülağaç",
+        districtId = "aksaray_gulagac",
         detsisCode = "12926603",
         bedCount = 10
     ),
@@ -455,7 +455,7 @@ val hospitals = listOf(
         id = "96553",
         cityId = "aksaray",
         name = "Sultanhanı Dr. Hüseyin Ağır İlçe Devlet Hastanesi",
-        district = "Sultanhanı",
+        districtId = "aksaray_sultanhani",
         detsisCode = "",
         bedCount = 10
     ),
@@ -463,7 +463,7 @@ val hospitals = listOf(
         id = "194283",
         cityId = "aksaray",
         name = "Güzelyurt İlçe Devlet Hastanesi",
-        district = "Güzelyurt",
+        districtId = "aksaray_guzelyurt",
         detsisCode = "",
         bedCount = 10
     ),
@@ -471,7 +471,7 @@ val hospitals = listOf(
         id = "194279",
         cityId = "aksaray",
         name = "Ağaçören İlçe Devlet Hastanesi",
-        district = "Ağaçören",
+        districtId = "aksaray_agacoren",
         detsisCode = "",
         bedCount = 10
     ),
@@ -479,7 +479,7 @@ val hospitals = listOf(
         id = "194281",
         cityId = "aksaray",
         name = "Sarıyahşi İlçe Devlet Hastanesi",
-        district = "Sarıyahşi",
+        districtId = "aksaray_sariyahsi",
         detsisCode = "",
         bedCount = 10
     ),
@@ -487,7 +487,7 @@ val hospitals = listOf(
         id = "5929",
         cityId = "amasya",
         name = "Amasya Sabuncuoğlu Şerefeddin Eğitim ve Araştırma Hastanesi",
-        district = "Merkez",
+        districtId = "amasya_merkez",
         detsisCode = "62949364",
         bedCount = 460
     ),
@@ -495,7 +495,7 @@ val hospitals = listOf(
         id = "5906",
         cityId = "amasya",
         name = "Gümüşhacıköy Devlet Hastanesi",
-        district = "Gümüşhacıköy",
+        districtId = "amasya_gumushacikoy",
         detsisCode = "18650231",
         bedCount = 50
     ),
@@ -503,7 +503,7 @@ val hospitals = listOf(
         id = "5911",
         cityId = "amasya",
         name = "Merzifon Kara Mustafa Paşa Devlet Hastanesi",
-        district = "Merzifon",
+        districtId = "amasya_merzifon",
         detsisCode = "44269710",
         bedCount = 210
     ),
@@ -511,7 +511,7 @@ val hospitals = listOf(
         id = "5918",
         cityId = "amasya",
         name = "Suluova Devlet Hastanesi",
-        district = "Suluova",
+        districtId = "amasya_suluova",
         detsisCode = "54300783",
         bedCount = 105
     ),
@@ -519,7 +519,7 @@ val hospitals = listOf(
         id = "14593",
         cityId = "amasya",
         name = "Taşova Devlet Hastanesi",
-        district = "Taşova",
+        districtId = "amasya_tasova",
         detsisCode = "75636632",
         bedCount = 50
     ),
@@ -527,7 +527,7 @@ val hospitals = listOf(
         id = "381516",
         cityId = "amasya",
         name = "Göynücek İlçe Devlet Hastanesi",
-        district = "Göynücek",
+        districtId = "amasya_goynucek",
         detsisCode = "",
         bedCount = 14
     ),
@@ -535,7 +535,7 @@ val hospitals = listOf(
         id = "863795",
         cityId = "amasya",
         name = "Hamamözü İlçe Devlet Hastanesi",
-        district = "Hamamözü",
+        districtId = "amasya_hamamozu",
         detsisCode = "",
         bedCount = 5
     ),
@@ -543,7 +543,7 @@ val hospitals = listOf(
         id = "815423",
         cityId = "ankara",
         name = "Ankara Yenimahalle Eğitim ve Araştırma Hastanesi",
-        district = "Yenimahalle",
+        districtId = "ankara_yenimahalle",
         detsisCode = "33373887",
         bedCount = 260
     ),
@@ -551,7 +551,7 @@ val hospitals = listOf(
         id = "899416",
         cityId = "ankara",
         name = "Ankara Tepebaşı Ağız ve Diş Sağlığı Hastanesi",
-        district = "Keçiören",
+        districtId = "ankara_kecioren",
         detsisCode = "26893381",
         bedCount = 6
     ),
@@ -559,7 +559,7 @@ val hospitals = listOf(
         id = "5865",
         cityId = "ankara",
         name = "Ankara Dr. Abdurrahman Yurtaslan Onkoloji Eğitim ve Araştırma Hastanesi",
-        district = "Yenimahalle",
+        districtId = "ankara_yenimahalle",
         detsisCode = "20033663",
         bedCount = 500
     ),
@@ -567,7 +567,7 @@ val hospitals = listOf(
         id = "5867",
         cityId = "ankara",
         name = "Ankara Atatürk Sanatoryum Eğitim ve Araştırma Hastanesi",
-        district = "Keçiören",
+        districtId = "ankara_kecioren",
         detsisCode = "53610172",
         bedCount = 930
     ),
@@ -575,7 +575,7 @@ val hospitals = listOf(
         id = "5893",
         cityId = "ankara",
         name = "Ankara Eğitim ve Araştırma Hastanesi",
-        district = "Altındağ",
+        districtId = "ankara_altindag",
         detsisCode = "93471371",
         bedCount = 670
     ),
@@ -583,7 +583,7 @@ val hospitals = listOf(
         id = "5901",
         cityId = "ankara",
         name = "Ankara Dr. Sami Ulus Çocuk Sağlığı ve Hastalıkları Eğitim ve Araştırma Hastanesi",
-        district = "Altındağ",
+        districtId = "ankara_altindag",
         detsisCode = "73799008",
         bedCount = 418
     ),
@@ -591,7 +591,7 @@ val hospitals = listOf(
         id = "177041",
         cityId = "ankara",
         name = "Ankara Etlik Zübeyde Hanım Kadın Hastalıkları Eğitim ve Araştırma Hastanesi",
-        district = "Yenimahalle",
+        districtId = "ankara_yenimahalle",
         detsisCode = "90057706",
         bedCount = 429
     ),
@@ -599,7 +599,7 @@ val hospitals = listOf(
         id = "177042",
         cityId = "ankara",
         name = "Ankara Dışkapı Yıldırım Beyazıt Eğitim ve Araştırma Hastanesi",
-        district = "Altındağ",
+        districtId = "ankara_altindag",
         detsisCode = "41303261",
         bedCount = 760
     ),
@@ -607,7 +607,7 @@ val hospitals = listOf(
         id = "177044",
         cityId = "ankara",
         name = "Ankara Ulucanlar Göz Eğitim ve Araştırma Hastanesi",
-        district = "Altındağ",
+        districtId = "ankara_altindag",
         detsisCode = "16631222",
         bedCount = 85
     ),
@@ -615,7 +615,7 @@ val hospitals = listOf(
         id = "651698",
         cityId = "ankara",
         name = "Ankara Bilkent Şehir Hastanesi",
-        district = "Çankaya",
+        districtId = "ankara_cankaya",
         detsisCode = "72300690",
         bedCount = 4050
     ),
@@ -623,7 +623,7 @@ val hospitals = listOf(
         id = "887155",
         cityId = "ankara",
         name = "Ankara Gülhane Eğitim ve Araştırma Hastanesi",
-        district = "Keçiören",
+        districtId = "ankara_kecioren",
         detsisCode = "50687469",
         bedCount = 1100
     ),
@@ -631,7 +631,7 @@ val hospitals = listOf(
         id = "887159",
         cityId = "ankara",
         name = "Ankara Gaziler Fizik Tedavi ve Rehabilitasyon Eğitim ve Araştırma Hastanesi",
-        district = "Çankaya",
+        districtId = "ankara_cankaya",
         detsisCode = "34215015",
         bedCount = 210
     ),
@@ -639,7 +639,7 @@ val hospitals = listOf(
         id = "5550",
         cityId = "ankara",
         name = "Şereflikoçhisar Devlet Hastanesi",
-        district = "Şereflikoçhisar",
+        districtId = "ankara_sereflikochisar",
         detsisCode = "13988459",
         bedCount = 50
     ),
@@ -647,7 +647,7 @@ val hospitals = listOf(
         id = "5565",
         cityId = "ankara",
         name = "Kızılcahamam Devlet Hastanesi",
-        district = "Kızılcahamam",
+        districtId = "ankara_kizilcahamam",
         detsisCode = "94868096",
         bedCount = 75
     ),
@@ -655,7 +655,7 @@ val hospitals = listOf(
         id = "5573",
         cityId = "ankara",
         name = "Nallıhan Devlet Hastanesi",
-        district = "Nallıhan",
+        districtId = "ankara_nallihan",
         detsisCode = "71734248",
         bedCount = 52
     ),
@@ -663,7 +663,7 @@ val hospitals = listOf(
         id = "5581",
         cityId = "ankara",
         name = "Polatlı Duatepe Devlet Hastanesi",
-        district = "Polatlı",
+        districtId = "ankara_polatli",
         detsisCode = "39668018",
         bedCount = 305
     ),
@@ -671,7 +671,7 @@ val hospitals = listOf(
         id = "5589",
         cityId = "ankara",
         name = "Haymana Devlet Hastanesi",
-        district = "Haymana",
+        districtId = "ankara_haymana",
         detsisCode = "90932776",
         bedCount = 65
     ),
@@ -679,7 +679,7 @@ val hospitals = listOf(
         id = "5605",
         cityId = "ankara",
         name = "Kahramankazan Devlet Hastanesi",
-        district = "Kahramankazan",
+        districtId = "ankara_kahramankazan",
         detsisCode = "69051143",
         bedCount = 190
     ),
@@ -687,7 +687,7 @@ val hospitals = listOf(
         id = "5608",
         cityId = "ankara",
         name = "Elmadağ Dr. Hulusi Alataş Devlet Hastanesi",
-        district = "Elmadağ",
+        districtId = "ankara_elmadag",
         detsisCode = "75863711",
         bedCount = 82
     ),
@@ -695,7 +695,7 @@ val hospitals = listOf(
         id = "5628",
         cityId = "ankara",
         name = "Beypazarı Devlet Hastanesi",
-        district = "Beypazarı",
+        districtId = "ankara_beypazari",
         detsisCode = "88888061",
         bedCount = 85
     ),
@@ -703,7 +703,7 @@ val hospitals = listOf(
         id = "5639",
         cityId = "ankara",
         name = "Çubuk Halil Şıvgın Devlet Hastanesi",
-        district = "Çubuk",
+        districtId = "ankara_cubuk",
         detsisCode = "36564052",
         bedCount = 100
     ),
@@ -711,7 +711,7 @@ val hospitals = listOf(
         id = "5746",
         cityId = "ankara",
         name = "Ankara Etimesgut Şehit Sait Ertürk Devlet Hastanesi",
-        district = "Etimesgut",
+        districtId = "ankara_etimesgut",
         detsisCode = "26945601",
         bedCount = 250
     ),
@@ -719,7 +719,7 @@ val hospitals = listOf(
         id = "8973",
         cityId = "ankara",
         name = "Ankara 75.Yıl Ağız ve Diş Sağlığı Hastanesi",
-        district = "Altındağ",
+        districtId = "ankara_altindag",
         detsisCode = "55639122",
         bedCount = 6
     ),
@@ -727,7 +727,7 @@ val hospitals = listOf(
         id = "9053",
         cityId = "ankara",
         name = "Ankara Sincan Dr. Nafiz Körez Devlet Hastanesi",
-        district = "Sincan",
+        districtId = "ankara_sincan",
         detsisCode = "22568850",
         bedCount = 140
     ),
@@ -735,7 +735,7 @@ val hospitals = listOf(
         id = "12604",
         cityId = "ankara",
         name = "Akyurt Devlet Hastanesi",
-        district = "Akyurt",
+        districtId = "ankara_akyurt",
         detsisCode = "89403826",
         bedCount = 50
     ),
@@ -743,7 +743,7 @@ val hospitals = listOf(
         id = "29380",
         cityId = "ankara",
         name = "Ayaş Şehit Mehmet Çifci Devlet Hastanesi",
-        district = "Ayaş",
+        districtId = "ankara_ayas",
         detsisCode = "19561892",
         bedCount = 75
     ),
@@ -751,7 +751,7 @@ val hospitals = listOf(
         id = "177045",
         cityId = "ankara",
         name = "Ankara Gazi Mustafa Kemal Mesleki ve Çevresel Hastalıklar Hastanesi",
-        district = "Yenimahalle",
+        districtId = "ankara_yenimahalle",
         detsisCode = "29046609",
         bedCount = 155
     ),
@@ -759,7 +759,7 @@ val hospitals = listOf(
         id = "181392",
         cityId = "ankara",
         name = "Gölbaşı Şehit Ahmet Özsoy Devlet Hastanesi",
-        district = "Gölbaşı",
+        districtId = "ankara_golbasi",
         detsisCode = "66954450",
         bedCount = 255
     ),
@@ -767,7 +767,7 @@ val hospitals = listOf(
         id = "651489",
         cityId = "ankara",
         name = "Pursaklar Devlet Hastanesi",
-        district = "Pursaklar",
+        districtId = "ankara_pursaklar",
         detsisCode = "69668506",
         bedCount = 150
     ),
@@ -775,7 +775,7 @@ val hospitals = listOf(
         id = "728842",
         cityId = "ankara",
         name = "Ankara Ceza İnfaz Kurumları Kampüs Devlet Hastanesi",
-        district = "Sincan",
+        districtId = "ankara_sincan",
         detsisCode = "86957222",
         bedCount = 15
     ),
@@ -783,7 +783,7 @@ val hospitals = listOf(
         id = "787659",
         cityId = "ankara",
         name = "Ankara Meclis Devlet Hastanesi",
-        district = "Çankaya",
+        districtId = "ankara_cankaya",
         detsisCode = "52631427",
         bedCount = 5
     ),
@@ -791,7 +791,7 @@ val hospitals = listOf(
         id = "804583",
         cityId = "ankara",
         name = "Ankara 29 Mayıs Devlet Hastanesi",
-        district = "Çankaya",
+        districtId = "ankara_cankaya",
         detsisCode = "82478784",
         bedCount = 106
     ),
@@ -799,7 +799,7 @@ val hospitals = listOf(
         id = "887160",
         cityId = "ankara",
         name = "Ankara Beytepe Şehit Murat Erdi Eker Devlet Hastanesi",
-        district = "Çankaya",
+        districtId = "ankara_cankaya",
         detsisCode = "65804141",
         bedCount = 100
     ),
@@ -807,7 +807,7 @@ val hospitals = listOf(
         id = "58544",
         cityId = "ankara",
         name = "Mamak Devlet Hastanesi",
-        district = "Mamak",
+        districtId = "ankara_mamak",
         detsisCode = "20541108",
         bedCount = 200
     ),
@@ -815,7 +815,7 @@ val hospitals = listOf(
         id = "10208",
         cityId = "ankara",
         name = "Ankara Osmanlı Ağız ve Diş Sağlığı Hastanesi",
-        district = "Keçiören",
+        districtId = "ankara_kecioren",
         detsisCode = "70652668",
         bedCount = 5
     ),
@@ -823,7 +823,7 @@ val hospitals = listOf(
         id = "87864",
         cityId = "ankara",
         name = "Ankara Etlik Şehir Hastanesi",
-        district = "Yenimahalle",
+        districtId = "ankara_yenimahalle",
         detsisCode = "97367300",
         bedCount = 4050
     ),
@@ -831,7 +831,7 @@ val hospitals = listOf(
         id = "91050",
         cityId = "ankara",
         name = "T..C. Sağlık Bakanlığı Ankara Beştepe Devlet Hastanesi",
-        district = "Yenimahalle",
+        districtId = "ankara_yenimahalle",
         detsisCode = "42246385",
         bedCount = 100
     ),
@@ -839,7 +839,7 @@ val hospitals = listOf(
         id = "5599",
         cityId = "ankara",
         name = "Kalecik İlçe Devlet Hastanesi",
-        district = "Kalecik",
+        districtId = "ankara_kalecik",
         detsisCode = "",
         bedCount = 25
     ),
@@ -847,7 +847,7 @@ val hospitals = listOf(
         id = "8972",
         cityId = "ankara",
         name = "Güdül İlçe Devlet Hastanesi",
-        district = "Güdül",
+        districtId = "ankara_gudul",
         detsisCode = "",
         bedCount = 25
     ),
@@ -855,7 +855,7 @@ val hospitals = listOf(
         id = "195078",
         cityId = "ankara",
         name = "Bala İlçe Devlet Hastanesi",
-        district = "Bala",
+        districtId = "ankara_bala",
         detsisCode = "",
         bedCount = 20
     ),
@@ -863,7 +863,7 @@ val hospitals = listOf(
         id = "899446",
         cityId = "antalya",
         name = "Alanya Eğitim ve Araştırma Hastanesi",
-        district = "Alanya",
+        districtId = "antalya_alanya",
         detsisCode = "69706591",
         bedCount = 420
     ),
@@ -871,7 +871,7 @@ val hospitals = listOf(
         id = "205125",
         cityId = "antalya",
         name = "Antalya Eğitim ve Araştırma Hastanesi",
-        district = "Muratpaşa",
+        districtId = "antalya_muratpasa",
         detsisCode = "81266704",
         bedCount = 1270
     ),
@@ -879,7 +879,7 @@ val hospitals = listOf(
         id = "5416",
         cityId = "antalya",
         name = "Serik Devlet Hastanesi",
-        district = "Serik",
+        districtId = "antalya_serik",
         detsisCode = "97736758",
         bedCount = 200
     ),
@@ -887,7 +887,7 @@ val hospitals = listOf(
         id = "5442",
         cityId = "antalya",
         name = "Kumluca Devlet Hastanesi",
-        district = "Kumluca",
+        districtId = "antalya_kumluca",
         detsisCode = "28950620",
         bedCount = 100
     ),
@@ -895,7 +895,7 @@ val hospitals = listOf(
         id = "5448",
         cityId = "antalya",
         name = "Manavgat Devlet Hastanesi",
-        district = "Manavgat",
+        districtId = "antalya_manavgat",
         detsisCode = "98177073",
         bedCount = 229
     ),
@@ -903,7 +903,7 @@ val hospitals = listOf(
         id = "5467",
         cityId = "antalya",
         name = "Kaş Devlet Hastanesi",
-        district = "Kaş",
+        districtId = "antalya_kas",
         detsisCode = "90745374",
         bedCount = 52
     ),
@@ -911,7 +911,7 @@ val hospitals = listOf(
         id = "5475",
         cityId = "antalya",
         name = "Kemer Devlet Hastanesi",
-        district = "Kemer",
+        districtId = "antalya_kemer",
         detsisCode = "21460039",
         bedCount = 60
     ),
@@ -919,7 +919,7 @@ val hospitals = listOf(
         id = "5478",
         cityId = "antalya",
         name = "Korkuteli Devlet Hastanesi",
-        district = "Korkuteli",
+        districtId = "antalya_korkuteli",
         detsisCode = "44755165",
         bedCount = 100
     ),
@@ -927,7 +927,7 @@ val hospitals = listOf(
         id = "5484",
         cityId = "antalya",
         name = "Elmalı Devlet Hastanesi",
-        district = "Elmalı",
+        districtId = "antalya_elmali",
         detsisCode = "59651480",
         bedCount = 52
     ),
@@ -935,7 +935,7 @@ val hospitals = listOf(
         id = "5491",
         cityId = "antalya",
         name = "Finike Devlet Hastanesi",
-        district = "Finike",
+        districtId = "antalya_finike",
         detsisCode = "90873527",
         bedCount = 160
     ),
@@ -943,7 +943,7 @@ val hospitals = listOf(
         id = "5497",
         cityId = "antalya",
         name = "Gazipaşa Devlet Hastanesi",
-        district = "Gazipaşa",
+        districtId = "antalya_gazipasa",
         detsisCode = "58508268",
         bedCount = 90
     ),
@@ -951,7 +951,7 @@ val hospitals = listOf(
         id = "5512",
         cityId = "antalya",
         name = "Akseki İlçe Devlet Hastanesi",
-        district = "Akseki",
+        districtId = "antalya_akseki",
         detsisCode = "41565529",
         bedCount = 19
     ),
@@ -959,7 +959,7 @@ val hospitals = listOf(
         id = "7782",
         cityId = "antalya",
         name = "Demre Devlet Hastanesi",
-        district = "Demre",
+        districtId = "antalya_demre",
         detsisCode = "44064314",
         bedCount = 50
     ),
@@ -967,7 +967,7 @@ val hospitals = listOf(
         id = "175583",
         cityId = "antalya",
         name = "Antalya Ağız ve Diş Sağlığı Hastanesi",
-        district = "Kepez",
+        districtId = "antalya_kepez",
         detsisCode = "88363291",
         bedCount = 5
     ),
@@ -975,7 +975,7 @@ val hospitals = listOf(
         id = "177090",
         cityId = "antalya",
         name = "Antalya Atatürk Devlet Hastanesi",
-        district = "Muratpaşa",
+        districtId = "antalya_muratpasa",
         detsisCode = "71713619",
         bedCount = 450
     ),
@@ -983,7 +983,7 @@ val hospitals = listOf(
         id = "654921",
         cityId = "antalya",
         name = "Gündoğmuş İlçe Devlet Hastanesi",
-        district = "Gündoğmuş",
+        districtId = "antalya_gundogmus",
         detsisCode = "55685531",
         bedCount = 10
     ),
@@ -991,7 +991,7 @@ val hospitals = listOf(
         id = "883822",
         cityId = "antalya",
         name = "Kepez Devlet Hastanesi",
-        district = "Kepez",
+        districtId = "antalya_kepez",
         detsisCode = "15107294",
         bedCount = 400
     ),
@@ -999,7 +999,7 @@ val hospitals = listOf(
         id = "108",
         cityId = "ardahan",
         name = "Göle Devlet Hastanesi",
-        district = "Göle",
+        districtId = "ardahan_gole",
         detsisCode = "81419468",
         bedCount = 50
     ),
@@ -1007,7 +1007,7 @@ val hospitals = listOf(
         id = "132",
         cityId = "ardahan",
         name = "Ardahan Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "ardahan_merkez",
         detsisCode = "72580394",
         bedCount = 160
     ),
@@ -1015,7 +1015,7 @@ val hospitals = listOf(
         id = "113",
         cityId = "ardahan",
         name = "Posof İlçe Devlet Hastanesi",
-        district = "Posof",
+        districtId = "ardahan_posof",
         detsisCode = "",
         bedCount = 12
     ),
@@ -1023,7 +1023,7 @@ val hospitals = listOf(
         id = "93126",
         cityId = "ardahan",
         name = "Çıldır İlçe Devlet Hastanesi",
-        district = "Çıldır",
+        districtId = "ardahan_cildir",
         detsisCode = "",
         bedCount = 10
     ),
@@ -1031,7 +1031,7 @@ val hospitals = listOf(
         id = "5375",
         cityId = "artvin",
         name = "Şavşat Devlet Hastanesi",
-        district = "Şavşat",
+        districtId = "artvin_savsat",
         detsisCode = "62079644",
         bedCount = 36
     ),
@@ -1039,7 +1039,7 @@ val hospitals = listOf(
         id = "5400",
         cityId = "artvin",
         name = "Arhavi Devlet Hastanesi",
-        district = "Arhavi",
+        districtId = "artvin_arhavi",
         detsisCode = "28510265",
         bedCount = 40
     ),
@@ -1047,7 +1047,7 @@ val hospitals = listOf(
         id = "5409",
         cityId = "artvin",
         name = "Hopa Devlet Hastanesi",
-        district = "Hopa",
+        districtId = "artvin_hopa",
         detsisCode = "82327394",
         bedCount = 50
     ),
@@ -1055,7 +1055,7 @@ val hospitals = listOf(
         id = "5426",
         cityId = "artvin",
         name = "Artvin Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "artvin_merkez",
         detsisCode = "10833878",
         bedCount = 170
     ),
@@ -1063,7 +1063,7 @@ val hospitals = listOf(
         id = "6551",
         cityId = "artvin",
         name = "Yusufeli Devlet Hastanesi",
-        district = "Yusufeli",
+        districtId = "artvin_yusufeli",
         detsisCode = "40707102",
         bedCount = 25
     ),
@@ -1071,7 +1071,7 @@ val hospitals = listOf(
         id = "6832",
         cityId = "artvin",
         name = "Borçka Devlet Hastanesi",
-        district = "Borçka",
+        districtId = "artvin_borcka",
         detsisCode = "29947905",
         bedCount = 30
     ),
@@ -1079,7 +1079,7 @@ val hospitals = listOf(
         id = "386411",
         cityId = "artvin",
         name = "Ardanuç İlçe Devlet Hastanesi",
-        district = "Ardanuç",
+        districtId = "artvin_ardanuc",
         detsisCode = "",
         bedCount = 15
     ),
@@ -1087,7 +1087,7 @@ val hospitals = listOf(
         id = "223529",
         cityId = "artvin",
         name = "Murgul İlçe Devlet Hastanesi",
-        district = "Murgul",
+        districtId = "artvin_murgul",
         detsisCode = "",
         bedCount = 10
     ),
@@ -1095,7 +1095,7 @@ val hospitals = listOf(
         id = "5293",
         cityId = "aydin",
         name = "Nazilli Devlet Hastanesi",
-        district = "Nazilli",
+        districtId = "aydin_nazilli",
         detsisCode = "20333361",
         bedCount = 520
     ),
@@ -1103,7 +1103,7 @@ val hospitals = listOf(
         id = "5305",
         cityId = "aydin",
         name = "Söke Fehime Faik Kocagöz Devlet Hastanesi",
-        district = "Söke",
+        districtId = "aydin_soke",
         detsisCode = "81866290",
         bedCount = 290
     ),
@@ -1111,7 +1111,7 @@ val hospitals = listOf(
         id = "5322",
         cityId = "aydin",
         name = "Kuşadası Devlet Hastanesi",
-        district = "Kuşadası",
+        districtId = "aydin_kusadasi",
         detsisCode = "78215583",
         bedCount = 185
     ),
@@ -1119,7 +1119,7 @@ val hospitals = listOf(
         id = "5372",
         cityId = "aydin",
         name = "Çine Devlet Hastanesi",
-        district = "Çine",
+        districtId = "aydin_cine",
         detsisCode = "19050610",
         bedCount = 64
     ),
@@ -1127,7 +1127,7 @@ val hospitals = listOf(
         id = "5389",
         cityId = "aydin",
         name = "Aydın Devlet Hastanesi",
-        district = "Efeler",
+        districtId = "aydin_efeler",
         detsisCode = "54114546",
         bedCount = 474
     ),
@@ -1135,7 +1135,7 @@ val hospitals = listOf(
         id = "14164",
         cityId = "aydin",
         name = "Didim Devlet Hastanesi",
-        district = "Didim",
+        districtId = "aydin_didim",
         detsisCode = "85983584",
         bedCount = 75
     ),
@@ -1143,7 +1143,7 @@ val hospitals = listOf(
         id = "177111",
         cityId = "aydin",
         name = "Aydın Atatürk Devlet Hastanesi",
-        district = "Efeler",
+        districtId = "aydin_efeler",
         detsisCode = "78781245",
         bedCount = 320
     ),
@@ -1151,7 +1151,7 @@ val hospitals = listOf(
         id = "316945",
         cityId = "aydin",
         name = "Bozdoğan Rasim Menteşe İlçe Devlet Hastanesi",
-        district = "Bozdoğan",
+        districtId = "aydin_bozdogan",
         detsisCode = "25752368",
         bedCount = 10
     ),
@@ -1159,7 +1159,7 @@ val hospitals = listOf(
         id = "402556",
         cityId = "aydin",
         name = "Aydın Kadın Doğum ve Çocuk Hastalıkları Hastanesi",
-        district = "Efeler",
+        districtId = "aydin_efeler",
         detsisCode = "70284476",
         bedCount = 256
     ),
@@ -1167,7 +1167,7 @@ val hospitals = listOf(
         id = "5343",
         cityId = "aydin",
         name = "Germencik Devlet Hastanesi",
-        district = "Germencik",
+        districtId = "aydin_germencik",
         detsisCode = "22300266",
         bedCount = 25
     ),
@@ -1175,7 +1175,7 @@ val hospitals = listOf(
         id = "672391",
         cityId = "aydin",
         name = "Koçarlı İlçe Devlet Hastanesi",
-        district = "Koçarlı",
+        districtId = "aydin_kocarli",
         detsisCode = "",
         bedCount = 5
     ),
@@ -1183,7 +1183,7 @@ val hospitals = listOf(
         id = "662082",
         cityId = "aydin",
         name = "Sultanhisar İlçe Devlet Hastanesi",
-        district = "Sultanhisar",
+        districtId = "aydin_sultanhisar",
         detsisCode = "",
         bedCount = 10
     ),
@@ -1191,7 +1191,7 @@ val hospitals = listOf(
         id = "316944",
         cityId = "aydin",
         name = "Buharkent İlçe Devlet Hastanesi",
-        district = "Buharkent",
+        districtId = "aydin_buharkent",
         detsisCode = "",
         bedCount = 5
     ),
@@ -1199,7 +1199,7 @@ val hospitals = listOf(
         id = "810524",
         cityId = "aydin",
         name = "Aydın Yenipazar İlçe Devlet Hastanesi",
-        district = "Yenipazar",
+        districtId = "aydin_yenipazar",
         detsisCode = "",
         bedCount = 5
     ),
@@ -1207,7 +1207,7 @@ val hospitals = listOf(
         id = "710540",
         cityId = "aydin",
         name = "Karpuzlu İlçe Devlet Hastanesi",
-        district = "Karpuzlu",
+        districtId = "aydin_karpuzlu",
         detsisCode = "",
         bedCount = 5
     ),
@@ -1215,7 +1215,7 @@ val hospitals = listOf(
         id = "853404",
         cityId = "aydin",
         name = "Köşk İlçe Devlet Hastanesi",
-        district = "Köşk",
+        districtId = "aydin_kosk",
         detsisCode = "",
         bedCount = 5
     ),
@@ -1223,7 +1223,7 @@ val hospitals = listOf(
         id = "710542",
         cityId = "aydin",
         name = "Kuyucak İlçe Devlet Hastanesi",
-        district = "Kuyucak",
+        districtId = "aydin_kuyucak",
         detsisCode = "",
         bedCount = 5
     ),
@@ -1231,7 +1231,7 @@ val hospitals = listOf(
         id = "5150",
         cityId = "balikesir",
         name = "Sındırgı Devlet Hastanesi",
-        district = "Sındırgı",
+        districtId = "balikesir_sindirgi",
         detsisCode = "20803815",
         bedCount = 36
     ),
@@ -1239,7 +1239,7 @@ val hospitals = listOf(
         id = "5158",
         cityId = "balikesir",
         name = "Susurluk Devlet Hastanesi",
-        district = "Susurluk",
+        districtId = "balikesir_susurluk",
         detsisCode = "47542121",
         bedCount = 40
     ),
@@ -1247,7 +1247,7 @@ val hospitals = listOf(
         id = "5166",
         cityId = "balikesir",
         name = "İvrindi Devlet Hastanesi",
-        district = "İvrindi",
+        districtId = "balikesir_ivrindi",
         detsisCode = "12839592",
         bedCount = 50
     ),
@@ -1255,7 +1255,7 @@ val hospitals = listOf(
         id = "5179",
         cityId = "balikesir",
         name = "Manyas Devlet Hastanesi",
-        district = "Manyas",
+        districtId = "balikesir_manyas",
         detsisCode = "43277021",
         bedCount = 25
     ),
@@ -1263,7 +1263,7 @@ val hospitals = listOf(
         id = "5191",
         cityId = "balikesir",
         name = "Erdek Neyyire Sıtkı Devlet Hastanesi",
-        district = "Erdek",
+        districtId = "balikesir_erdek",
         detsisCode = "20769752",
         bedCount = 35
     ),
@@ -1271,7 +1271,7 @@ val hospitals = listOf(
         id = "5196",
         cityId = "balikesir",
         name = "Gönen Devlet Hastanesi",
-        district = "Gönen",
+        districtId = "balikesir_gonen",
         detsisCode = "64422546",
         bedCount = 90
     ),
@@ -1279,7 +1279,7 @@ val hospitals = listOf(
         id = "5205",
         cityId = "balikesir",
         name = "Havran Devlet Hastanesi",
-        district = "Havran",
+        districtId = "balikesir_havran",
         detsisCode = "54602359",
         bedCount = 25
     ),
@@ -1287,7 +1287,7 @@ val hospitals = listOf(
         id = "5212",
         cityId = "balikesir",
         name = "Burhaniye Devlet Hastanesi",
-        district = "Burhaniye",
+        districtId = "balikesir_burhaniye",
         detsisCode = "73004956",
         bedCount = 115
     ),
@@ -1295,7 +1295,7 @@ val hospitals = listOf(
         id = "5217",
         cityId = "balikesir",
         name = "Dursunbey Devlet Hastanesi",
-        district = "Dursunbey",
+        districtId = "balikesir_dursunbey",
         detsisCode = "11468242",
         bedCount = 75
     ),
@@ -1303,7 +1303,7 @@ val hospitals = listOf(
         id = "5224",
         cityId = "balikesir",
         name = "Edremit Devlet Hastanesi",
-        district = "Edremit",
+        districtId = "balikesir_edremit",
         detsisCode = "74818808",
         bedCount = 200
     ),
@@ -1311,7 +1311,7 @@ val hospitals = listOf(
         id = "5246",
         cityId = "balikesir",
         name = "Bigadiç Devlet Hastanesi",
-        district = "Bigadiç",
+        districtId = "balikesir_bigadic",
         detsisCode = "57861695",
         bedCount = 75
     ),
@@ -1319,7 +1319,7 @@ val hospitals = listOf(
         id = "5270",
         cityId = "balikesir",
         name = "Ayvalık Devlet Hastanesi",
-        district = "Ayvalık",
+        districtId = "balikesir_ayvalik",
         detsisCode = "36576434",
         bedCount = 120
     ),
@@ -1327,7 +1327,7 @@ val hospitals = listOf(
         id = "5286",
         cityId = "balikesir",
         name = "Balıkesir Devlet Hastanesi",
-        district = "Karesi",
+        districtId = "balikesir_karesi",
         detsisCode = "53710697",
         bedCount = 400
     ),
@@ -1335,7 +1335,7 @@ val hospitals = listOf(
         id = "6824",
         cityId = "balikesir",
         name = "Bandırma Eğitim ve Araştırma Hastanesi",
-        district = "Bandırma",
+        districtId = "balikesir_bandirma",
         detsisCode = "44767171",
         bedCount = 350
     ),
@@ -1343,7 +1343,7 @@ val hospitals = listOf(
         id = "177124",
         cityId = "balikesir",
         name = "Balıkesir Atatürk Şehir Hastanesi",
-        district = "Altıeylül",
+        districtId = "balikesir_altieylul",
         detsisCode = "30041352",
         bedCount = 1100
     ),
@@ -1351,7 +1351,7 @@ val hospitals = listOf(
         id = "177761",
         cityId = "balikesir",
         name = "Savaştepe Devlet Hastanesi",
-        district = "Savaştepe",
+        districtId = "balikesir_savastepe",
         detsisCode = "54365934",
         bedCount = 25
     ),
@@ -1359,7 +1359,7 @@ val hospitals = listOf(
         id = "223318",
         cityId = "balikesir",
         name = "Balıkesir Ağız ve Diş Sağlığı Hastanesi",
-        district = "Altıeylül",
+        districtId = "balikesir_altieylul",
         detsisCode = "60583288",
         bedCount = 6
     ),
@@ -1367,7 +1367,7 @@ val hospitals = listOf(
         id = "711201",
         cityId = "balikesir",
         name = "Gömeç İlçe Devlet Hastanesi",
-        district = "Gömeç",
+        districtId = "balikesir_gomec",
         detsisCode = "",
         bedCount = 10
     ),
@@ -1375,7 +1375,7 @@ val hospitals = listOf(
         id = "341935",
         cityId = "balikesir",
         name = "Kepsut İlçe Devlet Hastanesi",
-        district = "Kepsut",
+        districtId = "balikesir_kepsut",
         detsisCode = "",
         bedCount = 10
     ),
@@ -1383,7 +1383,7 @@ val hospitals = listOf(
         id = "188204",
         cityId = "balikesir",
         name = "Balya İlçe Devlet Hastanesi",
-        district = "Balya",
+        districtId = "balikesir_balya",
         detsisCode = "",
         bedCount = 10
     ),
@@ -1391,7 +1391,7 @@ val hospitals = listOf(
         id = "385211",
         cityId = "balikesir",
         name = "Marmara Süleyman İlik İlçe Devlet Hastanesi",
-        district = "Marmara",
+        districtId = "balikesir_marmara",
         detsisCode = "",
         bedCount = 10
     ),
@@ -1399,7 +1399,7 @@ val hospitals = listOf(
         id = "148",
         cityId = "bartin",
         name = "Bartın Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "bartin_merkez",
         detsisCode = "55087963",
         bedCount = 432
     ),
@@ -1407,7 +1407,7 @@ val hospitals = listOf(
         id = "380547",
         cityId = "bartin",
         name = "Ulus Şehit Piyade Er Hasan Hüseyin Oğuz İlçe Devlet Hastanesi",
-        district = "Ulus",
+        districtId = "bartin_ulus",
         detsisCode = "",
         bedCount = 15
     ),
@@ -1415,7 +1415,7 @@ val hospitals = listOf(
         id = "774106",
         cityId = "bartin",
         name = "Amasra İlçe Devlet Hastanesi",
-        district = "Amasra",
+        districtId = "bartin_amasra",
         detsisCode = "",
         bedCount = 5
     ),
@@ -1423,7 +1423,7 @@ val hospitals = listOf(
         id = "160",
         cityId = "batman",
         name = "Kozluk Devlet Hastanesi",
-        district = "Kozluk",
+        districtId = "batman_kozluk",
         detsisCode = "93261993",
         bedCount = 60
     ),
@@ -1431,7 +1431,7 @@ val hospitals = listOf(
         id = "12785",
         cityId = "batman",
         name = "Sason Devlet Hastanesi",
-        district = "Sason",
+        districtId = "batman_sason",
         detsisCode = "67066521",
         bedCount = 50
     ),
@@ -1439,7 +1439,7 @@ val hospitals = listOf(
         id = "177840",
         cityId = "batman",
         name = "Gercüş Devlet Hastanesi",
-        district = "Gercüş",
+        districtId = "batman_gercus",
         detsisCode = "32052763",
         bedCount = 25
     ),
@@ -1447,7 +1447,7 @@ val hospitals = listOf(
         id = "223429",
         cityId = "batman",
         name = "Batman Eğitim ve Araştırma Hastanesi",
-        district = "Merkez",
+        districtId = "batman_merkez",
         detsisCode = "75144452",
         bedCount = 810
     ),
@@ -1455,7 +1455,7 @@ val hospitals = listOf(
         id = "46326",
         cityId = "batman",
         name = "Batman İluh Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "batman_merkez",
         detsisCode = "35528355",
         bedCount = 160
     ),
@@ -1463,7 +1463,7 @@ val hospitals = listOf(
         id = "654925",
         cityId = "batman",
         name = "Hasankeyf İlçe Devlet Hastanesi",
-        district = "Hasankeyf",
+        districtId = "batman_hasankeyf",
         detsisCode = "96784242",
         bedCount = 25
     ),
@@ -1471,7 +1471,7 @@ val hospitals = listOf(
         id = "810589",
         cityId = "batman",
         name = "Beşiri İlçe Devlet Hastanesi",
-        district = "Beşiri",
+        districtId = "batman_besiri",
         detsisCode = "95991960",
         bedCount = 15
     ),
@@ -1479,7 +1479,7 @@ val hospitals = listOf(
         id = "261",
         cityId = "bayburt",
         name = "Bayburt Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "bayburt_merkez",
         detsisCode = "47296147",
         bedCount = 320
     ),
@@ -1487,7 +1487,7 @@ val hospitals = listOf(
         id = "5110",
         cityId = "bilecik",
         name = "Söğüt Devlet Hastanesi",
-        district = "Söğüt",
+        districtId = "bilecik_sogut",
         detsisCode = "33777217",
         bedCount = 25
     ),
@@ -1495,7 +1495,7 @@ val hospitals = listOf(
         id = "5133",
         cityId = "bilecik",
         name = "Bozüyük Devlet Hastanesi",
-        district = "Bozüyük",
+        districtId = "bilecik_bozuyuk",
         detsisCode = "53230032",
         bedCount = 250
     ),
@@ -1503,7 +1503,7 @@ val hospitals = listOf(
         id = "5164",
         cityId = "bilecik",
         name = "Bilecik Eğitim ve Araştırma Hastanesi",
-        district = "Merkez",
+        districtId = "bilecik_merkez",
         detsisCode = "10367596",
         bedCount = 300
     ),
@@ -1511,7 +1511,7 @@ val hospitals = listOf(
         id = "397657",
         cityId = "bilecik",
         name = "Osmaneli Mustafa Selahattin Çetintaş Devlet Hastanesi",
-        district = "Osmaneli",
+        districtId = "bilecik_osmaneli",
         detsisCode = "63000006",
         bedCount = 25
     ),
@@ -1519,7 +1519,7 @@ val hospitals = listOf(
         id = "194292",
         cityId = "bilecik",
         name = "Pazaryeri İlçe Devlet Hastanesi",
-        district = "Pazaryeri",
+        districtId = "bilecik_pazaryeri",
         detsisCode = "",
         bedCount = 10
     ),
@@ -1527,7 +1527,7 @@ val hospitals = listOf(
         id = "188205",
         cityId = "bilecik",
         name = "Gölpazarı İlçe Devlet Hastanesi",
-        district = "Gölpazarı",
+        districtId = "bilecik_golpazari",
         detsisCode = "",
         bedCount = 15
     ),
@@ -1535,7 +1535,7 @@ val hospitals = listOf(
         id = "716263",
         cityId = "bilecik",
         name = "Bilecik Yenipazar İlçe Devlet Hastanesi",
-        district = "Yenipazar",
+        districtId = "bilecik_yenipazar",
         detsisCode = "",
         bedCount = 5
     ),
@@ -1543,7 +1543,7 @@ val hospitals = listOf(
         id = "716264",
         cityId = "bilecik",
         name = "İnhisar İlçe Devlet Hastanesi",
-        district = "İnhisar",
+        districtId = "bilecik_inhisar",
         detsisCode = "",
         bedCount = 5
     ),
@@ -1551,7 +1551,7 @@ val hospitals = listOf(
         id = "5063",
         cityId = "bingol",
         name = "Solhan Devlet Hastanesi",
-        district = "Solhan",
+        districtId = "bingol_solhan",
         detsisCode = "25106663",
         bedCount = 75
     ),
@@ -1559,7 +1559,7 @@ val hospitals = listOf(
         id = "5096",
         cityId = "bingol",
         name = "Genç Devlet Hastanesi",
-        district = "Genç",
+        districtId = "bingol_genc",
         detsisCode = "28645028",
         bedCount = 65
     ),
@@ -1567,7 +1567,7 @@ val hospitals = listOf(
         id = "5116",
         cityId = "bingol",
         name = "Bingöl Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "bingol_merkez",
         detsisCode = "39519946",
         bedCount = 365
     ),
@@ -1575,7 +1575,7 @@ val hospitals = listOf(
         id = "5117",
         cityId = "bingol",
         name = "Bingöl Kadın Doğum ve Çocuk Hastalıkları Hastanesi",
-        district = "Merkez",
+        districtId = "bingol_merkez",
         detsisCode = "29743169",
         bedCount = 174
     ),
@@ -1583,7 +1583,7 @@ val hospitals = listOf(
         id = "188207",
         cityId = "bingol",
         name = "Karlıova Devlet Hastanesi",
-        district = "Karlıova",
+        districtId = "bingol_karliova",
         detsisCode = "43260240",
         bedCount = 50
     ),
@@ -1591,7 +1591,7 @@ val hospitals = listOf(
         id = "778711",
         cityId = "bingol",
         name = "Adaklı İlçe Devlet Hastanesi",
-        district = "Adaklı",
+        districtId = "bingol_adakli",
         detsisCode = "",
         bedCount = 10
     ),
@@ -1599,7 +1599,7 @@ val hospitals = listOf(
         id = "188206",
         cityId = "bingol",
         name = "Kiğı İlçe Devlet Hastanesi",
-        district = "Kiğı",
+        districtId = "bingol_kigi",
         detsisCode = "",
         bedCount = 10
     ),
@@ -1607,7 +1607,7 @@ val hospitals = listOf(
         id = "5040",
         cityId = "bitlis",
         name = "Ahlat Devlet Hastanesi",
-        district = "Ahlat",
+        districtId = "bitlis_ahlat",
         detsisCode = "11871983",
         bedCount = 75
     ),
@@ -1615,7 +1615,7 @@ val hospitals = listOf(
         id = "5055",
         cityId = "bitlis",
         name = "Tatvan Devlet Hastanesi",
-        district = "Tatvan",
+        districtId = "bitlis_tatvan",
         detsisCode = "70871440",
         bedCount = 510
     ),
@@ -1623,7 +1623,7 @@ val hospitals = listOf(
         id = "5068",
         cityId = "bitlis",
         name = "Bitlis Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "bitlis_merkez",
         detsisCode = "19359967",
         bedCount = 235
     ),
@@ -1631,7 +1631,7 @@ val hospitals = listOf(
         id = "11734",
         cityId = "bitlis",
         name = "Adilcevaz Onkoloji Hastanesi",
-        district = "Adilcevaz",
+        districtId = "bitlis_adilcevaz",
         detsisCode = "18701713",
         bedCount = 50
     ),
@@ -1639,7 +1639,7 @@ val hospitals = listOf(
         id = "100773",
         cityId = "bitlis",
         name = "Güroymak Devlet Hastanesi",
-        district = "Güroymak",
+        districtId = "bitlis_guroymak",
         detsisCode = "95294399",
         bedCount = 50
     ),
@@ -1647,7 +1647,7 @@ val hospitals = listOf(
         id = "194233",
         cityId = "bitlis",
         name = "Hizan Devlet Hastanesi",
-        district = "Hizan",
+        districtId = "bitlis_hizan",
         detsisCode = "79829997",
         bedCount = 50
     ),
@@ -1655,7 +1655,7 @@ val hospitals = listOf(
         id = "755330",
         cityId = "bitlis",
         name = "Mutki İlçe Devlet Hastanesi",
-        district = "Mutki",
+        districtId = "bitlis_mutki",
         detsisCode = "70506404",
         bedCount = 20
     ),
@@ -1663,7 +1663,7 @@ val hospitals = listOf(
         id = "809300",
         cityId = "bolu",
         name = "Bolu İzzet Baysal Eğitim ve Araştırma Hastanesi",
-        district = "Merkez",
+        districtId = "bolu_merkez",
         detsisCode = "33443051",
         bedCount = 440
     ),
@@ -1671,7 +1671,7 @@ val hospitals = listOf(
         id = "809302",
         cityId = "bolu",
         name = "Bolu İzzet Baysal Fizik Tedavi ve Rehabilitasyon Eğitim ve Araştırma Hastanesi",
-        district = "Merkez",
+        districtId = "bolu_merkez",
         detsisCode = "68556686",
         bedCount = 340
     ),
@@ -1679,7 +1679,7 @@ val hospitals = listOf(
         id = "809303",
         cityId = "bolu",
         name = "Bolu İzzet Baysal Ruh Sağlığı ve Hastalıkları Hastanesi",
-        district = "Merkez",
+        districtId = "bolu_merkez",
         detsisCode = "27991073",
         bedCount = 110
     ),
@@ -1687,7 +1687,7 @@ val hospitals = listOf(
         id = "4984",
         cityId = "bolu",
         name = "Gerede Devlet Hastanesi",
-        district = "Gerede",
+        districtId = "bolu_gerede",
         detsisCode = "61518932",
         bedCount = 55
     ),
@@ -1695,7 +1695,7 @@ val hospitals = listOf(
         id = "196570",
         cityId = "bolu",
         name = "Mudurnu İlçe Devlet Hastanesi",
-        district = "Mudurnu",
+        districtId = "bolu_mudurnu",
         detsisCode = "63977019",
         bedCount = 15
     ),
@@ -1703,7 +1703,7 @@ val hospitals = listOf(
         id = "851533",
         cityId = "bolu",
         name = "Bolu İzzet Baysal Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "bolu_merkez",
         detsisCode = "68246970",
         bedCount = 375
     ),
@@ -1711,7 +1711,7 @@ val hospitals = listOf(
         id = "196569",
         cityId = "bolu",
         name = "Göynük Şehit Ziya Sarpkaya İlçe Devlet Hastanesi",
-        district = "Göynük",
+        districtId = "bolu_goynuk",
         detsisCode = "",
         bedCount = 10
     ),
@@ -1719,7 +1719,7 @@ val hospitals = listOf(
         id = "197160",
         cityId = "bolu",
         name = "Mengen Dr.Mustafa Körpeoğlu İlçe Devlet Hastanesi",
-        district = "Mengen",
+        districtId = "bolu_mengen",
         detsisCode = "",
         bedCount = 10
     ),
@@ -1727,7 +1727,7 @@ val hospitals = listOf(
         id = "810523",
         cityId = "bolu",
         name = "Yeniçağa İlçe Devlet Hastanesi",
-        district = "Yeniçağa",
+        districtId = "bolu_yenicaga",
         detsisCode = "",
         bedCount = 5
     ),
@@ -1735,7 +1735,7 @@ val hospitals = listOf(
         id = "4899",
         cityId = "burdur",
         name = "Yeşilova Devlet Hastanesi",
-        district = "Yeşilova",
+        districtId = "burdur_yesilova",
         detsisCode = "89981107",
         bedCount = 25
     ),
@@ -1743,7 +1743,7 @@ val hospitals = listOf(
         id = "4928",
         cityId = "burdur",
         name = "Gölhisar Devlet Hastanesi",
-        district = "Gölhisar",
+        districtId = "burdur_golhisar",
         detsisCode = "45099763",
         bedCount = 75
     ),
@@ -1751,7 +1751,7 @@ val hospitals = listOf(
         id = "4953",
         cityId = "burdur",
         name = "Bucak Devlet Hastanesi",
-        district = "Bucak",
+        districtId = "burdur_bucak",
         detsisCode = "22129295",
         bedCount = 270
     ),
@@ -1759,7 +1759,7 @@ val hospitals = listOf(
         id = "4973",
         cityId = "burdur",
         name = "Burdur Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "burdur_merkez",
         detsisCode = "89621071",
         bedCount = 400
     ),
@@ -1767,7 +1767,7 @@ val hospitals = listOf(
         id = "276492",
         cityId = "burdur",
         name = "Tefenni İlçe Devlet Hastanesi",
-        district = "Tefenni",
+        districtId = "burdur_tefenni",
         detsisCode = "",
         bedCount = 10
     ),
@@ -1775,7 +1775,7 @@ val hospitals = listOf(
         id = "282994",
         cityId = "burdur",
         name = "Ağlasun İlçe Devlet Hastanesi",
-        district = "Ağlasun",
+        districtId = "burdur_aglasun",
         detsisCode = "",
         bedCount = 10
     ),
@@ -1783,7 +1783,7 @@ val hospitals = listOf(
         id = "640876",
         cityId = "burdur",
         name = "Karamanlı İlçe Devlet Hastanesi",
-        district = "Karamanlı",
+        districtId = "burdur_karamanli",
         detsisCode = "",
         bedCount = 5
     ),
@@ -1791,7 +1791,7 @@ val hospitals = listOf(
         id = "709763",
         cityId = "burdur",
         name = "Çavdır İlçe Devlet Hastanesi",
-        district = "Çavdır",
+        districtId = "burdur_cavdir",
         detsisCode = "",
         bedCount = 5
     ),
@@ -1799,7 +1799,7 @@ val hospitals = listOf(
         id = "4875",
         cityId = "bursa",
         name = "Bursa Ağız ve Diş Sağlığı Eğitim ve Araştırma Hastanesi",
-        district = "Yıldırım",
+        districtId = "bursa_yildirim",
         detsisCode = "78665781",
         bedCount = 5
     ),
@@ -1807,7 +1807,7 @@ val hospitals = listOf(
         id = "388466",
         cityId = "bursa",
         name = "Bursa Yüksek İhtisas Eğitim ve Araştırma Hastanesi",
-        district = "Yıldırım",
+        districtId = "bursa_yildirim",
         detsisCode = "31234050",
         bedCount = 1430
     ),
@@ -1815,7 +1815,7 @@ val hospitals = listOf(
         id = "690653",
         cityId = "bursa",
         name = "Bursa Şehir Hastanesi",
-        district = "Nilüfer",
+        districtId = "bursa_nilufer",
         detsisCode = "13012450",
         bedCount = 1355
     ),
@@ -1823,7 +1823,7 @@ val hospitals = listOf(
         id = "4758",
         cityId = "bursa",
         name = "Yenişehir Devlet Hastanesi",
-        district = "Yenişehir",
+        districtId = "bursa_yenisehir",
         detsisCode = "38007871",
         bedCount = 110
     ),
@@ -1831,7 +1831,7 @@ val hospitals = listOf(
         id = "4768",
         cityId = "bursa",
         name = "Mudanya Devlet Hastanesi",
-        district = "Mudanya",
+        districtId = "bursa_mudanya",
         detsisCode = "23938032",
         bedCount = 100
     ),
@@ -1839,7 +1839,7 @@ val hospitals = listOf(
         id = "4773",
         cityId = "bursa",
         name = "Mustafakemalpaşa Devlet Hastanesi",
-        district = "M.kemalpaşa",
+        districtId = "bursa_m_kemalpasa",
         detsisCode = "47655407",
         bedCount = 239
     ),
@@ -1847,7 +1847,7 @@ val hospitals = listOf(
         id = "4787",
         cityId = "bursa",
         name = "Orhaneli Devlet Hastanesi",
-        district = "Orhaneli",
+        districtId = "bursa_orhaneli",
         detsisCode = "87278129",
         bedCount = 50
     ),
@@ -1855,7 +1855,7 @@ val hospitals = listOf(
         id = "4789",
         cityId = "bursa",
         name = "Karacabey Devlet Hastanesi",
-        district = "Karacabey",
+        districtId = "bursa_karacabey",
         detsisCode = "77106980",
         bedCount = 158
     ),
@@ -1863,7 +1863,7 @@ val hospitals = listOf(
         id = "4815",
         cityId = "bursa",
         name = "İnegöl Devlet Hastanesi",
-        district = "İnegöl",
+        districtId = "bursa_inegol",
         detsisCode = "98616035",
         bedCount = 355
     ),
@@ -1871,7 +1871,7 @@ val hospitals = listOf(
         id = "4840",
         cityId = "bursa",
         name = "Gemlik Devlet Hastanesi",
-        district = "Gemlik",
+        districtId = "bursa_gemlik",
         detsisCode = "63575978",
         bedCount = 260
     ),
@@ -1879,7 +1879,7 @@ val hospitals = listOf(
         id = "4873",
         cityId = "bursa",
         name = "Bursa Ali Osman Sönmez Onkoloji Hastanesi",
-        district = "Osmangazi",
+        districtId = "bursa_osmangazi",
         detsisCode = "76279644",
         bedCount = 212
     ),
@@ -1887,7 +1887,7 @@ val hospitals = listOf(
         id = "4912",
         cityId = "bursa",
         name = "Bursa Dörtçelik Çocuk Hastalıkları Hastanesi",
-        district = "Osmangazi",
+        districtId = "bursa_osmangazi",
         detsisCode = "60589873",
         bedCount = 315
     ),
@@ -1895,7 +1895,7 @@ val hospitals = listOf(
         id = "6521",
         cityId = "bursa",
         name = "Orhangazi Devlet Hastanesi",
-        district = "Orhangazi",
+        districtId = "bursa_orhangazi",
         detsisCode = "68713370",
         bedCount = 95
     ),
@@ -1903,7 +1903,7 @@ val hospitals = listOf(
         id = "8489",
         cityId = "bursa",
         name = "Bursa Dr. Ayten Bozkaya Spastik Çocuklar Hastanesi ve Rehabilitasyon Merkezi",
-        district = "Osmangazi",
+        districtId = "bursa_osmangazi",
         detsisCode = "64265836",
         bedCount = 54
     ),
@@ -1911,7 +1911,7 @@ val hospitals = listOf(
         id = "9574",
         cityId = "bursa",
         name = "İznik Devlet Hastanesi",
-        district = "İznik",
+        districtId = "bursa_iznik",
         detsisCode = "20543600",
         bedCount = 88
     ),
@@ -1919,7 +1919,7 @@ val hospitals = listOf(
         id = "177154",
         cityId = "bursa",
         name = "Bursa Çekirge Devlet Hastanesi",
-        district = "Osmangazi",
+        districtId = "bursa_osmangazi",
         detsisCode = "13265488",
         bedCount = 535
     ),
@@ -1927,7 +1927,7 @@ val hospitals = listOf(
         id = "323354",
         cityId = "bursa",
         name = "İnegöl Ağız ve Diş Sağlığı Hastanesi",
-        district = "İnegöl",
+        districtId = "bursa_inegol",
         detsisCode = "22240009",
         bedCount = 6
     ),
@@ -1935,7 +1935,7 @@ val hospitals = listOf(
         id = "601563",
         cityId = "bursa",
         name = "Gürsu Cüneyt Yıldız Devlet Hastanesi",
-        district = "Gürsu",
+        districtId = "bursa_gursu",
         detsisCode = "46033506",
         bedCount = 75
     ),
@@ -1943,7 +1943,7 @@ val hospitals = listOf(
         id = "671546",
         cityId = "bursa",
         name = "Kestel Devlet Hastanesi",
-        district = "Kestel",
+        districtId = "bursa_kestel",
         detsisCode = "11997179",
         bedCount = 150
     ),
@@ -1951,7 +1951,7 @@ val hospitals = listOf(
         id = "887157",
         cityId = "bursa",
         name = "Bursa İlker Çelikcan Fizik Tedavi ve Rehabilitasyon Hastanesi",
-        district = "Osmangazi",
+        districtId = "bursa_osmangazi",
         detsisCode = "93088926",
         bedCount = 150
     ),
@@ -1959,7 +1959,7 @@ val hospitals = listOf(
         id = "196192",
         cityId = "bursa",
         name = "Büyükorhan İlçe Devlet Hastanesi",
-        district = "Büyükorhan",
+        districtId = "bursa_buyukorhan",
         detsisCode = "",
         bedCount = 10
     ),
@@ -1967,7 +1967,7 @@ val hospitals = listOf(
         id = "196193",
         cityId = "bursa",
         name = "Keles İlçe Devlet Hastanesi",
-        district = "Keles",
+        districtId = "bursa_keles",
         detsisCode = "",
         bedCount = 10
     ),
@@ -1975,7 +1975,7 @@ val hospitals = listOf(
         id = "196218",
         cityId = "bursa",
         name = "Harmancık İlçe Devlet Hastanesi",
-        district = "Harmancık",
+        districtId = "bursa_harmancik",
         detsisCode = "",
         bedCount = 10
     ),
@@ -1983,7 +1983,7 @@ val hospitals = listOf(
         id = "4665",
         cityId = "canakkale",
         name = "Gökçeada Devlet Hastanesi",
-        district = "Gökçeada",
+        districtId = "canakkale_gokceada",
         detsisCode = "84348126",
         bedCount = 20
     ),
@@ -1991,7 +1991,7 @@ val hospitals = listOf(
         id = "4668",
         cityId = "canakkale",
         name = "Lapseki Devlet Hastanesi",
-        district = "Lapseki",
+        districtId = "canakkale_lapseki",
         detsisCode = "28699310",
         bedCount = 30
     ),
@@ -1999,7 +1999,7 @@ val hospitals = listOf(
         id = "4674",
         cityId = "canakkale",
         name = "Çanakkale Yenice Devlet Hastanesi",
-        district = "Yenice",
+        districtId = "canakkale_yenice",
         detsisCode = "77280005",
         bedCount = 30
     ),
@@ -2007,7 +2007,7 @@ val hospitals = listOf(
         id = "4692",
         cityId = "canakkale",
         name = "Ezine Devlet Hastanesi",
-        district = "Ezine",
+        districtId = "canakkale_ezine",
         detsisCode = "44686360",
         bedCount = 100
     ),
@@ -2015,7 +2015,7 @@ val hospitals = listOf(
         id = "4698",
         cityId = "canakkale",
         name = "Gelibolu Şehit Koray Onay Devlet Hastanesi",
-        district = "Gelibolu",
+        districtId = "canakkale_gelibolu",
         detsisCode = "46661778",
         bedCount = 55
     ),
@@ -2023,7 +2023,7 @@ val hospitals = listOf(
         id = "4725",
         cityId = "canakkale",
         name = "Çan Devlet Hastanesi",
-        district = "Çan",
+        districtId = "canakkale_can",
         detsisCode = "75250264",
         bedCount = 100
     ),
@@ -2031,7 +2031,7 @@ val hospitals = listOf(
         id = "4726",
         cityId = "canakkale",
         name = "Çanakkale Mehmet Akif Ersoy Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "canakkale_merkez",
         detsisCode = "93874972",
         bedCount = 545
     ),
@@ -2039,7 +2039,7 @@ val hospitals = listOf(
         id = "4741",
         cityId = "canakkale",
         name = "Çanakkale Ayvacık Devlet Hastanesi",
-        district = "Ayvacık",
+        districtId = "canakkale_ayvacik",
         detsisCode = "41146030",
         bedCount = 35
     ),
@@ -2047,7 +2047,7 @@ val hospitals = listOf(
         id = "4745",
         cityId = "canakkale",
         name = "Bayramiç Devlet Hastanesi",
-        district = "Bayramiç",
+        districtId = "canakkale_bayramic",
         detsisCode = "41146030",
         bedCount = 30
     ),
@@ -2055,7 +2055,7 @@ val hospitals = listOf(
         id = "6519",
         cityId = "canakkale",
         name = "Biga Devlet Hastanesi",
-        district = "Biga",
+        districtId = "canakkale_biga",
         detsisCode = "44630894",
         bedCount = 175
     ),
@@ -2063,7 +2063,7 @@ val hospitals = listOf(
         id = "801898",
         cityId = "canakkale",
         name = "Eceabat İlçe Devlet Hastanesi",
-        district = "Eceabat",
+        districtId = "canakkale_eceabat",
         detsisCode = "",
         bedCount = 5
     ),
@@ -2071,7 +2071,7 @@ val hospitals = listOf(
         id = "4621",
         cityId = "cankiri",
         name = "Ilgaz Devlet Hastanesi",
-        district = "Ilgaz",
+        districtId = "cankiri_ilgaz",
         detsisCode = "24795654",
         bedCount = 25
     ),
@@ -2079,7 +2079,7 @@ val hospitals = listOf(
         id = "4652",
         cityId = "cankiri",
         name = "Çerkeş Devlet Hastanesi",
-        district = "Çerkeş",
+        districtId = "cankiri_cerkes",
         detsisCode = "98702577",
         bedCount = 25
     ),
@@ -2087,7 +2087,7 @@ val hospitals = listOf(
         id = "4680",
         cityId = "cankiri",
         name = "Çankırı Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "cankiri_merkez",
         detsisCode = "39991120",
         bedCount = 300
     ),
@@ -2095,7 +2095,7 @@ val hospitals = listOf(
         id = "305268",
         cityId = "cankiri",
         name = "Kurşunlu Devlet Hastanesi",
-        district = "Kurşunlu",
+        districtId = "cankiri_kursunlu",
         detsisCode = "67743034",
         bedCount = 30
     ),
@@ -2103,7 +2103,7 @@ val hospitals = listOf(
         id = "193967",
         cityId = "cankiri",
         name = "Kızılırmak İlçe Devlet Hastanesi",
-        district = "Kızılırmak",
+        districtId = "cankiri_kizilirmak",
         detsisCode = "",
         bedCount = 15
     ),
@@ -2111,7 +2111,7 @@ val hospitals = listOf(
         id = "196568",
         cityId = "cankiri",
         name = "Şabanözü Dr. Sami Baran İlçe Devlet Hastanesi",
-        district = "Şabanözü",
+        districtId = "cankiri_sabanozu",
         detsisCode = "",
         bedCount = 6
     ),
@@ -2119,7 +2119,7 @@ val hospitals = listOf(
         id = "196343",
         cityId = "cankiri",
         name = "Orta İlçe Devlet Hastanesi",
-        district = "Orta",
+        districtId = "cankiri_orta",
         detsisCode = "",
         bedCount = 10
     ),
@@ -2127,7 +2127,7 @@ val hospitals = listOf(
         id = "193966",
         cityId = "cankiri",
         name = "Atkaracalar İlçe Devlet Hastanesi",
-        district = "Atkaracalar",
+        districtId = "cankiri_atkaracalar",
         detsisCode = "",
         bedCount = 10
     ),
@@ -2135,7 +2135,7 @@ val hospitals = listOf(
         id = "4609",
         cityId = "corum",
         name = "Çorum Erol Olçok Eğitim ve Araştırma Hastanesi",
-        district = "Merkez",
+        districtId = "corum_merkez",
         detsisCode = "40600303",
         bedCount = 805
     ),
@@ -2143,7 +2143,7 @@ val hospitals = listOf(
         id = "4546",
         cityId = "corum",
         name = "Osmancık Devlet Hastanesi",
-        district = "Osmancık",
+        districtId = "corum_osmancik",
         detsisCode = "90775033",
         bedCount = 100
     ),
@@ -2151,7 +2151,7 @@ val hospitals = listOf(
         id = "4553",
         cityId = "corum",
         name = "Sungurlu Devlet Hastanesi",
-        district = "Sungurlu",
+        districtId = "corum_sungurlu",
         detsisCode = "94454389",
         bedCount = 120
     ),
@@ -2159,7 +2159,7 @@ val hospitals = listOf(
         id = "4562",
         cityId = "corum",
         name = "İskilip Atıf Hoca Devlet Hastanesi",
-        district = "İskilip",
+        districtId = "corum_iskilip",
         detsisCode = "20726106",
         bedCount = 100
     ),
@@ -2167,7 +2167,7 @@ val hospitals = listOf(
         id = "4571",
         cityId = "corum",
         name = "Kargı Ahmet Hamdi Akpınar İlçe Devlet Hastanesi",
-        district = "Kargı",
+        districtId = "corum_kargi",
         detsisCode = "15504230",
         bedCount = 25
     ),
@@ -2175,7 +2175,7 @@ val hospitals = listOf(
         id = "4592",
         cityId = "corum",
         name = "Alaca Devlet Hastanesi",
-        district = "Alaca",
+        districtId = "corum_alaca",
         detsisCode = "99661195",
         bedCount = 75
     ),
@@ -2183,7 +2183,7 @@ val hospitals = listOf(
         id = "4598",
         cityId = "corum",
         name = "Bayat Devlet Hastanesi",
-        district = "Bayat",
+        districtId = "corum_bayat",
         detsisCode = "17043600",
         bedCount = 35
     ),
@@ -2191,7 +2191,7 @@ val hospitals = listOf(
         id = "4614",
         cityId = "corum",
         name = "Çorum Göğüs Hastalıkları Hastanesi",
-        district = "Merkez",
+        districtId = "corum_merkez",
         detsisCode = "65904573",
         bedCount = 155
     ),
@@ -2199,7 +2199,7 @@ val hospitals = listOf(
         id = "14606",
         cityId = "corum",
         name = "Mecitözü İlçe Devlet Hastanesi",
-        district = "Mecitözü",
+        districtId = "corum_mecitozu",
         detsisCode = "47439698",
         bedCount = 25
     ),
@@ -2207,7 +2207,7 @@ val hospitals = listOf(
         id = "194170",
         cityId = "corum",
         name = "Çorum Ortaköy İlçe Devlet Hastanesi",
-        district = "Ortaköy",
+        districtId = "corum_ortakoy",
         detsisCode = "",
         bedCount = 5
     ),
@@ -2215,7 +2215,7 @@ val hospitals = listOf(
         id = "194169",
         cityId = "corum",
         name = "Oğuzlar İlçe Devlet Hastanesi",
-        district = "Oğuzlar",
+        districtId = "corum_oguzlar",
         detsisCode = "",
         bedCount = 5
     ),
@@ -2223,7 +2223,7 @@ val hospitals = listOf(
         id = "194171",
         cityId = "corum",
         name = "Dodurga İlçe Devlet Hastanesi",
-        district = "Dodurga",
+        districtId = "corum_dodurga",
         detsisCode = "",
         bedCount = 5
     ),
@@ -2231,7 +2231,7 @@ val hospitals = listOf(
         id = "194172",
         cityId = "corum",
         name = "Uğurludağ Şehit Sami Saygı İlçe Devlet Hastanesi",
-        district = "Uğurludağ",
+        districtId = "corum_ugurludag",
         detsisCode = "",
         bedCount = 5
     ),
@@ -2239,7 +2239,7 @@ val hospitals = listOf(
         id = "378231",
         cityId = "corum",
         name = "Boğazkale İlçe Devlet Hastanesi",
-        district = "Boğazkale",
+        districtId = "corum_bogazkale",
         detsisCode = "",
         bedCount = 5
     ),
@@ -2247,7 +2247,7 @@ val hospitals = listOf(
         id = "4442",
         cityId = "denizli",
         name = "Denizli Kale İlçe Devlet Hastanesi",
-        district = "Kale",
+        districtId = "denizli_kale",
         detsisCode = "43680169",
         bedCount = 25
     ),
@@ -2255,7 +2255,7 @@ val hospitals = listOf(
         id = "4452",
         cityId = "denizli",
         name = "Tavas Devlet Hastanesi",
-        district = "Tavas",
+        districtId = "denizli_tavas",
         detsisCode = "12879861",
         bedCount = 104
     ),
@@ -2263,7 +2263,7 @@ val hospitals = listOf(
         id = "4456",
         cityId = "denizli",
         name = "Çal Devlet Hastanesi",
-        district = "Çal",
+        districtId = "denizli_cal",
         detsisCode = "69148225",
         bedCount = 25
     ),
@@ -2271,7 +2271,7 @@ val hospitals = listOf(
         id = "4468",
         cityId = "denizli",
         name = "Çivril Şehit Hilmi Öz Devlet Hastanesi",
-        district = "Çivril",
+        districtId = "denizli_civril",
         detsisCode = "81362134",
         bedCount = 105
     ),
@@ -2279,7 +2279,7 @@ val hospitals = listOf(
         id = "4493",
         cityId = "denizli",
         name = "Buldan Göğüs Hastalıkları Hastanesi",
-        district = "Buldan",
+        districtId = "denizli_buldan",
         detsisCode = "49055417",
         bedCount = 131
     ),
@@ -2287,7 +2287,7 @@ val hospitals = listOf(
         id = "4509",
         cityId = "denizli",
         name = "Acıpayam Devlet Hastanesi",
-        district = "Acıpayam",
+        districtId = "denizli_acipayam",
         detsisCode = "61749341",
         bedCount = 100
     ),
@@ -2295,7 +2295,7 @@ val hospitals = listOf(
         id = "4527",
         cityId = "denizli",
         name = "Denizli Devlet Hastanesi",
-        district = "Merkezefendi",
+        districtId = "denizli_merkezefendi",
         detsisCode = "56834361",
         bedCount = 750
     ),
@@ -2303,7 +2303,7 @@ val hospitals = listOf(
         id = "9450",
         cityId = "denizli",
         name = "Çameli İlçe Devlet Hastanesi",
-        district = "Çameli",
+        districtId = "denizli_cameli",
         detsisCode = "12601892",
         bedCount = 25
     ),
@@ -2311,7 +2311,7 @@ val hospitals = listOf(
         id = "14110",
         cityId = "denizli",
         name = "Honaz İlçe Devlet Hastanesi",
-        district = "Honaz",
+        districtId = "denizli_honaz",
         detsisCode = "89815760",
         bedCount = 25
     ),
@@ -2319,7 +2319,7 @@ val hospitals = listOf(
         id = "177192",
         cityId = "denizli",
         name = "Denizli Servergazi Devlet Hastanesi",
-        district = "Merkezefendi",
+        districtId = "denizli_merkezefendi",
         detsisCode = "62112410",
         bedCount = 304
     ),
@@ -2327,7 +2327,7 @@ val hospitals = listOf(
         id = "187665",
         cityId = "denizli",
         name = "Denizli Ağız ve Diş Sağlığı Hastanesi",
-        district = "Merkezefendi",
+        districtId = "denizli_merkezefendi",
         detsisCode = "66598996",
         bedCount = 5
     ),
@@ -2335,7 +2335,7 @@ val hospitals = listOf(
         id = "203382",
         cityId = "denizli",
         name = "Serinhisar İlçe Devlet Hastanesi",
-        district = "Serinhisar",
+        districtId = "denizli_serinhisar",
         detsisCode = "",
         bedCount = 15
     ),
@@ -2343,7 +2343,7 @@ val hospitals = listOf(
         id = "611914",
         cityId = "denizli",
         name = "Güney İlçe Devlet Hastanesi",
-        district = "Güney",
+        districtId = "denizli_guney",
         detsisCode = "",
         bedCount = 5
     ),
@@ -2351,7 +2351,7 @@ val hospitals = listOf(
         id = "288126",
         cityId = "denizli",
         name = "Çardak İlçe Devlet Hastanesi",
-        district = "Çardak",
+        districtId = "denizli_cardak",
         detsisCode = "",
         bedCount = 15
     ),
@@ -2359,7 +2359,7 @@ val hospitals = listOf(
         id = "349922",
         cityId = "diyarbakir",
         name = "Diyarbakır Gazi Yaşargil Eğitim ve Araştırma Hastanesi",
-        district = "Yenişehir",
+        districtId = "diyarbakir_yenisehir",
         detsisCode = "58146266",
         bedCount = 1150
     ),
@@ -2367,7 +2367,7 @@ val hospitals = listOf(
         id = "4331",
         cityId = "diyarbakir",
         name = "Silvan Dr.Yusuf Azizoğlu Devlet Hastanesi",
-        district = "Silvan",
+        districtId = "diyarbakir_silvan",
         detsisCode = "95641908",
         bedCount = 150
     ),
@@ -2375,7 +2375,7 @@ val hospitals = listOf(
         id = "4410",
         cityId = "diyarbakir",
         name = "Bismil Devlet Hastanesi",
-        district = "Bismil",
+        districtId = "diyarbakir_bismil",
         detsisCode = "64079494",
         bedCount = 100
     ),
@@ -2383,7 +2383,7 @@ val hospitals = listOf(
         id = "4424",
         cityId = "diyarbakir",
         name = "Diyarbakır Selahaddin Eyyubi Devlet Hastanesi",
-        district = "Yenişehir",
+        districtId = "diyarbakir_yenisehir",
         detsisCode = "37081474",
         bedCount = 400
     ),
@@ -2391,7 +2391,7 @@ val hospitals = listOf(
         id = "4427",
         cityId = "diyarbakir",
         name = "Diyarbakır Çocuk Hastalıkları Hastanesi",
-        district = "Yenişehir",
+        districtId = "diyarbakir_yenisehir",
         detsisCode = "57305645",
         bedCount = 442
     ),
@@ -2399,7 +2399,7 @@ val hospitals = listOf(
         id = "6502",
         cityId = "diyarbakir",
         name = "Ergani Devlet Hastanesi",
-        district = "Ergani",
+        districtId = "diyarbakir_ergani",
         detsisCode = "72322835",
         bedCount = 150
     ),
@@ -2407,7 +2407,7 @@ val hospitals = listOf(
         id = "10160",
         cityId = "diyarbakir",
         name = "Diyarbakır Ağız ve Diş Sağlığı Hastanesi",
-        district = "Kayapınar",
+        districtId = "diyarbakir_kayapinar",
         detsisCode = "41041542",
         bedCount = 10
     ),
@@ -2415,7 +2415,7 @@ val hospitals = listOf(
         id = "22506",
         cityId = "diyarbakir",
         name = "Diyarbakır Dağ Kapı Devlet Hastanesi",
-        district = "Yenişehir",
+        districtId = "diyarbakir_yenisehir",
         detsisCode = "71871164",
         bedCount = 100
     ),
@@ -2423,7 +2423,7 @@ val hospitals = listOf(
         id = "182424",
         cityId = "diyarbakir",
         name = "Çermik Devlet Hastanesi",
-        district = "Çermik",
+        districtId = "diyarbakir_cermik",
         detsisCode = "35378980",
         bedCount = 50
     ),
@@ -2431,7 +2431,7 @@ val hospitals = listOf(
         id = "188208",
         cityId = "diyarbakir",
         name = "Çınar İlçe Devlet Hastanesi",
-        district = "Çınar",
+        districtId = "diyarbakir_cinar",
         detsisCode = "52681220",
         bedCount = 20
     ),
@@ -2439,7 +2439,7 @@ val hospitals = listOf(
         id = "193188",
         cityId = "diyarbakir",
         name = "Dicle Devlet Hastanesi",
-        district = "Dicle",
+        districtId = "diyarbakir_dicle",
         detsisCode = "14258761",
         bedCount = 41
     ),
@@ -2447,7 +2447,7 @@ val hospitals = listOf(
         id = "310878",
         cityId = "diyarbakir",
         name = "Hani İlçe Devlet Hastanesi",
-        district = "Hani",
+        districtId = "diyarbakir_hani",
         detsisCode = "11726991",
         bedCount = 15
     ),
@@ -2455,7 +2455,7 @@ val hospitals = listOf(
         id = "316942",
         cityId = "diyarbakir",
         name = "Eğil İlçe Devlet Hastanesi",
-        district = "Eğil",
+        districtId = "diyarbakir_egil",
         detsisCode = "91556205",
         bedCount = 5
     ),
@@ -2463,7 +2463,7 @@ val hospitals = listOf(
         id = "321516",
         cityId = "diyarbakir",
         name = "Lice Halis Toprak Vakfı Devlet Hastanesi",
-        district = "Lice",
+        districtId = "diyarbakir_lice",
         detsisCode = "52681220",
         bedCount = 25
     ),
@@ -2471,7 +2471,7 @@ val hospitals = listOf(
         id = "346785",
         cityId = "diyarbakir",
         name = "Kulp Dr. Abdullah Biroğul İlçe Devlet Hastanesi",
-        district = "Kulp",
+        districtId = "diyarbakir_kulp",
         detsisCode = "94685589",
         bedCount = 20
     ),
@@ -2479,7 +2479,7 @@ val hospitals = listOf(
         id = "605911",
         cityId = "diyarbakir",
         name = "Hazro İlçe Devlet Hastanesi",
-        district = "Hazro",
+        districtId = "diyarbakir_hazro",
         detsisCode = "",
         bedCount = 10
     ),
@@ -2487,7 +2487,7 @@ val hospitals = listOf(
         id = "874830",
         cityId = "diyarbakir",
         name = "Kocaköy İlçe Devlet Hastanesi",
-        district = "Kocaköy",
+        districtId = "diyarbakir_kocakoy",
         detsisCode = "",
         bedCount = 10
     ),
@@ -2495,7 +2495,7 @@ val hospitals = listOf(
         id = "654698",
         cityId = "diyarbakir",
         name = "Çüngüş İlçe Devlet Hastanesi",
-        district = "Çüngüş",
+        districtId = "diyarbakir_cungus",
         detsisCode = "",
         bedCount = 10
     ),
@@ -2503,7 +2503,7 @@ val hospitals = listOf(
         id = "739500",
         cityId = "diyarbakir",
         name = "Bismil Tepe İlçe Devlet Hastanesi",
-        district = "Bismil",
+        districtId = "diyarbakir_bismil",
         detsisCode = "",
         bedCount = 5
     ),
@@ -2511,7 +2511,7 @@ val hospitals = listOf(
         id = "182855",
         cityId = "duzce",
         name = "Düzce Atatürk Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "duzce_merkez",
         detsisCode = "58230125",
         bedCount = 500
     ),
@@ -2519,7 +2519,7 @@ val hospitals = listOf(
         id = "6905",
         cityId = "duzce",
         name = "Akçakoca Devlet Hastanesi",
-        district = "Akçakoca",
+        districtId = "duzce_akcakoca",
         detsisCode = "83623058",
         bedCount = 29
     ),
@@ -2527,7 +2527,7 @@ val hospitals = listOf(
         id = "801894",
         cityId = "duzce",
         name = "Kaynaşlı İlçe Devlet Hastanesi",
-        district = "Kaynaşlı",
+        districtId = "duzce_kaynasli",
         detsisCode = "",
         bedCount = 5
     ),
@@ -2535,7 +2535,7 @@ val hospitals = listOf(
         id = "801895",
         cityId = "duzce",
         name = "Gümüşova İlçe Devlet Hastanesi",
-        district = "Gümüşova",
+        districtId = "duzce_gumusova",
         detsisCode = "",
         bedCount = 5
     ),
@@ -2543,7 +2543,7 @@ val hospitals = listOf(
         id = "801897",
         cityId = "duzce",
         name = "Gölyaka İlçe Devlet Hastanesi",
-        district = "Gölyaka",
+        districtId = "duzce_golyaka",
         detsisCode = "",
         bedCount = 5
     ),
@@ -2551,7 +2551,7 @@ val hospitals = listOf(
         id = "52812",
         cityId = "duzce",
         name = "Çilimli İlçe Devlet Hastanesi",
-        district = "Çilimli",
+        districtId = "duzce_cilimli",
         detsisCode = "",
         bedCount = 5
     ),
@@ -2559,7 +2559,7 @@ val hospitals = listOf(
         id = "782859",
         cityId = "duzce",
         name = "Yığılca İlçe Devlet Hastanesi",
-        district = "Yığılca",
+        districtId = "duzce_yigilca",
         detsisCode = "",
         bedCount = 10
     ),
@@ -2567,7 +2567,7 @@ val hospitals = listOf(
         id = "4341",
         cityId = "edirne",
         name = "Edirne Sultan 1. Murat Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "edirne_merkez",
         detsisCode = "79320446",
         bedCount = 460
     ),
@@ -2575,7 +2575,7 @@ val hospitals = listOf(
         id = "4269",
         cityId = "edirne",
         name = "Uzunköprü Devlet Hastanesi",
-        district = "Uzunköprü",
+        districtId = "edirne_uzunkopru",
         detsisCode = "23680572",
         bedCount = 175
     ),
@@ -2583,7 +2583,7 @@ val hospitals = listOf(
         id = "4293",
         cityId = "edirne",
         name = "Keşan Devlet Hastanesi",
-        district = "Keşan",
+        districtId = "edirne_kesan",
         detsisCode = "76461883",
         bedCount = 150
     ),
@@ -2591,7 +2591,7 @@ val hospitals = listOf(
         id = "4287",
         cityId = "edirne",
         name = "İpsala Devlet Hastanesi",
-        district = "İpsala",
+        districtId = "edirne_ipsala",
         detsisCode = "38963754",
         bedCount = 30
     ),
@@ -2599,7 +2599,7 @@ val hospitals = listOf(
         id = "188211",
         cityId = "edirne",
         name = "Enez İlçe Devlet Hastanesi",
-        district = "Enez",
+        districtId = "edirne_enez",
         detsisCode = "",
         bedCount = 10
     ),
@@ -2607,7 +2607,7 @@ val hospitals = listOf(
         id = "787001",
         cityId = "edirne",
         name = "Süloğlu İlçe Devlet Hastanesi",
-        district = "Süloğlu",
+        districtId = "edirne_suloglu",
         detsisCode = "",
         bedCount = 5
     ),
@@ -2615,7 +2615,7 @@ val hospitals = listOf(
         id = "787000",
         cityId = "edirne",
         name = "Meriç İlçe Devlet Hastanesi",
-        district = "Meriç",
+        districtId = "edirne_meric",
         detsisCode = "",
         bedCount = 5
     ),
@@ -2623,7 +2623,7 @@ val hospitals = listOf(
         id = "876576",
         cityId = "edirne",
         name = "Lalapaşa İlçe Devlet Hastanesi",
-        district = "Lalapaşa",
+        districtId = "edirne_lalapasa",
         detsisCode = "",
         bedCount = 5
     ),
@@ -2631,7 +2631,7 @@ val hospitals = listOf(
         id = "656194",
         cityId = "elazig",
         name = "Elazığ Fethi Sekin Şehir Hastanesi",
-        district = "Merkez",
+        districtId = "elazig_merkez",
         detsisCode = "13281952",
         bedCount = 1038
     ),
@@ -2639,7 +2639,7 @@ val hospitals = listOf(
         id = "4244",
         cityId = "elazig",
         name = "Elazığ Ruh Sağlığı ve Hastalıkları Hastanesi",
-        district = "Merkez",
+        districtId = "elazig_merkez",
         detsisCode = "76457100",
         bedCount = 488
     ),
@@ -2647,7 +2647,7 @@ val hospitals = listOf(
         id = "6495",
         cityId = "elazig",
         name = "Palu İlçe Devlet Hastanesi",
-        district = "Palu",
+        districtId = "elazig_palu",
         detsisCode = "48710170",
         bedCount = 15
     ),
@@ -2655,7 +2655,7 @@ val hospitals = listOf(
         id = "6780",
         cityId = "elazig",
         name = "Karakoçan Devlet Hastanesi",
-        district = "Karakoçan",
+        districtId = "elazig_karakocan",
         detsisCode = "98705315",
         bedCount = 50
     ),
@@ -2663,7 +2663,7 @@ val hospitals = listOf(
         id = "8488",
         cityId = "elazig",
         name = "Kovancılar Devlet Hastanesi",
-        district = "Kovancılar",
+        districtId = "elazig_kovancilar",
         detsisCode = "13813718",
         bedCount = 54
     ),
@@ -2671,7 +2671,7 @@ val hospitals = listOf(
         id = "9899",
         cityId = "elazig",
         name = "Maden Şehit Cengiz Erdur İlçe Devlet Hastanesi",
-        district = "Maden",
+        districtId = "elazig_maden",
         detsisCode = "95828800",
         bedCount = 25
     ),
@@ -2679,7 +2679,7 @@ val hospitals = listOf(
         id = "11407",
         cityId = "elazig",
         name = "Arıcak İlçe Devlet Hastanesi",
-        district = "Arıcak",
+        districtId = "elazig_aricak",
         detsisCode = "77246341",
         bedCount = 10
     ),
@@ -2687,7 +2687,7 @@ val hospitals = listOf(
         id = "688523",
         cityId = "elazig",
         name = "Elazığ Ağız ve Diş Sağlığı Hastanesi",
-        district = "Merkez",
+        districtId = "elazig_merkez",
         detsisCode = "25275427",
         bedCount = 5
     ),
@@ -2695,7 +2695,7 @@ val hospitals = listOf(
         id = "53485",
         cityId = "elazig",
         name = "Baskil İlçe Devlet Hastanesi",
-        district = "Baskil",
+        districtId = "elazig_baskil",
         detsisCode = "99301543",
         bedCount = 10
     ),
@@ -2703,7 +2703,7 @@ val hospitals = listOf(
         id = "459527",
         cityId = "erzincan",
         name = "Erzincan Mengücek Gazi Eğitim ve Araştırma Hastanesi",
-        district = "Merkez",
+        districtId = "erzincan_merkez",
         detsisCode = "62639109",
         bedCount = 510
     ),
@@ -2711,7 +2711,7 @@ val hospitals = listOf(
         id = "899458",
         cityId = "erzincan",
         name = "Erzincan Ağız ve Diş Sağlığı Eğitim ve Araştırma Hastanesi",
-        district = "Merkez",
+        districtId = "erzincan_merkez",
         detsisCode = "62686993",
         bedCount = 5
     ),
@@ -2719,7 +2719,7 @@ val hospitals = listOf(
         id = "4172",
         cityId = "erzincan",
         name = "Tercan İlçe Devlet Hastanesi",
-        district = "Tercan",
+        districtId = "erzincan_tercan",
         detsisCode = "32732731",
         bedCount = 25
     ),
@@ -2727,7 +2727,7 @@ val hospitals = listOf(
         id = "196342",
         cityId = "erzincan",
         name = "Refahiye Dr. Fahrettin Uğur İlçe Devlet Hastanesi",
-        district = "Refahiye",
+        districtId = "erzincan_refahiye",
         detsisCode = "60365556",
         bedCount = 25
     ),
@@ -2735,7 +2735,7 @@ val hospitals = listOf(
         id = "4137",
         cityId = "erzincan",
         name = "Üzümlü İlçe Devlet Hastanesi",
-        district = "Üzümlü",
+        districtId = "erzincan_uzumlu",
         detsisCode = "",
         bedCount = 25
     ),
@@ -2743,7 +2743,7 @@ val hospitals = listOf(
         id = "337398",
         cityId = "erzincan",
         name = "Çayırlı İlçe Devlet Hastanesi",
-        district = "Çayırlı",
+        districtId = "erzincan_cayirli",
         detsisCode = "",
         bedCount = 10
     ),
@@ -2751,7 +2751,7 @@ val hospitals = listOf(
         id = "196208",
         cityId = "erzincan",
         name = "Kemah İlçe Devlet Hastanesi",
-        district = "Kemah",
+        districtId = "erzincan_kemah",
         detsisCode = "",
         bedCount = 10
     ),
@@ -2759,7 +2759,7 @@ val hospitals = listOf(
         id = "196209",
         cityId = "erzincan",
         name = "İliç İlçe Devlet Hastanesi",
-        district = "İliç",
+        districtId = "erzincan_ilic",
         detsisCode = "",
         bedCount = 10
     ),
@@ -2767,7 +2767,7 @@ val hospitals = listOf(
         id = "196211",
         cityId = "erzincan",
         name = "Otlukbeli İlçe Devlet Hastanesi",
-        district = "Otlukbeli",
+        districtId = "erzincan_otlukbeli",
         detsisCode = "",
         bedCount = 10
     ),
@@ -2775,7 +2775,7 @@ val hospitals = listOf(
         id = "196210",
         cityId = "erzincan",
         name = "Kemaliye İlçe Devlet Hastanesi",
-        district = "Kemaliye",
+        districtId = "erzincan_kemaliye",
         detsisCode = "",
         bedCount = 10
     ),
@@ -2783,7 +2783,7 @@ val hospitals = listOf(
         id = "196186",
         cityId = "erzurum",
         name = "Erzurum Bölge Eğitim ve Araştırma Hastanesi",
-        district = "Yakutiye",
+        districtId = "erzurum_yakutiye",
         detsisCode = "37732058",
         bedCount = 1570
     ),
@@ -2791,7 +2791,7 @@ val hospitals = listOf(
         id = "4061",
         cityId = "erzurum",
         name = "Pasinler İbrahim Hakkı Devlet Hastanesi",
-        district = "Pasinler",
+        districtId = "erzurum_pasinler",
         detsisCode = "50633776",
         bedCount = 50
     ),
@@ -2799,7 +2799,7 @@ val hospitals = listOf(
         id = "4090",
         cityId = "erzurum",
         name = "Oltu Devlet Hastanesi",
-        district = "Oltu",
+        districtId = "erzurum_oltu",
         detsisCode = "23702952",
         bedCount = 100
     ),
@@ -2807,7 +2807,7 @@ val hospitals = listOf(
         id = "4110",
         cityId = "erzurum",
         name = "İspir Devlet Hastanesi",
-        district = "İspir",
+        districtId = "erzurum_ispir",
         detsisCode = "36632750",
         bedCount = 50
     ),
@@ -2815,7 +2815,7 @@ val hospitals = listOf(
         id = "4134",
         cityId = "erzurum",
         name = "Hınıs Şehit Yavuz Yürekseven Devlet Hastanesi",
-        district = "Hınıs",
+        districtId = "erzurum_hinis",
         detsisCode = "34734266",
         bedCount = 50
     ),
@@ -2823,7 +2823,7 @@ val hospitals = listOf(
         id = "6490",
         cityId = "erzurum",
         name = "Horasan Devlet Hastanesi",
-        district = "Horasan",
+        districtId = "erzurum_horasan",
         detsisCode = "83911196",
         bedCount = 65
     ),
@@ -2831,7 +2831,7 @@ val hospitals = listOf(
         id = "188213",
         cityId = "erzurum",
         name = "Çat İlçe Devlet Hastanesi",
-        district = "Çat",
+        districtId = "erzurum_cat",
         detsisCode = "93919407",
         bedCount = 20
     ),
@@ -2839,7 +2839,7 @@ val hospitals = listOf(
         id = "188214",
         cityId = "erzurum",
         name = "Karaçoban İlçe Devlet Hastanesi",
-        district = "Karaçoban",
+        districtId = "erzurum_karacoban",
         detsisCode = "87871224",
         bedCount = 20
     ),
@@ -2847,7 +2847,7 @@ val hospitals = listOf(
         id = "289933",
         cityId = "erzurum",
         name = "Aşkale İlçe Devlet Hastanesi",
-        district = "Aşkale",
+        districtId = "erzurum_askale",
         detsisCode = "36481078",
         bedCount = 30
     ),
@@ -2855,7 +2855,7 @@ val hospitals = listOf(
         id = "334953",
         cityId = "erzurum",
         name = "Tortum İlçe Devlet Hastanesi",
-        district = "Tortum",
+        districtId = "erzurum_tortum",
         detsisCode = "57187703",
         bedCount = 20
     ),
@@ -2863,7 +2863,7 @@ val hospitals = listOf(
         id = "334954",
         cityId = "erzurum",
         name = "Karayazı Türk Eczacıları Birliği İlçe Devlet Hastanesi",
-        district = "Karayazı",
+        districtId = "erzurum_karayazi",
         detsisCode = "80579215",
         bedCount = 20
     ),
@@ -2871,7 +2871,7 @@ val hospitals = listOf(
         id = "362188",
         cityId = "erzurum",
         name = "Tekman Şehit Piyade Çavuş Muhammet Binici Devlet Hastanesi",
-        district = "Tekman",
+        districtId = "erzurum_tekman",
         detsisCode = "10857762",
         bedCount = 30
     ),
@@ -2879,7 +2879,7 @@ val hospitals = listOf(
         id = "887158",
         cityId = "erzurum",
         name = "T.C.Sağlık Bakanlığı Erzurum Mareşal Çakmak Devlet Hastanesi",
-        district = "Palandöken",
+        districtId = "erzurum_palandoken",
         detsisCode = "42939715",
         bedCount = 95
     ),
@@ -2887,7 +2887,7 @@ val hospitals = listOf(
         id = "362259",
         cityId = "erzurum",
         name = "Narman İlçe Devlet Hastanesi",
-        district = "Narman",
+        districtId = "erzurum_narman",
         detsisCode = "",
         bedCount = 10
     ),
@@ -2895,7 +2895,7 @@ val hospitals = listOf(
         id = "362258",
         cityId = "erzurum",
         name = "Şenkaya İlçe Devlet Hastanesi",
-        district = "Şenkaya",
+        districtId = "erzurum_senkaya",
         detsisCode = "",
         bedCount = 10
     ),
@@ -2903,7 +2903,7 @@ val hospitals = listOf(
         id = "201251",
         cityId = "erzurum",
         name = "Köprüköy İlçe Devlet Hastanesi",
-        district = "Köprüköy",
+        districtId = "erzurum_koprukoy",
         detsisCode = "",
         bedCount = 5
     ),
@@ -2911,7 +2911,7 @@ val hospitals = listOf(
         id = "362260",
         cityId = "erzurum",
         name = "Uzundere Şehit İhsan Erdoğan İlçe Devlet Hastanesi",
-        district = "Uzundere",
+        districtId = "erzurum_uzundere",
         detsisCode = "",
         bedCount = 10
     ),
@@ -2919,7 +2919,7 @@ val hospitals = listOf(
         id = "362257",
         cityId = "erzurum",
         name = "Olur İlçe Devlet Hastanesi",
-        district = "Olur",
+        districtId = "erzurum_olur",
         detsisCode = "",
         bedCount = 5
     ),
@@ -2927,7 +2927,7 @@ val hospitals = listOf(
         id = "300700",
         cityId = "erzurum",
         name = "Pazaryolu Hasan Basri Demirbağ İlçe Devlet Hastanesi",
-        district = "Pazaryolu",
+        districtId = "erzurum_pazaryolu",
         detsisCode = "",
         bedCount = 5
     ),
@@ -2935,7 +2935,7 @@ val hospitals = listOf(
         id = "4010",
         cityId = "eskisehir",
         name = "Sivrihisar Devlet Hastanesi",
-        district = "Sivrihisar",
+        districtId = "eskisehir_sivrihisar",
         detsisCode = "70744132",
         bedCount = 43
     ),
@@ -2943,7 +2943,7 @@ val hospitals = listOf(
         id = "4027",
         cityId = "eskisehir",
         name = "Çifteler Devlet Hastanesi",
-        district = "Çifteler",
+        districtId = "eskisehir_cifteler",
         detsisCode = "35722326",
         bedCount = 42
     ),
@@ -2951,7 +2951,7 @@ val hospitals = listOf(
         id = "177230",
         cityId = "eskisehir",
         name = "Eskişehir Yunus Emre Devlet Hastanesi",
-        district = "Tepebaşı",
+        districtId = "eskisehir_tepebasi",
         detsisCode = "56761182",
         bedCount = 855
     ),
@@ -2959,7 +2959,7 @@ val hospitals = listOf(
         id = "177848",
         cityId = "eskisehir",
         name = "Eskişehir Ağız ve Diş Sağlığı Hastanesi",
-        district = "Odunpazarı",
+        districtId = "eskisehir_odunpazari",
         detsisCode = "59886097",
         bedCount = 8
     ),
@@ -2967,7 +2967,7 @@ val hospitals = listOf(
         id = "656195",
         cityId = "eskisehir",
         name = "Eskişehir Şehir Hastanesi",
-        district = "Odunpazarı",
+        districtId = "eskisehir_odunpazari",
         detsisCode = "36215147",
         bedCount = 1120
     ),
@@ -2975,7 +2975,7 @@ val hospitals = listOf(
         id = "188210",
         cityId = "eskisehir",
         name = "Mihalıççık Gün Sazak İlçe Devlet Hastanesi",
-        district = "Mihalıççık",
+        districtId = "eskisehir_mihaliccik",
         detsisCode = "",
         bedCount = 14
     ),
@@ -2983,7 +2983,7 @@ val hospitals = listOf(
         id = "197159",
         cityId = "eskisehir",
         name = "Mahmudiye İlçe Devlet Hastanesi",
-        district = "Mahmudiye",
+        districtId = "eskisehir_mahmudiye",
         detsisCode = "",
         bedCount = 10
     ),
@@ -2991,7 +2991,7 @@ val hospitals = listOf(
         id = "188209",
         cityId = "eskisehir",
         name = "Alpu İlçe Devlet Hastanesi",
-        district = "Alpu",
+        districtId = "eskisehir_alpu",
         detsisCode = "",
         bedCount = 15
     ),
@@ -2999,7 +2999,7 @@ val hospitals = listOf(
         id = "413668",
         cityId = "eskisehir",
         name = "Günyüzü Şehit Melih Özcan İlçe Devlet Hastanesi",
-        district = "Günyüzü",
+        districtId = "eskisehir_gunyuzu",
         detsisCode = "",
         bedCount = 10
     ),
@@ -3007,7 +3007,7 @@ val hospitals = listOf(
         id = "760899",
         cityId = "eskisehir",
         name = "Beylikova İlçe Devlet Hastanesi",
-        district = "Beylikova",
+        districtId = "eskisehir_beylikova",
         detsisCode = "",
         bedCount = 5
     ),
@@ -3015,7 +3015,7 @@ val hospitals = listOf(
         id = "3911",
         cityId = "gaziantep",
         name = "Nizip Devlet Hastanesi",
-        district = "Nizip",
+        districtId = "gaziantep_nizip",
         detsisCode = "65738784",
         bedCount = 200
     ),
@@ -3023,7 +3023,7 @@ val hospitals = listOf(
         id = "3930",
         cityId = "gaziantep",
         name = "İslahiye Devlet Hastanesi",
-        district = "İslahiye",
+        districtId = "gaziantep_islahiye",
         detsisCode = "91152970",
         bedCount = 100
     ),
@@ -3031,7 +3031,7 @@ val hospitals = listOf(
         id = "20099",
         cityId = "gaziantep",
         name = "Karkamış Şehit Fuat Oğuzcan İlçe Devlet Hastanesi",
-        district = "Karkamış",
+        districtId = "gaziantep_karkamis",
         detsisCode = "39108096",
         bedCount = 20
     ),
@@ -3039,7 +3039,7 @@ val hospitals = listOf(
         id = "65161",
         cityId = "gaziantep",
         name = "Yavuzeli İlçe Devlet Hastanesi",
-        district = "Yavuzeli",
+        districtId = "gaziantep_yavuzeli",
         detsisCode = "13422349",
         bedCount = 20
     ),
@@ -3047,7 +3047,7 @@ val hospitals = listOf(
         id = "177238",
         cityId = "gaziantep",
         name = "Gaziantep 25 Aralık Devlet Hastanesi",
-        district = "Şehitkamil",
+        districtId = "gaziantep_sehitkamil",
         detsisCode = "68594363",
         bedCount = 405
     ),
@@ -3055,7 +3055,7 @@ val hospitals = listOf(
         id = "193762",
         cityId = "gaziantep",
         name = "Oğuzeli İlçe Devlet Hastanesi",
-        district = "Oğuzeli",
+        districtId = "gaziantep_oguzeli",
         detsisCode = "56567493",
         bedCount = 25
     ),
@@ -3063,7 +3063,7 @@ val hospitals = listOf(
         id = "194295",
         cityId = "gaziantep",
         name = "Araban İlçe Devlet Hastanesi",
-        district = "Araban",
+        districtId = "gaziantep_araban",
         detsisCode = "89910387",
         bedCount = 20
     ),
@@ -3071,7 +3071,7 @@ val hospitals = listOf(
         id = "194296",
         cityId = "gaziantep",
         name = "Nurdağı İlçe Devlet Hastanesi",
-        district = "Nurdağı",
+        districtId = "gaziantep_nurdagi",
         detsisCode = "10311697",
         bedCount = 20
     ),
@@ -3079,7 +3079,7 @@ val hospitals = listOf(
         id = "196187",
         cityId = "gaziantep",
         name = "Gaziantep Şehitkamil Devlet Hastanesi",
-        district = "Şehitkamil",
+        districtId = "gaziantep_sehitkamil",
         detsisCode = "48736255",
         bedCount = 365
     ),
@@ -3087,7 +3087,7 @@ val hospitals = listOf(
         id = "345096",
         cityId = "gaziantep",
         name = "Şahinbey Ağız ve Diş Sağlığı Hastanesi",
-        district = "Şahinbey",
+        districtId = "gaziantep_sahinbey",
         detsisCode = "74791440",
         bedCount = 5
     ),
@@ -3095,7 +3095,7 @@ val hospitals = listOf(
         id = "678783",
         cityId = "gaziantep",
         name = "Gaziantep Abdulkadir Yüksel Devlet Hastanesi",
-        district = "Şahinbey",
+        districtId = "gaziantep_sahinbey",
         detsisCode = "86248906",
         bedCount = 340
     ),
@@ -3103,7 +3103,7 @@ val hospitals = listOf(
         id = "863266",
         cityId = "gaziantep",
         name = "Gaziantep Cengiz Gökçek Kadın Doğum ve Çocuk Hastalıkları Hastanesi",
-        district = "Şehitkamil",
+        districtId = "gaziantep_sehitkamil",
         detsisCode = "46400125",
         bedCount = 665
     ),
@@ -3111,7 +3111,7 @@ val hospitals = listOf(
         id = "863715",
         cityId = "gaziantep",
         name = "Gaziantep Dr. Ersin Arslan Eğitim ve Araştırma Hastanesi",
-        district = "Şahinbey",
+        districtId = "gaziantep_sahinbey",
         detsisCode = "53117430",
         bedCount = 880
     ),
@@ -3119,7 +3119,7 @@ val hospitals = listOf(
         id = "899451",
         cityId = "giresun",
         name = "Giresun Prof. Dr. A. İlhan Özdemir Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "giresun_merkez",
         detsisCode = "85554271",
         bedCount = 200
     ),
@@ -3127,7 +3127,7 @@ val hospitals = listOf(
         id = "899452",
         cityId = "giresun",
         name = "Giresun Kadın Doğum ve Çocuk Hastalıkları Eğitim ve Araştırma Hastanesi",
-        district = "Merkez",
+        districtId = "giresun_merkez",
         detsisCode = "87982892",
         bedCount = 185
     ),
@@ -3135,7 +3135,7 @@ val hospitals = listOf(
         id = "38332",
         cityId = "giresun",
         name = "Giresun Eğitim ve Araştırma Hastanesi",
-        district = "Merkez",
+        districtId = "giresun_merkez",
         detsisCode = "53593568",
         bedCount = 400
     ),
@@ -3143,7 +3143,7 @@ val hospitals = listOf(
         id = "3895",
         cityId = "giresun",
         name = "Giresun Dr. Ali Menekşe Göğüs Hastalıkları Hastanesi",
-        district = "Merkez",
+        districtId = "giresun_merkez",
         detsisCode = "49595698",
         bedCount = 120
     ),
@@ -3151,7 +3151,7 @@ val hospitals = listOf(
         id = "12814",
         cityId = "giresun",
         name = "Giresun Fizik Tedavi ve Rehabilitasyon Merkezi",
-        district = "Merkez",
+        districtId = "giresun_merkez",
         detsisCode = "29779639",
         bedCount = 89
     ),
@@ -3159,7 +3159,7 @@ val hospitals = listOf(
         id = "3836",
         cityId = "giresun",
         name = "Şebinkarahisar Devlet Hastanesi",
-        district = "Şebinkarahisar",
+        districtId = "giresun_sebinkarahisar",
         detsisCode = "24036882",
         bedCount = 75
     ),
@@ -3167,7 +3167,7 @@ val hospitals = listOf(
         id = "3843",
         cityId = "giresun",
         name = "Tirebolu Devlet Hastanesi",
-        district = "Tirebolu",
+        districtId = "giresun_tirebolu",
         detsisCode = "89204424",
         bedCount = 75
     ),
@@ -3175,7 +3175,7 @@ val hospitals = listOf(
         id = "3852",
         cityId = "giresun",
         name = "Espiye Devlet Hastanesi",
-        district = "Espiye",
+        districtId = "giresun_espiye",
         detsisCode = "40317628",
         bedCount = 60
     ),
@@ -3183,7 +3183,7 @@ val hospitals = listOf(
         id = "3859",
         cityId = "giresun",
         name = "Görele Op. Dr. Ergun Özdemir Devlet Hastanesi",
-        district = "Görele",
+        districtId = "giresun_gorele",
         detsisCode = "55931671",
         bedCount = 75
     ),
@@ -3191,7 +3191,7 @@ val hospitals = listOf(
         id = "3871",
         cityId = "giresun",
         name = "Bulancak Devlet Hastanesi",
-        district = "Bulancak",
+        districtId = "giresun_bulancak",
         detsisCode = "84778013",
         bedCount = 120
     ),
@@ -3199,7 +3199,7 @@ val hospitals = listOf(
         id = "193761",
         cityId = "giresun",
         name = "Yağlıdere İlçe Devlet Hastanesi",
-        district = "Yağlıdere",
+        districtId = "giresun_yaglidere",
         detsisCode = "95765158",
         bedCount = 20
     ),
@@ -3207,7 +3207,7 @@ val hospitals = listOf(
         id = "219679",
         cityId = "giresun",
         name = "Alucra İlçe Devlet Hastanesi",
-        district = "Alucra",
+        districtId = "giresun_alucra",
         detsisCode = "43800244",
         bedCount = 25
     ),
@@ -3215,7 +3215,7 @@ val hospitals = listOf(
         id = "386413",
         cityId = "giresun",
         name = "Dereli İlçe Devlet Hastanesi",
-        district = "Dereli",
+        districtId = "giresun_dereli",
         detsisCode = "62772274",
         bedCount = 14
     ),
@@ -3223,7 +3223,7 @@ val hospitals = listOf(
         id = "782154",
         cityId = "giresun",
         name = "Eynesil İlçe Devlet Hastanesi",
-        district = "Eynesil",
+        districtId = "giresun_eynesil",
         detsisCode = "",
         bedCount = 10
     ),
@@ -3231,7 +3231,7 @@ val hospitals = listOf(
         id = "739505",
         cityId = "giresun",
         name = "Çamoluk İlçe Devlet Hastanesi",
-        district = "Çamoluk",
+        districtId = "giresun_camoluk",
         detsisCode = "",
         bedCount = 5
     ),
@@ -3239,7 +3239,7 @@ val hospitals = listOf(
         id = "800512",
         cityId = "giresun",
         name = "Güce İlçe Devlet Hastanesi",
-        district = "Güce",
+        districtId = "giresun_guce",
         detsisCode = "",
         bedCount = 5
     ),
@@ -3247,7 +3247,7 @@ val hospitals = listOf(
         id = "3811",
         cityId = "gumushane",
         name = "Gümüşhane Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "gumushane_merkez",
         detsisCode = "72117372",
         bedCount = 200
     ),
@@ -3255,7 +3255,7 @@ val hospitals = listOf(
         id = "6475",
         cityId = "gumushane",
         name = "Şiran Devlet Hastanesi",
-        district = "Şiran",
+        districtId = "gumushane_siran",
         detsisCode = "83067768",
         bedCount = 25
     ),
@@ -3263,7 +3263,7 @@ val hospitals = listOf(
         id = "6762",
         cityId = "gumushane",
         name = "Kelkit Devlet Hastanesi",
-        district = "Kelkit",
+        districtId = "gumushane_kelkit",
         detsisCode = "31127779",
         bedCount = 90
     ),
@@ -3271,7 +3271,7 @@ val hospitals = listOf(
         id = "38336",
         cityId = "gumushane",
         name = "Kürtün İlçe Devlet Hastanesi",
-        district = "Kürtün",
+        districtId = "gumushane_kurtun",
         detsisCode = "42836885",
         bedCount = 10
     ),
@@ -3279,7 +3279,7 @@ val hospitals = listOf(
         id = "194265",
         cityId = "gumushane",
         name = "Torul İlçe Devlet Hastanesi",
-        district = "Torul",
+        districtId = "gumushane_torul",
         detsisCode = "",
         bedCount = 10
     ),
@@ -3287,7 +3287,7 @@ val hospitals = listOf(
         id = "194262",
         cityId = "gumushane",
         name = "Köse İlçe Devlet Hastanesi",
-        district = "Köse",
+        districtId = "gumushane_kose",
         detsisCode = "",
         bedCount = 10
     ),
@@ -3295,7 +3295,7 @@ val hospitals = listOf(
         id = "3771",
         cityId = "hakkari",
         name = "Şemdinli Devlet Hastanesi",
-        district = "Şemdinli",
+        districtId = "hakkari_semdinli",
         detsisCode = "90549914",
         bedCount = 75
     ),
@@ -3303,7 +3303,7 @@ val hospitals = listOf(
         id = "3774",
         cityId = "hakkari",
         name = "Yüksekova Devlet Hastanesi",
-        district = "Yüksekova",
+        districtId = "hakkari_yuksekova",
         detsisCode = "85764489",
         bedCount = 150
     ),
@@ -3311,7 +3311,7 @@ val hospitals = listOf(
         id = "3798",
         cityId = "hakkari",
         name = "Hakkari Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "hakkari_merkez",
         detsisCode = "90549914",
         bedCount = 220
     ),
@@ -3319,7 +3319,7 @@ val hospitals = listOf(
         id = "808138",
         cityId = "hakkari",
         name = "Çukurca Devlet Hastanesi",
-        district = "Çukurca",
+        districtId = "hakkari_cukurca",
         detsisCode = "16976595",
         bedCount = 19
     ),
@@ -3327,7 +3327,7 @@ val hospitals = listOf(
         id = "58258",
         cityId = "hakkari",
         name = "T.C.Sağlık Bakanlığı Derecik Devlet Hastanesi",
-        district = "Derecik",
+        districtId = "hakkari_derecik",
         detsisCode = "74078992",
         bedCount = 30
     ),
@@ -3335,7 +3335,7 @@ val hospitals = listOf(
         id = "3660",
         cityId = "hatay",
         name = "Reyhanlı Devlet Hastanesi",
-        district = "Reyhanlı",
+        districtId = "hatay_reyhanli",
         detsisCode = "69567222",
         bedCount = 180
     ),
@@ -3343,7 +3343,7 @@ val hospitals = listOf(
         id = "3664",
         cityId = "hatay",
         name = "Samandağ Devlet Hastanesi",
-        district = "Samandağ",
+        districtId = "hatay_samandag",
         detsisCode = "24915167",
         bedCount = 140
     ),
@@ -3351,7 +3351,7 @@ val hospitals = listOf(
         id = "3690",
         cityId = "hatay",
         name = "Kırıkhan Devlet Hastanesi",
-        district = "Kırıkhan",
+        districtId = "hatay_kirikhan",
         detsisCode = "55127041",
         bedCount = 210
     ),
@@ -3359,7 +3359,7 @@ val hospitals = listOf(
         id = "3733",
         cityId = "hatay",
         name = "Dörtyol Devlet Hastanesi",
-        district = "Dörtyol",
+        districtId = "hatay_dortyol",
         detsisCode = "15913737",
         bedCount = 250
     ),
@@ -3367,7 +3367,7 @@ val hospitals = listOf(
         id = "6758",
         cityId = "hatay",
         name = "İskenderun Devlet Hastanesi",
-        district = "İskenderun",
+        districtId = "hatay_iskenderun",
         detsisCode = "27720779",
         bedCount = 670
     ),
@@ -3375,7 +3375,7 @@ val hospitals = listOf(
         id = "14578",
         cityId = "hatay",
         name = "Hassa Devlet Hastanesi",
-        district = "Hassa",
+        districtId = "hatay_hassa",
         detsisCode = "93809242",
         bedCount = 50
     ),
@@ -3383,7 +3383,7 @@ val hospitals = listOf(
         id = "183385",
         cityId = "hatay",
         name = "Altınözü Devlet Hastanesi",
-        district = "Altınözü",
+        districtId = "hatay_altinozu",
         detsisCode = "93409590",
         bedCount = 50
     ),
@@ -3391,7 +3391,7 @@ val hospitals = listOf(
         id = "315352",
         cityId = "hatay",
         name = "Erzin Devlet Hastanesi",
-        district = "Erzin",
+        districtId = "hatay_erzin",
         detsisCode = "25457249",
         bedCount = 50
     ),
@@ -3399,7 +3399,7 @@ val hospitals = listOf(
         id = "643570",
         cityId = "hatay",
         name = "Kumlu İlçe Devlet Hastanesi",
-        district = "Kumlu",
+        districtId = "hatay_kumlu",
         detsisCode = "52117964",
         bedCount = 15
     ),
@@ -3407,7 +3407,7 @@ val hospitals = listOf(
         id = "96897",
         cityId = "hatay",
         name = "Arsuz Devlet Hastanesi",
-        district = "Arsuz",
+        districtId = "hatay_arsuz",
         detsisCode = "41218464",
         bedCount = 75
     ),
@@ -3415,7 +3415,7 @@ val hospitals = listOf(
         id = "846142",
         cityId = "hatay",
         name = "Yayladağı Devlet Hastanesi",
-        district = "Yayladağı",
+        districtId = "hatay_yayladagi",
         detsisCode = "72681532",
         bedCount = 27
     ),
@@ -3423,7 +3423,7 @@ val hospitals = listOf(
         id = "878716",
         cityId = "hatay",
         name = "Hatay Eğitim ve Araştırma Hastanesi",
-        district = "Antakya",
+        districtId = "hatay_antakya",
         detsisCode = "29634685",
         bedCount = 1130
     ),
@@ -3431,7 +3431,7 @@ val hospitals = listOf(
         id = "80",
         cityId = "igdir",
         name = "Iğdır Dr.Nevruz Erez Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "igdir_merkez",
         detsisCode = "48598278",
         bedCount = 250
     ),
@@ -3439,7 +3439,7 @@ val hospitals = listOf(
         id = "100781",
         cityId = "igdir",
         name = "Tuzluca İlçe Devlet Hastanesi",
-        district = "Tuzluca",
+        districtId = "igdir_tuzluca",
         detsisCode = "30983708",
         bedCount = 25
     ),
@@ -3447,7 +3447,7 @@ val hospitals = listOf(
         id = "39426",
         cityId = "igdir",
         name = "Aralık İlçe Devlet Hastanesi",
-        district = "Aralık",
+        districtId = "igdir_aralik",
         detsisCode = "54660427",
         bedCount = 15
     ),
@@ -3455,7 +3455,7 @@ val hospitals = listOf(
         id = "3580",
         cityId = "isparta",
         name = "Yalvaç Devlet Hastanesi",
-        district = "Yalvaç",
+        districtId = "isparta_yalvac",
         detsisCode = "30699048",
         bedCount = 120
     ),
@@ -3463,7 +3463,7 @@ val hospitals = listOf(
         id = "3610",
         cityId = "isparta",
         name = "Şarkikaraağaç Dr. Sadettin Bilgiç Devlet Hastanesi",
-        district = "Şarkikaraağaç",
+        districtId = "isparta_sarkikaraagac",
         detsisCode = "45373042",
         bedCount = 50
     ),
@@ -3471,7 +3471,7 @@ val hospitals = listOf(
         id = "3619",
         cityId = "isparta",
         name = "Eğirdir Kemik Eklem Hastalıkları Tedavi ve Rehabilitasyon Hastanesi",
-        district = "Eğirdir",
+        districtId = "isparta_egirdir",
         detsisCode = "44171687",
         bedCount = 100
     ),
@@ -3479,7 +3479,7 @@ val hospitals = listOf(
         id = "606256",
         cityId = "isparta",
         name = "Isparta Şehir Hastanesi",
-        district = "Merkez",
+        districtId = "isparta_merkez",
         detsisCode = "52416961",
         bedCount = 845
     ),
@@ -3487,7 +3487,7 @@ val hospitals = listOf(
         id = "610581",
         cityId = "isparta",
         name = "Isparta Şehit Yunus Emre Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "isparta_merkez",
         detsisCode = "15897901",
         bedCount = 75
     ),
@@ -3495,7 +3495,7 @@ val hospitals = listOf(
         id = "188215",
         cityId = "isparta",
         name = "Gelendost İlçe Devlet Hastanesi",
-        district = "Gelendost",
+        districtId = "isparta_gelendost",
         detsisCode = "",
         bedCount = 15
     ),
@@ -3503,7 +3503,7 @@ val hospitals = listOf(
         id = "188216",
         cityId = "isparta",
         name = "Sütçüler İlçe Devlet Hastanesi",
-        district = "Sütçüler",
+        districtId = "isparta_sutculer",
         detsisCode = "",
         bedCount = 15
     ),
@@ -3511,7 +3511,7 @@ val hospitals = listOf(
         id = "6466",
         cityId = "isparta",
         name = "Senirkent İlçe Devlet Hastanesi",
-        district = "Senirkent",
+        districtId = "isparta_senirkent",
         detsisCode = "",
         bedCount = 25
     ),
@@ -3519,7 +3519,7 @@ val hospitals = listOf(
         id = "3634",
         cityId = "isparta",
         name = "Keçiborlu İlçe Devlet Hastanesi",
-        district = "Keçiborlu",
+        districtId = "isparta_keciborlu",
         detsisCode = "",
         bedCount = 25
     ),
@@ -3527,7 +3527,7 @@ val hospitals = listOf(
         id = "6465",
         cityId = "isparta",
         name = "Uluborlu İlçe Devlet Hastanesi",
-        district = "Uluborlu",
+        districtId = "isparta_uluborlu",
         detsisCode = "",
         bedCount = 25
     ),
@@ -3535,7 +3535,7 @@ val hospitals = listOf(
         id = "395236",
         cityId = "istanbul",
         name = "Pendik Eğitim ve Araştırma Hastanesi",
-        district = "Pendik",
+        districtId = "istanbul_pendik",
         detsisCode = "43766128",
         bedCount = 1260
     ),
@@ -3543,7 +3543,7 @@ val hospitals = listOf(
         id = "177296",
         cityId = "istanbul",
         name = "Göztepe Prof. Dr. Süleyman Yalçın Şehir Hastanesi",
-        district = "Kadıköy",
+        districtId = "istanbul_kadikoy",
         detsisCode = "23898784",
         bedCount = 800
     ),
@@ -3551,7 +3551,7 @@ val hospitals = listOf(
         id = "3219",
         cityId = "istanbul",
         name = "İstanbul Fizik Tedavi ve Rehabilitasyon Eğitim ve Araştırma Hastanesi",
-        district = "Bahçelievler",
+        districtId = "istanbul_bahcelievler",
         detsisCode = "82475999",
         bedCount = 400
     ),
@@ -3559,7 +3559,7 @@ val hospitals = listOf(
         id = "3304",
         cityId = "istanbul",
         name = "İstanbul Zeynep Kamil Kadın ve Çocuk Hastalıkları Eğitim ve Araştırma Hastanesi",
-        district = "Üsküdar",
+        districtId = "istanbul_uskudar",
         detsisCode = "11391090",
         bedCount = 325
     ),
@@ -3567,7 +3567,7 @@ val hospitals = listOf(
         id = "3305",
         cityId = "istanbul",
         name = "İstanbul Haydarpaşa Numune Eğitim ve Araştırma Hastanesi",
-        district = "Üsküdar",
+        districtId = "istanbul_uskudar",
         detsisCode = "62977267",
         bedCount = 500
     ),
@@ -3575,7 +3575,7 @@ val hospitals = listOf(
         id = "3318",
         cityId = "istanbul",
         name = "İstanbul Yedikule Göğüs Hastalıkları ve Göğüs Cerrahisi Eğitim ve Araştırma Hastanesi",
-        district = "Zeytinburnu",
+        districtId = "istanbul_zeytinburnu",
         detsisCode = "66628377",
         bedCount = 450
     ),
@@ -3583,7 +3583,7 @@ val hospitals = listOf(
         id = "3324",
         cityId = "istanbul",
         name = "Şişli Hamidiye Etfal Eğitim ve Araştırma Hastanesi",
-        district = "Şişli",
+        districtId = "istanbul_sisli",
         detsisCode = "79341859",
         bedCount = 1025
     ),
@@ -3591,7 +3591,7 @@ val hospitals = listOf(
         id = "3359",
         cityId = "istanbul",
         name = "İstanbul Baltalimanı Metin Sabancı Kemik Hastalıkları Eğitim ve Araştırma Hastanesi",
-        district = "Sarıyer",
+        districtId = "istanbul_sariyer",
         detsisCode = "75233404",
         bedCount = 136
     ),
@@ -3599,7 +3599,7 @@ val hospitals = listOf(
         id = "3374",
         cityId = "istanbul",
         name = "Kartal Dr. Lütfi Kırdar Şehir Hastanesi",
-        district = "Kartal",
+        districtId = "istanbul_kartal",
         detsisCode = "89513307",
         bedCount = 1165
     ),
@@ -3607,7 +3607,7 @@ val hospitals = listOf(
         id = "3384",
         cityId = "istanbul",
         name = "İstanbul Haseki Eğitim ve Araştırma Hastanesi",
-        district = "Fatih",
+        districtId = "istanbul_fatih",
         detsisCode = "30279032",
         bedCount = 700
     ),
@@ -3615,7 +3615,7 @@ val hospitals = listOf(
         id = "3401",
         cityId = "istanbul",
         name = "Kartal Koşuyolu Yüksek İhtisas Eğitim ve Araştırma Hastanesi",
-        district = "Kartal",
+        districtId = "istanbul_kartal",
         detsisCode = "53838792",
         bedCount = 465
     ),
@@ -3623,7 +3623,7 @@ val hospitals = listOf(
         id = "3407",
         cityId = "istanbul",
         name = "Gaziosmanpaşa Eğitim ve Araştırma Hastanesi",
-        district = "Gaziosmanpaşa",
+        districtId = "istanbul_gaziosmanpasa",
         detsisCode = "45793301",
         bedCount = 600
     ),
@@ -3631,7 +3631,7 @@ val hospitals = listOf(
         id = "3457",
         cityId = "istanbul",
         name = "Bakırköy Dr. Sadi Konuk Eğitim ve Araştırma Hastanesi",
-        district = "Bakırköy",
+        districtId = "istanbul_bakirkoy",
         detsisCode = "14679818",
         bedCount = 1620
     ),
@@ -3639,7 +3639,7 @@ val hospitals = listOf(
         id = "3459",
         cityId = "istanbul",
         name = "İstanbul Prof. Dr. Mazhar Osman Ruh Sağlığı ve Sinir Hastalıkları Eğitim ve Araştırma Hastanesi",
-        district = "Bakırköy",
+        districtId = "istanbul_bakirkoy",
         detsisCode = "41340010",
         bedCount = 1333
     ),
@@ -3647,7 +3647,7 @@ val hospitals = listOf(
         id = "6452",
         cityId = "istanbul",
         name = "İstanbul Dr. Siyami Ersek Göğüs Kalp ve Damar Cerrahisi Eğitim ve Araştırma Hastanesi",
-        district = "Üsküdar",
+        districtId = "istanbul_uskudar",
         detsisCode = "28001928",
         bedCount = 485
     ),
@@ -3655,7 +3655,7 @@ val hospitals = listOf(
         id = "11390",
         cityId = "istanbul",
         name = "Beyoğlu Göz Eğitim ve Araştırma Hastanesi",
-        district = "Beyoğlu",
+        districtId = "istanbul_beyoglu",
         detsisCode = "17091262",
         bedCount = 100
     ),
@@ -3663,7 +3663,7 @@ val hospitals = listOf(
         id = "14555",
         cityId = "istanbul",
         name = "Ümraniye Eğitim ve Araştırma Hastanesi",
-        district = "Ümraniye",
+        districtId = "istanbul_umraniye",
         detsisCode = "54132726",
         bedCount = 815
     ),
@@ -3671,7 +3671,7 @@ val hospitals = listOf(
         id = "177294",
         cityId = "istanbul",
         name = "Erenköy Ruh ve Sinir Hastalıkları Eğitim ve Araştırma Hastanesi",
-        district = "Kadıköy",
+        districtId = "istanbul_kadikoy",
         detsisCode = "32900231",
         bedCount = 280
     ),
@@ -3679,7 +3679,7 @@ val hospitals = listOf(
         id = "177297",
         cityId = "istanbul",
         name = "İstanbul Eğitim ve Araştırma Hastanesi",
-        district = "Fatih",
+        districtId = "istanbul_fatih",
         detsisCode = "74839299",
         bedCount = 715
     ),
@@ -3687,7 +3687,7 @@ val hospitals = listOf(
         id = "177300",
         cityId = "istanbul",
         name = "İstanbul Prof. Dr. Cemil Taşcıoğlu Şehir Hastanesi",
-        district = "Şişli",
+        districtId = "istanbul_sisli",
         detsisCode = "48670771",
         bedCount = 1000
     ),
@@ -3695,7 +3695,7 @@ val hospitals = listOf(
         id = "177304",
         cityId = "istanbul",
         name = "İstanbul Süreyyapaşa Göğüs Hastalıkları ve Göğüs Cerrahisi Eğitim ve Araştırma Hastanesi",
-        district = "Maltepe",
+        districtId = "istanbul_maltepe",
         detsisCode = "77457161",
         bedCount = 555
     ),
@@ -3703,7 +3703,7 @@ val hospitals = listOf(
         id = "177709",
         cityId = "istanbul",
         name = "İstanbul Fatih Sultan Mehmet Eğitim ve Araştırma Hastanesi",
-        district = "Ataşehir",
+        districtId = "istanbul_atasehir",
         detsisCode = "17073117",
         bedCount = 310
     ),
@@ -3711,7 +3711,7 @@ val hospitals = listOf(
         id = "183567",
         cityId = "istanbul",
         name = "Bağcılar Eğitim ve Araştırma Hastanesi",
-        district = "Bağcılar",
+        districtId = "istanbul_bagcilar",
         detsisCode = "82998542",
         bedCount = 530
     ),
@@ -3719,7 +3719,7 @@ val hospitals = listOf(
         id = "322024",
         cityId = "istanbul",
         name = "İstanbul Mehmet Akif Ersoy Göğüs Kalp ve Damar Cerrahisi Eğitim ve Araştırma Hastanesi",
-        district = "Küçükçekmece",
+        districtId = "istanbul_kucukcekmece",
         detsisCode = "10678112",
         bedCount = 465
     ),
@@ -3727,7 +3727,7 @@ val hospitals = listOf(
         id = "426876",
         cityId = "istanbul",
         name = "İstanbul Kanuni Sultan Süleyman Eğitim ve Araştırma Hastanesi",
-        district = "Küçükçekmece",
+        districtId = "istanbul_kucukcekmece",
         detsisCode = "80929729",
         bedCount = 695
     ),
@@ -3735,7 +3735,7 @@ val hospitals = listOf(
         id = "887161",
         cityId = "istanbul",
         name = "İstanbul Sultan 2. Abdülhamid Han Eğitim ve Araştırma Hastanesi",
-        district = "Üsküdar",
+        districtId = "istanbul_uskudar",
         detsisCode = "54230385",
         bedCount = 505
     ),
@@ -3743,7 +3743,7 @@ val hospitals = listOf(
         id = "27911",
         cityId = "istanbul",
         name = "Başakşehir Çam ve Sakura Şehir Hastanesi",
-        district = "Başakşehir",
+        districtId = "istanbul_basaksehir",
         detsisCode = "96317027",
         bedCount = 2682
     ),
@@ -3751,7 +3751,7 @@ val hospitals = listOf(
         id = "631921",
         cityId = "istanbul",
         name = "Sancaktepe Şehit Prof. Dr. İlhan Varank Eğitim ve Araştırma Hastanesi",
-        district = "Sancaktepe",
+        districtId = "istanbul_sancaktepe",
         detsisCode = "46059653",
         bedCount = 1623
     ),
@@ -3759,7 +3759,7 @@ val hospitals = listOf(
         id = "682803",
         cityId = "istanbul",
         name = "Taksim Eğitim ve Araştırma Hastanesi",
-        district = "Beyoğlu",
+        districtId = "istanbul_beyoglu",
         detsisCode = "62190176",
         bedCount = 400
     ),
@@ -3767,7 +3767,7 @@ val hospitals = listOf(
         id = "3230",
         cityId = "istanbul",
         name = "Sultanbeyli Devlet Hastanesi",
-        district = "Sultanbeyli",
+        districtId = "istanbul_sultanbeyli",
         detsisCode = "30160612",
         bedCount = 320
     ),
@@ -3775,7 +3775,7 @@ val hospitals = listOf(
         id = "3263",
         cityId = "istanbul",
         name = "Şile Devlet Hastanesi",
-        district = "Şile",
+        districtId = "istanbul_sile",
         detsisCode = "52999231",
         bedCount = 50
     ),
@@ -3783,7 +3783,7 @@ val hospitals = listOf(
         id = "3286",
         cityId = "istanbul",
         name = "Çatalca İlyas Çokay Devlet Hastanesi",
-        district = "Çatalca",
+        districtId = "istanbul_catalca",
         detsisCode = "32524313",
         bedCount = 100
     ),
@@ -3791,7 +3791,7 @@ val hospitals = listOf(
         id = "3294",
         cityId = "istanbul",
         name = "Silivri Devlet Hastanesi",
-        district = "Silivri",
+        districtId = "istanbul_silivri",
         detsisCode = "24978049",
         bedCount = 223
     ),
@@ -3799,7 +3799,7 @@ val hospitals = listOf(
         id = "3347",
         cityId = "istanbul",
         name = "Pendik Devlet Hastanesi",
-        district = "Pendik",
+        districtId = "istanbul_pendik",
         detsisCode = "91825363",
         bedCount = 100
     ),
@@ -3807,7 +3807,7 @@ val hospitals = listOf(
         id = "3355",
         cityId = "istanbul",
         name = "İstinye Devlet Hastanesi",
-        district = "Sarıyer",
+        districtId = "istanbul_sariyer",
         detsisCode = "38458272",
         bedCount = 125
     ),
@@ -3815,7 +3815,7 @@ val hospitals = listOf(
         id = "3460",
         cityId = "istanbul",
         name = "İstanbul Lepra Deri ve Zührevi Hastalıkları Hastanesi",
-        district = "Bakırköy",
+        districtId = "istanbul_bakirkoy",
         detsisCode = "97903124",
         bedCount = 34
     ),
@@ -3823,7 +3823,7 @@ val hospitals = listOf(
         id = "3467",
         cityId = "istanbul",
         name = "Bayrampaşa Devlet Hastanesi",
-        district = "Bayrampaşa",
+        districtId = "istanbul_bayrampasa",
         detsisCode = "48270730",
         bedCount = 115
     ),
@@ -3831,7 +3831,7 @@ val hospitals = listOf(
         id = "11542",
         cityId = "istanbul",
         name = "İstanbul Ataşehir Ağız ve Diş Sağlığı Hastanesi",
-        district = "Ataşehir",
+        districtId = "istanbul_atasehir",
         detsisCode = "86237661",
         bedCount = 11
     ),
@@ -3839,7 +3839,7 @@ val hospitals = listOf(
         id = "14182",
         cityId = "istanbul",
         name = "Beylikdüzü Devlet Hastanesi",
-        district = "Büyükçekmece",
+        districtId = "istanbul_buyukcekmece",
         detsisCode = "21277189",
         bedCount = 360
     ),
@@ -3847,7 +3847,7 @@ val hospitals = listOf(
         id = "14589",
         cityId = "istanbul",
         name = "İstanbul Okmeydanı Ağız ve Diş Sağlığı Hastanesi",
-        district = "Kağıthane",
+        districtId = "istanbul_kagithane",
         detsisCode = "87281459",
         bedCount = 14
     ),
@@ -3855,7 +3855,7 @@ val hospitals = listOf(
         id = "177292",
         cityId = "istanbul",
         name = "Erenköy Fizik Tedavi ve Rehabilitasyon Hastanesi",
-        district = "Kadıköy",
+        districtId = "istanbul_kadikoy",
         detsisCode = "29634130",
         bedCount = 145
     ),
@@ -3863,7 +3863,7 @@ val hospitals = listOf(
         id = "177295",
         cityId = "istanbul",
         name = "Eyüpsultan Devlet Hastanesi",
-        district = "Eyüpsultan",
+        districtId = "istanbul_eyupsultan",
         detsisCode = "55607146",
         bedCount = 140
     ),
@@ -3871,7 +3871,7 @@ val hospitals = listOf(
         id = "177301",
         cityId = "istanbul",
         name = "Beykoz Devlet Hastanesi",
-        district = "Beykoz",
+        districtId = "istanbul_beykoz",
         detsisCode = "61772955",
         bedCount = 310
     ),
@@ -3879,7 +3879,7 @@ val hospitals = listOf(
         id = "177339",
         cityId = "istanbul",
         name = "Tuzla Devlet Hastanesi",
-        district = "Tuzla",
+        districtId = "istanbul_tuzla",
         detsisCode = "47150177",
         bedCount = 335
     ),
@@ -3887,7 +3887,7 @@ val hospitals = listOf(
         id = "177708",
         cityId = "istanbul",
         name = "Üsküdar Devlet Hastanesi",
-        district = "Üsküdar",
+        districtId = "istanbul_uskudar",
         detsisCode = "44937362",
         bedCount = 150
     ),
@@ -3895,7 +3895,7 @@ val hospitals = listOf(
         id = "178044",
         cityId = "istanbul",
         name = "Kağıthane Devlet Hastanesi",
-        district = "Kağıthane",
+        districtId = "istanbul_kagithane",
         detsisCode = "90785684",
         bedCount = 51
     ),
@@ -3903,7 +3903,7 @@ val hospitals = listOf(
         id = "187596",
         cityId = "istanbul",
         name = "Başakşehir Devlet Hastanesi",
-        district = "Esenler",
+        districtId = "istanbul_esenler",
         detsisCode = "45203095",
         bedCount = 100
     ),
@@ -3911,7 +3911,7 @@ val hospitals = listOf(
         id = "223531",
         cityId = "istanbul",
         name = "Esenyurt Necmi Kadıoğlu Devlet Hastanesi",
-        district = "Esenyurt",
+        districtId = "istanbul_esenyurt",
         detsisCode = "49078885",
         bedCount = 200
     ),
@@ -3919,7 +3919,7 @@ val hospitals = listOf(
         id = "791023",
         cityId = "istanbul",
         name = "T.C.Sağlık Bakanlığı Tacirler Eğitim Vakfı Sultanbeyli Ağız ve Diş Sağlığı Eğitim ve Araştırma Hastanesi",
-        district = "Sultanbeyli",
+        districtId = "istanbul_sultanbeyli",
         detsisCode = "29659394",
         bedCount = 5
     ),
@@ -3927,7 +3927,7 @@ val hospitals = listOf(
         id = "378230",
         cityId = "istanbul",
         name = "Arnavutköy Devlet Hastanesi",
-        district = "Fatih",
+        districtId = "istanbul_fatih",
         detsisCode = "68123153",
         bedCount = 215
     ),
@@ -3935,7 +3935,7 @@ val hospitals = listOf(
         id = "419128",
         cityId = "istanbul",
         name = "Beşiktaş Sait Çiftçi Devlet Hastanesi",
-        district = "Beşiktaş",
+        districtId = "istanbul_besiktas",
         detsisCode = "92444225",
         bedCount = 50
     ),
@@ -3943,7 +3943,7 @@ val hospitals = listOf(
         id = "619836",
         cityId = "istanbul",
         name = "Pendik Ağız ve Diş Sağlığı Hastanesi",
-        district = "Pendik",
+        districtId = "istanbul_pendik",
         detsisCode = "62111600",
         bedCount = 5
     ),
@@ -3951,7 +3951,7 @@ val hospitals = listOf(
         id = "859536",
         cityId = "istanbul",
         name = "Sultangazi Ağız ve Diş Sağlığı Hastanesi",
-        district = "Sultangazi",
+        districtId = "istanbul_sultangazi",
         detsisCode = "12439006",
         bedCount = 5
     ),
@@ -3959,7 +3959,7 @@ val hospitals = listOf(
         id = "642968",
         cityId = "istanbul",
         name = "Büyükçekmece Mimar Sinan Devlet Hastanesi",
-        district = "Büyükçekmece",
+        districtId = "istanbul_buyukcekmece",
         detsisCode = "92302355",
         bedCount = 250
     ),
@@ -3967,7 +3967,7 @@ val hospitals = listOf(
         id = "707143",
         cityId = "istanbul",
         name = "Maltepe Devlet Hastanesi",
-        district = "Maltepe",
+        districtId = "istanbul_maltepe",
         detsisCode = "12963558",
         bedCount = 50
     ),
@@ -3975,7 +3975,7 @@ val hospitals = listOf(
         id = "728844",
         cityId = "istanbul",
         name = "Marmara Ceza İnfaz Kurumu Devlet Hastanesi",
-        district = "Silivri",
+        districtId = "istanbul_silivri",
         detsisCode = "43404683",
         bedCount = 30
     ),
@@ -3983,7 +3983,7 @@ val hospitals = listOf(
         id = "748240",
         cityId = "istanbul",
         name = "Esenler Kadın Doğum ve Çocuk Hastalıkları Hastanesi",
-        district = "Esenler",
+        districtId = "istanbul_esenler",
         detsisCode = "64376970",
         bedCount = 120
     ),
@@ -3991,7 +3991,7 @@ val hospitals = listOf(
         id = "782162",
         cityId = "istanbul",
         name = "Bahçelievler Devlet Hastanesi",
-        district = "Bahçelievler",
+        districtId = "istanbul_bahcelievler",
         detsisCode = "97010115",
         bedCount = 405
     ),
@@ -3999,7 +3999,7 @@ val hospitals = listOf(
         id = "793110",
         cityId = "istanbul",
         name = "Avcılar Murat Kölük Devlet Hastanesi",
-        district = "Avcılar",
+        districtId = "istanbul_avcilar",
         detsisCode = "66251834",
         bedCount = 100
     ),
@@ -4007,7 +4007,7 @@ val hospitals = listOf(
         id = "829557",
         cityId = "istanbul",
         name = "Bağcılar Ağız ve Diş Sağlığı Hastanesi",
-        district = "Bağcılar",
+        districtId = "istanbul_bagcilar",
         detsisCode = "39489614",
         bedCount = 8
     ),
@@ -4015,7 +4015,7 @@ val hospitals = listOf(
         id = "886403",
         cityId = "istanbul",
         name = "Küçükçekmece Ağız ve Diş Sağlığı Hastanesi",
-        district = "Küçükçekmece",
+        districtId = "istanbul_kucukcekmece",
         detsisCode = "72194567",
         bedCount = 5
     ),
@@ -4023,7 +4023,7 @@ val hospitals = listOf(
         id = "859965",
         cityId = "izmir",
         name = "Çiğli Eğitim ve Araştırma Hastanesi",
-        district = "Çiğli",
+        districtId = "izmir_cigli",
         detsisCode = "41969903",
         bedCount = 520
     ),
@@ -4031,7 +4031,7 @@ val hospitals = listOf(
         id = "177349",
         cityId = "izmir",
         name = "Buca Seyfi Demirsoy Eğitim ve Araştırma Hastanesi",
-        district = "Buca",
+        districtId = "izmir_buca",
         detsisCode = "65516083",
         bedCount = 455
     ),
@@ -4039,7 +4039,7 @@ val hospitals = listOf(
         id = "3200",
         cityId = "izmir",
         name = "İzmir Atatürk Eğitim ve Araştırma Hastanesi",
-        district = "Konak",
+        districtId = "izmir_konak",
         detsisCode = "47104536",
         bedCount = 1150
     ),
@@ -4047,7 +4047,7 @@ val hospitals = listOf(
         id = "3175",
         cityId = "izmir",
         name = "İzmir Dr. Suat Seren Göğüs Hastalıkları ve Cerrahisi Eğitim ve Araştırma Hastanesi",
-        district = "Konak",
+        districtId = "izmir_konak",
         detsisCode = "49109414",
         bedCount = 430
     ),
@@ -4055,7 +4055,7 @@ val hospitals = listOf(
         id = "3215",
         cityId = "izmir",
         name = "İzmir Dr. Behçet Uz Çocuk Hastalıkları ve Cerrahisi Eğitim ve Araştırma Hastanesi",
-        district = "Konak",
+        districtId = "izmir_konak",
         detsisCode = "13399118",
         bedCount = 320
     ),
@@ -4063,7 +4063,7 @@ val hospitals = listOf(
         id = "177351",
         cityId = "izmir",
         name = "İzmir Bozyaka Eğitim ve Araştırma Hastanesi",
-        district = "Karabağlar",
+        districtId = "izmir_karabaglar",
         detsisCode = "15345988",
         bedCount = 570
     ),
@@ -4071,7 +4071,7 @@ val hospitals = listOf(
         id = "177354",
         cityId = "izmir",
         name = "İzmir Tepecik Eğitim ve Araştırma Hastanesi",
-        district = "Konak",
+        districtId = "izmir_konak",
         detsisCode = "68878892",
         bedCount = 910
     ),
@@ -4079,7 +4079,7 @@ val hospitals = listOf(
         id = "2947",
         cityId = "izmir",
         name = "Torbalı Devlet Hastanesi",
-        district = "Torbalı",
+        districtId = "izmir_torbali",
         detsisCode = "14306843",
         bedCount = 250
     ),
@@ -4087,7 +4087,7 @@ val hospitals = listOf(
         id = "2961",
         cityId = "izmir",
         name = "Urla Devlet Hastanesi",
-        district = "Urla",
+        districtId = "izmir_urla",
         detsisCode = "47335232",
         bedCount = 205
     ),
@@ -4095,7 +4095,7 @@ val hospitals = listOf(
         id = "2977",
         cityId = "izmir",
         name = "Tire Devlet Hastanesi",
-        district = "Tire",
+        districtId = "izmir_tire",
         detsisCode = "56480858",
         bedCount = 255
     ),
@@ -4103,7 +4103,7 @@ val hospitals = listOf(
         id = "2993",
         cityId = "izmir",
         name = "Ödemiş Devlet Hastanesi",
-        district = "Ödemiş",
+        districtId = "izmir_odemis",
         detsisCode = "44223992",
         bedCount = 300
     ),
@@ -4111,7 +4111,7 @@ val hospitals = listOf(
         id = "3012",
         cityId = "izmir",
         name = "Kiraz Devlet Hastanesi",
-        district = "Kiraz",
+        districtId = "izmir_kiraz",
         detsisCode = "77372796",
         bedCount = 30
     ),
@@ -4119,7 +4119,7 @@ val hospitals = listOf(
         id = "3025",
         cityId = "izmir",
         name = "Menemen Devlet Hastanesi",
-        district = "Menemen",
+        districtId = "izmir_menemen",
         detsisCode = "95523745",
         bedCount = 205
     ),
@@ -4127,7 +4127,7 @@ val hospitals = listOf(
         id = "3031",
         cityId = "izmir",
         name = "Foça Devlet Hastanesi",
-        district = "Foça",
+        districtId = "izmir_foca",
         detsisCode = "73202036",
         bedCount = 50
     ),
@@ -4135,7 +4135,7 @@ val hospitals = listOf(
         id = "3048",
         cityId = "izmir",
         name = "Bergama Necla Mithat Öztüre Devlet Hastanesi",
-        district = "Bergama",
+        districtId = "izmir_bergama",
         detsisCode = "77618171",
         bedCount = 200
     ),
@@ -4143,7 +4143,7 @@ val hospitals = listOf(
         id = "3081",
         cityId = "izmir",
         name = "Bayındır Devlet Hastanesi",
-        district = "Bayındır",
+        districtId = "izmir_bayindir",
         detsisCode = "40852913",
         bedCount = 50
     ),
@@ -4151,7 +4151,7 @@ val hospitals = listOf(
         id = "3177",
         cityId = "izmir",
         name = "İzmir Eğitim Diş Hastanesi",
-        district = "Konak",
+        districtId = "izmir_konak",
         detsisCode = "49422988",
         bedCount = 20
     ),
@@ -4159,7 +4159,7 @@ val hospitals = listOf(
         id = "3199",
         cityId = "izmir",
         name = "İzmir Alsancak Nevvar Salih İşgören Devlet Hastanesi",
-        district = "Konak",
+        districtId = "izmir_konak",
         detsisCode = "38305904",
         bedCount = 125
     ),
@@ -4167,7 +4167,7 @@ val hospitals = listOf(
         id = "6724",
         cityId = "izmir",
         name = "Selçuk Devlet Hastanesi",
-        district = "Selçuk",
+        districtId = "izmir_selcuk",
         detsisCode = "45005179",
         bedCount = 55
     ),
@@ -4175,7 +4175,7 @@ val hospitals = listOf(
         id = "7524",
         cityId = "izmir",
         name = "Çeşme Alper Çizgenakat Devlet Hastanesi",
-        district = "Çeşme",
+        districtId = "izmir_cesme",
         detsisCode = "71433330",
         bedCount = 75
     ),
@@ -4183,7 +4183,7 @@ val hospitals = listOf(
         id = "11701",
         cityId = "izmir",
         name = "Seferihisar Nejat Hepkon Devlet Hastanesi",
-        district = "Seferihisar",
+        districtId = "izmir_seferihisar",
         detsisCode = "22447147",
         bedCount = 50
     ),
@@ -4191,7 +4191,7 @@ val hospitals = listOf(
         id = "101250",
         cityId = "izmir",
         name = "Aliağa Devlet Hastanesi",
-        district = "Aliağa",
+        districtId = "izmir_aliaga",
         detsisCode = "25892517",
         bedCount = 65
     ),
@@ -4199,7 +4199,7 @@ val hospitals = listOf(
         id = "328638",
         cityId = "izmir",
         name = "Kemalpaşa Devlet Hastanesi",
-        district = "Kemalpaşa",
+        districtId = "izmir_kemalpasa",
         detsisCode = "67417943",
         bedCount = 50
     ),
@@ -4207,7 +4207,7 @@ val hospitals = listOf(
         id = "353138",
         cityId = "izmir",
         name = "Dikili Devlet Hastanesi",
-        district = "Dikili",
+        districtId = "izmir_dikili",
         detsisCode = "64598942",
         bedCount = 25
     ),
@@ -4215,7 +4215,7 @@ val hospitals = listOf(
         id = "388329",
         cityId = "izmir",
         name = "Bornova Türkan Özilhan Devlet Hastanesi",
-        district = "Bornova",
+        districtId = "izmir_bornova",
         detsisCode = "45016725",
         bedCount = 210
     ),
@@ -4223,7 +4223,7 @@ val hospitals = listOf(
         id = "673367",
         cityId = "izmir",
         name = "Kınık Devlet Hastanesi",
-        district = "Kınık",
+        districtId = "izmir_kinik",
         detsisCode = "95752936",
         bedCount = 25
     ),
@@ -4231,7 +4231,7 @@ val hospitals = listOf(
         id = "96902",
         cityId = "izmir",
         name = "Menderes Devlet Hastanesi",
-        district = "Menderes",
+        districtId = "izmir_menderes",
         detsisCode = "75625790",
         bedCount = 75
     ),
@@ -4239,7 +4239,7 @@ val hospitals = listOf(
         id = "767641",
         cityId = "izmir",
         name = "Gaziemir Nevvar Salih İşgören Devlet Hastanesi",
-        district = "Gaziemir",
+        districtId = "izmir_gaziemir",
         detsisCode = "84316989",
         bedCount = 75
     ),
@@ -4247,7 +4247,7 @@ val hospitals = listOf(
         id = "781175",
         cityId = "izmir",
         name = "Aliağa Ceza İnfaz Kurumları Kampüs Devlet Hastanesi",
-        district = "Aliağa",
+        districtId = "izmir_aliaga",
         detsisCode = "29598326",
         bedCount = 25
     ),
@@ -4255,7 +4255,7 @@ val hospitals = listOf(
         id = "69553",
         cityId = "izmir",
         name = "Beydağ İlçe Devlet Hastanesi",
-        district = "Beydağ",
+        districtId = "izmir_beydag",
         detsisCode = "",
         bedCount = 10
     ),
@@ -4263,7 +4263,7 @@ val hospitals = listOf(
         id = "879804",
         cityId = "izmir",
         name = "Karaburun İlçe Devlet Hastanesi",
-        district = "Karaburun",
+        districtId = "izmir_karaburun",
         detsisCode = "",
         bedCount = 10
     ),
@@ -4271,7 +4271,7 @@ val hospitals = listOf(
         id = "1903",
         cityId = "kahramanmaras",
         name = "Göksun Devlet Hastanesi",
-        district = "Göksun",
+        districtId = "kahramanmaras_goksun",
         detsisCode = "13719137",
         bedCount = 75
     ),
@@ -4279,7 +4279,7 @@ val hospitals = listOf(
         id = "1915",
         cityId = "kahramanmaras",
         name = "Pazarcık Devlet Hastanesi",
-        district = "Pazarcık",
+        districtId = "kahramanmaras_pazarcik",
         detsisCode = "50035303",
         bedCount = 125
     ),
@@ -4287,7 +4287,7 @@ val hospitals = listOf(
         id = "1921",
         cityId = "kahramanmaras",
         name = "Andırın Devlet Hastanesi",
-        district = "Andırın",
+        districtId = "kahramanmaras_andirin",
         detsisCode = "16237189",
         bedCount = 45
     ),
@@ -4295,7 +4295,7 @@ val hospitals = listOf(
         id = "1933",
         cityId = "kahramanmaras",
         name = "Elbistan Devlet Hastanesi",
-        district = "Elbistan",
+        districtId = "kahramanmaras_elbistan",
         detsisCode = "87993476",
         bedCount = 355
     ),
@@ -4303,7 +4303,7 @@ val hospitals = listOf(
         id = "1953",
         cityId = "kahramanmaras",
         name = "Afşin Devlet Hastanesi",
-        district = "Afşin",
+        districtId = "kahramanmaras_afsin",
         detsisCode = "36864514",
         bedCount = 150
     ),
@@ -4311,7 +4311,7 @@ val hospitals = listOf(
         id = "9748",
         cityId = "kahramanmaras",
         name = "Türkoğlu Dr. Kemal Beyazıt Devlet Hastanesi",
-        district = "Türkoğlu",
+        districtId = "kahramanmaras_turkoglu",
         detsisCode = "44512411",
         bedCount = 80
     ),
@@ -4319,7 +4319,7 @@ val hospitals = listOf(
         id = "100325",
         cityId = "kahramanmaras",
         name = "Kahramanmaraş Ağız ve Diş Sağlığı Hastanesi",
-        district = "Dulkadiroğlu",
+        districtId = "kahramanmaras_dulkadiroglu",
         detsisCode = "33635500",
         bedCount = 5
     ),
@@ -4327,7 +4327,7 @@ val hospitals = listOf(
         id = "391975",
         cityId = "kahramanmaras",
         name = "Çağlayancerit İlçe Devlet Hastanesi",
-        district = "Çağlayancerit",
+        districtId = "kahramanmaras_caglayancerit",
         detsisCode = "75918592",
         bedCount = 20
     ),
@@ -4335,7 +4335,7 @@ val hospitals = listOf(
         id = "731072",
         cityId = "kahramanmaras",
         name = "Kahramanmaraş Necip Fazıl Şehir Hastanesi",
-        district = "Dulkadiroğlu",
+        districtId = "kahramanmaras_dulkadiroglu",
         detsisCode = "31595039",
         bedCount = 1055
     ),
@@ -4343,7 +4343,7 @@ val hospitals = listOf(
         id = "375869",
         cityId = "kahramanmaras",
         name = "Nurhak İlçe Devlet Hastanesi",
-        district = "Nurhak",
+        districtId = "kahramanmaras_nurhak",
         detsisCode = "",
         bedCount = 19
     ),
@@ -4351,7 +4351,7 @@ val hospitals = listOf(
         id = "409094",
         cityId = "kahramanmaras",
         name = "Ekinözü İlçe Devlet Hastanesi",
-        district = "Ekinözü",
+        districtId = "kahramanmaras_ekinozu",
         detsisCode = "",
         bedCount = 10
     ),
@@ -4359,7 +4359,7 @@ val hospitals = listOf(
         id = "401",
         cityId = "karabuk",
         name = "Karabük Eğitim ve Araştırma Hastanesi",
-        district = "Merkez",
+        districtId = "karabuk_merkez",
         detsisCode = "34771223",
         bedCount = 525
     ),
@@ -4367,7 +4367,7 @@ val hospitals = listOf(
         id = "372",
         cityId = "karabuk",
         name = "Safranbolu Devlet Hastanesi",
-        district = "Safranbolu",
+        districtId = "karabuk_safranbolu",
         detsisCode = "72315660",
         bedCount = 72
     ),
@@ -4375,7 +4375,7 @@ val hospitals = listOf(
         id = "14250",
         cityId = "karabuk",
         name = "Karabük Yenice İlçe Devlet Hastanesi",
-        district = "Yenice",
+        districtId = "karabuk_yenice",
         detsisCode = "50188903",
         bedCount = 25
     ),
@@ -4383,7 +4383,7 @@ val hospitals = listOf(
         id = "187919",
         cityId = "karabuk",
         name = "Karabük Ağız ve Diş Sağlığı Eğitim ve Araştırma Hastanesi",
-        district = "Merkez",
+        districtId = "karabuk_merkez",
         detsisCode = "21767321",
         bedCount = 5
     ),
@@ -4391,7 +4391,7 @@ val hospitals = listOf(
         id = "709240",
         cityId = "karabuk",
         name = "Eskipazar İlçe Devlet Hastanesi",
-        district = "Eskipazar",
+        districtId = "karabuk_eskipazar",
         detsisCode = "",
         bedCount = 25
     ),
@@ -4399,7 +4399,7 @@ val hospitals = listOf(
         id = "842468",
         cityId = "karabuk",
         name = "Eflani İlçe Devlet Hastanesi",
-        district = "Eflani",
+        districtId = "karabuk_eflani",
         detsisCode = "",
         bedCount = 10
     ),
@@ -4407,7 +4407,7 @@ val hospitals = listOf(
         id = "280",
         cityId = "karaman",
         name = "Karaman Eğitim ve Araştırma Hastanesi",
-        district = "Merkez",
+        districtId = "karaman_merkez",
         detsisCode = "37844338",
         bedCount = 400
     ),
@@ -4415,7 +4415,7 @@ val hospitals = listOf(
         id = "260",
         cityId = "karaman",
         name = "Ermenek Devlet Hastanesi",
-        district = "Ermenek",
+        districtId = "karaman_ermenek",
         detsisCode = "31223312",
         bedCount = 100
     ),
@@ -4423,7 +4423,7 @@ val hospitals = listOf(
         id = "651491",
         cityId = "karaman",
         name = "Sarıveliler İlçe Devlet Hastanesi",
-        district = "Sarıveliler",
+        districtId = "karaman_sariveliler",
         detsisCode = "30904744",
         bedCount = 15
     ),
@@ -4431,7 +4431,7 @@ val hospitals = listOf(
         id = "672390",
         cityId = "karaman",
         name = "Ayrancı İlçe Devlet Hastanesi",
-        district = "Ayrancı",
+        districtId = "karaman_ayranci",
         detsisCode = "",
         bedCount = 5
     ),
@@ -4439,7 +4439,7 @@ val hospitals = listOf(
         id = "869855",
         cityId = "karaman",
         name = "Kazımkarabekir İlçe Devlet Hastanesi",
-        district = "Kazımkarabekir",
+        districtId = "karaman_kazimkarabekir",
         detsisCode = "",
         bedCount = 5
     ),
@@ -4447,7 +4447,7 @@ val hospitals = listOf(
         id = "2889",
         cityId = "kars",
         name = "Kağızman Devlet Hastanesi",
-        district = "Kağızman",
+        districtId = "kars_kagizman",
         detsisCode = "55932846",
         bedCount = 100
     ),
@@ -4455,7 +4455,7 @@ val hospitals = listOf(
         id = "2895",
         cityId = "kars",
         name = "Sarıkamış Devlet Hastanesi",
-        district = "Sarıkamış",
+        districtId = "kars_sarikamis",
         detsisCode = "27486040",
         bedCount = 55
     ),
@@ -4463,7 +4463,7 @@ val hospitals = listOf(
         id = "2906",
         cityId = "kars",
         name = "Harakani Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "kars_merkez",
         detsisCode = "42288353",
         bedCount = 328
     ),
@@ -4471,7 +4471,7 @@ val hospitals = listOf(
         id = "203380",
         cityId = "kars",
         name = "Selim İlçe Devlet Hastanesi",
-        district = "Selim",
+        districtId = "kars_selim",
         detsisCode = "64368728",
         bedCount = 15
     ),
@@ -4479,7 +4479,7 @@ val hospitals = listOf(
         id = "835276",
         cityId = "kars",
         name = "Digor İlçe Devlet Hastanesi",
-        district = "Digor",
+        districtId = "kars_digor",
         detsisCode = "47975749",
         bedCount = 10
     ),
@@ -4487,7 +4487,7 @@ val hospitals = listOf(
         id = "835277",
         cityId = "kars",
         name = "Arpaçay İlçe Devlet Hastanesi",
-        district = "Arpaçay",
+        districtId = "kars_arpacay",
         detsisCode = "52739064",
         bedCount = 10
     ),
@@ -4495,7 +4495,7 @@ val hospitals = listOf(
         id = "835905",
         cityId = "kars",
         name = "Akyaka İlçe Devlet Hastanesi",
-        district = "Akyaka",
+        districtId = "kars_akyaka",
         detsisCode = "",
         bedCount = 10
     ),
@@ -4503,7 +4503,7 @@ val hospitals = listOf(
         id = "6433",
         cityId = "kastamonu",
         name = "Kastamonu Eğitim ve Araştırma Hastanesi",
-        district = "Merkez",
+        districtId = "kastamonu_merkez",
         detsisCode = "59416990",
         bedCount = 400
     ),
@@ -4511,7 +4511,7 @@ val hospitals = listOf(
         id = "2775",
         cityId = "kastamonu",
         name = "Tosya Devlet Hastanesi",
-        district = "Tosya",
+        districtId = "kastamonu_tosya",
         detsisCode = "10102470",
         bedCount = 75
     ),
@@ -4519,7 +4519,7 @@ val hospitals = listOf(
         id = "2796",
         cityId = "kastamonu",
         name = "İnebolu Devlet Hastanesi",
-        district = "İnebolu",
+        districtId = "kastamonu_inebolu",
         detsisCode = "88828336",
         bedCount = 50
     ),
@@ -4527,7 +4527,7 @@ val hospitals = listOf(
         id = "2810",
         cityId = "kastamonu",
         name = "Taşköprü Devlet Hastanesi",
-        district = "Taşköprü",
+        districtId = "kastamonu_taskopru",
         detsisCode = "91958566",
         bedCount = 50
     ),
@@ -4535,7 +4535,7 @@ val hospitals = listOf(
         id = "2817",
         cityId = "kastamonu",
         name = "Cide İlçe Devlet Hastanesi",
-        district = "Cide",
+        districtId = "kastamonu_cide",
         detsisCode = "14750669",
         bedCount = 25
     ),
@@ -4543,7 +4543,7 @@ val hospitals = listOf(
         id = "2826",
         cityId = "kastamonu",
         name = "Daday İlçe Devlet Hastanesi",
-        district = "Daday",
+        districtId = "kastamonu_daday",
         detsisCode = "16270746",
         bedCount = 25
     ),
@@ -4551,7 +4551,7 @@ val hospitals = listOf(
         id = "2829",
         cityId = "kastamonu",
         name = "Devrekani İlçe Devlet Hastanesi",
-        district = "Devrekani",
+        districtId = "kastamonu_devrekani",
         detsisCode = "86192431",
         bedCount = 20
     ),
@@ -4559,7 +4559,7 @@ val hospitals = listOf(
         id = "2846",
         cityId = "kastamonu",
         name = "Araç İlçe Devlet Hastanesi",
-        district = "Araç",
+        districtId = "kastamonu_arac",
         detsisCode = "64674153",
         bedCount = 20
     ),
@@ -4567,7 +4567,7 @@ val hospitals = listOf(
         id = "2854",
         cityId = "kastamonu",
         name = "Bozkurt İlçe Devlet Hastanesi",
-        district = "Bozkurt",
+        districtId = "kastamonu_bozkurt",
         detsisCode = "27104626",
         bedCount = 25
     ),
@@ -4575,7 +4575,7 @@ val hospitals = listOf(
         id = "6720",
         cityId = "kastamonu",
         name = "Kastamonu Fizik Tedavi ve Rehabilitasyon Merkezi",
-        district = "Merkez",
+        districtId = "kastamonu_merkez",
         detsisCode = "41905039",
         bedCount = 205
     ),
@@ -4583,7 +4583,7 @@ val hospitals = listOf(
         id = "196572",
         cityId = "kastamonu",
         name = "Azdavay İlçe Devlet Hastanesi",
-        district = "Azdavay",
+        districtId = "kastamonu_azdavay",
         detsisCode = "17096414",
         bedCount = 19
     ),
@@ -4591,7 +4591,7 @@ val hospitals = listOf(
         id = "196573",
         cityId = "kastamonu",
         name = "Çatalzeytin İlçe Devlet Hastanesi",
-        district = "Çatalzeytin",
+        districtId = "kastamonu_catalzeytin",
         detsisCode = "",
         bedCount = 10
     ),
@@ -4599,7 +4599,7 @@ val hospitals = listOf(
         id = "652718",
         cityId = "kastamonu",
         name = "Kastamonu Pınarbaşı İlçe Devlet Hastanesi",
-        district = "Pınarbaşı",
+        districtId = "kastamonu_pinarbasi",
         detsisCode = "",
         bedCount = 5
     ),
@@ -4607,7 +4607,7 @@ val hospitals = listOf(
         id = "739512",
         cityId = "kastamonu",
         name = "Küre İlçe Devlet Hastanesi",
-        district = "Küre",
+        districtId = "kastamonu_kure",
         detsisCode = "",
         bedCount = 10
     ),
@@ -4615,7 +4615,7 @@ val hospitals = listOf(
         id = "193187",
         cityId = "kastamonu",
         name = "İhsangazi İlçe Devlet Hastanesi",
-        district = "İhsangazi",
+        districtId = "kastamonu_ihsangazi",
         detsisCode = "",
         bedCount = 10
     ),
@@ -4623,7 +4623,7 @@ val hospitals = listOf(
         id = "81634",
         cityId = "kastamonu",
         name = "Doğanyurt İlçe Devlet Hastanesi",
-        district = "Doğanyurt",
+        districtId = "kastamonu_doganyurt",
         detsisCode = "",
         bedCount = 5
     ),
@@ -4631,7 +4631,7 @@ val hospitals = listOf(
         id = "78037",
         cityId = "kastamonu",
         name = "Şenpazar İlçe Devlet Hastanesi",
-        district = "Şenpazar",
+        districtId = "kastamonu_senpazar",
         detsisCode = "",
         bedCount = 5
     ),
@@ -4639,7 +4639,7 @@ val hospitals = listOf(
         id = "78047",
         cityId = "kastamonu",
         name = "Hanönü İlçe Devlet Hastanesi",
-        district = "Hanönü",
+        districtId = "kastamonu_hanonu",
         detsisCode = "",
         bedCount = 5
     ),
@@ -4647,7 +4647,7 @@ val hospitals = listOf(
         id = "196571",
         cityId = "kastamonu",
         name = "Abana İlçe Devlet Hastanesi",
-        district = "Abana",
+        districtId = "kastamonu_abana",
         detsisCode = "",
         bedCount = 10
     ),
@@ -4655,7 +4655,7 @@ val hospitals = listOf(
         id = "647972",
         cityId = "kayseri",
         name = "Kayseri Şehir Hastanesi",
-        district = "Kocasinan",
+        districtId = "kayseri_kocasinan",
         detsisCode = "76397871",
         bedCount = 1607
     ),
@@ -4663,7 +4663,7 @@ val hospitals = listOf(
         id = "2670",
         cityId = "kayseri",
         name = "Yahyalı Devlet Hastanesi",
-        district = "Yahyalı",
+        districtId = "kayseri_yahyali",
         detsisCode = "21351952",
         bedCount = 75
     ),
@@ -4671,7 +4671,7 @@ val hospitals = listOf(
         id = "2675",
         cityId = "kayseri",
         name = "Yeşilhisar İlçe Devlet Hastanesi",
-        district = "Yeşilhisar",
+        districtId = "kayseri_yesilhisar",
         detsisCode = "27355912",
         bedCount = 25
     ),
@@ -4679,7 +4679,7 @@ val hospitals = listOf(
         id = "2705",
         cityId = "kayseri",
         name = "Tomarza Yaşar Karayel Devlet Hastanesi",
-        district = "Tomarza",
+        districtId = "kayseri_tomarza",
         detsisCode = "36513477",
         bedCount = 25
     ),
@@ -4687,7 +4687,7 @@ val hospitals = listOf(
         id = "2740",
         cityId = "kayseri",
         name = "Bünyan Devlet Hastanesi",
-        district = "Bünyan",
+        districtId = "kayseri_bunyan",
         detsisCode = "57123335",
         bedCount = 75
     ),
@@ -4695,7 +4695,7 @@ val hospitals = listOf(
         id = "2746",
         cityId = "kayseri",
         name = "Develi Dr. Ekrem Karakaya Devlet Hastanesi",
-        district = "Develi",
+        districtId = "kayseri_develi",
         detsisCode = "15239789",
         bedCount = 150
     ),
@@ -4703,7 +4703,7 @@ val hospitals = listOf(
         id = "182523",
         cityId = "kayseri",
         name = "Kayseri Nimet Bayraktar Ağız ve Diş Sağlığı Hastanesi",
-        district = "Kocasinan",
+        districtId = "kayseri_kocasinan",
         detsisCode = "37030531",
         bedCount = 6
     ),
@@ -4711,7 +4711,7 @@ val hospitals = listOf(
         id = "188220",
         cityId = "kayseri",
         name = "İncesu İlçe Devlet Hastanesi",
-        district = "İncesu",
+        districtId = "kayseri_incesu",
         detsisCode = "14394407",
         bedCount = 10
     ),
@@ -4719,7 +4719,7 @@ val hospitals = listOf(
         id = "92723",
         cityId = "kayseri",
         name = "Sarız İlçe Devlet Hastanesi",
-        district = "Sarız",
+        districtId = "kayseri_sariz",
         detsisCode = "46045642",
         bedCount = 15
     ),
@@ -4727,7 +4727,7 @@ val hospitals = listOf(
         id = "216305",
         cityId = "kayseri",
         name = "Kayseri Pınarbaşı Devlet Hastanesi",
-        district = "Pınarbaşı",
+        districtId = "kayseri_pinarbasi",
         detsisCode = "26389111",
         bedCount = 25
     ),
@@ -4735,7 +4735,7 @@ val hospitals = listOf(
         id = "646869",
         cityId = "kayseri",
         name = "Kayseri Devlet Hastanesi",
-        district = "Kocasinan",
+        districtId = "kayseri_kocasinan",
         detsisCode = "25655344",
         bedCount = 300
     ),
@@ -4743,7 +4743,7 @@ val hospitals = listOf(
         id = "428496",
         cityId = "kayseri",
         name = "Sarıoğlan İlçe Devlet Hastanesi",
-        district = "Sarıoğlan",
+        districtId = "kayseri_sarioglan",
         detsisCode = "",
         bedCount = 5
     ),
@@ -4751,7 +4751,7 @@ val hospitals = listOf(
         id = "188217",
         cityId = "kayseri",
         name = "Felahiye İlçe Devlet Hastanesi",
-        district = "Felahiye",
+        districtId = "kayseri_felahiye",
         detsisCode = "",
         bedCount = 5
     ),
@@ -4759,7 +4759,7 @@ val hospitals = listOf(
         id = "654697",
         cityId = "kayseri",
         name = "Akkışla İlçe Devlet Hastanesi",
-        district = "Akkışla",
+        districtId = "kayseri_akkisla",
         detsisCode = "",
         bedCount = 5
     ),
@@ -4767,7 +4767,7 @@ val hospitals = listOf(
         id = "188219",
         cityId = "kayseri",
         name = "Özvatan İlçe Devlet Hastanesi",
-        district = "Özvatan",
+        districtId = "kayseri_ozvatan",
         detsisCode = "",
         bedCount = 10
     ),
@@ -4775,7 +4775,7 @@ val hospitals = listOf(
         id = "14313",
         cityId = "kirikkale",
         name = "Kırıkkale Yüksek İhtisas Hastanesi",
-        district = "Merkez",
+        districtId = "kirikkale_merkez",
         detsisCode = "72549134",
         bedCount = 700
     ),
@@ -4783,7 +4783,7 @@ val hospitals = listOf(
         id = "835038",
         cityId = "kirikkale",
         name = "Keskin İlçe Devlet Hastanesi",
-        district = "Keskin",
+        districtId = "kirikkale_keskin",
         detsisCode = "14350854",
         bedCount = 25
     ),
@@ -4791,7 +4791,7 @@ val hospitals = listOf(
         id = "188222",
         cityId = "kirikkale",
         name = "Sulakyurt İlçe Devlet Hastanesi",
-        district = "Sulakyurt",
+        districtId = "kirikkale_sulakyurt",
         detsisCode = "",
         bedCount = 10
     ),
@@ -4799,7 +4799,7 @@ val hospitals = listOf(
         id = "188223",
         cityId = "kirikkale",
         name = "Delice İlçe Devlet Hastanesi",
-        district = "Delice",
+        districtId = "kirikkale_delice",
         detsisCode = "",
         bedCount = 15
     ),
@@ -4807,7 +4807,7 @@ val hospitals = listOf(
         id = "188221",
         cityId = "kirikkale",
         name = "Karakeçili İlçe Devlet Hastanesi",
-        district = "Karakeçili",
+        districtId = "kirikkale_karakecili",
         detsisCode = "",
         bedCount = 15
     ),
@@ -4815,7 +4815,7 @@ val hospitals = listOf(
         id = "2678",
         cityId = "kirklareli",
         name = "Kırklareli Eğitim ve Araştırma Hastanesi",
-        district = "Merkez",
+        districtId = "kirklareli_merkez",
         detsisCode = "73912978",
         bedCount = 275
     ),
@@ -4823,7 +4823,7 @@ val hospitals = listOf(
         id = "2632",
         cityId = "kirklareli",
         name = "Pınarhisar Devlet Hastanesi",
-        district = "Pınarhisar",
+        districtId = "kirklareli_pinarhisar",
         detsisCode = "47489766",
         bedCount = 30
     ),
@@ -4831,7 +4831,7 @@ val hospitals = listOf(
         id = "2659",
         cityId = "kirklareli",
         name = "Lüleburgaz Devlet Hastanesi",
-        district = "Lüleburgaz",
+        districtId = "kirklareli_luleburgaz",
         detsisCode = "78875249",
         bedCount = 300
     ),
@@ -4839,7 +4839,7 @@ val hospitals = listOf(
         id = "2689",
         cityId = "kirklareli",
         name = "Babaeski Devlet Hastanesi",
-        district = "Babaeski",
+        districtId = "kirklareli_babaeski",
         detsisCode = "65450156",
         bedCount = 100
     ),
@@ -4847,7 +4847,7 @@ val hospitals = listOf(
         id = "9449",
         cityId = "kirklareli",
         name = "Vize Devlet Hastanesi",
-        district = "Vize",
+        districtId = "kirklareli_vize",
         detsisCode = "98137640",
         bedCount = 30
     ),
@@ -4855,7 +4855,7 @@ val hospitals = listOf(
         id = "672393",
         cityId = "kirklareli",
         name = "Demirköy İlçe Devlet Hastanesi",
-        district = "Demirköy",
+        districtId = "kirklareli_demirkoy",
         detsisCode = "",
         bedCount = 5
     ),
@@ -4863,7 +4863,7 @@ val hospitals = listOf(
         id = "2640",
         cityId = "kirsehir",
         name = "Kırşehir Eğitim ve Araştırma Hastanesi",
-        district = "Merkez",
+        districtId = "kirsehir_merkez",
         detsisCode = "75990205",
         bedCount = 450
     ),
@@ -4871,7 +4871,7 @@ val hospitals = listOf(
         id = "2621",
         cityId = "kirsehir",
         name = "Kaman Devlet Hastanesi",
-        district = "Kaman",
+        districtId = "kirsehir_kaman",
         detsisCode = "60148246",
         bedCount = 75
     ),
@@ -4879,7 +4879,7 @@ val hospitals = listOf(
         id = "2592",
         cityId = "kirsehir",
         name = "Mucur Devlet Hastanesi",
-        district = "Mucur",
+        districtId = "kirsehir_mucur",
         detsisCode = "88629924",
         bedCount = 25
     ),
@@ -4887,7 +4887,7 @@ val hospitals = listOf(
         id = "195061",
         cityId = "kirsehir",
         name = "Çiçekdağı İlçe Devlet Hastanesi",
-        district = "Çiçekdağı",
+        districtId = "kirsehir_cicekdagi",
         detsisCode = "",
         bedCount = 10
     ),
@@ -4895,7 +4895,7 @@ val hospitals = listOf(
         id = "195062",
         cityId = "kirsehir",
         name = "Akpınar İlçe Devlet Hastanesi",
-        district = "Akpınar",
+        districtId = "kirsehir_akpinar",
         detsisCode = "",
         bedCount = 10
     ),
@@ -4903,7 +4903,7 @@ val hospitals = listOf(
         id = "3942",
         cityId = "kilis",
         name = "Kilis Prof. Dr. Alaeddin Yavaşca Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "kilis_merkez",
         detsisCode = "52446582",
         bedCount = 630
     ),
@@ -4911,7 +4911,7 @@ val hospitals = listOf(
         id = "805192",
         cityId = "kilis",
         name = "Musabeyli İlçe Devlet Hastanesi",
-        district = "Musabeyli",
+        districtId = "kilis_musabeyli",
         detsisCode = "",
         bedCount = 5
     ),
@@ -4919,7 +4919,7 @@ val hospitals = listOf(
         id = "322025",
         cityId = "kocaeli",
         name = "Derince Eğitim ve Araştırma Hastanesi",
-        district = "Derince",
+        districtId = "kocaeli_derince",
         detsisCode = "30278912",
         bedCount = 669
     ),
@@ -4927,7 +4927,7 @@ val hospitals = listOf(
         id = "2559",
         cityId = "kocaeli",
         name = "Darıca Farabi Eğitim ve Araştırma Hastanesi",
-        district = "Darıca",
+        districtId = "kocaeli_darica",
         detsisCode = "62256830",
         bedCount = 400
     ),
@@ -4935,7 +4935,7 @@ val hospitals = listOf(
         id = "2503",
         cityId = "kocaeli",
         name = "Kandıra Ecz. Kazım Dinç Devlet Hastanesi",
-        district = "Kandıra",
+        districtId = "kocaeli_kandira",
         detsisCode = "28546478",
         bedCount = 52
     ),
@@ -4943,7 +4943,7 @@ val hospitals = listOf(
         id = "2515",
         cityId = "kocaeli",
         name = "Karamürsel Devlet Hastanesi",
-        district = "Karamürsel",
+        districtId = "kocaeli_karamursel",
         detsisCode = "26049460",
         bedCount = 50
     ),
@@ -4951,7 +4951,7 @@ val hospitals = listOf(
         id = "2532",
         cityId = "kocaeli",
         name = "Gölcük Necati Çelik Devlet Hastanesi",
-        district = "Gölcük",
+        districtId = "kocaeli_golcuk",
         detsisCode = "91385075",
         bedCount = 175
     ),
@@ -4959,7 +4959,7 @@ val hospitals = listOf(
         id = "2597",
         cityId = "kocaeli",
         name = "Kocaeli Devlet Hastanesi",
-        district = "İzmit",
+        districtId = "kocaeli_izmit",
         detsisCode = "61900769",
         bedCount = 335
     ),
@@ -4967,7 +4967,7 @@ val hospitals = listOf(
         id = "14656",
         cityId = "kocaeli",
         name = "Körfez Devlet Hastanesi",
-        district = "Körfez",
+        districtId = "kocaeli_korfez",
         detsisCode = "38582130",
         bedCount = 52
     ),
@@ -4975,7 +4975,7 @@ val hospitals = listOf(
         id = "177423",
         cityId = "kocaeli",
         name = "Gebze Fatih Devlet Hastanesi",
-        district = "Gebze",
+        districtId = "kocaeli_gebze",
         detsisCode = "18913723",
         bedCount = 400
     ),
@@ -4983,7 +4983,7 @@ val hospitals = listOf(
         id = "300703",
         cityId = "kocaeli",
         name = "Kocaeli İzmit Seka Devlet Hastanesi",
-        district = "İzmit",
+        districtId = "kocaeli_izmit",
         detsisCode = "58794336",
         bedCount = 305
     ),
@@ -4991,7 +4991,7 @@ val hospitals = listOf(
         id = "795260",
         cityId = "kocaeli",
         name = "Dilovası Devlet Hastanesi",
-        district = "Dilovası",
+        districtId = "kocaeli_dilovasi",
         detsisCode = "98144544",
         bedCount = 50
     ),
@@ -4999,7 +4999,7 @@ val hospitals = listOf(
         id = "34975",
         cityId = "konya",
         name = "Konya Şehir Hastanesi",
-        district = "Karatay",
+        districtId = "konya_karatay",
         detsisCode = "34028083",
         bedCount = 1250
     ),
@@ -5007,7 +5007,7 @@ val hospitals = listOf(
         id = "38798",
         cityId = "konya",
         name = "Konya Meram Devlet Hastanesi",
-        district = "Meram",
+        districtId = "konya_meram",
         detsisCode = "85406096",
         bedCount = 670
     ),
@@ -5015,7 +5015,7 @@ val hospitals = listOf(
         id = "63370",
         cityId = "konya",
         name = "Altınekin İlçe Devlet Hastanesi",
-        district = "Altınekin",
+        districtId = "konya_altinekin",
         detsisCode = "20037133",
         bedCount = 10
     ),
@@ -5023,7 +5023,7 @@ val hospitals = listOf(
         id = "2297",
         cityId = "konya",
         name = "Seydişehir Devlet Hastanesi",
-        district = "Seydişehir",
+        districtId = "konya_seydisehir",
         detsisCode = "80694445",
         bedCount = 137
     ),
@@ -5031,7 +5031,7 @@ val hospitals = listOf(
         id = "2311",
         cityId = "konya",
         name = "Yunak Hacı İzzet Baysal Devlet Hastanesi",
-        district = "Yunak",
+        districtId = "konya_yunak",
         detsisCode = "71947884",
         bedCount = 25
     ),
@@ -5039,7 +5039,7 @@ val hospitals = listOf(
         id = "2318",
         cityId = "konya",
         name = "Karapınar Devlet Hastanesi",
-        district = "Karapınar",
+        districtId = "konya_karapinar",
         detsisCode = "18767542",
         bedCount = 50
     ),
@@ -5047,7 +5047,7 @@ val hospitals = listOf(
         id = "2331",
         cityId = "konya",
         name = "Sarayönü Devlet Hastanesi",
-        district = "Sarayönü",
+        districtId = "konya_sarayonu",
         detsisCode = "28124974",
         bedCount = 30
     ),
@@ -5055,7 +5055,7 @@ val hospitals = listOf(
         id = "2342",
         cityId = "konya",
         name = "Ilgın Dr.Vefa Tanır Devlet Hastanesi",
-        district = "Ilgın",
+        districtId = "konya_ilgin",
         detsisCode = "15343172",
         bedCount = 103
     ),
@@ -5063,7 +5063,7 @@ val hospitals = listOf(
         id = "2352",
         cityId = "konya",
         name = "Kadınhanı Refik Saime Koyuncu Devlet Hastanesi",
-        district = "Kadınhanı",
+        districtId = "konya_kadinhani",
         detsisCode = "56062148",
         bedCount = 34
     ),
@@ -5071,7 +5071,7 @@ val hospitals = listOf(
         id = "2360",
         cityId = "konya",
         name = "Ereğli Devlet Hastanesi",
-        district = "Ereğli",
+        districtId = "konya_eregli",
         detsisCode = "63210348",
         bedCount = 251
     ),
@@ -5079,7 +5079,7 @@ val hospitals = listOf(
         id = "93171",
         cityId = "konya",
         name = "Ereğli Ceza İnfaz Kurumu Devlet Hastanesi",
-        district = "Ereğli",
+        districtId = "konya_eregli",
         detsisCode = "51781784",
         bedCount = 15
     ),
@@ -5087,7 +5087,7 @@ val hospitals = listOf(
         id = "2380",
         cityId = "konya",
         name = "Çumra Devlet Hastanesi",
-        district = "Çumra",
+        districtId = "konya_cumra",
         detsisCode = "93384739",
         bedCount = 56
     ),
@@ -5095,7 +5095,7 @@ val hospitals = listOf(
         id = "2396",
         cityId = "konya",
         name = "Doğanhisar Devlet Hastanesi",
-        district = "Doğanhisar",
+        districtId = "konya_doganhisar",
         detsisCode = "41523681",
         bedCount = 25
     ),
@@ -5103,7 +5103,7 @@ val hospitals = listOf(
         id = "2401",
         cityId = "konya",
         name = "Bozkır Devlet Hastanesi",
-        district = "Bozkır",
+        districtId = "konya_bozkir",
         detsisCode = "75486333",
         bedCount = 50
     ),
@@ -5111,7 +5111,7 @@ val hospitals = listOf(
         id = "2408",
         cityId = "konya",
         name = "Cihanbeyli Devlet Hastanesi",
-        district = "Cihanbeyli",
+        districtId = "konya_cihanbeyli",
         detsisCode = "49659917",
         bedCount = 95
     ),
@@ -5119,7 +5119,7 @@ val hospitals = listOf(
         id = "2426",
         cityId = "konya",
         name = "Beyşehir Devlet Hastanesi",
-        district = "Beyşehir",
+        districtId = "konya_beysehir",
         detsisCode = "16642105",
         bedCount = 205
     ),
@@ -5127,7 +5127,7 @@ val hospitals = listOf(
         id = "2455",
         cityId = "konya",
         name = "Akşehir Devlet Hastanesi",
-        district = "Akşehir",
+        districtId = "konya_aksehir",
         detsisCode = "96512028",
         bedCount = 300
     ),
@@ -5135,7 +5135,7 @@ val hospitals = listOf(
         id = "2498",
         cityId = "konya",
         name = "Konya Numune Hastanesi",
-        district = "Selçuklu",
+        districtId = "konya_selcuklu",
         detsisCode = "78025658",
         bedCount = 610
     ),
@@ -5143,7 +5143,7 @@ val hospitals = listOf(
         id = "2499",
         cityId = "konya",
         name = "Konya Dr. Ali Kemal Belviranlı Kadın Doğum ve Çocuk Hastalıkları Hastanesi",
-        district = "Selçuklu",
+        districtId = "konya_selcuklu",
         detsisCode = "99980113",
         bedCount = 395
     ),
@@ -5151,7 +5151,7 @@ val hospitals = listOf(
         id = "6694",
         cityId = "konya",
         name = "Kulu Devlet Hastanesi",
-        district = "Kulu",
+        districtId = "konya_kulu",
         detsisCode = "75871965",
         bedCount = 95
     ),
@@ -5159,7 +5159,7 @@ val hospitals = listOf(
         id = "7022",
         cityId = "konya",
         name = "Konya Ağız ve Diş Sağlığı Hastanesi",
-        district = "Selçuklu",
+        districtId = "konya_selcuklu",
         detsisCode = "13479476",
         bedCount = 5
     ),
@@ -5167,7 +5167,7 @@ val hospitals = listOf(
         id = "11610",
         cityId = "konya",
         name = "Hüyük Devlet Hastanesi",
-        district = "Hüyük",
+        districtId = "konya_huyuk",
         detsisCode = "59698548",
         bedCount = 25
     ),
@@ -5175,7 +5175,7 @@ val hospitals = listOf(
         id = "194293",
         cityId = "konya",
         name = "Hadim Devlet Hastanesi",
-        district = "Hadim",
+        districtId = "konya_hadim",
         detsisCode = "18973189",
         bedCount = 25
     ),
@@ -5183,7 +5183,7 @@ val hospitals = listOf(
         id = "343333",
         cityId = "konya",
         name = "Konya Beyhekim Eğitim ve Araştırma Hastanesi",
-        district = "Selçuklu",
+        districtId = "konya_selcuklu",
         detsisCode = "79735520",
         bedCount = 900
     ),
@@ -5191,7 +5191,7 @@ val hospitals = listOf(
         id = "194269",
         cityId = "konya",
         name = "Güneysınır Vali İhsan Dede İlçe Devlet Hastanesi",
-        district = "Güneysınır",
+        districtId = "konya_guneysinir",
         detsisCode = "",
         bedCount = 8
     ),
@@ -5199,7 +5199,7 @@ val hospitals = listOf(
         id = "739529",
         cityId = "konya",
         name = "Emirgazi İlçe Devlet Hastanesi",
-        district = "Emirgazi",
+        districtId = "konya_emirgazi",
         detsisCode = "",
         bedCount = 10
     ),
@@ -5207,7 +5207,7 @@ val hospitals = listOf(
         id = "195075",
         cityId = "konya",
         name = "Derebucak İlçe Devlet Hastanesi",
-        district = "Derebucak",
+        districtId = "konya_derebucak",
         detsisCode = "",
         bedCount = 5
     ),
@@ -5215,7 +5215,7 @@ val hospitals = listOf(
         id = "797637",
         cityId = "konya",
         name = "Akören İlçe Devlet Hastanesi",
-        district = "Akören",
+        districtId = "konya_akoren",
         detsisCode = "",
         bedCount = 5
     ),
@@ -5223,7 +5223,7 @@ val hospitals = listOf(
         id = "797638",
         cityId = "konya",
         name = "Tuzlukçu Şehit Halim Ünal İlçe Devlet Hastanesi",
-        district = "Tuzlukçu",
+        districtId = "konya_tuzlukcu",
         detsisCode = "",
         bedCount = 5
     ),
@@ -5231,7 +5231,7 @@ val hospitals = listOf(
         id = "797639",
         cityId = "konya",
         name = "Taşkent İlçe Devlet Hastanesi",
-        district = "Taşkent",
+        districtId = "konya_taskent",
         detsisCode = "",
         bedCount = 5
     ),
@@ -5239,7 +5239,7 @@ val hospitals = listOf(
         id = "716261",
         cityId = "konya",
         name = "Çumra Şehit Ahmet Elbuğa İlçe Devlet Hastanesi",
-        district = "Çumra",
+        districtId = "konya_cumra",
         detsisCode = "",
         bedCount = 5
     ),
@@ -5247,7 +5247,7 @@ val hospitals = listOf(
         id = "739510",
         cityId = "konya",
         name = "Çeltik Şehit Jandarma Uzman Çavuş Ramazan Gülle İlçe Devlet Hastanesi",
-        district = "Çeltik",
+        districtId = "konya_celtik",
         detsisCode = "",
         bedCount = 5
     ),
@@ -5255,7 +5255,7 @@ val hospitals = listOf(
         id = "177459",
         cityId = "kutahya",
         name = "Kütahya Evliya Çelebi Eğitim ve Araştırma Hastanesi",
-        district = "Merkez",
+        districtId = "kutahya_merkez",
         detsisCode = "87416368",
         bedCount = 950
     ),
@@ -5263,7 +5263,7 @@ val hospitals = listOf(
         id = "2224",
         cityId = "kutahya",
         name = "Tavşanlı Doç. Dr.Mustafa Kalemli Devlet Hastanesi",
-        district = "Tavşanlı",
+        districtId = "kutahya_tavsanli",
         detsisCode = "45691305",
         bedCount = 305
     ),
@@ -5271,7 +5271,7 @@ val hospitals = listOf(
         id = "2244",
         cityId = "kutahya",
         name = "Simav Doç. Dr.İsmail Karakuyu Devlet Hastanesi",
-        district = "Simav",
+        districtId = "kutahya_simav",
         detsisCode = "43129868",
         bedCount = 150
     ),
@@ -5279,7 +5279,7 @@ val hospitals = listOf(
         id = "2262",
         cityId = "kutahya",
         name = "Emet Dr.Fazıl Doğan Devlet Hastanesi",
-        district = "Emet",
+        districtId = "kutahya_emet",
         detsisCode = "80892448",
         bedCount = 60
     ),
@@ -5287,7 +5287,7 @@ val hospitals = listOf(
         id = "2268",
         cityId = "kutahya",
         name = "Gediz Devlet Hastanesi",
-        district = "Gediz",
+        districtId = "kutahya_gediz",
         detsisCode = "10709742",
         bedCount = 100
     ),
@@ -5295,7 +5295,7 @@ val hospitals = listOf(
         id = "177460",
         cityId = "kutahya",
         name = "Kütahya Yoncalı Fizik Tedavi ve Rehabilitasyon Hastanesi",
-        district = "Merkez",
+        districtId = "kutahya_merkez",
         detsisCode = "19142800",
         bedCount = 250
     ),
@@ -5303,7 +5303,7 @@ val hospitals = listOf(
         id = "183170",
         cityId = "kutahya",
         name = "Kütahya Ağız ve Diş Sağlığı Hastanesi",
-        district = "Merkez",
+        districtId = "kutahya_merkez",
         detsisCode = "31413230",
         bedCount = 5
     ),
@@ -5311,7 +5311,7 @@ val hospitals = listOf(
         id = "188224",
         cityId = "kutahya",
         name = "Altıntaş İlçe Devlet Hastanesi",
-        district = "Altıntaş",
+        districtId = "kutahya_altintas",
         detsisCode = "",
         bedCount = 15
     ),
@@ -5319,7 +5319,7 @@ val hospitals = listOf(
         id = "711935",
         cityId = "kutahya",
         name = "Hisarcık İlçe Devlet Hastanesi",
-        district = "Hisarcık",
+        districtId = "kutahya_hisarcik",
         detsisCode = "",
         bedCount = 10
     ),
@@ -5327,7 +5327,7 @@ val hospitals = listOf(
         id = "188225",
         cityId = "kutahya",
         name = "Domaniç İlçe Devlet Hastanesi",
-        district = "Domaniç",
+        districtId = "kutahya_domanic",
         detsisCode = "",
         bedCount = 15
     ),
@@ -5335,7 +5335,7 @@ val hospitals = listOf(
         id = "193186",
         cityId = "kutahya",
         name = "Çavdarhisar İlçe Devlet Hastanesi",
-        district = "Çavdarhisar",
+        districtId = "kutahya_cavdarhisar",
         detsisCode = "",
         bedCount = 10
     ),
@@ -5343,7 +5343,7 @@ val hospitals = listOf(
         id = "684245",
         cityId = "kutahya",
         name = "Aslanapa İlçe Devlet Hastanesi",
-        district = "Aslanapa",
+        districtId = "kutahya_aslanapa",
         detsisCode = "",
         bedCount = 5
     ),
@@ -5351,7 +5351,7 @@ val hospitals = listOf(
         id = "62528",
         cityId = "kutahya",
         name = "Şaphane İlçe Devlet Hastanesi",
-        district = "Şaphane",
+        districtId = "kutahya_saphane",
         detsisCode = "",
         bedCount = 5
     ),
@@ -5359,7 +5359,7 @@ val hospitals = listOf(
         id = "2196",
         cityId = "malatya",
         name = "Malatya Eğitim ve Araştırma Hastanesi",
-        district = "Yeşilyurt",
+        districtId = "malatya_yesilyurt",
         detsisCode = "23536505",
         bedCount = 1055
     ),
@@ -5367,7 +5367,7 @@ val hospitals = listOf(
         id = "83875",
         cityId = "malatya",
         name = "Battalgazi Devlet Hastanesi",
-        district = "Battalgazi",
+        districtId = "malatya_battalgazi",
         detsisCode = "21765687",
         bedCount = 300
     ),
@@ -5375,7 +5375,7 @@ val hospitals = listOf(
         id = "2145",
         cityId = "malatya",
         name = "Pütürge Devlet Hastanesi",
-        district = "Pütürge",
+        districtId = "malatya_puturge",
         detsisCode = "97504992",
         bedCount = 25
     ),
@@ -5383,7 +5383,7 @@ val hospitals = listOf(
         id = "2157",
         cityId = "malatya",
         name = "Darende Hulusi Efendi Devlet Hastanesi",
-        district = "Darende",
+        districtId = "malatya_darende",
         detsisCode = "50592352",
         bedCount = 78
     ),
@@ -5391,7 +5391,7 @@ val hospitals = listOf(
         id = "6685",
         cityId = "malatya",
         name = "Hekimhan Devlet Hastanesi",
-        district = "Hekimhan",
+        districtId = "malatya_hekimhan",
         detsisCode = "97953093",
         bedCount = 25
     ),
@@ -5399,7 +5399,7 @@ val hospitals = listOf(
         id = "8669",
         cityId = "malatya",
         name = "Malatya Yeşilyurt Hasan Çalık Devlet Hastanesi",
-        district = "Yeşilyurt",
+        districtId = "malatya_yesilyurt",
         detsisCode = "14207449",
         bedCount = 75
     ),
@@ -5407,7 +5407,7 @@ val hospitals = listOf(
         id = "9740",
         cityId = "malatya",
         name = "Akçadağ Şehit Gökhan Aslan Devlet Hastanesi",
-        district = "Akçadağ",
+        districtId = "malatya_akcadag",
         detsisCode = "69648854",
         bedCount = 25
     ),
@@ -5415,7 +5415,7 @@ val hospitals = listOf(
         id = "12743",
         cityId = "malatya",
         name = "Doğanşehir Şehit Esra Köse Başaran Devlet Hastanesi",
-        district = "Doğanşehir",
+        districtId = "malatya_dogansehir",
         detsisCode = "54117086",
         bedCount = 100
     ),
@@ -5423,7 +5423,7 @@ val hospitals = listOf(
         id = "197847",
         cityId = "malatya",
         name = "Malatya Şehit Mehmet Kılınç Ağız ve Diş Sağlığı Hastanesi",
-        district = "Yeşilyurt",
+        districtId = "malatya_yesilyurt",
         detsisCode = "11085252",
         bedCount = 5
     ),
@@ -5431,7 +5431,7 @@ val hospitals = listOf(
         id = "319772",
         cityId = "malatya",
         name = "Arapgir Ali Özge Devlet Hastanesi",
-        district = "Arapgir",
+        districtId = "malatya_arapgir",
         detsisCode = "93951989",
         bedCount = 25
     ),
@@ -5439,7 +5439,7 @@ val hospitals = listOf(
         id = "210949",
         cityId = "malatya",
         name = "Yazıhan Şehit Eyüp Hacıoğlu İlçe Devlet Hastanesi",
-        district = "Yazıhan",
+        districtId = "malatya_yazihan",
         detsisCode = "",
         bedCount = 10
     ),
@@ -5447,7 +5447,7 @@ val hospitals = listOf(
         id = "651842",
         cityId = "malatya",
         name = "Malatya Kale İlçe Devlet Hastanesi",
-        district = "Kale",
+        districtId = "malatya_kale",
         detsisCode = "",
         bedCount = 5
     ),
@@ -5455,7 +5455,7 @@ val hospitals = listOf(
         id = "47421",
         cityId = "malatya",
         name = "Kuluncak Şehit Mehmet Ali Şekerci İlçe Devlet Hastanesi",
-        district = "Kuluncak",
+        districtId = "malatya_kuluncak",
         detsisCode = "",
         bedCount = 10
     ),
@@ -5463,7 +5463,7 @@ val hospitals = listOf(
         id = "1987",
         cityId = "manisa",
         name = "Selendi Devlet Hastanesi",
-        district = "Selendi",
+        districtId = "manisa_selendi",
         detsisCode = "12955624",
         bedCount = 25
     ),
@@ -5471,7 +5471,7 @@ val hospitals = listOf(
         id = "1992",
         cityId = "manisa",
         name = "Soma Devlet Hastanesi",
-        district = "Soma",
+        districtId = "manisa_soma",
         detsisCode = "82975279",
         bedCount = 275
     ),
@@ -5479,7 +5479,7 @@ val hospitals = listOf(
         id = "1999",
         cityId = "manisa",
         name = "Turgutlu Devlet Hastanesi",
-        district = "Turgutlu",
+        districtId = "manisa_turgutlu",
         detsisCode = "54282619",
         bedCount = 300
     ),
@@ -5487,7 +5487,7 @@ val hospitals = listOf(
         id = "2027",
         cityId = "manisa",
         name = "Kula Devlet Hastanesi",
-        district = "Kula",
+        districtId = "manisa_kula",
         detsisCode = "77363664",
         bedCount = 75
     ),
@@ -5495,7 +5495,7 @@ val hospitals = listOf(
         id = "2034",
         cityId = "manisa",
         name = "Salihli Devlet Hastanesi",
-        district = "Salihli",
+        districtId = "manisa_salihli",
         detsisCode = "35323940",
         bedCount = 225
     ),
@@ -5503,7 +5503,7 @@ val hospitals = listOf(
         id = "2044",
         cityId = "manisa",
         name = "Demirci Devlet Hastanesi",
-        district = "Demirci",
+        districtId = "manisa_demirci",
         detsisCode = "52671452",
         bedCount = 75
     ),
@@ -5511,7 +5511,7 @@ val hospitals = listOf(
         id = "2054",
         cityId = "manisa",
         name = "Gördes Devlet Hastanesi",
-        district = "Gördes",
+        districtId = "manisa_gordes",
         detsisCode = "76490328",
         bedCount = 25
     ),
@@ -5519,7 +5519,7 @@ val hospitals = listOf(
         id = "2062",
         cityId = "manisa",
         name = "Kırkağaç Devlet Hastanesi",
-        district = "Kırkağaç",
+        districtId = "manisa_kirkagac",
         detsisCode = "75618322",
         bedCount = 60
     ),
@@ -5527,7 +5527,7 @@ val hospitals = listOf(
         id = "2075",
         cityId = "manisa",
         name = "Alaşehir Devlet Hastanesi",
-        district = "Alaşehir",
+        districtId = "manisa_alasehir",
         detsisCode = "35175420",
         bedCount = 250
     ),
@@ -5535,7 +5535,7 @@ val hospitals = listOf(
         id = "2123",
         cityId = "manisa",
         name = "Manisa Ruh Sağlığı ve Hastalıkları Hastanesi",
-        district = "Şehzadeler",
+        districtId = "manisa_sehzadeler",
         detsisCode = "40384065",
         bedCount = 545
     ),
@@ -5543,7 +5543,7 @@ val hospitals = listOf(
         id = "6679",
         cityId = "manisa",
         name = "Sarıgöl Devlet Hastanesi",
-        district = "Sarıgöl",
+        districtId = "manisa_sarigol",
         detsisCode = "88753765",
         bedCount = 50
     ),
@@ -5551,7 +5551,7 @@ val hospitals = listOf(
         id = "6683",
         cityId = "manisa",
         name = "Akhisar Mustafa Kirazoğlu Devlet Hastanesi",
-        district = "Akhisar",
+        districtId = "manisa_akhisar",
         detsisCode = "61353218",
         bedCount = 305
     ),
@@ -5559,7 +5559,7 @@ val hospitals = listOf(
         id = "8949",
         cityId = "manisa",
         name = "Saruhanlı Devlet Hastanesi",
-        district = "Saruhanlı",
+        districtId = "manisa_saruhanli",
         detsisCode = "35090581",
         bedCount = 50
     ),
@@ -5567,7 +5567,7 @@ val hospitals = listOf(
         id = "177479",
         cityId = "manisa",
         name = "Manisa Merkezefendi Devlet Hastanesi",
-        district = "Yunusemre",
+        districtId = "manisa_yunusemre",
         detsisCode = "94213349",
         bedCount = 460
     ),
@@ -5575,7 +5575,7 @@ val hospitals = listOf(
         id = "665361",
         cityId = "manisa",
         name = "Manisa Şehir Hastanesi",
-        district = "Şehzadeler",
+        districtId = "manisa_sehzadeler",
         detsisCode = "67427165",
         bedCount = 558
     ),
@@ -5583,7 +5583,7 @@ val hospitals = listOf(
         id = "196567",
         cityId = "manisa",
         name = "Gölmarmara İlçe Devlet Hastanesi",
-        district = "Gölmarmara",
+        districtId = "manisa_golmarmara",
         detsisCode = "",
         bedCount = 15
     ),
@@ -5591,7 +5591,7 @@ val hospitals = listOf(
         id = "470254",
         cityId = "manisa",
         name = "Ahmetli İlçe Devlet Hastanesi",
-        district = "Ahmetli",
+        districtId = "manisa_ahmetli",
         detsisCode = "",
         bedCount = 10
     ),
@@ -5599,7 +5599,7 @@ val hospitals = listOf(
         id = "193792",
         cityId = "manisa",
         name = "Köprübaşı İlçe Devlet Hastanesi",
-        district = "Köprübaşı",
+        districtId = "manisa_koprubasi",
         detsisCode = "",
         bedCount = 10
     ),
@@ -5607,7 +5607,7 @@ val hospitals = listOf(
         id = "1840",
         cityId = "mardin",
         name = "Midyat Devlet Hastanesi",
-        district = "Midyat",
+        districtId = "mardin_midyat",
         detsisCode = "72958503",
         bedCount = 150
     ),
@@ -5615,7 +5615,7 @@ val hospitals = listOf(
         id = "1851",
         cityId = "mardin",
         name = "Nusaybin Devlet Hastanesi",
-        district = "Nusaybin",
+        districtId = "mardin_nusaybin",
         detsisCode = "59763225",
         bedCount = 150
     ),
@@ -5623,7 +5623,7 @@ val hospitals = listOf(
         id = "1868",
         cityId = "mardin",
         name = "Derik Devlet Hastanesi",
-        district = "Derik",
+        districtId = "mardin_derik",
         detsisCode = "91872217",
         bedCount = 50
     ),
@@ -5631,7 +5631,7 @@ val hospitals = listOf(
         id = "1873",
         cityId = "mardin",
         name = "Kızıltepe Devlet Hastanesi",
-        district = "Kızıltepe",
+        districtId = "mardin_kiziltepe",
         detsisCode = "79177946",
         bedCount = 300
     ),
@@ -5639,7 +5639,7 @@ val hospitals = listOf(
         id = "1889",
         cityId = "mardin",
         name = "Mardin Eğitim ve Araştırma Hastanesi",
-        district = "Artuklu",
+        districtId = "mardin_artuklu",
         detsisCode = "84844131",
         bedCount = 400
     ),
@@ -5647,7 +5647,7 @@ val hospitals = listOf(
         id = "188226",
         cityId = "mardin",
         name = "Mazıdağı İlçe Devlet Hastanesi",
-        district = "Mazıdağı",
+        districtId = "mardin_mazidagi",
         detsisCode = "43993095",
         bedCount = 20
     ),
@@ -5655,7 +5655,7 @@ val hospitals = listOf(
         id = "188227",
         cityId = "mardin",
         name = "Dargeçit İlçe Devlet Hastanesi",
-        district = "Dargeçit",
+        districtId = "mardin_dargecit",
         detsisCode = "60584091",
         bedCount = 25
     ),
@@ -5663,7 +5663,7 @@ val hospitals = listOf(
         id = "188229",
         cityId = "mardin",
         name = "Savur Prof. Dr. Aziz Sancar İlçe Devlet Hastanesi",
-        district = "Savur",
+        districtId = "mardin_savur",
         detsisCode = "34766727",
         bedCount = 24
     ),
@@ -5671,7 +5671,7 @@ val hospitals = listOf(
         id = "626942",
         cityId = "mardin",
         name = "Ömerli İlçe Devlet Hastanesi",
-        district = "Ömerli",
+        districtId = "mardin_omerli",
         detsisCode = "60524414",
         bedCount = 15
     ),
@@ -5679,7 +5679,7 @@ val hospitals = listOf(
         id = "896368",
         cityId = "mersin",
         name = "Mersin Şehir Hastanesi",
-        district = "Toroslar",
+        districtId = "mersin_toroslar",
         detsisCode = "66792640",
         bedCount = 1330
     ),
@@ -5687,7 +5687,7 @@ val hospitals = listOf(
         id = "3476",
         cityId = "mersin",
         name = "Tarsus Devlet Hastanesi",
-        district = "Tarsus",
+        districtId = "mersin_tarsus",
         detsisCode = "67437086",
         bedCount = 600
     ),
@@ -5695,7 +5695,7 @@ val hospitals = listOf(
         id = "3493",
         cityId = "mersin",
         name = "Gülnar Devlet Hastanesi",
-        district = "Gülnar",
+        districtId = "mersin_gulnar",
         detsisCode = "41226163",
         bedCount = 30
     ),
@@ -5703,7 +5703,7 @@ val hospitals = listOf(
         id = "3498",
         cityId = "mersin",
         name = "Mut Devlet Hastanesi",
-        district = "Mut",
+        districtId = "mersin_mut",
         detsisCode = "73755394",
         bedCount = 95
     ),
@@ -5711,7 +5711,7 @@ val hospitals = listOf(
         id = "3506",
         cityId = "mersin",
         name = "Silifke Devlet Hastanesi",
-        district = "Silifke",
+        districtId = "mersin_silifke",
         detsisCode = "38153690",
         bedCount = 210
     ),
@@ -5719,7 +5719,7 @@ val hospitals = listOf(
         id = "3520",
         cityId = "mersin",
         name = "Erdemli Devlet Hastanesi",
-        district = "Erdemli",
+        districtId = "mersin_erdemli",
         detsisCode = "21758105",
         bedCount = 159
     ),
@@ -5727,7 +5727,7 @@ val hospitals = listOf(
         id = "3547",
         cityId = "mersin",
         name = "Anamur Devlet Hastanesi",
-        district = "Anamur",
+        districtId = "mersin_anamur",
         detsisCode = "82378554",
         bedCount = 150
     ),
@@ -5735,7 +5735,7 @@ val hospitals = listOf(
         id = "14183",
         cityId = "mersin",
         name = "Mersin Aydıncık Devlet Hastanesi",
-        district = "Aydıncık",
+        districtId = "mersin_aydincik",
         detsisCode = "14122353",
         bedCount = 25
     ),
@@ -5743,7 +5743,7 @@ val hospitals = listOf(
         id = "176251",
         cityId = "mersin",
         name = "Mersin Ağız Diş Sağlığı Hastanesi",
-        district = "Akdeniz",
+        districtId = "mersin_akdeniz",
         detsisCode = "41527090",
         bedCount = 6
     ),
@@ -5751,7 +5751,7 @@ val hospitals = listOf(
         id = "177279",
         cityId = "mersin",
         name = "Toros Devlet Hastanesi",
-        district = "Akdeniz",
+        districtId = "mersin_akdeniz",
         detsisCode = "44897958",
         bedCount = 450
     ),
@@ -5759,7 +5759,7 @@ val hospitals = listOf(
         id = "183014",
         cityId = "mersin",
         name = "Bozyazı Devlet Hastanesi",
-        district = "Bozyazı",
+        districtId = "mersin_bozyazi",
         detsisCode = "40438686",
         bedCount = 30
     ),
@@ -5767,7 +5767,7 @@ val hospitals = listOf(
         id = "447838",
         cityId = "mersin",
         name = "Çamlıyayla İlçe Devlet Hastanesi",
-        district = "Çamlıyayla",
+        districtId = "mersin_camliyayla",
         detsisCode = "",
         bedCount = 10
     ),
@@ -5775,7 +5775,7 @@ val hospitals = listOf(
         id = "1825",
         cityId = "mugla",
         name = "Muğla Eğitim ve Araştırma Hastanesi",
-        district = "Menteşe",
+        districtId = "mugla_mentese",
         detsisCode = "52777206",
         bedCount = 660
     ),
@@ -5783,7 +5783,7 @@ val hospitals = listOf(
         id = "1732",
         cityId = "mugla",
         name = "Ortaca Devlet Hastanesi",
-        district = "Ortaca",
+        districtId = "mugla_ortaca",
         detsisCode = "79089653",
         bedCount = 115
     ),
@@ -5791,7 +5791,7 @@ val hospitals = listOf(
         id = "1740",
         cityId = "mugla",
         name = "Yatağan Devlet Hastanesi",
-        district = "Yatağan",
+        districtId = "mugla_yatagan",
         detsisCode = "37789839",
         bedCount = 100
     ),
@@ -5799,7 +5799,7 @@ val hospitals = listOf(
         id = "1751",
         cityId = "mugla",
         name = "Marmaris Devlet Hastanesi",
-        district = "Marmaris",
+        districtId = "mugla_marmaris",
         detsisCode = "56524289",
         bedCount = 75
     ),
@@ -5807,7 +5807,7 @@ val hospitals = listOf(
         id = "1759",
         cityId = "mugla",
         name = "Milas Devlet Hastanesi",
-        district = "Milas",
+        districtId = "mugla_milas",
         detsisCode = "14650910",
         bedCount = 150
     ),
@@ -5815,7 +5815,7 @@ val hospitals = listOf(
         id = "1787",
         cityId = "mugla",
         name = "Köyceğiz Devlet Hastanesi",
-        district = "Köyceğiz",
+        districtId = "mugla_koycegiz",
         detsisCode = "75705064",
         bedCount = 30
     ),
@@ -5823,7 +5823,7 @@ val hospitals = listOf(
         id = "1798",
         cityId = "mugla",
         name = "Bodrum Devlet Hastanesi",
-        district = "Bodrum",
+        districtId = "mugla_bodrum",
         detsisCode = "44674588",
         bedCount = 150
     ),
@@ -5831,7 +5831,7 @@ val hospitals = listOf(
         id = "1807",
         cityId = "mugla",
         name = "Datça Devlet Hastanesi",
-        district = "Datça",
+        districtId = "mugla_datca",
         detsisCode = "41009934",
         bedCount = 25
     ),
@@ -5839,7 +5839,7 @@ val hospitals = listOf(
         id = "1810",
         cityId = "mugla",
         name = "Fethiye Devlet Hastanesi",
-        district = "Fethiye",
+        districtId = "mugla_fethiye",
         detsisCode = "82824498",
         bedCount = 223
     ),
@@ -5847,7 +5847,7 @@ val hospitals = listOf(
         id = "177507",
         cityId = "mugla",
         name = "Dalaman Devlet Hastanesi",
-        district = "Dalaman",
+        districtId = "mugla_dalaman",
         detsisCode = "88194528",
         bedCount = 50
     ),
@@ -5855,7 +5855,7 @@ val hospitals = listOf(
         id = "649125",
         cityId = "mugla",
         name = "Menteşe Devlet Hastanesi",
-        district = "Menteşe",
+        districtId = "mugla_mentese",
         detsisCode = "35592318",
         bedCount = 100
     ),
@@ -5863,7 +5863,7 @@ val hospitals = listOf(
         id = "97667",
         cityId = "mugla",
         name = "Marmaris Nedip Cengiz Eker Devlet Hastanesi",
-        district = "Marmaris",
+        districtId = "mugla_marmaris",
         detsisCode = "60196733",
         bedCount = 25
     ),
@@ -5871,7 +5871,7 @@ val hospitals = listOf(
         id = "198608",
         cityId = "mugla",
         name = "Kavaklıdere İlçe Devlet Hastanesi",
-        district = "Kavaklıdere",
+        districtId = "mugla_kavaklidere",
         detsisCode = "",
         bedCount = 10
     ),
@@ -5879,7 +5879,7 @@ val hospitals = listOf(
         id = "1667",
         cityId = "mus",
         name = "Varto Devlet Hastanesi",
-        district = "Varto",
+        districtId = "mus_varto",
         detsisCode = "87921463",
         bedCount = 55
     ),
@@ -5887,7 +5887,7 @@ val hospitals = listOf(
         id = "1687",
         cityId = "mus",
         name = "Bulanık Devlet Hastanesi",
-        district = "Bulanık",
+        districtId = "mus_bulanik",
         detsisCode = "76710830",
         bedCount = 100
     ),
@@ -5895,7 +5895,7 @@ val hospitals = listOf(
         id = "1698",
         cityId = "mus",
         name = "Hasköy Devlet Hastanesi",
-        district = "Hasköy",
+        districtId = "mus_haskoy",
         detsisCode = "13664712",
         bedCount = 10
     ),
@@ -5903,7 +5903,7 @@ val hospitals = listOf(
         id = "1702",
         cityId = "mus",
         name = "Malazgirt Devlet Hastanesi",
-        district = "Malazgirt",
+        districtId = "mus_malazgirt",
         detsisCode = "34494807",
         bedCount = 75
     ),
@@ -5911,7 +5911,7 @@ val hospitals = listOf(
         id = "1705",
         cityId = "mus",
         name = "Muş Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "mus_merkez",
         detsisCode = "61908725",
         bedCount = 445
     ),
@@ -5919,7 +5919,7 @@ val hospitals = listOf(
         id = "315616",
         cityId = "mus",
         name = "Korkut İlçe Devlet Hastanesi",
-        district = "Korkut",
+        districtId = "mus_korkut",
         detsisCode = "83550638",
         bedCount = 25
     ),
@@ -5927,7 +5927,7 @@ val hospitals = listOf(
         id = "1638",
         cityId = "nevsehir",
         name = "Ürgüp Devlet Hastanesi",
-        district = "Ürgüp",
+        districtId = "nevsehir_urgup",
         detsisCode = "90021801",
         bedCount = 50
     ),
@@ -5935,7 +5935,7 @@ val hospitals = listOf(
         id = "1673",
         cityId = "nevsehir",
         name = "Nevşehir Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "nevsehir_merkez",
         detsisCode = "43610308",
         bedCount = 500
     ),
@@ -5943,7 +5943,7 @@ val hospitals = listOf(
         id = "732936",
         cityId = "nevsehir",
         name = "Kozaklı Fizik Tedavi ve Rehabilitasyon Hastanesi",
-        district = "Kozaklı",
+        districtId = "nevsehir_kozakli",
         detsisCode = "27309245",
         bedCount = 170
     ),
@@ -5951,7 +5951,7 @@ val hospitals = listOf(
         id = "640875",
         cityId = "nevsehir",
         name = "Gülşehir İlçe Devlet Hastanesi",
-        district = "Gülşehir",
+        districtId = "nevsehir_gulsehir",
         detsisCode = "",
         bedCount = 10
     ),
@@ -5959,7 +5959,7 @@ val hospitals = listOf(
         id = "856246",
         cityId = "nevsehir",
         name = "Derinkuyu İlçe Devlet Hastanesi",
-        district = "Derinkuyu",
+        districtId = "nevsehir_derinkuyu",
         detsisCode = "",
         bedCount = 10
     ),
@@ -5967,7 +5967,7 @@ val hospitals = listOf(
         id = "640874",
         cityId = "nevsehir",
         name = "Acıgöl İlçe Devlet Hastanesi",
-        district = "Acıgöl",
+        districtId = "nevsehir_acigol",
         detsisCode = "",
         bedCount = 10
     ),
@@ -5975,7 +5975,7 @@ val hospitals = listOf(
         id = "194168",
         cityId = "nevsehir",
         name = "Hacıbektaş İlçe Devlet Hastanesi",
-        district = "Hacıbektaş",
+        districtId = "nevsehir_hacibektas",
         detsisCode = "",
         bedCount = 10
     ),
@@ -5983,7 +5983,7 @@ val hospitals = listOf(
         id = "862266",
         cityId = "nevsehir",
         name = "Avanos İlçe Devlet Hastanesi",
-        district = "Avanos",
+        districtId = "nevsehir_avanos",
         detsisCode = "",
         bedCount = 10
     ),
@@ -5991,7 +5991,7 @@ val hospitals = listOf(
         id = "899453",
         cityId = "nigde",
         name = "Niğde Eğitim ve Araştırma Hastanesi",
-        district = "Merkez",
+        districtId = "nigde_merkez",
         detsisCode = "73735056",
         bedCount = 570
     ),
@@ -5999,7 +5999,7 @@ val hospitals = listOf(
         id = "899454",
         cityId = "nigde",
         name = "Bor Fizik Tedavi ve Rehabilitasyon Eğitim ve Araştırma Hastanesi",
-        district = "Bor",
+        districtId = "nigde_bor",
         detsisCode = "86357708",
         bedCount = 145
     ),
@@ -6007,7 +6007,7 @@ val hospitals = listOf(
         id = "1591",
         cityId = "nigde",
         name = "Bor Devlet Hastanesi",
-        district = "Bor",
+        districtId = "nigde_bor",
         detsisCode = "58000524",
         bedCount = 100
     ),
@@ -6015,7 +6015,7 @@ val hospitals = listOf(
         id = "195071",
         cityId = "nigde",
         name = "Ulukışla İlçe Devlet Hastanesi",
-        district = "Ulukışla",
+        districtId = "nigde_ulukisla",
         detsisCode = "90571316",
         bedCount = 15
     ),
@@ -6023,7 +6023,7 @@ val hospitals = listOf(
         id = "195074",
         cityId = "nigde",
         name = "Çiftlik İlçe Devlet Hastanesi",
-        district = "Çiftlik",
+        districtId = "nigde_ciftlik",
         detsisCode = "17637168",
         bedCount = 25
     ),
@@ -6031,7 +6031,7 @@ val hospitals = listOf(
         id = "195073",
         cityId = "nigde",
         name = "Çamardı İlçe Devlet Hastanesi",
-        district = "Çamardı",
+        districtId = "nigde_camardi",
         detsisCode = "",
         bedCount = 15
     ),
@@ -6039,7 +6039,7 @@ val hospitals = listOf(
         id = "195072",
         cityId = "nigde",
         name = "Altunhisar İlçe Devlet Hastanesi",
-        district = "Altunhisar",
+        districtId = "nigde_altunhisar",
         detsisCode = "",
         bedCount = 15
     ),
@@ -6047,7 +6047,7 @@ val hospitals = listOf(
         id = "177530",
         cityId = "ordu",
         name = "Ordu Eğitim ve Araştırma Hastanesi",
-        district = "Altınordu",
+        districtId = "ordu_altinordu",
         detsisCode = "34989324",
         bedCount = 260
     ),
@@ -6055,7 +6055,7 @@ val hospitals = listOf(
         id = "1483",
         cityId = "ordu",
         name = "Ünye Devlet Hastanesi",
-        district = "Ünye",
+        districtId = "ordu_unye",
         detsisCode = "26467322",
         bedCount = 360
     ),
@@ -6063,7 +6063,7 @@ val hospitals = listOf(
         id = "1527",
         cityId = "ordu",
         name = "Gölköy Devlet Hastanesi",
-        district = "Gölköy",
+        districtId = "ordu_golkoy",
         detsisCode = "87576721",
         bedCount = 65
     ),
@@ -6071,7 +6071,7 @@ val hospitals = listOf(
         id = "1545",
         cityId = "ordu",
         name = "Akkuş Devlet Hastanesi",
-        district = "Akkuş",
+        districtId = "ordu_akkus",
         detsisCode = "41065169",
         bedCount = 25
     ),
@@ -6079,7 +6079,7 @@ val hospitals = listOf(
         id = "1550",
         cityId = "ordu",
         name = "Aybastı Devlet Hastanesi",
-        district = "Aybastı",
+        districtId = "ordu_aybasti",
         detsisCode = "58171118",
         bedCount = 50
     ),
@@ -6087,7 +6087,7 @@ val hospitals = listOf(
         id = "1556",
         cityId = "ordu",
         name = "Fatsa Devlet Hastanesi",
-        district = "Fatsa",
+        districtId = "ordu_fatsa",
         detsisCode = "23285362",
         bedCount = 370
     ),
@@ -6095,7 +6095,7 @@ val hospitals = listOf(
         id = "1572",
         cityId = "ordu",
         name = "Ordu Devlet Hastanesi",
-        district = "Altınordu",
+        districtId = "ordu_altinordu",
         detsisCode = "39419511",
         bedCount = 468
     ),
@@ -6103,7 +6103,7 @@ val hospitals = listOf(
         id = "9673",
         cityId = "ordu",
         name = "Korgan Devlet Hastanesi",
-        district = "Korgan",
+        districtId = "ordu_korgan",
         detsisCode = "94335730",
         bedCount = 50
     ),
@@ -6111,7 +6111,7 @@ val hospitals = listOf(
         id = "48118",
         cityId = "ordu",
         name = "Perşembe İlçe Devlet Hastanesi",
-        district = "Perşembe",
+        districtId = "ordu_persembe",
         detsisCode = "42496101",
         bedCount = 10
     ),
@@ -6119,7 +6119,7 @@ val hospitals = listOf(
         id = "9674",
         cityId = "ordu",
         name = "Ordu Ulubey İlçe Devlet Hastanesi",
-        district = "Ulubey",
+        districtId = "ordu_ulubey",
         detsisCode = "18245763",
         bedCount = 25
     ),
@@ -6127,7 +6127,7 @@ val hospitals = listOf(
         id = "9719",
         cityId = "ordu",
         name = "Gürgentepe İlçe Devlet Hastanesi",
-        district = "Gürgentepe",
+        districtId = "ordu_gurgentepe",
         detsisCode = "37861838",
         bedCount = 20
     ),
@@ -6135,7 +6135,7 @@ val hospitals = listOf(
         id = "9752",
         cityId = "ordu",
         name = "Kumru Devlet Hastanesi",
-        district = "Kumru",
+        districtId = "ordu_kumru",
         detsisCode = "96038670",
         bedCount = 50
     ),
@@ -6143,7 +6143,7 @@ val hospitals = listOf(
         id = "686836",
         cityId = "ordu",
         name = "Mesudiye İlçe Devlet Hastanesi",
-        district = "Mesudiye",
+        districtId = "ordu_mesudiye",
         detsisCode = "29570816",
         bedCount = 20
     ),
@@ -6151,7 +6151,7 @@ val hospitals = listOf(
         id = "6230",
         cityId = "osmaniye",
         name = "Osmaniye Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "osmaniye_merkez",
         detsisCode = "39437778",
         bedCount = 420
     ),
@@ -6159,7 +6159,7 @@ val hospitals = listOf(
         id = "6275",
         cityId = "osmaniye",
         name = "Kadirli Devlet Hastanesi",
-        district = "Kadirli",
+        districtId = "osmaniye_kadirli",
         detsisCode = "97921474",
         bedCount = 150
     ),
@@ -6167,7 +6167,7 @@ val hospitals = listOf(
         id = "6365",
         cityId = "osmaniye",
         name = "Düziçi Devlet Hastanesi",
-        district = "Düziçi",
+        districtId = "osmaniye_duzici",
         detsisCode = "26075826",
         bedCount = 100
     ),
@@ -6175,7 +6175,7 @@ val hospitals = listOf(
         id = "842069",
         cityId = "osmaniye",
         name = "Bahçe Fizik Tedavi ve Rehabilitasyon Hastanesi",
-        district = "Bahçe",
+        districtId = "osmaniye_bahce",
         detsisCode = "86599400",
         bedCount = 55
     ),
@@ -6183,7 +6183,7 @@ val hospitals = listOf(
         id = "83973",
         cityId = "osmaniye",
         name = "Toprakkale İlçe Devlet Hastanesi",
-        district = "Toprakkale",
+        districtId = "osmaniye_toprakkale",
         detsisCode = "",
         bedCount = 10
     ),
@@ -6191,7 +6191,7 @@ val hospitals = listOf(
         id = "299766",
         cityId = "rize",
         name = "Rize Eğitim ve Araştırma Hastanesi",
-        district = "Merkez",
+        districtId = "rize_merkez",
         detsisCode = "18824186",
         bedCount = 530
     ),
@@ -6199,7 +6199,7 @@ val hospitals = listOf(
         id = "1437",
         cityId = "rize",
         name = "Çayeli İshakoğlu Devlet Hastanesi",
-        district = "Çayeli",
+        districtId = "rize_cayeli",
         detsisCode = "26622499",
         bedCount = 60
     ),
@@ -6207,7 +6207,7 @@ val hospitals = listOf(
         id = "1447",
         cityId = "rize",
         name = "Fındıklı Devlet Hastanesi",
-        district = "Fındıklı",
+        districtId = "rize_findikli",
         detsisCode = "24407951",
         bedCount = 25
     ),
@@ -6215,7 +6215,7 @@ val hospitals = listOf(
         id = "188230",
         cityId = "rize",
         name = "Güneysu Tenzile Erdoğan İlçe Devlet Hastanesi",
-        district = "Güneysu",
+        districtId = "rize_guneysu",
         detsisCode = "17062136",
         bedCount = 11
     ),
@@ -6223,7 +6223,7 @@ val hospitals = listOf(
         id = "402563",
         cityId = "rize",
         name = "Kaçkar Devlet Hastanesi",
-        district = "Pazar",
+        districtId = "rize_pazar",
         detsisCode = "99049742",
         bedCount = 142
     ),
@@ -6231,7 +6231,7 @@ val hospitals = listOf(
         id = "402565",
         cityId = "rize",
         name = "Rize Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "rize_merkez",
         detsisCode = "93452048",
         bedCount = 305
     ),
@@ -6239,7 +6239,7 @@ val hospitals = listOf(
         id = "662083",
         cityId = "rize",
         name = "İyidere Mukaddes Kalkavan İlçe Devlet Hastanesi",
-        district = "İyidere",
+        districtId = "rize_iyidere",
         detsisCode = "",
         bedCount = 5
     ),
@@ -6247,7 +6247,7 @@ val hospitals = listOf(
         id = "774104",
         cityId = "rize",
         name = "İkizdere Hakkı-Emine Ekşi İlçe Devlet Hastanesi",
-        district = "İkizdere",
+        districtId = "rize_ikizdere",
         detsisCode = "",
         bedCount = 5
     ),
@@ -6255,7 +6255,7 @@ val hospitals = listOf(
         id = "774105",
         cityId = "rize",
         name = "Çamlıhemşin İlçe Devlet Hastanesi",
-        district = "Çamlıhemşin",
+        districtId = "rize_camlihemsin",
         detsisCode = "",
         bedCount = 5
     ),
@@ -6263,7 +6263,7 @@ val hospitals = listOf(
         id = "800300",
         cityId = "rize",
         name = "Kalkandere Şaban Cengiz İlçe Devlet Hastanesi",
-        district = "Kalkandere",
+        districtId = "rize_kalkandere",
         detsisCode = "",
         bedCount = 5
     ),
@@ -6271,7 +6271,7 @@ val hospitals = listOf(
         id = "326972",
         cityId = "sakarya",
         name = "Sakarya Eğitim ve Araştırma Hastanesi",
-        district = "Adapazarı",
+        districtId = "sakarya_adapazari",
         detsisCode = "83529411",
         bedCount = 1300
     ),
@@ -6279,7 +6279,7 @@ val hospitals = listOf(
         id = "13",
         cityId = "sakarya",
         name = "Karasu Devlet Hastanesi",
-        district = "Karasu",
+        districtId = "sakarya_karasu",
         detsisCode = "32028291",
         bedCount = 70
     ),
@@ -6287,7 +6287,7 @@ val hospitals = listOf(
         id = "1379",
         cityId = "sakarya",
         name = "Geyve Devlet Hastanesi",
-        district = "Geyve",
+        districtId = "sakarya_geyve",
         detsisCode = "51954976",
         bedCount = 50
     ),
@@ -6295,7 +6295,7 @@ val hospitals = listOf(
         id = "1385",
         cityId = "sakarya",
         name = "Hendek Devlet Hastanesi",
-        district = "Hendek",
+        districtId = "sakarya_hendek",
         detsisCode = "70852316",
         bedCount = 100
     ),
@@ -6303,7 +6303,7 @@ val hospitals = listOf(
         id = "8070",
         cityId = "sakarya",
         name = "Sakarya Sadıka Sabancı Devlet Hastanesi",
-        district = "Arifiye",
+        districtId = "sakarya_arifiye",
         detsisCode = "70084040",
         bedCount = 105
     ),
@@ -6311,7 +6311,7 @@ val hospitals = listOf(
         id = "93481",
         cityId = "sakarya",
         name = "Serdivan Devlet Hastanesi",
-        district = "Serdivan",
+        districtId = "sakarya_serdivan",
         detsisCode = "69724908",
         bedCount = 55
     ),
@@ -6319,7 +6319,7 @@ val hospitals = listOf(
         id = "8987",
         cityId = "sakarya",
         name = "Akyazı Devlet Hastanesi",
-        district = "Akyazı",
+        districtId = "sakarya_akyazi",
         detsisCode = "92918183",
         bedCount = 80
     ),
@@ -6327,7 +6327,7 @@ val hospitals = listOf(
         id = "11421",
         cityId = "sakarya",
         name = "Pamukova Devlet Hastanesi",
-        district = "Pamukova",
+        districtId = "sakarya_pamukova",
         detsisCode = "92112622",
         bedCount = 25
     ),
@@ -6335,7 +6335,7 @@ val hospitals = listOf(
         id = "177550",
         cityId = "sakarya",
         name = "Yenikent Devlet Hastanesi",
-        district = "Adapazarı",
+        districtId = "sakarya_adapazari",
         detsisCode = "83872284",
         bedCount = 255
     ),
@@ -6343,7 +6343,7 @@ val hospitals = listOf(
         id = "177842",
         cityId = "sakarya",
         name = "Sakarya Ağız ve Diş Sağlığı Hastanesi",
-        district = "Serdivan",
+        districtId = "sakarya_serdivan",
         detsisCode = "73647988",
         bedCount = 5
     ),
@@ -6351,7 +6351,7 @@ val hospitals = listOf(
         id = "188234",
         cityId = "sakarya",
         name = "Kocaali İlçe Devlet Hastanesi",
-        district = "Kocaali",
+        districtId = "sakarya_kocaali",
         detsisCode = "10137615",
         bedCount = 6
     ),
@@ -6359,7 +6359,7 @@ val hospitals = listOf(
         id = "188235",
         cityId = "sakarya",
         name = "Kaynarca Şehit Gökhan Ayder İlçe Devlet Hastanesi",
-        district = "Kaynarca",
+        districtId = "sakarya_kaynarca",
         detsisCode = "99762374",
         bedCount = 15
     ),
@@ -6367,7 +6367,7 @@ val hospitals = listOf(
         id = "193793",
         cityId = "sakarya",
         name = "Sapanca İlçe Devlet Hastanesi",
-        district = "Sapanca",
+        districtId = "sakarya_sapanca",
         detsisCode = "86562664",
         bedCount = 20
     ),
@@ -6375,7 +6375,7 @@ val hospitals = listOf(
         id = "451223",
         cityId = "sakarya",
         name = "Ferizli İlçe Devlet Hastanesi",
-        district = "Ferizli",
+        districtId = "sakarya_ferizli",
         detsisCode = "27376464",
         bedCount = 20
     ),
@@ -6383,7 +6383,7 @@ val hospitals = listOf(
         id = "650670",
         cityId = "sakarya",
         name = "Taraklı İlçe Devlet Hastanesi",
-        district = "Taraklı",
+        districtId = "sakarya_tarakli",
         detsisCode = "",
         bedCount = 5
     ),
@@ -6391,7 +6391,7 @@ val hospitals = listOf(
         id = "348984",
         cityId = "samsun",
         name = "Samsun Eğitim ve Araştırma Hastanesi",
-        district = "İlkadım",
+        districtId = "samsun_ilkadim",
         detsisCode = "33646832",
         bedCount = 1140
     ),
@@ -6399,7 +6399,7 @@ val hospitals = listOf(
         id = "1207",
         cityId = "samsun",
         name = "Vezirköprü Devlet Hastanesi",
-        district = "Vezirköprü",
+        districtId = "samsun_vezirkopru",
         detsisCode = "48066310",
         bedCount = 200
     ),
@@ -6407,7 +6407,7 @@ val hospitals = listOf(
         id = "1238",
         cityId = "samsun",
         name = "Terme Devlet Hastanesi",
-        district = "Terme",
+        districtId = "samsun_terme",
         detsisCode = "19828129",
         bedCount = 75
     ),
@@ -6415,7 +6415,7 @@ val hospitals = listOf(
         id = "1247",
         cityId = "samsun",
         name = "Havza Devlet Hastanesi",
-        district = "Havza",
+        districtId = "samsun_havza",
         detsisCode = "10243499",
         bedCount = 100
     ),
@@ -6423,7 +6423,7 @@ val hospitals = listOf(
         id = "1257",
         cityId = "samsun",
         name = "Kavak Devlet Hastanesi",
-        district = "Kavak",
+        districtId = "samsun_kavak",
         detsisCode = "25605589",
         bedCount = 25
     ),
@@ -6431,7 +6431,7 @@ val hospitals = listOf(
         id = "1263",
         cityId = "samsun",
         name = "Ladik Devlet Hastanesi",
-        district = "Ladik",
+        districtId = "samsun_ladik",
         detsisCode = "73247998",
         bedCount = 30
     ),
@@ -6439,7 +6439,7 @@ val hospitals = listOf(
         id = "1290",
         cityId = "samsun",
         name = "Alaçam Devlet Hastanesi",
-        district = "Alaçam",
+        districtId = "samsun_alacam",
         detsisCode = "75911674",
         bedCount = 25
     ),
@@ -6447,7 +6447,7 @@ val hospitals = listOf(
         id = "1297",
         cityId = "samsun",
         name = "Bafra Devlet Hastanesi",
-        district = "Bafra",
+        districtId = "samsun_bafra",
         detsisCode = "17186359",
         bedCount = 305
     ),
@@ -6455,7 +6455,7 @@ val hospitals = listOf(
         id = "6647",
         cityId = "samsun",
         name = "Çarşamba Devlet Hastanesi",
-        district = "Çarşamba",
+        districtId = "samsun_carsamba",
         detsisCode = "67129348",
         bedCount = 320
     ),
@@ -6463,7 +6463,7 @@ val hospitals = listOf(
         id = "6649",
         cityId = "samsun",
         name = "Samsun Ruh Sağlığı ve Hastalıkları Hastanesi",
-        district = "İlkadım",
+        districtId = "samsun_ilkadim",
         detsisCode = "20208392",
         bedCount = 300
     ),
@@ -6471,7 +6471,7 @@ val hospitals = listOf(
         id = "9745",
         cityId = "samsun",
         name = "Samsun Fiziksel Tıp Rehabilitasyon Hastalıkları Hastanesi",
-        district = "İlkadım",
+        districtId = "samsun_ilkadim",
         detsisCode = "10004347",
         bedCount = 135
     ),
@@ -6479,7 +6479,7 @@ val hospitals = listOf(
         id = "14657",
         cityId = "samsun",
         name = "Samsun Ayvacık Devlet Hastanesi",
-        district = "Ayvacık",
+        districtId = "samsun_ayvacik",
         detsisCode = "49133892",
         bedCount = 25
     ),
@@ -6487,7 +6487,7 @@ val hospitals = listOf(
         id = "177571",
         cityId = "samsun",
         name = "Samsun Gazi Devlet Hastanesi",
-        district = "İlkadım",
+        districtId = "samsun_ilkadim",
         detsisCode = "37753004",
         bedCount = 350
     ),
@@ -6495,7 +6495,7 @@ val hospitals = listOf(
         id = "335219",
         cityId = "samsun",
         name = "Asarcık İlçe Devlet Hastanesi",
-        district = "Asarcık",
+        districtId = "samsun_asarcik",
         detsisCode = "24145598",
         bedCount = 10
     ),
@@ -6503,7 +6503,7 @@ val hospitals = listOf(
         id = "470250",
         cityId = "samsun",
         name = "19 Mayıs İlçe Devlet Hastanesi",
-        district = "Ondokuz Mayıs",
+        districtId = "samsun_ondokuz_mayis",
         detsisCode = "70378152",
         bedCount = 25
     ),
@@ -6511,7 +6511,7 @@ val hospitals = listOf(
         id = "470252",
         cityId = "samsun",
         name = "Salıpazarı İlçe Devlet Hastanesi",
-        district = "Salıpazarı",
+        districtId = "samsun_salipazari",
         detsisCode = "27183738",
         bedCount = 25
     ),
@@ -6519,7 +6519,7 @@ val hospitals = listOf(
         id = "717189",
         cityId = "samsun",
         name = "Samsun Ağız ve Diş Sağlığı Hastanesi",
-        district = "İlkadım",
+        districtId = "samsun_ilkadim",
         detsisCode = "30422996",
         bedCount = 6
     ),
@@ -6527,7 +6527,7 @@ val hospitals = listOf(
         id = "1221",
         cityId = "siirt",
         name = "Siirt Eğitim ve Araştırma Hastanesi",
-        district = "Merkez",
+        districtId = "siirt_merkez",
         detsisCode = "90182251",
         bedCount = 450
     ),
@@ -6535,7 +6535,7 @@ val hospitals = listOf(
         id = "9680",
         cityId = "siirt",
         name = "Kurtalan Devlet Hastanesi",
-        district = "Kurtalan",
+        districtId = "siirt_kurtalan",
         detsisCode = "70544809",
         bedCount = 100
     ),
@@ -6543,7 +6543,7 @@ val hospitals = listOf(
         id = "14607",
         cityId = "siirt",
         name = "Baykan Devlet Hastanesi",
-        district = "Baykan",
+        districtId = "siirt_baykan",
         detsisCode = "78286730",
         bedCount = 15
     ),
@@ -6551,7 +6551,7 @@ val hospitals = listOf(
         id = "188231",
         cityId = "siirt",
         name = "Eruh Devlet Hastanesi",
-        district = "Eruh",
+        districtId = "siirt_eruh",
         detsisCode = "83310163",
         bedCount = 30
     ),
@@ -6559,7 +6559,7 @@ val hospitals = listOf(
         id = "188233",
         cityId = "siirt",
         name = "Pervari Devlet Hastanesi",
-        district = "Pervari",
+        districtId = "siirt_pervari",
         detsisCode = "54720364",
         bedCount = 32
     ),
@@ -6567,7 +6567,7 @@ val hospitals = listOf(
         id = "774107",
         cityId = "siirt",
         name = "Şirvan İlçe Devlet Hastanesi",
-        district = "Şirvan",
+        districtId = "siirt_sirvan",
         detsisCode = "",
         bedCount = 5
     ),
@@ -6575,7 +6575,7 @@ val hospitals = listOf(
         id = "1144",
         cityId = "sinop",
         name = "Boyabat 75.Yıl Devlet Hastanesi",
-        district = "Boyabat",
+        districtId = "sinop_boyabat",
         detsisCode = "86173427",
         bedCount = 145
     ),
@@ -6583,7 +6583,7 @@ val hospitals = listOf(
         id = "1151",
         cityId = "sinop",
         name = "Durağan Şehit Hakan Tanrıkulu Devlet Hastanesi",
-        district = "Durağan",
+        districtId = "sinop_duragan",
         detsisCode = "77758457",
         bedCount = 50
     ),
@@ -6591,7 +6591,7 @@ val hospitals = listOf(
         id = "1168",
         cityId = "sinop",
         name = "Sinop Atatürk Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "sinop_merkez",
         detsisCode = "72787674",
         bedCount = 455
     ),
@@ -6599,7 +6599,7 @@ val hospitals = listOf(
         id = "6642",
         cityId = "sinop",
         name = "Ayancık Devlet Hastanesi",
-        district = "Ayancık",
+        districtId = "sinop_ayancik",
         detsisCode = "78814040",
         bedCount = 80
     ),
@@ -6607,7 +6607,7 @@ val hospitals = listOf(
         id = "12603",
         cityId = "sinop",
         name = "Türkeli Devlet Hastanesi",
-        district = "Türkeli",
+        districtId = "sinop_turkeli",
         detsisCode = "46053204",
         bedCount = 30
     ),
@@ -6615,7 +6615,7 @@ val hospitals = listOf(
         id = "177702",
         cityId = "sinop",
         name = "Gerze Devlet Hastanesi",
-        district = "Gerze",
+        districtId = "sinop_gerze",
         detsisCode = "36175415",
         bedCount = 25
     ),
@@ -6623,7 +6623,7 @@ val hospitals = listOf(
         id = "716262",
         cityId = "sinop",
         name = "Erfelek İlçe Devlet Hastanesi",
-        district = "Erfelek",
+        districtId = "sinop_erfelek",
         detsisCode = "",
         bedCount = 5
     ),
@@ -6631,7 +6631,7 @@ val hospitals = listOf(
         id = "1040",
         cityId = "sivas",
         name = "Yıldızeli Devlet Hastanesi",
-        district = "Yıldızeli",
+        districtId = "sivas_yildizeli",
         detsisCode = "15844499",
         bedCount = 50
     ),
@@ -6639,7 +6639,7 @@ val hospitals = listOf(
         id = "1047",
         cityId = "sivas",
         name = "Zara Devlet Hastanesi",
-        district = "Zara",
+        districtId = "sivas_zara",
         detsisCode = "82502066",
         bedCount = 45
     ),
@@ -6647,7 +6647,7 @@ val hospitals = listOf(
         id = "1064",
         cityId = "sivas",
         name = "Suşehri Devlet Hastanesi",
-        district = "Suşehri",
+        districtId = "sivas_susehri",
         detsisCode = "91684243",
         bedCount = 100
     ),
@@ -6655,7 +6655,7 @@ val hospitals = listOf(
         id = "1070",
         cityId = "sivas",
         name = "Şarkışla Devlet Hastanesi",
-        district = "Şarkışla",
+        districtId = "sivas_sarkisla",
         detsisCode = "13260107",
         bedCount = 80
     ),
@@ -6663,7 +6663,7 @@ val hospitals = listOf(
         id = "1082",
         cityId = "sivas",
         name = "Gürün Devlet Hastanesi",
-        district = "Gürün",
+        districtId = "sivas_gurun",
         detsisCode = "42650666",
         bedCount = 25
     ),
@@ -6671,7 +6671,7 @@ val hospitals = listOf(
         id = "1095",
         cityId = "sivas",
         name = "Kangal Devlet Hastanesi",
-        district = "Kangal",
+        districtId = "sivas_kangal",
         detsisCode = "89848497",
         bedCount = 25
     ),
@@ -6679,7 +6679,7 @@ val hospitals = listOf(
         id = "1113",
         cityId = "sivas",
         name = "Divriği Sadık Özgür Devlet Hastanesi",
-        district = "Divriği",
+        districtId = "sivas_divrigi",
         detsisCode = "21810404",
         bedCount = 50
     ),
@@ -6687,7 +6687,7 @@ val hospitals = listOf(
         id = "1128",
         cityId = "sivas",
         name = "Sivas Numune Hastanesi",
-        district = "Merkez",
+        districtId = "sivas_merkez",
         detsisCode = "36175415",
         bedCount = 1070
     ),
@@ -6695,7 +6695,7 @@ val hospitals = listOf(
         id = "41252",
         cityId = "sivas",
         name = "Sivas Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "sivas_merkez",
         detsisCode = "93848782",
         bedCount = 160
     ),
@@ -6703,7 +6703,7 @@ val hospitals = listOf(
         id = "9067",
         cityId = "sivas",
         name = "Gemerek Devlet Hastanesi",
-        district = "Gemerek",
+        districtId = "sivas_gemerek",
         detsisCode = "71524649",
         bedCount = 25
     ),
@@ -6711,7 +6711,7 @@ val hospitals = listOf(
         id = "223316",
         cityId = "sivas",
         name = "Sivas Ağız ve Diş Sağlığı Hastanesi",
-        district = "Merkez",
+        districtId = "sivas_merkez",
         detsisCode = "12199614",
         bedCount = 5
     ),
@@ -6719,7 +6719,7 @@ val hospitals = listOf(
         id = "195066",
         cityId = "sivas",
         name = "Ulaş İlçe Devlet Hastanesi",
-        district = "Ulaş",
+        districtId = "sivas_ulas",
         detsisCode = "",
         bedCount = 10
     ),
@@ -6727,7 +6727,7 @@ val hospitals = listOf(
         id = "195068",
         cityId = "sivas",
         name = "Hafik Hacı Esma Kocacık İlçe Devlet Hastanesi",
-        district = "Hafik",
+        districtId = "sivas_hafik",
         detsisCode = "",
         bedCount = 10
     ),
@@ -6735,7 +6735,7 @@ val hospitals = listOf(
         id = "195065",
         cityId = "sivas",
         name = "Altınyayla İlçe Devlet Hastanesi",
-        district = "Altınyayla",
+        districtId = "sivas_altinyayla",
         detsisCode = "",
         bedCount = 5
     ),
@@ -6743,7 +6743,7 @@ val hospitals = listOf(
         id = "195070",
         cityId = "sivas",
         name = "Koyulhisar İlçe Devlet Hastanesi",
-        district = "Koyulhisar",
+        districtId = "sivas_koyulhisar",
         detsisCode = "",
         bedCount = 15
     ),
@@ -6751,7 +6751,7 @@ val hospitals = listOf(
         id = "195069",
         cityId = "sivas",
         name = "İmranlı İlçe Devlet Hastanesi",
-        district = "İmranlı",
+        districtId = "sivas_imranli",
         detsisCode = "",
         bedCount = 10
     ),
@@ -6759,7 +6759,7 @@ val hospitals = listOf(
         id = "195063",
         cityId = "sivas",
         name = "Akıncılar İlçe Devlet Hastanesi",
-        district = "Akıncılar",
+        districtId = "sivas_akincilar",
         detsisCode = "",
         bedCount = 4
     ),
@@ -6767,7 +6767,7 @@ val hospitals = listOf(
         id = "195067",
         cityId = "sivas",
         name = "Gölova İlçe Devlet Hastanesi",
-        district = "Gölova",
+        districtId = "sivas_golova",
         detsisCode = "",
         bedCount = 10
     ),
@@ -6775,7 +6775,7 @@ val hospitals = listOf(
         id = "195064",
         cityId = "sivas",
         name = "Doğanşar İlçe Devlet Hastanesi",
-        district = "Doğanşar",
+        districtId = "sivas_dogansar",
         detsisCode = "",
         bedCount = 8
     ),
@@ -6783,7 +6783,7 @@ val hospitals = listOf(
         id = "324085",
         cityId = "sanliurfa",
         name = "Şanlıurfa Mehmet Akif İnan Eğitim ve Araştırma Hastanesi",
-        district = "Karaköprü",
+        districtId = "sanliurfa_karakopru",
         detsisCode = "64106871",
         bedCount = 710
     ),
@@ -6791,7 +6791,7 @@ val hospitals = listOf(
         id = "666",
         cityId = "sanliurfa",
         name = "Suruç Devlet Hastanesi",
-        district = "Suruç",
+        districtId = "sanliurfa_suruc",
         detsisCode = "40675379",
         bedCount = 150
     ),
@@ -6799,7 +6799,7 @@ val hospitals = listOf(
         id = "671",
         cityId = "sanliurfa",
         name = "Viranşehir Devlet Hastanesi",
-        district = "Viranşehir",
+        districtId = "sanliurfa_viransehir",
         detsisCode = "36302988",
         bedCount = 215
     ),
@@ -6807,7 +6807,7 @@ val hospitals = listOf(
         id = "684",
         cityId = "sanliurfa",
         name = "Ceylanpınar Devlet Hastanesi",
-        district = "Ceylanpınar",
+        districtId = "sanliurfa_ceylanpinar",
         detsisCode = "89949208",
         bedCount = 95
     ),
@@ -6815,7 +6815,7 @@ val hospitals = listOf(
         id = "695",
         cityId = "sanliurfa",
         name = "Siverek Devlet Hastanesi",
-        district = "Siverek",
+        districtId = "sanliurfa_siverek",
         detsisCode = "99588736",
         bedCount = 210
     ),
@@ -6823,7 +6823,7 @@ val hospitals = listOf(
         id = "709",
         cityId = "sanliurfa",
         name = "Akçakale Devlet Hastanesi",
-        district = "Akçakale",
+        districtId = "sanliurfa_akcakale",
         detsisCode = "78379617",
         bedCount = 100
     ),
@@ -6831,7 +6831,7 @@ val hospitals = listOf(
         id = "713",
         cityId = "sanliurfa",
         name = "Birecik Devlet Hastanesi",
-        district = "Birecik",
+        districtId = "sanliurfa_birecik",
         detsisCode = "13403579",
         bedCount = 160
     ),
@@ -6839,7 +6839,7 @@ val hospitals = listOf(
         id = "7442",
         cityId = "sanliurfa",
         name = "Hilvan Şehit Halit Şiltak Devlet Hastanesi",
-        district = "Hilvan",
+        districtId = "sanliurfa_hilvan",
         detsisCode = "97041419",
         bedCount = 70
     ),
@@ -6847,7 +6847,7 @@ val hospitals = listOf(
         id = "14107",
         cityId = "sanliurfa",
         name = "Harran Devlet Hastanesi",
-        district = "Harran",
+        districtId = "sanliurfa_harran",
         detsisCode = "11321972",
         bedCount = 40
     ),
@@ -6855,7 +6855,7 @@ val hospitals = listOf(
         id = "177624",
         cityId = "sanliurfa",
         name = "Şanlıurfa Balıklıgöl Devlet Hastanesi",
-        district = "Eyyübiye",
+        districtId = "sanliurfa_eyyubiye",
         detsisCode = "85950174",
         bedCount = 182
     ),
@@ -6863,7 +6863,7 @@ val hospitals = listOf(
         id = "195482",
         cityId = "sanliurfa",
         name = "Bozova Mehmet-Enver Yıldırım Devlet Hastanesi",
-        district = "Bozova",
+        districtId = "sanliurfa_bozova",
         detsisCode = "45631187",
         bedCount = 50
     ),
@@ -6871,7 +6871,7 @@ val hospitals = listOf(
         id = "346259",
         cityId = "sanliurfa",
         name = "Halfeti Devlet Hastanesi",
-        district = "Halfeti",
+        districtId = "sanliurfa_halfeti",
         detsisCode = "17637724",
         bedCount = 30
     ),
@@ -6879,7 +6879,7 @@ val hospitals = listOf(
         id = "838222",
         cityId = "sanliurfa",
         name = "Şanlıurfa Ağız ve Diş Sağlığı Hastanesi",
-        district = "Karaköprü",
+        districtId = "sanliurfa_karakopru",
         detsisCode = "89742289",
         bedCount = 5
     ),
@@ -6887,7 +6887,7 @@ val hospitals = listOf(
         id = "883819",
         cityId = "sanliurfa",
         name = "Şanlıurfa Eğitim ve Araştırma Hastanesi",
-        district = "Eyyübiye",
+        districtId = "sanliurfa_eyyubiye",
         detsisCode = "96537014",
         bedCount = 950
     ),
@@ -6895,7 +6895,7 @@ val hospitals = listOf(
         id = "166",
         cityId = "sirnak",
         name = "Şırnak Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "sirnak_merkez",
         detsisCode = "53023556",
         bedCount = 295
     ),
@@ -6903,7 +6903,7 @@ val hospitals = listOf(
         id = "174",
         cityId = "sirnak",
         name = "Cizre Dr. Selahattin Cizrelioğlu Devlet Hastanesi",
-        district = "Cizre",
+        districtId = "sirnak_cizre",
         detsisCode = "84410283",
         bedCount = 217
     ),
@@ -6911,7 +6911,7 @@ val hospitals = listOf(
         id = "7205",
         cityId = "sirnak",
         name = "İdil Devlet Hastanesi",
-        district = "İdil",
+        districtId = "sirnak_idil",
         detsisCode = "59297412",
         bedCount = 70
     ),
@@ -6919,7 +6919,7 @@ val hospitals = listOf(
         id = "8850",
         cityId = "sirnak",
         name = "Silopi Devlet Hastanesi",
-        district = "Silopi",
+        districtId = "sirnak_silopi",
         detsisCode = "47313306",
         bedCount = 93
     ),
@@ -6927,7 +6927,7 @@ val hospitals = listOf(
         id = "14678",
         cityId = "sirnak",
         name = "Beytüşşebap İlçe Devlet Hastanesi",
-        district = "Beytüşşebap",
+        districtId = "sirnak_beytussebap",
         detsisCode = "74249147",
         bedCount = 25
     ),
@@ -6935,7 +6935,7 @@ val hospitals = listOf(
         id = "22507",
         cityId = "sirnak",
         name = "Şırnak Şehit Aydoğan Aydın Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "sirnak_merkez",
         detsisCode = "68385437",
         bedCount = 30
     ),
@@ -6943,7 +6943,7 @@ val hospitals = listOf(
         id = "708335",
         cityId = "sirnak",
         name = "Uludere Devlet Hastanesi",
-        district = "Uludere",
+        districtId = "sirnak_uludere",
         detsisCode = "40100201",
         bedCount = 40
     ),
@@ -6951,7 +6951,7 @@ val hospitals = listOf(
         id = "710236",
         cityId = "sirnak",
         name = "Güçlükonak İlçe Devlet Hastanesi",
-        district = "Güçlükonak",
+        districtId = "sirnak_guclukonak",
         detsisCode = "",
         bedCount = 10
     ),
@@ -6959,7 +6959,7 @@ val hospitals = listOf(
         id = "977",
         cityId = "tekirdag",
         name = "Tekirdağ Saray Devlet Hastanesi",
-        district = "Saray",
+        districtId = "tekirdag_saray",
         detsisCode = "11982015",
         bedCount = 75
     ),
@@ -6967,7 +6967,7 @@ val hospitals = listOf(
         id = "982",
         cityId = "tekirdag",
         name = "Şarköy Devlet Hastanesi",
-        district = "Şarköy",
+        districtId = "tekirdag_sarkoy",
         detsisCode = "67756752",
         bedCount = 50
     ),
@@ -6975,7 +6975,7 @@ val hospitals = listOf(
         id = "999",
         cityId = "tekirdag",
         name = "Hayrabolu Devlet Hastanesi",
-        district = "Hayrabolu",
+        districtId = "tekirdag_hayrabolu",
         detsisCode = "58894590",
         bedCount = 30
     ),
@@ -6983,7 +6983,7 @@ val hospitals = listOf(
         id = "1004",
         cityId = "tekirdag",
         name = "Malkara Devlet Hastanesi",
-        district = "Malkara",
+        districtId = "tekirdag_malkara",
         detsisCode = "55193506",
         bedCount = 70
     ),
@@ -6991,7 +6991,7 @@ val hospitals = listOf(
         id = "1034",
         cityId = "tekirdag",
         name = "Çorlu Devlet Hastanesi",
-        district = "Çorlu",
+        districtId = "tekirdag_corlu",
         detsisCode = "13441514",
         bedCount = 550
     ),
@@ -6999,7 +6999,7 @@ val hospitals = listOf(
         id = "45170",
         cityId = "tekirdag",
         name = "Tekirdağ Dr. İsmail Fehmi Cumalıoğlu Şehir Hastanesi",
-        district = "Süleymanpaşa",
+        districtId = "tekirdag_suleymanpasa",
         detsisCode = "96475682",
         bedCount = 605
     ),
@@ -7007,7 +7007,7 @@ val hospitals = listOf(
         id = "1053",
         cityId = "tekirdag",
         name = "Tekirdağ Devlet Hastanesi",
-        district = "Süleymanpaşa",
+        districtId = "tekirdag_suleymanpasa",
         detsisCode = "67882908",
         bedCount = 100
     ),
@@ -7015,7 +7015,7 @@ val hospitals = listOf(
         id = "14617",
         cityId = "tekirdag",
         name = "Çerkezköy Devlet Hastanesi",
-        district = "Çerkezköy",
+        districtId = "tekirdag_cerkezkoy",
         detsisCode = "56687873",
         bedCount = 300
     ),
@@ -7023,7 +7023,7 @@ val hospitals = listOf(
         id = "175576",
         cityId = "tekirdag",
         name = "Muratlı Devlet Hastanesi",
-        district = "Muratlı",
+        districtId = "tekirdag_muratli",
         detsisCode = "77615314",
         bedCount = 40
     ),
@@ -7031,7 +7031,7 @@ val hospitals = listOf(
         id = "281535",
         cityId = "tekirdag",
         name = "Tekirdağ Ağız ve Diş Sağlığı Hastanesi",
-        district = "Süleymanpaşa",
+        districtId = "tekirdag_suleymanpasa",
         detsisCode = "60964501",
         bedCount = 5
     ),
@@ -7039,7 +7039,7 @@ val hospitals = listOf(
         id = "782707",
         cityId = "tekirdag",
         name = "Marmara Ereğlisi İlçe Devlet Hastanesi",
-        district = "Marmara Ereğlisi",
+        districtId = "tekirdag_marmara_ereglisi",
         detsisCode = "64091418",
         bedCount = 15
     ),
@@ -7047,7 +7047,7 @@ val hospitals = listOf(
         id = "884386",
         cityId = "tekirdag",
         name = "Kapaklı Devlet Hastanesi",
-        district = "Kapaklı",
+        districtId = "tekirdag_kapakli",
         detsisCode = "91945877",
         bedCount = 77
     ),
@@ -7055,7 +7055,7 @@ val hospitals = listOf(
         id = "29",
         cityId = "tokat",
         name = "Erbaa Devlet Hastanesi",
-        district = "Erbaa",
+        districtId = "tokat_erbaa",
         detsisCode = "57041439",
         bedCount = 175
     ),
@@ -7063,7 +7063,7 @@ val hospitals = listOf(
         id = "892",
         cityId = "tokat",
         name = "Turhal Devlet Hastanesi",
-        district = "Turhal",
+        districtId = "tokat_turhal",
         detsisCode = "84334760",
         bedCount = 230
     ),
@@ -7071,7 +7071,7 @@ val hospitals = listOf(
         id = "906",
         cityId = "tokat",
         name = "Zile Devlet Hastanesi",
-        district = "Zile",
+        districtId = "tokat_zile",
         detsisCode = "69195439",
         bedCount = 110
     ),
@@ -7079,7 +7079,7 @@ val hospitals = listOf(
         id = "922",
         cityId = "tokat",
         name = "Reşadiye Devlet Hastanesi",
-        district = "Reşadiye",
+        districtId = "tokat_resadiye",
         detsisCode = "56514118",
         bedCount = 55
     ),
@@ -7087,7 +7087,7 @@ val hospitals = listOf(
         id = "950",
         cityId = "tokat",
         name = "Niksar Devlet Hastanesi",
-        district = "Niksar",
+        districtId = "tokat_niksar",
         detsisCode = "27789647",
         bedCount = 125
     ),
@@ -7095,7 +7095,7 @@ val hospitals = listOf(
         id = "986",
         cityId = "tokat",
         name = "Tokat Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "tokat_merkez",
         detsisCode = "90901957",
         bedCount = 675
     ),
@@ -7103,7 +7103,7 @@ val hospitals = listOf(
         id = "334666",
         cityId = "tokat",
         name = "Tokat Dr. Cevdet Aykan Ruh Sağlığı ve Hastalıkları Hastanesi",
-        district = "Merkez",
+        districtId = "tokat_merkez",
         detsisCode = "22357020",
         bedCount = 125
     ),
@@ -7111,7 +7111,7 @@ val hospitals = listOf(
         id = "402185",
         cityId = "tokat",
         name = "Almus Devlet Hastanesi",
-        district = "Almus",
+        districtId = "tokat_almus",
         detsisCode = "18858198",
         bedCount = 25
     ),
@@ -7119,7 +7119,7 @@ val hospitals = listOf(
         id = "343330",
         cityId = "tokat",
         name = "Pazar İlçe Devlet Hastanesi",
-        district = "Pazar",
+        districtId = "tokat_pazar",
         detsisCode = "",
         bedCount = 15
     ),
@@ -7127,7 +7127,7 @@ val hospitals = listOf(
         id = "413763",
         cityId = "tokat",
         name = "Yeşilyurt İlçe Devlet Hastanesi",
-        district = "Yeşilyurt",
+        districtId = "tokat_yesilyurt",
         detsisCode = "",
         bedCount = 10
     ),
@@ -7135,7 +7135,7 @@ val hospitals = listOf(
         id = "316943",
         cityId = "tokat",
         name = "Sulusaray İlçe Devlet Hastanesi",
-        district = "Sulusaray",
+        districtId = "tokat_sulusaray",
         detsisCode = "",
         bedCount = 15
     ),
@@ -7143,7 +7143,7 @@ val hospitals = listOf(
         id = "203379",
         cityId = "tokat",
         name = "Başçiftlik İlçe Devlet Hastanesi",
-        district = "Başçiftlik",
+        districtId = "tokat_basciftlik",
         detsisCode = "",
         bedCount = 6
     ),
@@ -7151,7 +7151,7 @@ val hospitals = listOf(
         id = "343332",
         cityId = "tokat",
         name = "Artova İlçe Devlet Hastanesi",
-        district = "Artova",
+        districtId = "tokat_artova",
         detsisCode = "",
         bedCount = 11
     ),
@@ -7159,7 +7159,7 @@ val hospitals = listOf(
         id = "346059",
         cityId = "trabzon",
         name = "Trabzon Ahi Evren Göğüs Kalp ve Damar Cerrahisi Eğitim ve Araştırma Hastanesi",
-        district = "Ortahisar",
+        districtId = "trabzon_ortahisar",
         detsisCode = "96975576",
         bedCount = 200
     ),
@@ -7167,7 +7167,7 @@ val hospitals = listOf(
         id = "463372",
         cityId = "trabzon",
         name = "Trabzon Kanuni Eğitim ve Araştırma Hastanesi",
-        district = "Ortahisar",
+        districtId = "trabzon_ortahisar",
         detsisCode = "23618724",
         bedCount = 710
     ),
@@ -7175,7 +7175,7 @@ val hospitals = listOf(
         id = "770",
         cityId = "trabzon",
         name = "Tonya Devlet Hastanesi",
-        district = "Tonya",
+        districtId = "trabzon_tonya",
         detsisCode = "58842869",
         bedCount = 26
     ),
@@ -7183,7 +7183,7 @@ val hospitals = listOf(
         id = "775",
         cityId = "trabzon",
         name = "Vakfıkebir Devlet Hastanesi",
-        district = "Vakfıkebir",
+        districtId = "trabzon_vakfikebir",
         detsisCode = "79370307",
         bedCount = 132
     ),
@@ -7191,7 +7191,7 @@ val hospitals = listOf(
         id = "800",
         cityId = "trabzon",
         name = "Sürmene Devlet Hastanesi",
-        district = "Sürmene",
+        districtId = "trabzon_surmene",
         detsisCode = "44938285",
         bedCount = 61
     ),
@@ -7199,7 +7199,7 @@ val hospitals = listOf(
         id = "812",
         cityId = "trabzon",
         name = "Trabzon Ataköy Ruh ve Sinir Hastalıkları Hastanesi",
-        district = "Çaykara",
+        districtId = "trabzon_caykara",
         detsisCode = "36280367",
         bedCount = 70
     ),
@@ -7207,7 +7207,7 @@ val hospitals = listOf(
         id = "883",
         cityId = "trabzon",
         name = "Trabzon Yavuz Selim Kemik Hastalıkları ve Rehabilitasyon Hastanesi",
-        district = "Ortahisar",
+        districtId = "trabzon_ortahisar",
         detsisCode = "83084854",
         bedCount = 200
     ),
@@ -7215,7 +7215,7 @@ val hospitals = listOf(
         id = "9027",
         cityId = "trabzon",
         name = "Of Devlet Hastanesi",
-        district = "Of",
+        districtId = "trabzon_of",
         detsisCode = "24266957",
         bedCount = 63
     ),
@@ -7223,7 +7223,7 @@ val hospitals = listOf(
         id = "9603",
         cityId = "trabzon",
         name = "Trabzon Ağız ve Diş Sağlığı Hastanesi",
-        district = "Ortahisar",
+        districtId = "trabzon_ortahisar",
         detsisCode = "13431332",
         bedCount = 5
     ),
@@ -7231,7 +7231,7 @@ val hospitals = listOf(
         id = "14579",
         cityId = "trabzon",
         name = "Araklı Bayram Halil Devlet Hastanesi",
-        district = "Araklı",
+        districtId = "trabzon_arakli",
         detsisCode = "23945881",
         bedCount = 100
     ),
@@ -7239,7 +7239,7 @@ val hospitals = listOf(
         id = "177610",
         cityId = "trabzon",
         name = "Trabzon Fatih Devlet Hastanesi",
-        district = "Ortahisar",
+        districtId = "trabzon_ortahisar",
         detsisCode = "16776404",
         bedCount = 235
     ),
@@ -7247,7 +7247,7 @@ val hospitals = listOf(
         id = "443680",
         cityId = "trabzon",
         name = "Akçaabat Haçkalı Baba Devlet Hastanesi",
-        district = "Akçaabat",
+        districtId = "trabzon_akcaabat",
         detsisCode = "29907235",
         bedCount = 221
     ),
@@ -7255,7 +7255,7 @@ val hospitals = listOf(
         id = "730473",
         cityId = "trabzon",
         name = "Maçka Ömer Burhanoğlu Fizik Tedavi ve Rehabilitasyon Hastanesi",
-        district = "Maçka",
+        districtId = "trabzon_macka",
         detsisCode = "49240487",
         bedCount = 110
     ),
@@ -7263,7 +7263,7 @@ val hospitals = listOf(
         id = "188237",
         cityId = "trabzon",
         name = "Çaykara Dr. M. İlhan Durgun İlçe Devlet Hastanesi",
-        district = "Çaykara",
+        districtId = "trabzon_caykara",
         detsisCode = "",
         bedCount = 5
     ),
@@ -7271,7 +7271,7 @@ val hospitals = listOf(
         id = "386634",
         cityId = "trabzon",
         name = "Düzköy İlçe Devlet Hastanesi",
-        district = "Düzköy",
+        districtId = "trabzon_duzkoy",
         detsisCode = "",
         bedCount = 5
     ),
@@ -7279,7 +7279,7 @@ val hospitals = listOf(
         id = "188238",
         cityId = "trabzon",
         name = "Şalpazarı İlçe Devlet Hastanesi",
-        district = "Şalpazarı",
+        districtId = "trabzon_salpazari",
         detsisCode = "",
         bedCount = 5
     ),
@@ -7287,7 +7287,7 @@ val hospitals = listOf(
         id = "188236",
         cityId = "trabzon",
         name = "Köprübaşı Vali Recep Yazıcıoğlu İlçe Devlet Hastanesi",
-        district = "Köprübaşı",
+        districtId = "trabzon_koprubasi",
         detsisCode = "",
         bedCount = 5
     ),
@@ -7295,7 +7295,7 @@ val hospitals = listOf(
         id = "786999",
         cityId = "trabzon",
         name = "Arsin İlçe Devlet Hastanesi",
-        district = "Arsin",
+        districtId = "trabzon_arsin",
         detsisCode = "",
         bedCount = 5
     ),
@@ -7303,7 +7303,7 @@ val hospitals = listOf(
         id = "783",
         cityId = "tunceli",
         name = "Tunceli Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "tunceli_merkez",
         detsisCode = "31425239",
         bedCount = 150
     ),
@@ -7311,7 +7311,7 @@ val hospitals = listOf(
         id = "75163",
         cityId = "tunceli",
         name = "TC Sağlık Bakanlığı Pertek 70.Yıl Cumhuriyet İlçe Devlet Hastanesi",
-        district = "Pertek",
+        districtId = "tunceli_pertek",
         detsisCode = "97844883",
         bedCount = 10
     ),
@@ -7319,7 +7319,7 @@ val hospitals = listOf(
         id = "196190",
         cityId = "tunceli",
         name = "Mazgirt İlçe Devlet Hastanesi",
-        district = "Mazgirt",
+        districtId = "tunceli_mazgirt",
         detsisCode = "",
         bedCount = 5
     ),
@@ -7327,7 +7327,7 @@ val hospitals = listOf(
         id = "869872",
         cityId = "tunceli",
         name = "Hozat İlçe Devlet Hastanesi",
-        district = "Hozat",
+        districtId = "tunceli_hozat",
         detsisCode = "",
         bedCount = 15
     ),
@@ -7335,7 +7335,7 @@ val hospitals = listOf(
         id = "196191",
         cityId = "tunceli",
         name = "Ovacık İlçe Devlet Hastanesi",
-        district = "Ovacık",
+        districtId = "tunceli_ovacik",
         detsisCode = "",
         bedCount = 10
     ),
@@ -7343,7 +7343,7 @@ val hospitals = listOf(
         id = "196189",
         cityId = "tunceli",
         name = "Çemişgezek İlçe Devlet Hastanesi",
-        district = "Çemişgezek",
+        districtId = "tunceli_cemisgezek",
         detsisCode = "",
         bedCount = 12
     ),
@@ -7351,7 +7351,7 @@ val hospitals = listOf(
         id = "899455",
         cityId = "usak",
         name = "Uşak Eğitim ve Araştırma Hastanesi",
-        district = "Merkez",
+        districtId = "usak_merkez",
         detsisCode = "45786011",
         bedCount = 800
     ),
@@ -7359,7 +7359,7 @@ val hospitals = listOf(
         id = "50",
         cityId = "usak",
         name = "Banaz Devlet Hastanesi",
-        district = "Banaz",
+        districtId = "usak_banaz",
         detsisCode = "31987848",
         bedCount = 60
     ),
@@ -7367,7 +7367,7 @@ val hospitals = listOf(
         id = "619",
         cityId = "usak",
         name = "Eşme Devlet Hastanesi",
-        district = "Eşme",
+        districtId = "usak_esme",
         detsisCode = "54984892",
         bedCount = 60
     ),
@@ -7375,7 +7375,7 @@ val hospitals = listOf(
         id = "634",
         cityId = "usak",
         name = "Sivaslı İlçe Devlet Hastanesi",
-        district = "Sivaslı",
+        districtId = "usak_sivasli",
         detsisCode = "53198697",
         bedCount = 35
     ),
@@ -7383,7 +7383,7 @@ val hospitals = listOf(
         id = "445040",
         cityId = "usak",
         name = "Uşak Ulubey İlçe Devlet Hastanesi",
-        district = "Ulubey",
+        districtId = "usak_ulubey",
         detsisCode = "",
         bedCount = 10
     ),
@@ -7391,7 +7391,7 @@ val hospitals = listOf(
         id = "194166",
         cityId = "usak",
         name = "Karahallı İlçe Devlet Hastanesi",
-        district = "Karahallı",
+        districtId = "usak_karahalli",
         detsisCode = "",
         bedCount = 15
     ),
@@ -7399,7 +7399,7 @@ val hospitals = listOf(
         id = "416070",
         cityId = "van",
         name = "Van Eğitim ve Araştırma Hastanesi",
-        district = "İpekyolu",
+        districtId = "van_ipekyolu",
         detsisCode = "36866945",
         bedCount = 1500
     ),
@@ -7407,7 +7407,7 @@ val hospitals = listOf(
         id = "47",
         cityId = "van",
         name = "Başkale Devlet Hastanesi",
-        district = "Başkale",
+        districtId = "van_baskale",
         detsisCode = "35845300",
         bedCount = 58
     ),
@@ -7415,7 +7415,7 @@ val hospitals = listOf(
         id = "535",
         cityId = "van",
         name = "Muradiye Devlet Hastanesi",
-        district = "Muradiye",
+        districtId = "van_muradiye",
         detsisCode = "29925885",
         bedCount = 50
     ),
@@ -7423,7 +7423,7 @@ val hospitals = listOf(
         id = "540",
         cityId = "van",
         name = "Özalp Devlet Hastanesi",
-        district = "Özalp",
+        districtId = "van_ozalp",
         detsisCode = "63490593",
         bedCount = 50
     ),
@@ -7431,7 +7431,7 @@ val hospitals = listOf(
         id = "560",
         cityId = "van",
         name = "Erciş Şehit Rıdvan Çevik Devlet Hastanesi",
-        district = "Erciş",
+        districtId = "van_ercis",
         detsisCode = "84313802",
         bedCount = 225
     ),
@@ -7439,7 +7439,7 @@ val hospitals = listOf(
         id = "194286",
         cityId = "van",
         name = "Çatak Devlet Hastanesi",
-        district = "Çatak",
+        districtId = "van_catak",
         detsisCode = "39889779",
         bedCount = 30
     ),
@@ -7447,7 +7447,7 @@ val hospitals = listOf(
         id = "194289",
         cityId = "van",
         name = "Bahçesaray İlçe Devlet Hastanesi",
-        district = "Bahçesaray",
+        districtId = "van_bahcesaray",
         detsisCode = "69980037",
         bedCount = 20
     ),
@@ -7455,7 +7455,7 @@ val hospitals = listOf(
         id = "289948",
         cityId = "van",
         name = "Çaldıran Devlet Hastanesi",
-        district = "Çaldıran",
+        districtId = "van_caldiran",
         detsisCode = "31033625",
         bedCount = 31
     ),
@@ -7463,7 +7463,7 @@ val hospitals = listOf(
         id = "439100",
         cityId = "van",
         name = "Gevaş Devlet Hastanesi",
-        district = "Gevaş",
+        districtId = "van_gevas",
         detsisCode = "37150567",
         bedCount = 25
     ),
@@ -7471,7 +7471,7 @@ val hospitals = listOf(
         id = "684431",
         cityId = "van",
         name = "Gürpınar İlçe Devlet Hastanesi",
-        district = "Gürpınar",
+        districtId = "van_gurpinar",
         detsisCode = "59957259",
         bedCount = 10
     ),
@@ -7479,7 +7479,7 @@ val hospitals = listOf(
         id = "46111",
         cityId = "van",
         name = "Van Saray İlçe Devlet Hastanesi",
-        district = "Saray",
+        districtId = "van_saray",
         detsisCode = "29344615",
         bedCount = 10
     ),
@@ -7487,7 +7487,7 @@ val hospitals = listOf(
         id = "3267",
         cityId = "yalova",
         name = "Yalova Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "yalova_merkez",
         detsisCode = "71290220",
         bedCount = 400
     ),
@@ -7495,7 +7495,7 @@ val hospitals = listOf(
         id = "642920",
         cityId = "yalova",
         name = "Altınova İlçe Devlet Hastanesi",
-        district = "Altınova",
+        districtId = "yalova_altinova",
         detsisCode = "61665846",
         bedCount = 10
     ),
@@ -7503,7 +7503,7 @@ val hospitals = listOf(
         id = "734509",
         cityId = "yalova",
         name = "Çınarcık Devlet Hastanesi",
-        district = "Çınarcık",
+        districtId = "yalova_cinarcik",
         detsisCode = "93594780",
         bedCount = 50
     ),
@@ -7511,7 +7511,7 @@ val hospitals = listOf(
         id = "219678",
         cityId = "yalova",
         name = "Armutlu İlçe Devlet Hastanesi",
-        district = "Armutlu",
+        districtId = "yalova_armutlu",
         detsisCode = "",
         bedCount = 6
     ),
@@ -7519,7 +7519,7 @@ val hospitals = listOf(
         id = "43",
         cityId = "yozgat",
         name = "Sarıkaya Devlet Hastanesi",
-        district = "Sarıkaya",
+        districtId = "yozgat_sarikaya",
         detsisCode = "86077096",
         bedCount = 50
     ),
@@ -7527,7 +7527,7 @@ val hospitals = listOf(
         id = "457",
         cityId = "yozgat",
         name = "Şefaatli Şehit Osman Belkaya Devlet Hastanesi",
-        district = "Şefaatli",
+        districtId = "yozgat_sefaatli",
         detsisCode = "47386976",
         bedCount = 25
     ),
@@ -7535,7 +7535,7 @@ val hospitals = listOf(
         id = "467",
         cityId = "yozgat",
         name = "Yerköy Devlet Hastanesi",
-        district = "Yerköy",
+        districtId = "yozgat_yerkoy",
         detsisCode = "61944638",
         bedCount = 60
     ),
@@ -7543,7 +7543,7 @@ val hospitals = listOf(
         id = "481",
         cityId = "yozgat",
         name = "Sorgun Devlet Hastanesi",
-        district = "Sorgun",
+        districtId = "yozgat_sorgun",
         detsisCode = "41421900",
         bedCount = 250
     ),
@@ -7551,7 +7551,7 @@ val hospitals = listOf(
         id = "506",
         cityId = "yozgat",
         name = "Çekerek Şehit Harun Koçak Devlet Hastanesi",
-        district = "Çekerek",
+        districtId = "yozgat_cekerek",
         detsisCode = "71506168",
         bedCount = 30
     ),
@@ -7559,7 +7559,7 @@ val hospitals = listOf(
         id = "523",
         cityId = "yozgat",
         name = "Akdağmadeni Şehit Sinan Babacan Devlet Hastanesi",
-        district = "Akdağmadeni",
+        districtId = "yozgat_akdagmadeni",
         detsisCode = "75646568",
         bedCount = 50
     ),
@@ -7567,7 +7567,7 @@ val hospitals = listOf(
         id = "532",
         cityId = "yozgat",
         name = "Boğazlıyan Devlet Hastanesi",
-        district = "Boğazlıyan",
+        districtId = "yozgat_bogazliyan",
         detsisCode = "71776015",
         bedCount = 50
     ),
@@ -7575,7 +7575,7 @@ val hospitals = listOf(
         id = "196212",
         cityId = "yozgat",
         name = "Çayıralan İlçe Devlet Hastanesi",
-        district = "Çayıralan",
+        districtId = "yozgat_cayiralan",
         detsisCode = "41889075",
         bedCount = 10
     ),
@@ -7583,7 +7583,7 @@ val hospitals = listOf(
         id = "305272",
         cityId = "yozgat",
         name = "Saraykent Şehit Beytullah Yeşilay İlçe Devlet Hastanesi",
-        district = "Saraykent",
+        districtId = "yozgat_saraykent",
         detsisCode = "31696012",
         bedCount = 20
     ),
@@ -7591,7 +7591,7 @@ val hospitals = listOf(
         id = "600593",
         cityId = "yozgat",
         name = "Yozgat Şehir Hastanesi",
-        district = "Merkez",
+        districtId = "yozgat_merkez",
         detsisCode = "78535428",
         bedCount = 475
     ),
@@ -7599,7 +7599,7 @@ val hospitals = listOf(
         id = "305271",
         cityId = "yozgat",
         name = "Kadışehri İlçe Devlet Hastanesi",
-        district = "Kadışehri",
+        districtId = "yozgat_kadisehri",
         detsisCode = "",
         bedCount = 8
     ),
@@ -7607,7 +7607,7 @@ val hospitals = listOf(
         id = "305270",
         cityId = "yozgat",
         name = "Yozgat Aydıncık İlçe Devlet Hastanesi",
-        district = "Aydıncık",
+        districtId = "yozgat_aydincik",
         detsisCode = "",
         bedCount = 5
     ),
@@ -7615,7 +7615,7 @@ val hospitals = listOf(
         id = "188239",
         cityId = "yozgat",
         name = "Yenifakılı İlçe Devlet Hastanesi",
-        district = "Yenifakılı",
+        districtId = "yozgat_yenifakili",
         detsisCode = "",
         bedCount = 5
     ),
@@ -7623,7 +7623,7 @@ val hospitals = listOf(
         id = "220489",
         cityId = "yozgat",
         name = "Çandır İlçe Devlet Hastanesi",
-        district = "Çandır",
+        districtId = "yozgat_candir",
         detsisCode = "",
         bedCount = 5
     ),
@@ -7631,7 +7631,7 @@ val hospitals = listOf(
         id = "388",
         cityId = "zonguldak",
         name = "Karadeniz Ereğli Devlet Hastanesi",
-        district = "Ereğli",
+        districtId = "zonguldak_eregli",
         detsisCode = "75297816",
         bedCount = 336
     ),
@@ -7639,7 +7639,7 @@ val hospitals = listOf(
         id = "409",
         cityId = "zonguldak",
         name = "Çaycuma Devlet Hastanesi",
-        district = "Çaycuma",
+        districtId = "zonguldak_caycuma",
         detsisCode = "85237368",
         bedCount = 200
     ),
@@ -7647,7 +7647,7 @@ val hospitals = listOf(
         id = "418",
         cityId = "zonguldak",
         name = "Devrek Devlet Hastanesi",
-        district = "Devrek",
+        districtId = "zonguldak_devrek",
         detsisCode = "68586025",
         bedCount = 106
     ),
@@ -7655,7 +7655,7 @@ val hospitals = listOf(
         id = "11260",
         cityId = "zonguldak",
         name = "Alaplı Devlet Hastanesi",
-        district = "Alaplı",
+        districtId = "zonguldak_alapli",
         detsisCode = "69686936",
         bedCount = 32
     ),
@@ -7663,7 +7663,7 @@ val hospitals = listOf(
         id = "177640",
         cityId = "zonguldak",
         name = "Zonguldak Uzun Mehmet Göğüs ve Meslek Hastalıkları Hastanesi",
-        district = "Merkez",
+        districtId = "zonguldak_merkez",
         detsisCode = "91731443",
         bedCount = 130
     ),
@@ -7671,7 +7671,7 @@ val hospitals = listOf(
         id = "177646",
         cityId = "zonguldak",
         name = "Zonguldak Atatürk Devlet Hastanesi",
-        district = "Merkez",
+        districtId = "zonguldak_merkez",
         detsisCode = "62554058",
         bedCount = 503
     ),
@@ -7679,7 +7679,7 @@ val hospitals = listOf(
         id = "182511",
         cityId = "zonguldak",
         name = "Zonguldak Kadın Doğum ve Çocuk Hastalıkları Hastanesi",
-        district = "Merkez",
+        districtId = "zonguldak_merkez",
         detsisCode = "86062708",
         bedCount = 135
     ),
@@ -7687,7 +7687,7 @@ val hospitals = listOf(
         id = "311828",
         cityId = "zonguldak",
         name = "Gökçebey İlçe Devlet Hastanesi",
-        district = "Gökçebey",
+        districtId = "zonguldak_gokcebey",
         detsisCode = "64529694",
         bedCount = 20
     )

@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.menasy.merkezisagliksistemi.R
 import com.menasy.merkezisagliksistemi.databinding.FragmentPatientHomeBinding
 
 class PatientHomeFragment : Fragment() {
@@ -24,7 +26,16 @@ class PatientHomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.tvTitle.text = "Hasta Ana Sayfa"
+        binding.btnTakeAppointment.setOnClickListener {
+            navigateToAppointmentSearch()
+        }
+    }
+
+    private fun navigateToAppointmentSearch() {
+        val navController = findNavController()
+        if (navController.currentDestination?.id == R.id.patientHomeFragment) {
+            navController.navigate(R.id.action_patientHomeFragment_to_appointmentSearchFragment)
+        }
     }
 
     override fun onDestroyView() {
