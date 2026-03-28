@@ -35,7 +35,7 @@ class SplashFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         observeNavigationState()
-        viewModel.checkSession()
+        viewModel.initializeApp()
     }
 
     private fun observeNavigationState() {

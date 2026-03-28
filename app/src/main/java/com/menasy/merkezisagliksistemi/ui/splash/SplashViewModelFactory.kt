@@ -10,6 +10,7 @@ class SplashViewModelFactory : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(SplashViewModel::class.java)) {
             return SplashViewModel(
+                initializeReferenceDataUseCase = ServiceLocator.provideInitializeReferenceDataUseCase(),
                 getCurrentUserUseCase = ServiceLocator.provideGetCurrentUserUseCase()
             ) as T
         }

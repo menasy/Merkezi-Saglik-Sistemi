@@ -3,8 +3,11 @@ package com.menasy.merkezisagliksistemi.di
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.menasy.merkezisagliksistemi.data.remote.firebase.AuthDataSource
+import com.menasy.merkezisagliksistemi.data.remote.firebase.ReferenceDataSource
 import com.menasy.merkezisagliksistemi.data.repository.AuthRepository
+import com.menasy.merkezisagliksistemi.data.repository.ReferenceDataRepository
 import com.menasy.merkezisagliksistemi.domain.usecase.GetCurrentUserUseCase
+import com.menasy.merkezisagliksistemi.domain.usecase.InitializeReferenceDataUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.LoginUserUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.LogoutUserUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.RegisterPatientUseCase
@@ -26,8 +29,18 @@ object ServiceLocator {
         )
     }
 
+    private val referenceDataSource: ReferenceDataSource by lazy {
+        ReferenceDataSource(
+            firestore = firestore
+        )
+    }
+
     private val authRepository: AuthRepository by lazy {
         AuthRepository(authDataSource)
+    }
+
+    private val referenceDataRepository: ReferenceDataRepository by lazy {
+        ReferenceDataRepository(referenceDataSource)
     }
 
     fun provideLoginUserUseCase(): LoginUserUseCase {
@@ -44,5 +57,9 @@ object ServiceLocator {
 
     fun provideLogoutUserUseCase(): LogoutUserUseCase {
         return LogoutUserUseCase(authRepository)
+    }
+
+    fun provideInitializeReferenceDataUseCase(): InitializeReferenceDataUseCase {
+        return InitializeReferenceDataUseCase(referenceDataRepository)
     }
 }
