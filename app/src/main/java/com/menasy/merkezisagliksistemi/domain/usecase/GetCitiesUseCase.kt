@@ -6,7 +6,7 @@ import com.menasy.merkezisagliksistemi.data.repository.CityRepository
 class GetCitiesUseCase(
     private val cityRepository: CityRepository
 ) {
-    suspend operator fun invoke(): Result<List<City>> {
+    operator fun invoke(): List<City> {
         return cityRepository.getCities()
     }
 }

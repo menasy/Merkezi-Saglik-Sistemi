@@ -79,7 +79,9 @@ class AuthDataSource(
             val role = snapshot.getString("role")
                 ?: return Result.failure(AppException(AppErrorReason.USER_ROLE_NOT_FOUND))
 
-            Result.success(LoginResult(uid = uid, role = role))
+            val fullName = snapshot.getString("fullName") ?: ""
+
+            Result.success(LoginResult(uid = uid, role = role, fullName = fullName))
         } catch (e: Exception) {
             Result.failure(e)
         }

@@ -1,8 +1,8 @@
 package com.menasy.merkezisagliksistemi.ui.splash
 
 import androidx.lifecycle.viewModelScope
+import com.menasy.merkezisagliksistemi.di.SessionCache
 import com.menasy.merkezisagliksistemi.domain.usecase.GetCurrentUserUseCase
-import com.menasy.merkezisagliksistemi.domain.usecase.InitializeReferenceDataUseCase
 import com.menasy.merkezisagliksistemi.ui.common.base.BaseViewModel
 import com.menasy.merkezisagliksistemi.ui.common.error.AppErrorReason
 import com.menasy.merkezisagliksistemi.ui.common.error.OperationType
@@ -19,7 +19,6 @@ sealed class SplashNavigationState {
 }
 
 class SplashViewModel(
-    private val initializeReferenceDataUseCase: InitializeReferenceDataUseCase,
     private val getCurrentUserUseCase: GetCurrentUserUseCase
 ) : BaseViewModel() {
 
@@ -29,17 +28,6 @@ class SplashViewModel(
 
     fun initializeApp() {
         viewModelScope.launch {
-            val seedResult = initializeReferenceDataUseCase()
-
-            if (seedResult.isFailure) {
-                publishError(
-                    throwable = seedResult.exceptionOrNull(),
-                    operationType = OperationType.FETCH_DATA
-                )
-                _navigationState.value = SplashNavigationState.GoToLogin
-                return@launch
-            }
-
             checkSession()
         }
     }
@@ -51,26 +39,42 @@ class SplashViewModel(
             return
         }
 
-        val roleResult = getCurrentUserUseCase.getCurrentUserRole()
+        if (SessionCache.isPopulated && SessionCache.userId == currentUserId) {
+            navigateByRole(SessionCache.role)
+            return
+        }
 
-        _navigationState.value = roleResult.fold(
+        val roleResult = getCurrentUserUseCase.getCurrentUserRole()
+        val fullNameResult = getCurrentUserUseCase.getCurrentUserFullName()
+
+        roleResult.fold(
             onSuccess = { role ->
-                when (role) {
-                    "patient" -> SplashNavigationState.GoToPatientHome
-                    "doctor" -> SplashNavigationState.GoToDoctorHome
-                    else -> {
-                        publishError(AppErrorReason.INVALID_USER_ROLE)
-                        SplashNavigationState.GoToLogin
-                    }
-                }
+                val fullName = fullNameResult.getOrElse { "" }
+                SessionCache.populate(
+                    userId = currentUserId,
+                    role = role,
+                    fullName = fullName
+                )
+                navigateByRole(role)
             },
             onFailure = { exception ->
                 publishError(
                     throwable = exception,
                     operationType = OperationType.SESSION
                 )
-                SplashNavigationState.GoToLogin
+                _navigationState.value = SplashNavigationState.GoToLogin
             }
         )
+    }
+
+    private fun navigateByRole(role: String?) {
+        _navigationState.value = when (role) {
+            "patient" -> SplashNavigationState.GoToPatientHome
+            "doctor" -> SplashNavigationState.GoToDoctorHome
+            else -> {
+                publishError(AppErrorReason.INVALID_USER_ROLE)
+                SplashNavigationState.GoToLogin
+            }
+        }
     }
 }

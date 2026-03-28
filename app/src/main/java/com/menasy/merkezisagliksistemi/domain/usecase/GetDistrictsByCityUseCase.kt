@@ -1,12 +1,12 @@
 package com.menasy.merkezisagliksistemi.domain.usecase
 
 import com.menasy.merkezisagliksistemi.data.model.District
-import com.menasy.merkezisagliksistemi.data.repository.HospitalRepository
+import com.menasy.merkezisagliksistemi.data.repository.DistrictRepository
 
 class GetDistrictsByCityUseCase(
-    private val hospitalRepository: HospitalRepository
+    private val districtRepository: DistrictRepository
 ) {
-    suspend operator fun invoke(cityId: String): Result<List<District>> {
-        return hospitalRepository.getDistrictsByCityId(cityId)
+    operator fun invoke(cityId: String): List<District> {
+        return districtRepository.getDistrictsByCityId(cityId)
     }
 }

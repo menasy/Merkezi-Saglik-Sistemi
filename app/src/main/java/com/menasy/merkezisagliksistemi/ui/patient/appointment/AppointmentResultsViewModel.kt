@@ -61,110 +61,100 @@ class AppointmentResultsViewModel(
                 it.copy(isLoading = true, emptyMessage = null)
             }
 
-            val hospitalsResult = getHospitalsByDistrictUseCase(
-                cityId = args.cityId,
-                districtId = args.districtId
-            )
-
-            val hospitalsRaw = hospitalsResult.getOrElse { error ->
-                onDataLoadFailure(error)
-                return@launch
-            }
-            val hospitals = if (args.branchId.isNullOrBlank()) {
-                hospitalsRaw
-            } else {
-                hospitalsRaw.filter { hospital ->
-                    hospital.branchIds.isEmpty() || args.branchId in hospital.branchIds
+            try {
+                val hospitalsRaw = getHospitalsByDistrictUseCase(
+                    cityId = args.cityId,
+                    districtId = args.districtId
+                )
+                val hospitals = if (args.branchId.isNullOrBlank()) {
+                    hospitalsRaw
+                } else {
+                    hospitalsRaw.filter { hospital ->
+                        hospital.branchIds.isEmpty() || args.branchId in hospital.branchIds
+                    }
                 }
-            }
 
-            if (hospitals.isEmpty()) {
+                if (hospitals.isEmpty()) {
+                    _uiState.update {
+                        it.copy(
+                            isLoading = false,
+                            appointments = emptyList(),
+                            emptyMessage = "Seçilen filtrelere uygun hastane bulunamadı.",
+                            resultSummary = "0 uygun randevu bulundu"
+                        )
+                    }
+                    publishInfo(
+                        title = "Sonuç Bulunamadı",
+                        description = "Seçilen branş için uygun hastane bulunamadı."
+                    )
+                    isLoaded = true
+                    return@launch
+                }
+
+                val branches = getBranchesUseCase()
+
+                val doctors = if (!args.hospitalId.isNullOrBlank()) {
+                    getDoctorsUseCase(
+                        hospitalId = args.hospitalId,
+                        branchId = args.branchId
+                    )
+                } else {
+                    val hospitalIds = hospitals.map { it.id }
+                    getDoctorsUseCase.byHospitalIds(
+                        hospitalIds = hospitalIds,
+                        branchId = args.branchId
+                    )
+                }
+
+                val filteredDoctors = doctors
+                    .filter { doctor -> args.doctorId == null || doctor.id == args.doctorId }
+                    .distinctBy { doctor -> doctor.id }
+
+                if (filteredDoctors.isEmpty()) {
+                    _uiState.update {
+                        it.copy(
+                            isLoading = false,
+                            appointments = emptyList(),
+                            emptyMessage = "Seçilen filtrelere uygun randevu bulunamadı.",
+                            resultSummary = "0 uygun randevu bulundu"
+                        )
+                    }
+                    publishInfo(
+                        title = "Randevu Bulunamadı",
+                        description = "Seçilen filtrelere uygun randevu bulunamadı."
+                    )
+                    isLoaded = true
+                    return@launch
+                }
+
+                val hospitalNameMap = hospitals.associateBy({ it.id }, { it.name })
+                val branchNameMap = branches.associateBy({ it.id }, { it.name })
+                val startDate = millisToLocalDate(args.startDateMillis)
+                val endDate = millisToLocalDate(args.endDateMillis)
+
+                val appointmentItems = filteredDoctors
+                    .map { doctor ->
+                        doctor.toAppointmentResult(
+                            startDate = startDate,
+                            endDate = endDate,
+                            hospitalName = hospitalNameMap[doctor.hospitalId] ?: "Hastane Bilgisi Yok",
+                            branchName = branchNameMap[doctor.branchId] ?: "Poliklinik Bilgisi Yok"
+                        )
+                    }
+                    .sortedBy { item -> item.appointmentDateMillis }
+
                 _uiState.update {
                     it.copy(
                         isLoading = false,
-                        appointments = emptyList(),
-                        emptyMessage = "Seçilen filtrelere uygun hastane bulunamadı.",
-                        resultSummary = "0 uygun randevu bulundu"
+                        appointments = appointmentItems,
+                        resultSummary = "${appointmentItems.size} uygun randevu bulundu",
+                        emptyMessage = null
                     )
                 }
-                publishInfo(
-                    title = "Sonuç Bulunamadı",
-                    description = "Seçilen branş için uygun hastane bulunamadı."
-                )
                 isLoaded = true
-                return@launch
-            }
-
-            val branchesResult = getBranchesUseCase()
-            val branches = branchesResult.getOrElse { error ->
+            } catch (error: Exception) {
                 onDataLoadFailure(error)
-                return@launch
             }
-
-            val doctorsResult = if (!args.hospitalId.isNullOrBlank()) {
-                getDoctorsUseCase(
-                    hospitalId = args.hospitalId,
-                    branchId = args.branchId
-                )
-            } else {
-                val hospitalIds = hospitals.map { it.id }
-                getDoctorsUseCase.byHospitalIds(
-                    hospitalIds = hospitalIds,
-                    branchId = args.branchId
-                )
-            }
-
-            val doctors = doctorsResult.getOrElse { error ->
-                onDataLoadFailure(error)
-                return@launch
-            }
-
-            val filteredDoctors = doctors
-                .filter { doctor -> args.doctorId == null || doctor.id == args.doctorId }
-                .distinctBy { doctor -> doctor.id }
-
-            if (filteredDoctors.isEmpty()) {
-                _uiState.update {
-                    it.copy(
-                        isLoading = false,
-                        appointments = emptyList(),
-                        emptyMessage = "Seçilen filtrelere uygun randevu bulunamadı.",
-                        resultSummary = "0 uygun randevu bulundu"
-                    )
-                }
-                publishInfo(
-                    title = "Randevu Bulunamadı",
-                    description = "Seçilen filtrelere uygun randevu bulunamadı."
-                )
-                isLoaded = true
-                return@launch
-            }
-
-            val hospitalNameMap = hospitals.associateBy({ it.id }, { it.name })
-            val branchNameMap = branches.associateBy({ it.id }, { it.name })
-            val startDate = millisToLocalDate(args.startDateMillis)
-            val endDate = millisToLocalDate(args.endDateMillis)
-
-            val appointmentItems = filteredDoctors
-                .map { doctor ->
-                    doctor.toAppointmentResult(
-                        startDate = startDate,
-                        endDate = endDate,
-                        hospitalName = hospitalNameMap[doctor.hospitalId] ?: "Hastane Bilgisi Yok",
-                        branchName = branchNameMap[doctor.branchId] ?: "Poliklinik Bilgisi Yok"
-                    )
-                }
-                .sortedBy { item -> item.appointmentDateMillis }
-
-            _uiState.update {
-                it.copy(
-                    isLoading = false,
-                    appointments = appointmentItems,
-                    resultSummary = "${appointmentItems.size} uygun randevu bulundu",
-                    emptyMessage = null
-                )
-            }
-            isLoaded = true
         }
     }
 

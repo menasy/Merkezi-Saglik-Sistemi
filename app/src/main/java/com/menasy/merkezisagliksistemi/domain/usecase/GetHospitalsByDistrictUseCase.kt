@@ -6,10 +6,7 @@ import com.menasy.merkezisagliksistemi.data.repository.HospitalRepository
 class GetHospitalsByDistrictUseCase(
     private val hospitalRepository: HospitalRepository
 ) {
-    suspend operator fun invoke(
-        cityId: String,
-        districtId: String?
-    ): Result<List<Hospital>> {
+    operator fun invoke(cityId: String, districtId: String?): List<Hospital> {
         return hospitalRepository.getHospitals(
             cityId = cityId,
             districtId = districtId

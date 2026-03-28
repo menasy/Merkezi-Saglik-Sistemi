@@ -65,25 +65,19 @@ class AppointmentSearchViewModel(
         viewModelScope.launch {
             _uiState.update { it.copy(isLoading = true) }
 
-            val citiesResult = getCitiesUseCase()
-            val branchesResult = getBranchesUseCase()
+            try {
+                val cities = getCitiesUseCase()
+                val branches = getBranchesUseCase()
 
-            val cities = citiesResult.getOrElse { error ->
+                _uiState.update {
+                    it.copy(
+                        isLoading = false,
+                        cities = cities,
+                        branches = branches
+                    )
+                }
+            } catch (error: Exception) {
                 onDataLoadFailure(error)
-                return@launch
-            }
-
-            val branches = branchesResult.getOrElse { error ->
-                onDataLoadFailure(error)
-                return@launch
-            }
-
-            _uiState.update {
-                it.copy(
-                    isLoading = false,
-                    cities = cities,
-                    branches = branches
-                )
             }
         }
     }
@@ -104,14 +98,13 @@ class AppointmentSearchViewModel(
                 )
             }
 
-            val districtsResult = getDistrictsByCityUseCase(cityId)
-            val districts = districtsResult.getOrElse { error ->
+            try {
+                val districts = getDistrictsByCityUseCase(cityId)
+                _uiState.update { it.copy(districts = districts) }
+                refreshHospitals()
+            } catch (error: Exception) {
                 onDataLoadFailure(error)
-                return@launch
             }
-
-            _uiState.update { it.copy(districts = districts) }
-            refreshHospitals()
         }
     }
 
@@ -221,37 +214,34 @@ class AppointmentSearchViewModel(
 
         _uiState.update { it.copy(isLoading = true) }
 
-        val hospitalsResult = getHospitalsByDistrictUseCase(
-            cityId = cityId,
-            districtId = currentState.selectedDistrictId
-        )
+        try {
+            val hospitals = getHospitalsByDistrictUseCase(
+                cityId = cityId,
+                districtId = currentState.selectedDistrictId
+            )
 
-        hospitalsResult.fold(
-            onSuccess = { hospitals ->
-                val selectedBranchId = currentState.selectedBranchId
-                val filteredHospitals = if (selectedBranchId.isNullOrBlank()) {
-                    hospitals
-                } else {
-                    hospitals.filter { hospital ->
-                        hospital.branchIds.isEmpty() || selectedBranchId in hospital.branchIds
-                    }
+            val selectedBranchId = currentState.selectedBranchId
+            val filteredHospitals = if (selectedBranchId.isNullOrBlank()) {
+                hospitals
+            } else {
+                hospitals.filter { hospital ->
+                    hospital.branchIds.isEmpty() || selectedBranchId in hospital.branchIds
                 }
-
-                _uiState.update {
-                    it.copy(
-                        isLoading = false,
-                        hospitals = filteredHospitals,
-                        selectedHospitalId = null,
-                        selectedDoctorId = null,
-                        doctors = emptyList(),
-                        isDoctorFieldEnabled = false
-                    )
-                }
-            },
-            onFailure = { error ->
-                onDataLoadFailure(error)
             }
-        )
+
+            _uiState.update {
+                it.copy(
+                    isLoading = false,
+                    hospitals = filteredHospitals,
+                    selectedHospitalId = null,
+                    selectedDoctorId = null,
+                    doctors = emptyList(),
+                    isDoctorFieldEnabled = false
+                )
+            }
+        } catch (error: Exception) {
+            onDataLoadFailure(error)
+        }
     }
 
     private suspend fun refreshDoctors() {
@@ -271,32 +261,29 @@ class AppointmentSearchViewModel(
 
         _uiState.update { it.copy(isLoading = true) }
 
-        val doctorsResult = getDoctorsUseCase(
-            hospitalId = hospitalId,
-            branchId = currentState.selectedBranchId
-        )
+        try {
+            val doctors = getDoctorsUseCase(
+                hospitalId = hospitalId,
+                branchId = currentState.selectedBranchId
+            )
 
-        doctorsResult.fold(
-            onSuccess = { doctors ->
-                _uiState.update {
-                    it.copy(
-                        isLoading = false,
-                        doctors = doctors,
-                        selectedDoctorId = null
-                    )
-                }
-            },
-            onFailure = { error ->
-                _uiState.update {
-                    it.copy(
-                        isLoading = false,
-                        doctors = emptyList(),
-                        selectedDoctorId = null
-                    )
-                }
-                publishError(error, OperationType.FETCH_DATA)
+            _uiState.update {
+                it.copy(
+                    isLoading = false,
+                    doctors = doctors,
+                    selectedDoctorId = null
+                )
             }
-        )
+        } catch (error: Exception) {
+            _uiState.update {
+                it.copy(
+                    isLoading = false,
+                    doctors = emptyList(),
+                    selectedDoctorId = null
+                )
+            }
+            publishError(error, OperationType.FETCH_DATA)
+        }
     }
 
     private fun validateDateRange(startDateMillis: Long, endDateMillis: Long): AppErrorReason? {
