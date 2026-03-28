@@ -21,4 +21,10 @@
         <item name="android:windowBackground">@color/surface</item>
     </style>
 
+    <style name="TextAppearance.MerkeziSaglik.BottomMenuLabel" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/bottom_menu_item_idle_text</item>
+    </style>
+
 </resources>

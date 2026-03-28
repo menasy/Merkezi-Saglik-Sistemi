@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/radioInputs"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_bottom_menu_container"
+    android:elevation="8dp"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:padding="6dp">
+
+    <LinearLayout
+        android:id="@+id/surfaceHome"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="3dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_bottom_menu_item_idle"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="4dp"
+        android:paddingVertical="5dp">
+
+        <ImageView
+            android:id="@+id/ivHome"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:contentDescription="@string/cd_bottom_menu_home"
+            android:src="@drawable/ic_bottom_home_24"
+            android:tint="@color/bottom_menu_item_idle_text" />
+
+        <TextView
+            android:id="@+id/tvHome"
+            style="@style/TextAppearance.MerkeziSaglik.BottomMenuLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:maxLines="1"
+            android:text="@string/bottom_menu_home" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/surfaceAppointments"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginHorizontal="3dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_bottom_menu_item_idle"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="4dp"
+        android:paddingVertical="5dp">
+
+        <ImageView
+            android:id="@+id/ivAppointments"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:contentDescription="@string/cd_bottom_menu_appointments"
+            android:src="@drawable/ic_bottom_appointments_24"
+            android:tint="@color/bottom_menu_item_idle_text" />
+
+        <TextView
+            android:id="@+id/tvAppointments"
+            style="@style/TextAppearance.MerkeziSaglik.BottomMenuLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:maxLines="1"
+            android:text="@string/bottom_menu_appointments" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/surfacePrescriptions"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginHorizontal="3dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_bottom_menu_item_idle"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="4dp"
+        android:paddingVertical="5dp">
+
+        <ImageView
+            android:id="@+id/ivPrescriptions"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:contentDescription="@string/cd_bottom_menu_prescriptions"
+            android:src="@drawable/ic_bottom_prescriptions_24"
+            android:tint="@color/bottom_menu_item_idle_text" />
+
+        <TextView
+            android:id="@+id/tvPrescriptions"
+            style="@style/TextAppearance.MerkeziSaglik.BottomMenuLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:maxLines="1"
+            android:text="@string/bottom_menu_prescriptions" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/surfaceAccount"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="3dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_bottom_menu_item_idle"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="4dp"
+        android:paddingVertical="5dp">
+
+        <ImageView
+            android:id="@+id/ivAccount"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:contentDescription="@string/cd_bottom_menu_account"
+            android:src="@drawable/ic_bottom_account_24"
+            android:tint="@color/bottom_menu_item_idle_text" />
+
+        <TextView
+            android:id="@+id/tvAccount"
+            style="@style/TextAppearance.MerkeziSaglik.BottomMenuLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:maxLines="1"
+            android:text="@string/bottom_menu_account" />
+    </LinearLayout>
+
+</LinearLayout>

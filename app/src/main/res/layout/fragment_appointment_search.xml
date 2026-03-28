@@ -41,7 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="Tarih ve filtre seçerek uygun randevuyu bulun"
+                android:text="Tarih ve filtreleri seçerek uygun randevuyu bulun"
                 android:textAppearance="?attr/textAppearanceBodyMedium"
                 android:textColor="@color/text_secondary" />
 
@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
                 app:cardBackgroundColor="@color/surface"
-                app:cardCornerRadius="14dp"
+                app:cardCornerRadius="16dp"
                 app:cardElevation="0dp"
                 app:strokeColor="@color/primary_light"
                 app:strokeWidth="1dp">
@@ -84,6 +84,8 @@
                         android:text="Tarih Seçiniz"
                         android:textAllCaps="false"
                         android:textColor="@color/text_primary"
+                        app:icon="@android:drawable/ic_menu_my_calendar"
+                        app:iconTint="@color/primary_dark"
                         app:strokeColor="@color/primary_light" />
 
                     <TextView
@@ -129,7 +131,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 app:cardBackgroundColor="@color/surface"
-                app:cardCornerRadius="14dp"
+                app:cardCornerRadius="16dp"
                 app:cardElevation="0dp"
                 app:strokeColor="@color/primary_light"
                 app:strokeWidth="1dp">
@@ -163,7 +165,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:hint="İl *">
+                        android:hint="İl *"
+                        app:startIconDrawable="@drawable/ic_city_24"
+                        app:startIconTint="@color/primary_dark">
 
                         <com.google.android.material.textfield.MaterialAutoCompleteTextView
                             android:id="@+id/actCity"
@@ -181,7 +185,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:hint="İlçe (Opsiyonel)">
+                        android:hint="İlçe (Opsiyonel)"
+                        app:startIconDrawable="@drawable/ic_district_24"
+                        app:startIconTint="@color/secondary">
 
                         <com.google.android.material.textfield.MaterialAutoCompleteTextView
                             android:id="@+id/actDistrict"
@@ -199,7 +205,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:hint="Poliklinik *">
+                        android:hint="Poliklinik *"
+                        app:startIconDrawable="@drawable/ic_branch_24"
+                        app:startIconTint="@color/primary">
 
                         <com.google.android.material.textfield.MaterialAutoCompleteTextView
                             android:id="@+id/actBranch"
@@ -217,7 +225,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:hint="Hastane (Opsiyonel)">
+                        android:hint="Hastane (Opsiyonel)"
+                        app:startIconDrawable="@drawable/ic_hospital_24"
+                        app:startIconTint="@color/error">
 
                         <com.google.android.material.textfield.MaterialAutoCompleteTextView
                             android:id="@+id/actHospital"
@@ -235,7 +245,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:hint="Hekim (Opsiyonel)">
+                        android:hint="Hekim (Opsiyonel)"
+                        app:startIconDrawable="@drawable/ic_doctor_24"
+                        app:startIconTint="@color/primary_dark">
 
                         <com.google.android.material.textfield.MaterialAutoCompleteTextView
                             android:id="@+id/actDoctor"

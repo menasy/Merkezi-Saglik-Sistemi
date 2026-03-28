@@ -113,9 +113,7 @@ class DoctorDataSource(
 
             // Apply branch filter if specified
             val finalDoctors = if (aliasBranchIds.isNotEmpty()) {
-                val filtered = allDoctors.filter { it.branchId in aliasBranchIds }
-                // Return filtered if not empty, otherwise return all as fallback
-                filtered.ifEmpty { allDoctors }
+                allDoctors.filter { it.branchId in aliasBranchIds }
             } else {
                 allDoctors
             }
@@ -144,9 +142,7 @@ class DoctorDataSource(
         // If branchId specified, filter by branch aliases
         if (!branchId.isNullOrBlank()) {
             val aliasBranchIds = resolveBranchAliasIdsLocally(branchId)
-            val filteredByBranch = allDoctors.filter { it.branchId in aliasBranchIds }
-            // Return filtered if not empty, otherwise return all doctors as fallback
-            return filteredByBranch.ifEmpty { allDoctors }
+            return allDoctors.filter { it.branchId in aliasBranchIds }
         }
 
         // No branch filter - return all doctors from this hospital

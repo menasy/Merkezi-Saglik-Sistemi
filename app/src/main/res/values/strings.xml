@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">MerkeziSaglikSistemi</string>
+    <string name="bottom_menu_home">Ana Sayfa</string>
+    <string name="bottom_menu_appointments">Randevularım</string>
+    <string name="bottom_menu_prescriptions">Reçetelerim</string>
+    <string name="bottom_menu_account">Hesabım</string>
+    <string name="cd_bottom_menu_home">Ana sayfa sekmesi</string>
+    <string name="cd_bottom_menu_appointments">Randevularım sekmesi</string>
+    <string name="cd_bottom_menu_prescriptions">Reçetelerim sekmesi</string>
+    <string name="cd_bottom_menu_account">Hesabım sekmesi</string>
+    <string name="appointments_todo_title">Randevularım</string>
+    <string name="appointments_todo_description">TODO: Geçmiş ve yaklaşan randevular bu ekranda listelenecek.</string>
+    <string name="appointments_todo_hint">Şimdilik mevcut randevu alma akışını aşağıdaki butondan başlatabilirsin.</string>
+    <string name="appointments_start_flow">Randevu Akışını Başlat</string>
+    <string name="prescriptions_todo_title">Reçetelerim</string>
+    <string name="prescriptions_todo_description">TODO: Aktif ve geçmiş reçeteler bu alanda görüntülenecek.</string>
+    <string name="prescriptions_todo_hint">Bu alan ilerleyen sprintte filtreleme ve detay sayfası ile genişletilecek.</string>
+    <string name="account_todo_title">Hesabım</string>
+    <string name="account_todo_description">TODO: Profil bilgileri, güvenlik ve çıkış işlemleri bu ekrana taşınacak.</string>
+    <string name="account_todo_hint">Bu bölümde kısa süre içinde kişisel bilgiler ve tercih ayarları yer alacak.</string>
 </resources>

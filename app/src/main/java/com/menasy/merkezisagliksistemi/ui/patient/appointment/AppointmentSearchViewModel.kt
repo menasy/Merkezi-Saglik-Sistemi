@@ -17,6 +17,8 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import java.time.LocalDate
+import java.time.ZoneId
 import java.util.concurrent.TimeUnit
 
 data class AppointmentSearchCriteria(
@@ -177,6 +179,12 @@ class AppointmentSearchViewModel(
         startDateMillis: Long,
         endDateMillis: Long
     ): Result<Unit> {
+        val todayStartMillis = getTodayStartMillis()
+
+        if (startDateMillis < todayStartMillis) {
+            return Result.failure(Exception("Geçmiş tarihte randevu araması yapılamaz"))
+        }
+
         if (endDateMillis < startDateMillis) {
             return Result.failure(Exception("Bitiş tarihi başlangıç tarihinden önce olamaz"))
         }
@@ -206,6 +214,11 @@ class AppointmentSearchViewModel(
             ?: return Result.failure(Exception("Başlangıç tarihi seçilmelidir"))
         val endDate = state.endDateMillis
             ?: return Result.failure(Exception("Bitiş tarihi seçilmelidir"))
+
+        val todayStartMillis = getTodayStartMillis()
+        if (startDate < todayStartMillis) {
+            return Result.failure(Exception("Geçmiş tarihte randevu araması yapılamaz"))
+        }
 
         val selectedDays = TimeUnit.MILLISECONDS.toDays(endDate - startDate) + 1
         if (selectedDays > MAX_RANGE_DAYS) {
@@ -306,6 +319,13 @@ class AppointmentSearchViewModel(
                 }
             }
         )
+    }
+
+    private fun getTodayStartMillis(): Long {
+        return LocalDate.now()
+            .atStartOfDay(ZoneId.systemDefault())
+            .toInstant()
+            .toEpochMilli()
     }
 
     private companion object {

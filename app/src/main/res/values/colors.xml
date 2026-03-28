@@ -12,6 +12,15 @@
     <color name="background">#F9F9F9</color>
     <color name="surface">#FFFFFF</color>
 
+    <color name="bottom_menu_container_start">#E6E6E6</color>
+    <color name="bottom_menu_container_end">#FFFFFF</color>
+    <color name="bottom_menu_item_idle_start">#FFFFFF</color>
+    <color name="bottom_menu_item_idle_end">#E6E6E6</color>
+    <color name="bottom_menu_item_selected_start">#3B82F6</color>
+    <color name="bottom_menu_item_selected_end">#2563EB</color>
+    <color name="bottom_menu_item_idle_text">#2D3748</color>
+    <color name="bottom_menu_item_selected_text">#FFFFFF</color>
+
     <color name="text_primary">#1A1A1A</color>
     <color name="text_secondary">#666666</color>
 </resources>

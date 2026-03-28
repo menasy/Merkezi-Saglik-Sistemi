@@ -66,6 +66,26 @@
     </fragment>
 
     <fragment
+        android:id="@+id/patientAppointmentsFragment"
+        android:name="com.menasy.merkezisagliksistemi.ui.patient.appointments.PatientAppointmentsFragment"
+        android:label="PatientAppointments">
+
+        <action
+            android:id="@+id/action_patientAppointmentsFragment_to_appointmentSearchFragment"
+            app:destination="@id/appointmentSearchFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/patientPrescriptionsFragment"
+        android:name="com.menasy.merkezisagliksistemi.ui.patient.prescriptions.PatientPrescriptionsFragment"
+        android:label="PatientPrescriptions" />
+
+    <fragment
+        android:id="@+id/patientAccountFragment"
+        android:name="com.menasy.merkezisagliksistemi.ui.patient.account.PatientAccountFragment"
+        android:label="PatientAccount" />
+
+    <fragment
         android:id="@+id/appointmentSearchFragment"
         android:name="com.menasy.merkezisagliksistemi.ui.patient.appointment.AppointmentSearchFragment"
         android:label="AppointmentSearch">

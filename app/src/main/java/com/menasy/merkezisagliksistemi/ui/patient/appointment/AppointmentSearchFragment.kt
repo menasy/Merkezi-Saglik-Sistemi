@@ -10,6 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.datepicker.CalendarConstraints
+import com.google.android.material.datepicker.DateValidatorPointForward
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.menasy.merkezisagliksistemi.R
 import com.menasy.merkezisagliksistemi.databinding.FragmentAppointmentSearchBinding
@@ -224,9 +226,15 @@ class AppointmentSearchFragment : Fragment() {
     }
 
     private fun showDateRangePicker() {
+        val todayMillis = System.currentTimeMillis()
+
+        val constraintsBuilder = CalendarConstraints.Builder()
+            .setValidator(DateValidatorPointForward.from(todayMillis))
+
         val picker = MaterialDatePicker.Builder.dateRangePicker()
             .setTitleText("Tarih aralığı seçin")
             .setTheme(R.style.ThemeOverlay_MerkeziSaglik_DateRangePicker)
+            .setCalendarConstraints(constraintsBuilder.build())
             .build()
 
         picker.addOnPositiveButtonClickListener { range ->
