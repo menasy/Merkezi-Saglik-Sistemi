@@ -24,6 +24,7 @@ class PatientBottomMenuView @JvmOverloads constructor(
 
     enum class Tab {
         HOME,
+        SEARCH,
         APPOINTMENTS,
         PRESCRIPTIONS,
         ACCOUNT
@@ -49,6 +50,11 @@ class PatientBottomMenuView @JvmOverloads constructor(
             surface = binding.surfaceHome,
             icon = binding.ivHome,
             label = binding.tvHome
+        ),
+        Tab.SEARCH to MenuItem(
+            surface = binding.surfaceSearch,
+            icon = binding.ivSearch,
+            label = binding.tvSearch
         ),
         Tab.APPOINTMENTS to MenuItem(
             surface = binding.surfaceAppointments,
@@ -154,11 +160,11 @@ class PatientBottomMenuView @JvmOverloads constructor(
         fun destinationToTab(@IdRes destinationId: Int): Tab? {
             return when (destinationId) {
                 R.id.patientHomeFragment -> Tab.HOME
-                R.id.patientAppointmentsFragment,
                 R.id.appointmentSearchFragment,
                 R.id.appointmentResultsFragment,
                 R.id.doctorAvailabilityFragment,
-                R.id.appointmentConfirmationFragment -> Tab.APPOINTMENTS
+                R.id.appointmentConfirmationFragment -> Tab.SEARCH
+                R.id.patientAppointmentsFragment -> Tab.APPOINTMENTS
                 R.id.patientPrescriptionsFragment -> Tab.PRESCRIPTIONS
                 R.id.patientAccountFragment -> Tab.ACCOUNT
                 else -> null
@@ -169,6 +175,7 @@ class PatientBottomMenuView @JvmOverloads constructor(
         fun tabToDestination(tab: Tab): Int {
             return when (tab) {
                 Tab.HOME -> R.id.patientHomeFragment
+                Tab.SEARCH -> R.id.appointmentSearchFragment
                 Tab.APPOINTMENTS -> R.id.patientAppointmentsFragment
                 Tab.PRESCRIPTIONS -> R.id.patientPrescriptionsFragment
                 Tab.ACCOUNT -> R.id.patientAccountFragment

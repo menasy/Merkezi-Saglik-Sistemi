@@ -15,6 +15,21 @@ class DoctorDaySlotsAdapter(
     private val onSlotSelected: (Int, String) -> Unit
 ) : ListAdapter<DayAvailabilityUiModel, DoctorDaySlotsAdapter.DaySlotsViewHolder>(DaySlotsDiffCallback()) {
 
+    init {
+        setHasStableIds(true)
+    }
+
+    private enum class SlotVisualState {
+        AVAILABLE,
+        SELECTED,
+        OCCUPIED
+    }
+
+    data class SelectionPayload(
+        val hourSelectionChanged: Boolean,
+        val slotSelectionChanged: Boolean
+    )
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DaySlotsViewHolder {
         val binding = ItemDoctorDaySlotsBinding.inflate(
             LayoutInflater.from(parent.context),
@@ -28,6 +43,23 @@ class DoctorDaySlotsAdapter(
         holder.bind(getItem(position))
     }
 
+    override fun onBindViewHolder(
+        holder: DaySlotsViewHolder,
+        position: Int,
+        payloads: MutableList<Any>
+    ) {
+        val selectionPayload = payloads.lastOrNull { it is SelectionPayload } as? SelectionPayload
+        if (selectionPayload == null) {
+            holder.bind(getItem(position))
+            return
+        }
+        holder.bindSelection(getItem(position), selectionPayload)
+    }
+
+    override fun getItemId(position: Int): Long {
+        return getItem(position).dateMillis
+    }
+
     inner class DaySlotsViewHolder(
         private val binding: ItemDoctorDaySlotsBinding
     ) : RecyclerView.ViewHolder(binding.root) {
@@ -37,6 +69,18 @@ class DoctorDaySlotsAdapter(
             binding.tvDaySubtitle.text = item.daySubtitle
             bindHourChips(item)
             bindSlotChips(item)
+        }
+
+        fun bindSelection(item: DayAvailabilityUiModel, payload: SelectionPayload) {
+            if (payload.hourSelectionChanged) {
+                bindHourChips(item)
+                bindSlotChips(item)
+                return
+            }
+
+            if (payload.slotSelectionChanged) {
+                updateSlotSelectionOnly(item)
+            }
         }
 
         private fun bindHourChips(item: DayAvailabilityUiModel) {
@@ -76,13 +120,16 @@ class DoctorDaySlotsAdapter(
             binding.chipGroupSlots.removeAllViews()
 
             selectedHour.slots.forEach { slot ->
+                val visualState = resolveSlotVisualState(
+                    isAvailable = slot.isAvailable,
+                    isSelected = item.selectedSlotLabel == slot.timeLabel
+                )
                 val slotChip = createSlotChip().apply {
                     text = slot.timeLabel
-                    isEnabled = slot.isAvailable
-                    isChecked = item.selectedSlotLabel == slot.timeLabel
+                    applyVisualState(visualState)
 
                     setOnClickListener {
-                        if (!slot.isAvailable) return@setOnClickListener
+                        if (visualState == SlotVisualState.OCCUPIED) return@setOnClickListener
                         val currentPosition = this@DaySlotsViewHolder.adapterPosition
                         if (currentPosition == RecyclerView.NO_POSITION) return@setOnClickListener
                         onSlotSelected(currentPosition, slot.timeLabel)
@@ -92,12 +139,83 @@ class DoctorDaySlotsAdapter(
             }
         }
 
+        private fun updateSlotSelectionOnly(item: DayAvailabilityUiModel) {
+            val selectedHourIndex = item.selectedHourIndex ?: run {
+                bindSlotChips(item)
+                return
+            }
+            val selectedHour = item.hourBlocks.getOrNull(selectedHourIndex) ?: run {
+                bindSlotChips(item)
+                return
+            }
+
+            if (binding.chipGroupSlots.childCount != selectedHour.slots.size) {
+                bindSlotChips(item)
+                return
+            }
+
+            binding.tvSlotLabel.visibility = View.VISIBLE
+            binding.chipGroupSlots.visibility = View.VISIBLE
+
+            selectedHour.slots.forEachIndexed { index, slot ->
+                val chip = binding.chipGroupSlots.getChildAt(index) as? Chip ?: run {
+                    bindSlotChips(item)
+                    return
+                }
+                chip.text = slot.timeLabel
+                val visualState = resolveSlotVisualState(
+                    isAvailable = slot.isAvailable,
+                    isSelected = item.selectedSlotLabel == slot.timeLabel
+                )
+                chip.applyVisualState(visualState)
+            }
+        }
+
         private fun createHourChip(): Chip {
-            return Chip(binding.root.context, null, R.style.    Widget_MerkeziSaglik_Chip_Hour)
+            return Chip(binding.root.context, null, R.style.Widget_MerkeziSaglik_Chip_Hour)
         }
 
         private fun createSlotChip(): Chip {
             return Chip(binding.root.context, null, R.style.Widget_MerkeziSaglik_Chip_Slot)
+        }
+
+        private fun resolveSlotVisualState(
+            isAvailable: Boolean,
+            isSelected: Boolean
+        ): SlotVisualState {
+            return when {
+                !isAvailable -> SlotVisualState.OCCUPIED
+                isSelected -> SlotVisualState.SELECTED
+                else -> SlotVisualState.AVAILABLE
+            }
+        }
+
+        private fun Chip.applyVisualState(state: SlotVisualState) {
+            when (state) {
+                SlotVisualState.AVAILABLE -> {
+                    isEnabled = true
+                    isClickable = true
+                    isCheckable = true
+                    isChecked = false
+                    alpha = 1f
+                }
+
+                SlotVisualState.SELECTED -> {
+                    isEnabled = true
+                    isClickable = true
+                    isCheckable = true
+                    isChecked = true
+                    alpha = 1f
+                }
+
+                SlotVisualState.OCCUPIED -> {
+                    isEnabled = false
+                    isClickable = false
+                    isCheckable = false
+                    isChecked = false
+                    alpha = OCCUPIED_SLOT_ALPHA
+                }
+            }
         }
     }
 
@@ -115,5 +233,33 @@ class DoctorDaySlotsAdapter(
         ): Boolean {
             return oldItem == newItem
         }
+
+        override fun getChangePayload(
+            oldItem: DayAvailabilityUiModel,
+            newItem: DayAvailabilityUiModel
+        ): Any? {
+            val hasStructuralChange =
+                oldItem.dayTitle != newItem.dayTitle ||
+                    oldItem.daySubtitle != newItem.daySubtitle ||
+                    oldItem.hourBlocks != newItem.hourBlocks
+
+            if (hasStructuralChange) return null
+
+            val hourSelectionChanged = oldItem.selectedHourIndex != newItem.selectedHourIndex
+            val slotSelectionChanged = oldItem.selectedSlotLabel != newItem.selectedSlotLabel
+
+            return if (hourSelectionChanged || slotSelectionChanged) {
+                SelectionPayload(
+                    hourSelectionChanged = hourSelectionChanged,
+                    slotSelectionChanged = slotSelectionChanged
+                )
+            } else {
+                null
+            }
+        }
+    }
+
+    private companion object {
+        const val OCCUPIED_SLOT_ALPHA = 0.58f
     }
 }

@@ -2,7 +2,25 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android"
     android:enterFadeDuration="100"
     android:exitFadeDuration="100">
-    <item android:state_enabled="false" android:drawable="@drawable/bg_common_button_disabled" />
+    <item android:state_enabled="false">
+        <layer-list>
+            <item>
+                <shape android:shape="rectangle">
+                    <corners android:radius="15dp" />
+                    <solid android:color="#993B82F6" />
+                </shape>
+            </item>
+            <item android:bottom="4dp">
+                <shape android:shape="rectangle">
+                    <corners android:radius="15dp" />
+                    <solid android:color="#992563EB" />
+                    <stroke
+                        android:width="2dp"
+                        android:color="#993B82F6" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
     <item android:state_pressed="true" android:drawable="@drawable/bg_common_button_pressed" />
     <item android:state_focused="true" android:drawable="@drawable/bg_common_button_focused" />
     <item android:drawable="@drawable/bg_common_button_default" />

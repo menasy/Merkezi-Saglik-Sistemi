@@ -8,6 +8,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.SimpleItemAnimator
 import com.menasy.merkezisagliksistemi.R
 import com.menasy.merkezisagliksistemi.databinding.FragmentDoctorAvailabilityBinding
 import com.menasy.merkezisagliksistemi.ui.common.base.BaseFragment
@@ -76,6 +77,8 @@ class DoctorAvailabilityFragment : BaseFragment() {
         binding.rvDoctorDays.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = slotsAdapter
+            (itemAnimator as? SimpleItemAnimator)?.supportsChangeAnimations = false
+            itemAnimator = null
         }
     }
 

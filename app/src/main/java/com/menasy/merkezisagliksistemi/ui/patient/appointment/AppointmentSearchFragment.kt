@@ -1,6 +1,8 @@
 package com.menasy.merkezisagliksistemi.ui.patient.appointment
 
+import android.content.res.ColorStateList
 import android.os.Bundle
+import android.os.SystemClock
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +11,7 @@ import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.core.content.ContextCompat
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.DateValidatorPointForward
 import com.google.android.material.datepicker.MaterialDatePicker
@@ -17,6 +20,7 @@ import com.google.android.material.textfield.TextInputLayout
 import com.menasy.merkezisagliksistemi.R
 import com.menasy.merkezisagliksistemi.databinding.FragmentAppointmentSearchBinding
 import com.menasy.merkezisagliksistemi.ui.common.base.BaseFragment
+import com.menasy.merkezisagliksistemi.ui.common.message.UiMessage
 import kotlinx.coroutines.launch
 import java.time.Instant
 import java.time.ZoneId
@@ -40,6 +44,9 @@ class AppointmentSearchFragment : BaseFragment() {
     private var branchOptions: List<DropdownOption> = emptyList()
     private var hospitalOptions: List<DropdownOption> = emptyList()
     private var doctorOptions: List<DropdownOption> = emptyList()
+    private val inputStates: MutableMap<Int, InputFieldState> = mutableMapOf()
+    private var lastBlockedMessageAt: Long = 0L
+    private var lastBlockedMessage: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -82,14 +89,14 @@ class AppointmentSearchFragment : BaseFragment() {
         input.threshold = 1
 
         input.setOnClickListener {
-            if (!input.isEnabled) return@setOnClickListener
+            if (handleDisabledInteraction(input.id)) return@setOnClickListener
             enableTextInputMode(input)
             input.requestFocus()
             input.setSelection(input.text?.length ?: 0)
         }
 
         layout.setEndIconOnClickListener {
-            if (!input.isEnabled) return@setEndIconOnClickListener
+            if (handleDisabledInteraction(input.id)) return@setEndIconOnClickListener
             disableTextInputMode(input)
             input.requestFocus()
 
@@ -102,6 +109,11 @@ class AppointmentSearchFragment : BaseFragment() {
             } else {
                 input.showDropDown()
             }
+        }
+
+        layout.setOnClickListener {
+            if (handleDisabledInteraction(input.id)) return@setOnClickListener
+            input.performClick()
         }
     }
 
@@ -252,7 +264,9 @@ class AppointmentSearchFragment : BaseFragment() {
             input = binding.actDistrict,
             isEnabled = state.isDistrictFieldEnabled,
             enabledHint = "İlçe (Opsiyonel)",
-            disabledHint = "İlçe (Önce il seçin)"
+            disabledHint = "İlçe (Önce il seçiniz)",
+            activeStartIconColorRes = R.color.secondary,
+            disabledMessage = "Önce il seçmelisiniz."
         )
 
         bindDropdownField(
@@ -260,7 +274,9 @@ class AppointmentSearchFragment : BaseFragment() {
             input = binding.actBranch,
             isEnabled = state.isBranchFieldEnabled,
             enabledHint = "Poliklinik *",
-            disabledHint = "Poliklinik (Önce il seçin)"
+            disabledHint = "Poliklinik (Önce il seçiniz)",
+            activeStartIconColorRes = R.color.primary,
+            disabledMessage = "Önce il seçmelisiniz."
         )
 
         bindDropdownField(
@@ -268,7 +284,9 @@ class AppointmentSearchFragment : BaseFragment() {
             input = binding.actHospital,
             isEnabled = state.isHospitalFieldEnabled,
             enabledHint = "Hastane (Opsiyonel)",
-            disabledHint = "Hastane (Önce poliklinik seçin)"
+            disabledHint = "Hastane (Önce poliklinik seçiniz)",
+            activeStartIconColorRes = R.color.error,
+            disabledMessage = "Önce poliklinik seçmelisiniz."
         )
 
         bindDropdownField(
@@ -276,7 +294,9 @@ class AppointmentSearchFragment : BaseFragment() {
             input = binding.actDoctor,
             isEnabled = state.isDoctorFieldEnabled,
             enabledHint = "Hekim (Opsiyonel)",
-            disabledHint = "Hekim (Önce hastane seçin)"
+            disabledHint = "Hekim (Önce hastane seçiniz)",
+            activeStartIconColorRes = R.color.primary_dark,
+            disabledMessage = "Önce hastane seçmelisiniz."
         )
     }
 
@@ -285,13 +305,31 @@ class AppointmentSearchFragment : BaseFragment() {
         input: MaterialAutoCompleteTextView,
         isEnabled: Boolean,
         enabledHint: String,
-        disabledHint: String
+        disabledHint: String,
+        activeStartIconColorRes: Int,
+        disabledMessage: String
     ) {
-        layout.isEnabled = isEnabled
         input.isEnabled = isEnabled
+        input.isClickable = isEnabled
+        input.isFocusable = isEnabled
+        input.isFocusableInTouchMode = isEnabled
+        input.isCursorVisible = isEnabled
+        input.isLongClickable = isEnabled
         layout.hint = if (isEnabled) enabledHint else disabledHint
+        inputStates[input.id] = InputFieldState(
+            isEnabled = isEnabled,
+            disabledMessage = disabledMessage
+        )
+
+        applyDropdownVisualState(
+            layout = layout,
+            isEnabled = isEnabled,
+            activeStartIconColorRes = activeStartIconColorRes
+        )
 
         if (!isEnabled) {
+            input.clearFocus()
+            input.dismissDropDown()
             disableTextInputMode(input)
         }
     }
@@ -358,6 +396,64 @@ class AppointmentSearchFragment : BaseFragment() {
         inputMethodManager()?.hideSoftInputFromWindow(input.windowToken, 0)
     }
 
+    private fun applyDropdownVisualState(
+        layout: TextInputLayout,
+        isEnabled: Boolean,
+        activeStartIconColorRes: Int
+    ) {
+        val disabledTint = ColorStateList.valueOf(resolveColor(R.color.text_secondary))
+
+        layout.alpha = if (isEnabled) ENABLED_FIELD_ALPHA else DISABLED_FIELD_ALPHA
+        layout.boxStrokeColor =
+            resolveColor(if (isEnabled) R.color.primary else R.color.message_card_stroke)
+        layout.boxBackgroundColor =
+            resolveColor(if (isEnabled) R.color.surface else R.color.background)
+        layout.setHintTextColor(
+            ColorStateList.valueOf(
+                resolveColor(if (isEnabled) R.color.text_secondary else R.color.text_secondary)
+            )
+        )
+
+        val startTint = if (isEnabled) {
+            ColorStateList.valueOf(resolveColor(activeStartIconColorRes))
+        } else {
+            disabledTint
+        }
+        val endTint = if (isEnabled) {
+            ColorStateList.valueOf(resolveColor(R.color.primary_dark))
+        } else {
+            disabledTint
+        }
+        layout.setStartIconTintList(startTint)
+        layout.setEndIconTintList(endTint)
+    }
+
+    private fun handleDisabledInteraction(inputId: Int): Boolean {
+        val state = inputStates[inputId] ?: return false
+        if (state.isEnabled) return false
+
+        val now = SystemClock.elapsedRealtime()
+        val shouldShowMessage = state.disabledMessage != lastBlockedMessage ||
+            now - lastBlockedMessageAt >= DISABLED_MESSAGE_COOLDOWN_MS
+
+        if (shouldShowMessage) {
+            showMessage(
+                UiMessage.info(
+                    title = "Bilgilendirme",
+                    description = state.disabledMessage,
+                    autoDismissMillis = 2_200L
+                )
+            )
+            lastBlockedMessageAt = now
+            lastBlockedMessage = state.disabledMessage
+        }
+        return true
+    }
+
+    private fun resolveColor(colorRes: Int): Int {
+        return ContextCompat.getColor(requireContext(), colorRes)
+    }
+
     private fun inputMethodManager(): InputMethodManager? {
         val safeContext = context ?: return null
         return safeContext.getSystemService(InputMethodManager::class.java)
@@ -382,7 +478,15 @@ class AppointmentSearchFragment : BaseFragment() {
         override fun toString(): String = label
     }
 
+    private data class InputFieldState(
+        val isEnabled: Boolean,
+        val disabledMessage: String
+    )
+
     private companion object {
         const val FARKETMEZ = "Fark etmez"
+        const val DISABLED_MESSAGE_COOLDOWN_MS = 1_200L
+        const val ENABLED_FIELD_ALPHA = 1f
+        const val DISABLED_FIELD_ALPHA = 0.62f
     }
 }

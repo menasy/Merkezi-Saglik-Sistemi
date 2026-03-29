@@ -116,7 +116,7 @@
     </style>
 
     <style name="TextAppearance.MerkeziSaglik.BottomMenuLabel" parent="TextAppearance.Material3.LabelSmall">
-        <item name="android:textSize">10sp</item>
+        <item name="android:textSize">9sp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textColor">@color/bottom_menu_item_idle_text</item>
     </style>
@@ -147,11 +147,13 @@
     <style name="Widget.MerkeziSaglik.Chip.Slot" parent="Widget.Material3.Chip.Filter">
         <item name="android:minHeight">36dp</item>
         <item name="chipMinHeight">36dp</item>
-        <item name="android:background">@drawable/bg_chip_slot</item>
+        <item name="chipBackgroundColor">@color/chip_slot_bg_selector</item>
+        <item name="chipStrokeColor">@color/chip_slot_stroke_selector</item>
+        <item name="chipStrokeWidth">1.5dp</item>
+        <item name="chipSurfaceColor">@android:color/transparent</item>
         <item name="android:textColor">@color/chip_slot_text_selector</item>
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">sans-serif</item>
-        <item name="chipStrokeWidth">0dp</item>
         <item name="chipCornerRadius">8dp</item>
         <item name="chipStartPadding">12dp</item>
         <item name="chipEndPadding">12dp</item>

@@ -12,9 +12,9 @@
         android:layout_height="0dp"
         android:clipToPadding="false"
         android:fillViewport="true"
-        android:paddingHorizontal="24dp"
+        android:paddingHorizontal="20dp"
         android:paddingTop="20dp"
-        android:paddingBottom="20dp"
+        android:paddingBottom="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,18 +25,101 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <!-- Sayfa Başlığı -->
             <TextView
                 android:id="@+id/tvAccountTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
                 android:text="@string/account_title"
                 android:textAppearance="@style/TextAppearance.MerkeziSaglik.PageTitle" />
 
+            <!-- Profil Header Kartı -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardProfileHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:cardBackgroundColor="@color/surface"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="0dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="24dp">
+
+                    <!-- Avatar -->
+                    <FrameLayout
+                        android:id="@+id/layoutAvatar"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_profile_avatar_circle" />
+
+                        <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="@string/account_info_full_name"
+                            android:src="@drawable/ic_account_person_24" />
+                    </FrameLayout>
+
+                    <!-- Ad Soyad -->
+                    <TextView
+                        android:id="@+id/tvAccountFullNameValue"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:text="-"
+                        android:textColor="@color/text_primary"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@id/tvAccountRoleValue"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/layoutAvatar"
+                        app:layout_constraintTop_toTopOf="@id/layoutAvatar"
+                        app:layout_constraintVertical_chainStyle="packed"
+                        tools:text="Mehmet Nasim YILMAZ" />
+
+                    <!-- Rol Badge -->
+                    <TextView
+                        android:id="@+id/tvAccountRoleValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="6dp"
+                        android:background="@drawable/bg_account_info_row"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="4dp"
+                        android:text="-"
+                        android:textColor="@color/primary_dark"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@id/layoutAvatar"
+                        app:layout_constraintStart_toEndOf="@id/layoutAvatar"
+                        app:layout_constraintTop_toBottomOf="@id/tvAccountFullNameValue"
+                        tools:text="Hasta" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Profil Detayları Kartı -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardAccountInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
+                android:layout_marginTop="16dp"
                 app:cardBackgroundColor="@color/surface"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="0dp"
@@ -49,81 +132,143 @@
                     android:orientation="vertical"
                     android:padding="16dp">
 
+                    <!-- Kart Başlığı -->
                     <TextView
                         android:id="@+id/tvInfoCardTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/account_info_card_title"
                         android:textAppearance="?attr/textAppearanceTitleMedium"
-                        android:textColor="@color/text_primary"
+                        android:textColor="@color/primary_dark"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/tvAccountFullNameLabel"
+                    <!-- Kullanıcı ID Satırı -->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:text="@string/account_info_full_name"
-                        android:textAppearance="?attr/textAppearanceBodyMedium"
-                        android:textColor="@color/text_secondary" />
+                        android:background="@drawable/bg_account_info_row"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="14dp"
+                        android:paddingVertical="12dp">
 
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:contentDescription="@string/account_info_user_id"
+                            android:src="@drawable/ic_account_id_24" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvAccountUserIdLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/account_info_user_id"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/tvAccountUserIdValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="-"
+                                android:textColor="@color/text_primary"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                tools:text="abc123xyz" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Ad Soyad Satırı (gizli, ViewBinding uyumu için korunuyor) -->
                     <TextView
-                        android:id="@+id/tvAccountFullNameValue"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="-"
-                        android:textAppearance="?attr/textAppearanceTitleSmall"
-                        android:textColor="@color/text_primary" />
+                        android:id="@+id/tvAccountFullNameLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:text="@string/account_info_full_name"
+                        android:visibility="gone"
+                        tools:ignore="UnusedAttribute" />
 
+                    <!-- Rol Satırı (gizli, ViewBinding uyumu için korunuyor) -->
                     <TextView
                         android:id="@+id/tvAccountRoleLabel"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="14dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
                         android:text="@string/account_info_role"
-                        android:textAppearance="?attr/textAppearanceBodyMedium"
-                        android:textColor="@color/text_secondary" />
+                        android:visibility="gone"
+                        tools:ignore="UnusedAttribute" />
 
-                    <TextView
-                        android:id="@+id/tvAccountRoleValue"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="-"
-                        android:textAppearance="?attr/textAppearanceTitleSmall"
-                        android:textColor="@color/text_primary" />
-
-                    <TextView
-                        android:id="@+id/tvAccountUserIdLabel"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="14dp"
-                        android:text="@string/account_info_user_id"
-                        android:textAppearance="?attr/textAppearanceBodyMedium"
-                        android:textColor="@color/text_secondary" />
-
-                    <TextView
-                        android:id="@+id/tvAccountUserIdValue"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="-"
-                        android:textAppearance="?attr/textAppearanceTitleSmall"
-                        android:textColor="@color/text_primary" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnLogout"
-                style="@style/Widget.MerkeziSaglik.Button.Danger"
-                android:layout_width="wrap_content"
+            <!-- Çıkış Yap Kartı -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardLogout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_gravity="center_horizontal"
-                android:backgroundTint="@color/button_danger_background_tint"
-                app:backgroundTint="@color/button_danger_background_tint"
-                android:text="@string/account_logout" />
+                android:layout_marginTop="24dp"
+                app:cardBackgroundColor="@color/surface"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/error"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:id="@+id/btnLogout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="16dp">
+
+                    <FrameLayout
+                        android:layout_width="40dp"
+                        android:layout_height="40dp">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_logout_button" />
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="@string/account_logout"
+                            android:src="@drawable/ic_account_logout_24" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_weight="1"
+                        android:text="@string/account_logout"
+                        android:textColor="@color/error"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="@string/account_logout"
+                        android:rotation="180"
+                        android:src="@drawable/ic_arrow_back_24"
+                        app:tint="@color/error" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

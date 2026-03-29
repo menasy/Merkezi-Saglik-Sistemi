@@ -3,17 +3,17 @@
     <item>
         <shape android:shape="rectangle">
             <corners android:radius="15dp" />
-            <solid android:color="@color/common_button_fill_disabled" />
+            <solid android:color="@color/common_button_bg" />
         </shape>
     </item>
 
-    <item android:bottom="2dp">
+    <item android:bottom="4dp">
         <shape android:shape="rectangle">
             <corners android:radius="15dp" />
-            <solid android:color="@color/common_button_bg_disabled" />
+            <solid android:color="@color/common_button_fill" />
             <stroke
                 android:width="2dp"
-                android:color="@color/common_button_fill_disabled" />
+                android:color="@color/common_button_bg" />
         </shape>
     </item>
 </layer-list>

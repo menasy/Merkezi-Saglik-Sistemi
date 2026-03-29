@@ -1,10 +1,12 @@
 <resources>
     <string name="bottom_menu_home">Ana Sayfa</string>
+    <string name="bottom_menu_search">Randevu</string>
     <string name="bottom_menu_appointments">Randevularım</string>
     <string name="bottom_menu_prescriptions">Reçetelerim</string>
     <string name="bottom_menu_account">Hesabım</string>
 
     <string name="cd_bottom_menu_home">Ana sayfa sekmesi</string>
+    <string name="cd_bottom_menu_search">Randevu ara sekmesi</string>
     <string name="cd_bottom_menu_appointments">Randevularım sekmesi</string>
     <string name="cd_bottom_menu_prescriptions">Reçetelerim sekmesi</string>
     <string name="cd_bottom_menu_account">Hesabım sekmesi</string>
