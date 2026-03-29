@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.menasy.merkezisagliksistemi.databinding.FragmentPatientAppointmentsBinding
+import com.menasy.merkezisagliksistemi.di.ServiceLocator
 import kotlinx.coroutines.launch
 
 class PatientAppointmentsFragment : Fragment() {
@@ -15,7 +17,14 @@ class PatientAppointmentsFragment : Fragment() {
     private var _binding: FragmentPatientAppointmentsBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: PatientAppointmentsViewModel by viewModels()
+    private val viewModel: PatientAppointmentsViewModel by viewModels {
+        PatientAppointmentsViewModel.Factory(
+            observePatientAppointmentsUseCase = ServiceLocator.provideObservePatientAppointmentsUseCase(),
+            cancelAppointmentUseCase = ServiceLocator.provideCancelAppointmentUseCase(),
+            getCurrentUserUseCase = ServiceLocator.provideGetCurrentUserUseCase(),
+            appointmentMapper = ServiceLocator.provideAppointmentMapper()
+        )
+    }
     private lateinit var adapter: PatientAppointmentsAdapter
 
     override fun onCreateView(
@@ -58,7 +67,7 @@ class PatientAppointmentsFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.uiState.collect { state ->
                 // Loading
-                binding.progressBar.visibility = if (state.isLoading) View.VISIBLE else View.GONE
+                binding.progressBar.visibility = if (state.isLoading || state.isCancelling) View.VISIBLE else View.GONE
 
                 // Tab selection
                 updateTabSelection(state.selectedTab)
@@ -75,6 +84,12 @@ class PatientAppointmentsFragment : Fragment() {
                 binding.layoutEmpty.visibility = if (isEmpty) View.VISIBLE else View.GONE
                 binding.rvAppointments.visibility = if (isEmpty) View.GONE else View.VISIBLE
                 binding.tvEmptyMessage.text = state.emptyMessage
+
+                // Error handling
+                state.errorMessage?.let { error ->
+                    Toast.makeText(requireContext(), error, Toast.LENGTH_LONG).show()
+                    viewModel.clearError()
+                }
             }
         }
     }

@@ -18,6 +18,7 @@ import com.menasy.merkezisagliksistemi.data.repository.DoctorAvailabilityReposit
 import com.menasy.merkezisagliksistemi.data.repository.DistrictRepository
 import com.menasy.merkezisagliksistemi.data.repository.DoctorRepository
 import com.menasy.merkezisagliksistemi.data.repository.HospitalRepository
+import com.menasy.merkezisagliksistemi.domain.usecase.CancelAppointmentUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.CreateAppointmentUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetBranchesUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetCitiesUseCase
@@ -29,7 +30,9 @@ import com.menasy.merkezisagliksistemi.domain.usecase.GetHospitalsByDistrictUseC
 import com.menasy.merkezisagliksistemi.domain.usecase.LoginUserUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.LogoutUserUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.ObserveOccupiedTimesUseCase
+import com.menasy.merkezisagliksistemi.domain.usecase.ObservePatientAppointmentsUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.RegisterPatientUseCase
+import com.menasy.merkezisagliksistemi.ui.patient.appointments.AppointmentMapper
 
 object ServiceLocator {
 
@@ -154,5 +157,21 @@ object ServiceLocator {
 
     fun provideCreateAppointmentUseCase(): CreateAppointmentUseCase {
         return CreateAppointmentUseCase(appointmentRepository)
+    }
+
+    fun provideObservePatientAppointmentsUseCase(): ObservePatientAppointmentsUseCase {
+        return ObservePatientAppointmentsUseCase(appointmentRepository)
+    }
+
+    fun provideCancelAppointmentUseCase(): CancelAppointmentUseCase {
+        return CancelAppointmentUseCase(appointmentRepository)
+    }
+
+    fun provideAppointmentMapper(): AppointmentMapper {
+        return AppointmentMapper(
+            doctorDataSource = doctorDataSource,
+            hospitalDataSource = hospitalDataSource,
+            branchDataSource = branchDataSource
+        )
     }
 }

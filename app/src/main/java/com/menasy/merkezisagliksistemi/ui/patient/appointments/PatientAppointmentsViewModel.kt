@@ -1,14 +1,16 @@
 package com.menasy.merkezisagliksistemi.ui.patient.appointments
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import com.menasy.merkezisagliksistemi.domain.usecase.CancelAppointmentUseCase
+import com.menasy.merkezisagliksistemi.domain.usecase.GetCurrentUserUseCase
+import com.menasy.merkezisagliksistemi.domain.usecase.ObservePatientAppointmentsUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
-import java.time.LocalDate
-import java.time.LocalDateTime
-import java.time.ZoneId
 
 enum class AppointmentTab {
     ACTIVE,
@@ -20,10 +22,17 @@ data class PatientAppointmentsUiState(
     val selectedTab: AppointmentTab = AppointmentTab.ACTIVE,
     val activeAppointments: List<PatientAppointmentItem> = emptyList(),
     val pastAppointments: List<PatientAppointmentItem> = emptyList(),
-    val emptyMessage: String = ""
+    val emptyMessage: String = "",
+    val errorMessage: String? = null,
+    val isCancelling: Boolean = false
 )
 
-class PatientAppointmentsViewModel : ViewModel() {
+class PatientAppointmentsViewModel(
+    private val observePatientAppointmentsUseCase: ObservePatientAppointmentsUseCase,
+    private val cancelAppointmentUseCase: CancelAppointmentUseCase,
+    private val getCurrentUserUseCase: GetCurrentUserUseCase,
+    private val appointmentMapper: AppointmentMapper
+) : ViewModel() {
 
     private val _uiState = MutableStateFlow(PatientAppointmentsUiState())
     val uiState: StateFlow<PatientAppointmentsUiState> = _uiState.asStateFlow()
@@ -43,92 +52,83 @@ class PatientAppointmentsViewModel : ViewModel() {
     }
 
     private fun loadAppointments() {
-        _uiState.value = _uiState.value.copy(isLoading = true)
-
-        viewModelScope.launch {
-            // Simulated data - replace with actual repository call
-            val mockAppointments = generateMockAppointments()
-
-            val now = LocalDateTime.now()
-            val (active, past) = mockAppointments.partition { appointment ->
-                val appointmentDateTime = parseDateTime(appointment.dateMillis, appointment.timeLabel)
-                appointmentDateTime.isAfter(now) && appointment.status == "SCHEDULED"
-            }
-
+        val patientId = getCurrentUserUseCase.getCurrentUserId()
+        
+        if (patientId.isNullOrBlank()) {
             _uiState.value = _uiState.value.copy(
                 isLoading = false,
-                activeAppointments = active,
-                pastAppointments = past,
-                emptyMessage = "Henüz aktif randevunuz yok"
+                errorMessage = "Kullanıcı oturumu bulunamadı"
             )
+            return
+        }
+
+        _uiState.value = _uiState.value.copy(isLoading = true, errorMessage = null)
+
+        viewModelScope.launch {
+            observePatientAppointmentsUseCase(patientId)
+                .catch { exception ->
+                    _uiState.value = _uiState.value.copy(
+                        isLoading = false,
+                        errorMessage = "Randevular yüklenemedi: ${exception.message}"
+                    )
+                }
+                .collect { appointments ->
+                    val (active, past) = appointmentMapper.partitionAppointments(appointments)
+                    
+                    _uiState.value = _uiState.value.copy(
+                        isLoading = false,
+                        activeAppointments = active,
+                        pastAppointments = past,
+                        emptyMessage = when (_uiState.value.selectedTab) {
+                            AppointmentTab.ACTIVE -> "Henüz aktif randevunuz yok"
+                            AppointmentTab.PAST -> "Geçmiş randevunuz bulunmuyor"
+                        },
+                        errorMessage = null
+                    )
+                }
         }
     }
 
     fun cancelAppointment(appointment: PatientAppointmentItem) {
+        if (_uiState.value.isCancelling) return
+
         viewModelScope.launch {
-            // TODO: Implement cancel logic with repository
-            // For now, just remove from list
-            val updatedActive = _uiState.value.activeAppointments.filter { it.id != appointment.id }
-            _uiState.value = _uiState.value.copy(activeAppointments = updatedActive)
+            _uiState.value = _uiState.value.copy(isCancelling = true)
+
+            cancelAppointmentUseCase(appointment.id)
+                .onSuccess {
+                    _uiState.value = _uiState.value.copy(isCancelling = false)
+                }
+                .onFailure { exception ->
+                    _uiState.value = _uiState.value.copy(
+                        isCancelling = false,
+                        errorMessage = "Randevu iptal edilemedi: ${exception.message}"
+                    )
+                }
         }
     }
 
-    private fun parseDateTime(dateMillis: Long, time: String): LocalDateTime {
-        val date = LocalDate.ofInstant(
-            java.time.Instant.ofEpochMilli(dateMillis),
-            ZoneId.systemDefault()
-        )
-        val timeParts = time.split(":")
-        val hour = timeParts.getOrNull(0)?.toIntOrNull() ?: 0
-        val minute = timeParts.getOrNull(1)?.toIntOrNull() ?: 0
-        return date.atTime(hour, minute)
+    fun clearError() {
+        _uiState.value = _uiState.value.copy(errorMessage = null)
     }
 
-    private fun generateMockAppointments(): List<PatientAppointmentItem> {
-        // Mock data for demonstration
-        val now = LocalDateTime.now()
-
-        return listOf(
-            PatientAppointmentItem(
-                id = "1",
-                hospitalName = "İstanbul-(Avrupa)- Başakşehir Çam ve Sakura Şehir Hastanesi",
-                branchName = "Endoskopi",
-                doctorName = "Uzm. Dr. Elif Kaya",
-                dateMillis = now.plusDays(7).atZone(ZoneId.systemDefault()).toInstant().toEpochMilli(),
-                timeLabel = "13:34",
-                status = "SCHEDULED",
-                isActive = true
-            ),
-            PatientAppointmentItem(
-                id = "2",
-                hospitalName = "Ankara Şehir Hastanesi",
-                branchName = "Kardiyoloji",
-                doctorName = "Prof. Dr. Ahmet Yılmaz",
-                dateMillis = now.plusDays(3).atZone(ZoneId.systemDefault()).toInstant().toEpochMilli(),
-                timeLabel = "10:00",
-                status = "SCHEDULED",
-                isActive = true
-            ),
-            PatientAppointmentItem(
-                id = "3",
-                hospitalName = "İzmir Atatürk Eğitim ve Araştırma Hastanesi",
-                branchName = "Göz Hastalıkları",
-                doctorName = "Uzm. Dr. Elif Kaya",
-                dateMillis = now.minusDays(10).atZone(ZoneId.systemDefault()).toInstant().toEpochMilli(),
-                timeLabel = "14:30",
-                status = "COMPLETED",
-                isActive = false
-            ),
-            PatientAppointmentItem(
-                id = "4",
-                hospitalName = "Bursa Yüksek İhtisas Eğitim ve Araştırma Hastanesi",
-                branchName = "Ortopedi ve Travmatoloji",
-                doctorName = "Doç. Dr. Mehmet Demir",
-                dateMillis = now.minusDays(30).atZone(ZoneId.systemDefault()).toInstant().toEpochMilli(),
-                timeLabel = "11:15",
-                status = "CANCELLED",
-                isActive = false
-            )
-        )
+    class Factory(
+        private val observePatientAppointmentsUseCase: ObservePatientAppointmentsUseCase,
+        private val cancelAppointmentUseCase: CancelAppointmentUseCase,
+        private val getCurrentUserUseCase: GetCurrentUserUseCase,
+        private val appointmentMapper: AppointmentMapper
+    ) : ViewModelProvider.Factory {
+        @Suppress("UNCHECKED_CAST")
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            if (modelClass.isAssignableFrom(PatientAppointmentsViewModel::class.java)) {
+                return PatientAppointmentsViewModel(
+                    observePatientAppointmentsUseCase,
+                    cancelAppointmentUseCase,
+                    getCurrentUserUseCase,
+                    appointmentMapper
+                ) as T
+            }
+            throw IllegalArgumentException("Unknown ViewModel class")
+        }
     }
 }
