@@ -93,7 +93,7 @@ class DoctorDaySlotsAdapter(
         }
 
         private fun createHourChip(): Chip {
-            return Chip(binding.root.context, null, R.style.Widget_MerkeziSaglik_Chip_Hour)
+            return Chip(binding.root.context, null, R.style.    Widget_MerkeziSaglik_Chip_Hour)
         }
 
         private fun createSlotChip(): Chip {

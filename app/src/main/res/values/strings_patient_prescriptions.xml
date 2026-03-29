@@ -1,0 +1,5 @@
+<resources>
+    <string name="prescriptions_todo_title">Reçetelerim</string>
+    <string name="prescriptions_todo_description">TODO: Aktif ve geçmiş reçeteler bu alanda görüntülenecek.</string>
+    <string name="prescriptions_todo_hint">Bu alan ilerleyen sprintte filtreleme ve detay sayfası ile genişletilecek.</string>
+</resources>

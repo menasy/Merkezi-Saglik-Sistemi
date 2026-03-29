@@ -1,0 +1,8 @@
+<resources>
+    <color name="bottom_menu_item_idle_start">#FFFFFF</color>
+    <color name="bottom_menu_item_idle_end">#E6E6E6</color>
+    <color name="bottom_menu_item_selected_start">#3B82F6</color>
+    <color name="bottom_menu_item_selected_end">#2563EB</color>
+    <color name="bottom_menu_item_idle_text">#2D3748</color>
+    <color name="bottom_menu_item_selected_text">#FFFFFF</color>
+</resources>

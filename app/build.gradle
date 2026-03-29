@@ -30,6 +30,18 @@ android {
     buildFeatures {
         viewBinding true
     }
+    sourceSets {
+        main {
+            res.srcDirs = [
+                'src/main/res',
+                'src/main/res_shared',
+                'src/main/res_auth',
+                'src/main/res_appointment',
+                'src/main/res_doctor',
+                'src/main/res_patient'
+            ]
+        }
+    }
 }
 
 dependencies {
