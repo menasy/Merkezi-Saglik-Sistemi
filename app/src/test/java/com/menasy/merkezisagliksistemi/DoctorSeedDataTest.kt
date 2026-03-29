@@ -49,7 +49,7 @@ class DoctorSeedDataTest {
     @Test
     fun `all doctors should have non-blank fields`() {
         val invalidDoctors = doctors.filter {
-            it.id.isBlank() || it.userId.isBlank() || it.fullName.isBlank() ||
+            it.id.isBlank() || it.userId.isNullOrBlank() || it.fullName.isBlank() ||
                 it.hospitalId.isBlank() || it.branchId.isBlank() || it.roomInfo.isBlank()
         }
         assertTrue(

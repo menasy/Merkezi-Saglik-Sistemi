@@ -1,4 +1,4 @@
-package com.menasy.merkezisagliksistemi.ui.patient.appointments
+package com.menasy.merkezisagliksistemi.ui.patient.appointmentlist
 
 import android.os.Bundle
 import android.view.LayoutInflater

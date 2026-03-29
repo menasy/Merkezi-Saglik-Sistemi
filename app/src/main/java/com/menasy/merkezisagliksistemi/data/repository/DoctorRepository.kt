@@ -23,4 +23,14 @@ class DoctorRepository(
     fun getDoctorById(doctorId: String): Doctor? {
         return doctorDataSource.getDoctorById(doctorId)
     }
+
+    /**
+     * Firebase Auth UID ile doktor profilini bulur.
+     *
+     * @param userId Firebase Auth UID
+     * @return Eşleşen doktor profili veya null
+     */
+    fun getDoctorByUserId(userId: String): Doctor? {
+        return doctorDataSource.getDoctorByUserId(userId)
+    }
 }

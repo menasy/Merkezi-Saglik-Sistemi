@@ -1,4 +1,4 @@
-package com.menasy.merkezisagliksistemi.ui.patient.appointments
+package com.menasy.merkezisagliksistemi.ui.patient.appointmentlist
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

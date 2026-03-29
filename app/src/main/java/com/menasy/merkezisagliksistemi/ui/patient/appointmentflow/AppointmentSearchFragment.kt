@@ -1,4 +1,4 @@
-package com.menasy.merkezisagliksistemi.ui.patient.appointment
+package com.menasy.merkezisagliksistemi.ui.patient.appointmentflow
 
 import android.content.res.ColorStateList
 import android.os.Bundle

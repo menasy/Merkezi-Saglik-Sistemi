@@ -61,3 +61,20 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:2.8.9"
     implementation "androidx.navigation:navigation-ui-ktx:2.8.9"
 }
+
+tasks.register("exportDoctorSchema", Test) {
+    def unitTestTask = tasks.named("testDebugUnitTest", Test).get()
+    group = "verification"
+    description = "Exports generated doctor seed list to build/reports/seed/DoctorsSchema.json"
+
+    testClassesDirs = unitTestTask.testClassesDirs
+    classpath = unitTestTask.classpath
+    useJUnit()
+    filter {
+        includeTestsMatching("com.menasy.merkezisagliksistemi.DoctorSeedSchemaExporterTest")
+    }
+
+    doLast {
+        println("Doctors schema exported: ${project.projectDir}/build/reports/seed/DoctorsSchema.json")
+    }
+}

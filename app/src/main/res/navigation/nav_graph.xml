@@ -67,7 +67,7 @@
 
     <fragment
         android:id="@+id/patientAppointmentsFragment"
-        android:name="com.menasy.merkezisagliksistemi.ui.patient.appointments.PatientAppointmentsFragment"
+        android:name="com.menasy.merkezisagliksistemi.ui.patient.appointmentlist.PatientAppointmentsFragment"
         android:label="PatientAppointments">
 
         <action
@@ -87,7 +87,7 @@
 
     <fragment
         android:id="@+id/appointmentSearchFragment"
-        android:name="com.menasy.merkezisagliksistemi.ui.patient.appointment.AppointmentSearchFragment"
+        android:name="com.menasy.merkezisagliksistemi.ui.patient.appointmentflow.AppointmentSearchFragment"
         android:label="AppointmentSearch">
 
         <action
@@ -97,7 +97,7 @@
 
     <fragment
         android:id="@+id/appointmentResultsFragment"
-        android:name="com.menasy.merkezisagliksistemi.ui.patient.appointment.AppointmentResultsFragment"
+        android:name="com.menasy.merkezisagliksistemi.ui.patient.appointmentflow.AppointmentResultsFragment"
         android:label="AppointmentResults">
 
         <action
@@ -107,7 +107,7 @@
 
     <fragment
         android:id="@+id/doctorAvailabilityFragment"
-        android:name="com.menasy.merkezisagliksistemi.ui.patient.appointment.DoctorAvailabilityFragment"
+        android:name="com.menasy.merkezisagliksistemi.ui.patient.appointmentflow.DoctorAvailabilityFragment"
         android:label="DoctorAvailability">
 
         <action
@@ -117,7 +117,7 @@
 
     <fragment
         android:id="@+id/appointmentConfirmationFragment"
-        android:name="com.menasy.merkezisagliksistemi.ui.patient.appointment.AppointmentConfirmationFragment"
+        android:name="com.menasy.merkezisagliksistemi.ui.patient.appointmentflow.AppointmentConfirmationFragment"
         android:label="AppointmentConfirmation">
 
         <action

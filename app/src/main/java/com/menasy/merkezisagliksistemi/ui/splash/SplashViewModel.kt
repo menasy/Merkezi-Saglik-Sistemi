@@ -50,7 +50,7 @@ class SplashViewModel(
         roleResult.fold(
             onSuccess = { role ->
                 val fullName = fullNameResult.getOrElse { "" }
-                SessionCache.populate(
+                populateSessionCache(
                     userId = currentUserId,
                     role = role,
                     fullName = fullName
@@ -67,10 +67,45 @@ class SplashViewModel(
         )
     }
 
+    private fun populateSessionCache(userId: String, role: String, fullName: String) {
+        when (role) {
+            "doctor" -> {
+                val doctorId = getCurrentUserUseCase.getDoctorIdByUserId(userId)
+                if (doctorId != null) {
+                    SessionCache.populateDoctor(
+                        userId = userId,
+                        role = role,
+                        fullName = fullName,
+                        doctorId = doctorId
+                    )
+                } else {
+                    // Doktor profili bulunamadı - hata göster ve login'e yönlendir
+                    publishError(AppErrorReason.DOCTOR_PROFILE_NOT_FOUND)
+                    SessionCache.clear()
+                }
+            }
+            else -> {
+                SessionCache.populate(
+                    userId = userId,
+                    role = role,
+                    fullName = fullName
+                )
+            }
+        }
+    }
+
     private fun navigateByRole(role: String?) {
         _navigationState.value = when (role) {
             "patient" -> SplashNavigationState.GoToPatientHome
-            "doctor" -> SplashNavigationState.GoToDoctorHome
+            "doctor" -> {
+                // Doktor profili kontrolü
+                if (SessionCache.doctorId != null) {
+                    SplashNavigationState.GoToDoctorHome
+                } else {
+                    publishError(AppErrorReason.DOCTOR_PROFILE_NOT_FOUND)
+                    SplashNavigationState.GoToLogin
+                }
+            }
             else -> {
                 publishError(AppErrorReason.INVALID_USER_ROLE)
                 SplashNavigationState.GoToLogin

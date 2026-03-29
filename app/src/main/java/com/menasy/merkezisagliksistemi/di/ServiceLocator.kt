@@ -32,7 +32,7 @@ import com.menasy.merkezisagliksistemi.domain.usecase.LogoutUserUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.ObserveOccupiedTimesUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.ObservePatientAppointmentsUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.RegisterPatientUseCase
-import com.menasy.merkezisagliksistemi.ui.patient.appointments.AppointmentMapper
+import com.menasy.merkezisagliksistemi.ui.patient.appointmentlist.AppointmentMapper
 
 object ServiceLocator {
 
@@ -112,7 +112,7 @@ object ServiceLocator {
     }
 
     fun provideLoginUserUseCase(): LoginUserUseCase {
-        return LoginUserUseCase(authRepository)
+        return LoginUserUseCase(authRepository, doctorRepository)
     }
 
     fun provideRegisterPatientUseCase(): RegisterPatientUseCase {
@@ -120,7 +120,7 @@ object ServiceLocator {
     }
 
     fun provideGetCurrentUserUseCase(): GetCurrentUserUseCase {
-        return GetCurrentUserUseCase(authRepository)
+        return GetCurrentUserUseCase(authRepository, doctorRepository)
     }
 
     fun provideLogoutUserUseCase(): LogoutUserUseCase {

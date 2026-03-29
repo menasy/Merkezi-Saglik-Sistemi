@@ -51,6 +51,16 @@ class DoctorDataSource {
         return doctorsById[doctorId]
     }
 
+    /**
+     * Firebase Auth UID ile doktor profilini bulur.
+     *
+     * @param userId Firebase Auth UID
+     * @return Eşleşen doktor profili veya null
+     */
+    fun getDoctorByUserId(userId: String): Doctor? {
+        return doctorsByUserId[userId]
+    }
+
     private fun resolveBranchAliasIds(branchId: String): Set<String> {
         val seedBranch = seedBranchById[branchId]
         if (seedBranch != null) {
@@ -81,5 +91,10 @@ class DoctorDataSource {
         val doctorsByHospitalId: Map<String, List<Doctor>> = seededDoctors.groupBy { it.hospitalId }
         val doctorsById: Map<String, Doctor> = seededDoctors.associateBy { it.id }
         val seedBranchById = seededBranches.associateBy { it.id }
+
+        // userId'si olan doktorları userId ile index'le
+        val doctorsByUserId: Map<String, Doctor> = seededDoctors
+            .filter { !it.userId.isNullOrBlank() }
+            .associateBy { it.userId!! }
     }
 }

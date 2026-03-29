@@ -191,6 +191,11 @@ object AppErrorMapper {
                 title = "Oturum Bulunamadı",
                 description = "Devam etmek için tekrar giriş yapın."
             )
+
+            AppErrorReason.DOCTOR_PROFILE_NOT_FOUND -> UiMessage.error(
+                title = "Doktor Profili Bulunamadı",
+                description = "Bu hesap için doktor profili tanımlı değil. Lütfen yönetici ile iletişime geçin."
+            )
         }
     }
 

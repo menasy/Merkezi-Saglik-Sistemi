@@ -1,4 +1,4 @@
-package com.menasy.merkezisagliksistemi.ui.patient.appointment
+package com.menasy.merkezisagliksistemi.ui.patient.appointmentflow
 
 import java.time.Instant
 import java.time.LocalDate

@@ -1,4 +1,4 @@
-package com.menasy.merkezisagliksistemi.ui.patient.appointments
+package com.menasy.merkezisagliksistemi.ui.patient.appointmentlist
 
 import com.menasy.merkezisagliksistemi.data.model.Appointment
 import com.menasy.merkezisagliksistemi.data.model.AppointmentStatus
