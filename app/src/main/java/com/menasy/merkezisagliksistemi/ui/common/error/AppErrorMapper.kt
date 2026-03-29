@@ -142,6 +142,21 @@ object AppErrorMapper {
                 description = "Randevu bilgisi bulunamadı. Lütfen işlemi yeniden başlatın."
             )
 
+            AppErrorReason.SLOT_ALREADY_TAKEN -> UiMessage.warning(
+                title = "Saat Dolu",
+                description = "Bu saat az önce başka bir hasta tarafından alındı. Lütfen başka bir saat seçin."
+            )
+
+            AppErrorReason.APPOINTMENT_NOT_FOUND -> UiMessage.error(
+                title = "Randevu Bulunamadı",
+                description = "İptal edilmek istenen randevu bulunamadı."
+            )
+
+            AppErrorReason.APPOINTMENT_CREATION_FAILED -> UiMessage.error(
+                title = "Randevu Oluşturulamadı",
+                description = "Randevu oluşturulurken bir hata oluştu. Lütfen tekrar deneyin."
+            )
+
             AppErrorReason.INVALID_USER_ROLE -> UiMessage.error(
                 title = "Hesap Türü Geçersiz",
                 description = "Kullanıcı rolü doğrulanamadı."
@@ -366,6 +381,11 @@ object AppErrorMapper {
             OperationType.VALIDATION -> UiMessage.warning(
                 title = "Bilgileri Kontrol Edin",
                 description = "Lütfen girdiğiniz bilgileri kontrol edip tekrar deneyin."
+            )
+
+            OperationType.APPOINTMENT -> UiMessage.error(
+                title = "Randevu İşlemi Başarısız",
+                description = "Randevu işlemi sırasında bir hata oluştu, lütfen tekrar deneyin."
             )
 
             OperationType.GENERAL -> UiMessage.error(

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.menasy.merkezisagliksistemi.R
 import com.menasy.merkezisagliksistemi.databinding.FragmentAppointmentConfirmationBinding
 import com.menasy.merkezisagliksistemi.ui.common.base.BaseFragment
 import com.menasy.merkezisagliksistemi.ui.common.error.AppErrorReason
@@ -68,14 +69,28 @@ class AppointmentConfirmationFragment : BaseFragment() {
     private fun observeUiState() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.uiState.collect { state ->
-                binding.progressBar.visibility = if (state.isLoading) View.VISIBLE else View.GONE
+                val isLoading = state.isLoading || state.isCreating
+                binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+                binding.btnConfirmAppointment.isEnabled = !isLoading
+
                 binding.tvConfirmDoctorValue.text = state.doctorName
                 binding.tvConfirmHospitalValue.text = state.hospitalName
                 binding.tvConfirmBranchValue.text = state.branchName
                 binding.tvConfirmDateValue.text = state.dateLabel
                 binding.tvConfirmTimeValue.text = state.timeLabel
                 binding.tvConfirmPatientValue.text = state.patientName
+
+                if (state.isSuccess) {
+                    navigateToAppointments()
+                }
             }
+        }
+    }
+
+    private fun navigateToAppointments() {
+        val navController = findNavController()
+        if (navController.currentDestination?.id == R.id.appointmentConfirmationFragment) {
+            navController.navigate(R.id.action_appointmentConfirmationFragment_to_patientAppointmentsFragment)
         }
     }
 

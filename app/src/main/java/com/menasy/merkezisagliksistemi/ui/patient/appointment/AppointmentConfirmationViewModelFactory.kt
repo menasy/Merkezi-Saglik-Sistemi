@@ -10,7 +10,8 @@ class AppointmentConfirmationViewModelFactory : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(AppointmentConfirmationViewModel::class.java)) {
             return AppointmentConfirmationViewModel(
-                getCurrentUserUseCase = ServiceLocator.provideGetCurrentUserUseCase()
+                getCurrentUserUseCase = ServiceLocator.provideGetCurrentUserUseCase(),
+                createAppointmentUseCase = ServiceLocator.provideCreateAppointmentUseCase()
             ) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")

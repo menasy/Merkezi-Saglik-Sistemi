@@ -9,5 +9,6 @@ enum class OperationType {
     DELETE,
     VALIDATION,
     SESSION,
+    APPOINTMENT,
     GENERAL
 }

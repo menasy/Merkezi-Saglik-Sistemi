@@ -2,6 +2,7 @@ package com.menasy.merkezisagliksistemi.di
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.menasy.merkezisagliksistemi.data.remote.firebase.AppointmentDataSource
 import com.menasy.merkezisagliksistemi.data.remote.firebase.AuthDataSource
 import com.menasy.merkezisagliksistemi.data.remote.local.BranchDataSource
 import com.menasy.merkezisagliksistemi.data.remote.local.CityDataSource
@@ -9,6 +10,7 @@ import com.menasy.merkezisagliksistemi.data.remote.local.DoctorAvailabilityDataS
 import com.menasy.merkezisagliksistemi.data.remote.local.DistrictDataSource
 import com.menasy.merkezisagliksistemi.data.remote.local.DoctorDataSource
 import com.menasy.merkezisagliksistemi.data.remote.local.HospitalDataSource
+import com.menasy.merkezisagliksistemi.data.repository.AppointmentRepository
 import com.menasy.merkezisagliksistemi.data.repository.AuthRepository
 import com.menasy.merkezisagliksistemi.data.repository.BranchRepository
 import com.menasy.merkezisagliksistemi.data.repository.CityRepository
@@ -16,6 +18,7 @@ import com.menasy.merkezisagliksistemi.data.repository.DoctorAvailabilityReposit
 import com.menasy.merkezisagliksistemi.data.repository.DistrictRepository
 import com.menasy.merkezisagliksistemi.data.repository.DoctorRepository
 import com.menasy.merkezisagliksistemi.data.repository.HospitalRepository
+import com.menasy.merkezisagliksistemi.domain.usecase.CreateAppointmentUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetBranchesUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetCitiesUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetCurrentUserUseCase
@@ -25,6 +28,7 @@ import com.menasy.merkezisagliksistemi.domain.usecase.GetDoctorsUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetHospitalsByDistrictUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.LoginUserUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.LogoutUserUseCase
+import com.menasy.merkezisagliksistemi.domain.usecase.ObserveOccupiedTimesUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.RegisterPatientUseCase
 
 object ServiceLocator {
@@ -42,6 +46,10 @@ object ServiceLocator {
             auth = firebaseAuth,
             firestore = firestore
         )
+    }
+
+    private val appointmentDataSource: AppointmentDataSource by lazy {
+        AppointmentDataSource(firestore = firestore)
     }
 
     private val cityDataSource: CityDataSource by lazy {
@@ -70,6 +78,10 @@ object ServiceLocator {
 
     private val authRepository: AuthRepository by lazy {
         AuthRepository(authDataSource)
+    }
+
+    private val appointmentRepository: AppointmentRepository by lazy {
+        AppointmentRepository(appointmentDataSource)
     }
 
     private val cityRepository: CityRepository by lazy {
@@ -134,5 +146,13 @@ object ServiceLocator {
 
     fun provideGetDoctorUnavailableSlotsUseCase(): GetDoctorUnavailableSlotsUseCase {
         return GetDoctorUnavailableSlotsUseCase(doctorAvailabilityRepository)
+    }
+
+    fun provideObserveOccupiedTimesUseCase(): ObserveOccupiedTimesUseCase {
+        return ObserveOccupiedTimesUseCase(appointmentRepository)
+    }
+
+    fun provideCreateAppointmentUseCase(): CreateAppointmentUseCase {
+        return CreateAppointmentUseCase(appointmentRepository)
     }
 }

@@ -118,7 +118,14 @@
     <fragment
         android:id="@+id/appointmentConfirmationFragment"
         android:name="com.menasy.merkezisagliksistemi.ui.patient.appointment.AppointmentConfirmationFragment"
-        android:label="AppointmentConfirmation" />
+        android:label="AppointmentConfirmation">
+
+        <action
+            android:id="@+id/action_appointmentConfirmationFragment_to_patientAppointmentsFragment"
+            app:destination="@id/patientAppointmentsFragment"
+            app:popUpTo="@id/patientHomeFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
 
     <fragment
         android:id="@+id/doctorHomeFragment"

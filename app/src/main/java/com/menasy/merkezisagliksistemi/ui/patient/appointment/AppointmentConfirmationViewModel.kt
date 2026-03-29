@@ -1,8 +1,12 @@
 package com.menasy.merkezisagliksistemi.ui.patient.appointment
 
 import androidx.lifecycle.viewModelScope
+import com.menasy.merkezisagliksistemi.data.model.Appointment
+import com.menasy.merkezisagliksistemi.di.SessionCache
+import com.menasy.merkezisagliksistemi.domain.usecase.CreateAppointmentUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetCurrentUserUseCase
 import com.menasy.merkezisagliksistemi.ui.common.base.BaseViewModel
+import com.menasy.merkezisagliksistemi.ui.common.error.AppErrorReason
 import com.menasy.merkezisagliksistemi.ui.common.error.OperationType
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -15,6 +19,9 @@ import java.util.Locale
 
 data class AppointmentConfirmationUiState(
     val isLoading: Boolean = false,
+    val isCreating: Boolean = false,
+    val isSuccess: Boolean = false,
+    val appointmentId: String? = null,
     val doctorName: String = "",
     val hospitalName: String = "",
     val branchName: String = "",
@@ -24,17 +31,20 @@ data class AppointmentConfirmationUiState(
 )
 
 class AppointmentConfirmationViewModel(
-    private val getCurrentUserUseCase: GetCurrentUserUseCase
+    private val getCurrentUserUseCase: GetCurrentUserUseCase,
+    private val createAppointmentUseCase: CreateAppointmentUseCase
 ) : BaseViewModel() {
 
     private val _uiState = MutableStateFlow(AppointmentConfirmationUiState())
     val uiState: StateFlow<AppointmentConfirmationUiState> = _uiState.asStateFlow()
 
     private var isLoaded = false
+    private var confirmationArgs: AppointmentConfirmationArgs? = null
 
     fun load(args: AppointmentConfirmationArgs) {
         if (isLoaded) return
         isLoaded = true
+        confirmationArgs = args
 
         _uiState.value = _uiState.value.copy(
             isLoading = true,
@@ -66,10 +76,50 @@ class AppointmentConfirmationViewModel(
     }
 
     fun confirm() {
-        publishInfo(
-            title = "Bilgilendirme",
-            description = "Randevu oluşturma işlemi bir sonraki aşamada aktifleştirilecek."
-        )
+        val args = confirmationArgs ?: run {
+            publishError(AppErrorReason.APPOINTMENT_INFO_MISSING)
+            return
+        }
+
+        val patientId = SessionCache.userId ?: run {
+            publishError(AppErrorReason.NO_ACTIVE_SESSION)
+            return
+        }
+
+        if (_uiState.value.isCreating) return
+
+        _uiState.value = _uiState.value.copy(isCreating = true)
+
+        viewModelScope.launch {
+            val appointment = Appointment(
+                patientId = patientId,
+                doctorId = args.doctorId,
+                hospitalId = args.hospitalId,
+                branchId = args.branchId,
+                appointmentDate = formatDateForFirestore(args.dateMillis),
+                appointmentTime = args.timeLabel
+            )
+
+            val result = createAppointmentUseCase(appointment)
+
+            result.fold(
+                onSuccess = { appointmentId ->
+                    _uiState.value = _uiState.value.copy(
+                        isCreating = false,
+                        isSuccess = true,
+                        appointmentId = appointmentId
+                    )
+                    publishSuccess(
+                        title = "Randevu Oluşturuldu",
+                        description = "Randevunuz başarıyla oluşturuldu."
+                    )
+                },
+                onFailure = { exception ->
+                    _uiState.value = _uiState.value.copy(isCreating = false)
+                    publishError(exception, OperationType.APPOINTMENT)
+                }
+            )
+        }
     }
 
     private fun formatDate(millis: Long): String {
@@ -77,8 +127,15 @@ class AppointmentConfirmationViewModel(
         return DATE_FORMATTER.format(date)
     }
 
+    private fun formatDateForFirestore(millis: Long): String {
+        val date = Instant.ofEpochMilli(millis).atZone(ZoneId.systemDefault()).toLocalDate()
+        return DATE_FIRESTORE_FORMATTER.format(date)
+    }
+
     private companion object {
         val DATE_FORMATTER: DateTimeFormatter =
             DateTimeFormatter.ofPattern("dd.MM.yyyy EEEE", Locale.forLanguageTag("tr-TR"))
+        val DATE_FIRESTORE_FORMATTER: DateTimeFormatter =
+            DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ROOT)
     }
 }
