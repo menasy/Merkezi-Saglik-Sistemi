@@ -62,7 +62,7 @@ class AppointmentResultsFragment : BaseFragment() {
     }
 
     private fun setupToolbar() {
-        binding.toolbarResults.setNavigationOnClickListener {
+        binding.btnBackResults.setOnClickListener {
             findNavController().navigateUp()
         }
     }

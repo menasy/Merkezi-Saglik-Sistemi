@@ -26,107 +26,29 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardRegisterHero"
+            <TextView
+                android:id="@+id/tvRegisterTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:foregroundGravity="top"
-                app:cardBackgroundColor="@android:color/transparent"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="0dp">
+                android:text="Hasta Kaydı"
+                android:textColor="@color/primary_dark"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_register_hero"
-                    android:orientation="vertical"
-                    android:paddingHorizontal="20dp"
-                    android:paddingTop="20dp"
-                    android:paddingBottom="18dp">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bg_register_chip"
-                        android:gravity="center"
-                        android:orientation="horizontal"
-                        android:paddingHorizontal="12dp"
-                        android:paddingVertical="8dp">
-
-                        <ImageView
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
-                            android:contentDescription="@null"
-                            android:src="@drawable/ic_hospital_24"
-                            android:tint="@android:color/white" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="6dp"
-                            android:text="Hasta Hesabı"
-                            android:textColor="@android:color/white"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/tvRegisterTitle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="14dp"
-                        android:text="Hızlı ve Güvenli\nKayıt Oluştur"
-                        android:textColor="@android:color/white"
-                        android:textSize="28sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvRegisterSubtitle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:lineSpacingExtra="2dp"
-                        android:text="Sağlık randevu işlemlerine başlamak için bilgilerinizi girin."
-                        android:textColor="#E8F1FF"
-                        android:textSize="14sp" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="14dp"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/bg_register_chip"
-                            android:paddingHorizontal="10dp"
-                            android:paddingVertical="6dp"
-                            android:text="3 Adımda Tamamla"
-                            android:textColor="@color/register_chip_text"
-                            android:textSize="11sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:background="@drawable/bg_register_chip"
-                            android:paddingHorizontal="10dp"
-                            android:paddingVertical="6dp"
-                            android:text="KVKK Uyumlu"
-                            android:textColor="@color/register_chip_text"
-                            android:textSize="11sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+            <TextView
+                android:id="@+id/tvRegisterSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Randevu işlemleri için kişisel bilgilerinizi girin."
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp" />
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardRegisterForm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="12dp"
                 app:cardBackgroundColor="@color/surface"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="0dp"
@@ -162,8 +84,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="14dp"
                         android:hint="Ad Soyad"
+                        app:boxStrokeColor="@color/primary_light"
                         app:startIconDrawable="@drawable/ic_form_person_24"
-                        app:startIconTint="@color/secondary">
+                        app:startIconTint="@color/primary_dark">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/etFullName"
@@ -184,8 +107,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:hint="E-posta"
+                        app:boxStrokeColor="@color/primary_light"
                         app:startIconDrawable="@drawable/ic_form_mail_24"
-                        app:startIconTint="@color/secondary">
+                        app:startIconTint="@color/primary_dark">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/etEmail"
@@ -206,11 +130,12 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:hint="Şifre"
+                        app:boxStrokeColor="@color/primary_light"
                         app:endIconMode="password_toggle"
                         app:helperText="En az 6 karakter"
                         app:helperTextTextColor="@color/text_secondary"
                         app:startIconDrawable="@drawable/ic_form_lock_24"
-                        app:startIconTint="@color/secondary">
+                        app:startIconTint="@color/primary_dark">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/etPassword"
@@ -231,10 +156,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:hint="TC Kimlik No"
+                        app:boxStrokeColor="@color/primary_light"
                         app:counterEnabled="true"
                         app:counterMaxLength="11"
                         app:startIconDrawable="@drawable/ic_form_id_card_24"
-                        app:startIconTint="@color/secondary">
+                        app:startIconTint="@color/primary_dark">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/etTcNo"
@@ -255,13 +181,15 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:hint="Doğum Tarihi"
+                        app:boxStrokeColor="@color/primary_light"
                         app:endIconContentDescription="Doğum tarihi seç"
                         app:endIconDrawable="@drawable/ic_form_calendar_24"
                         app:endIconMode="custom"
                         app:helperText="Takvimden doğum tarihinizi seçin"
                         app:helperTextTextColor="@color/text_secondary"
+                        app:placeholderText="GG/AA/YYYY"
                         app:startIconDrawable="@drawable/ic_form_calendar_24"
-                        app:startIconTint="@color/secondary">
+                        app:startIconTint="@color/primary_dark">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/etBirthDate"
@@ -274,8 +202,7 @@
                             android:inputType="none"
                             android:maxLines="1"
                             android:textColor="@color/text_primary"
-                            android:textColorHint="@color/text_secondary"
-                            android:hint="GG/AA/YYYY" />
+                            android:textColorHint="@color/text_secondary" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -286,7 +213,7 @@
                         android:layout_marginTop="12dp"
                         android:hint="Cinsiyet"
                         app:startIconDrawable="@drawable/ic_form_gender_24"
-                        app:startIconTint="@color/secondary">
+                        app:startIconTint="@color/primary_dark">
 
                         <com.google.android.material.textfield.MaterialAutoCompleteTextView
                             android:id="@+id/actvGender"
@@ -304,6 +231,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
+                        app:backgroundTint="@color/primary"
                         android:text="Kaydı Tamamla" />
 
                     <TextView
@@ -314,7 +242,7 @@
                         android:gravity="center"
                         android:paddingVertical="8dp"
                         android:text="Zaten hesabın var mı? Giriş yap"
-                        android:textColor="@color/secondary_dark"
+                        android:textColor="@color/primary_dark"
                         android:textSize="14sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -326,7 +254,7 @@
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:indeterminateTint="@color/secondary"
+        android:indeterminateTint="@color/primary"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

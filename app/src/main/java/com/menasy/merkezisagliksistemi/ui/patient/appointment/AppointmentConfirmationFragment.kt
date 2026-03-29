@@ -54,7 +54,7 @@ class AppointmentConfirmationFragment : BaseFragment() {
     }
 
     private fun setupToolbar() {
-        binding.toolbarAppointmentConfirmation.setNavigationOnClickListener {
+        binding.btnBackAppointmentConfirmation.setOnClickListener {
             findNavController().navigateUp()
         }
     }

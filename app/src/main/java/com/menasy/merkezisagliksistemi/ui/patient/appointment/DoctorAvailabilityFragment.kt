@@ -58,7 +58,7 @@ class DoctorAvailabilityFragment : BaseFragment() {
     }
 
     private fun setupToolbar() {
-        binding.toolbarDoctorAvailability.setNavigationOnClickListener {
+        binding.btnBackDoctorAvailability.setOnClickListener {
             findNavController().navigateUp()
         }
     }

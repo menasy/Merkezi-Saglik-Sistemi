@@ -29,12 +29,11 @@
                 android:id="@+id/layoutLoginBody"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.45">
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
                     android:id="@+id/tvLoginTitle"
@@ -131,7 +130,7 @@
                             android:gravity="center"
                             android:text="Hesabın yok mu? Kayıt ol"
                             android:textAppearance="?attr/textAppearanceBodyMedium"
-                            android:textColor="@color/text_primary" />
+                            android:textColor="@color/primary_dark" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>

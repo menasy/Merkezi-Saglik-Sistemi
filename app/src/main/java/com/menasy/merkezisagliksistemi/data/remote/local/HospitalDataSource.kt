@@ -14,11 +14,7 @@ class HospitalDataSource {
             hospitalsByCityId
         }
 
-        return if (filteredHospitals.isNotEmpty() || districtId.isNullOrBlank()) {
-            filteredHospitals.sortedBy { it.name }
-        } else {
-            hospitalsByCityId.sortedBy { it.name }
-        }
+        return filteredHospitals.sortedBy { it.name }
     }
 
     fun getHospitalById(hospitalId: String): Hospital? {

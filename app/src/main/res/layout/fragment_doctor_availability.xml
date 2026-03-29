@@ -7,18 +7,41 @@
     android:background="@color/background"
     tools:context="com.menasy.merkezisagliksistemi.ui.patient.appointment.DoctorAvailabilityFragment">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbarDoctorAvailability"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutDoctorAvailabilityTitleRow"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/surface"
-        android:minHeight="?attr/actionBarSize"
-        android:navigationIcon="@drawable/ic_arrow_back_24"
-        android:title="Doktor Uygun Saatleri"
-        android:titleTextColor="@color/text_primary"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvDoctorAvailabilityTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Doktor Uygun Saatleri"
+            android:textAppearance="?attr/textAppearanceHeadlineSmall"
+            android:textColor="@color/text_primary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnBackDoctorAvailability"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btnBackDoctorAvailability"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/bg_top_back_button"
+            android:contentDescription="Geri"
+            android:padding="6dp"
+            android:src="@drawable/ic_arrow_back_24"
+            android:tint="@color/primary_dark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardDoctorInfo"
@@ -33,7 +56,7 @@
         app:strokeWidth="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbarDoctorAvailability">
+        app:layout_constraintTop_toBottomOf="@id/layoutDoctorAvailabilityTitleRow">
 
         <LinearLayout
             android:layout_width="match_parent"

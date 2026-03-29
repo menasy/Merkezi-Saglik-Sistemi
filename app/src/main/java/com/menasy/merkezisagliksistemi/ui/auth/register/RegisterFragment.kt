@@ -1,10 +1,14 @@
 package com.menasy.merkezisagliksistemi.ui.auth.register
 
+import android.graphics.Rect
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.DateValidatorPointBackward
 import com.google.android.material.datepicker.MaterialDatePicker
@@ -47,6 +51,7 @@ class RegisterFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupKeyboardAwareForm()
         setupGenderDropdown()
         setupBirthDatePicker()
         setupClickListeners()
@@ -67,11 +72,78 @@ class RegisterFragment : BaseFragment() {
 
     private fun setupBirthDatePicker() {
         binding.etBirthDate.setOnClickListener {
+            scrollFieldIntoView(binding.tilBirthDate)
             showBirthDatePicker()
         }
         binding.tilBirthDate.setEndIconOnClickListener {
+            scrollFieldIntoView(binding.tilBirthDate)
             showBirthDatePicker()
         }
+    }
+
+    private fun setupKeyboardAwareForm() {
+        val baseBottomPadding = binding.nsvRegister.paddingBottom
+        ViewCompat.setOnApplyWindowInsetsListener(binding.nsvRegister) { view, insets ->
+            val imeBottom = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom
+            val systemBottom = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
+            val bottomInset = maxOf(imeBottom, systemBottom)
+            view.updatePadding(bottom = baseBottomPadding + bottomInset + dp(6))
+            insets
+        }
+        ViewCompat.requestApplyInsets(binding.nsvRegister)
+
+        setupInputFocusScrolling()
+    }
+
+    private fun setupInputFocusScrolling() {
+        val fields = listOf(
+            binding.etFullName to binding.tilFullName,
+            binding.etEmail to binding.tilEmail,
+            binding.etPassword to binding.tilPassword,
+            binding.etTcNo to binding.tilTcNo
+        )
+
+        fields.forEach { (input, container) ->
+            input.setOnFocusChangeListener { focusedView, hasFocus ->
+                if (hasFocus) {
+                    scrollFieldIntoView(container)
+                }
+            }
+        }
+
+        binding.actvGender.setOnClickListener {
+            scrollFieldIntoView(binding.tilGender)
+            binding.actvGender.showDropDown()
+        }
+    }
+
+    private fun scrollFieldIntoView(target: View) {
+        binding.nsvRegister.post {
+            val rect = Rect()
+            target.getDrawingRect(rect)
+            binding.nsvRegister.offsetDescendantRectToMyCoords(target, rect)
+
+            val currentScrollY = binding.nsvRegister.scrollY
+            val visibleTop = currentScrollY + dp(12)
+            val visibleBottom = currentScrollY +
+                binding.nsvRegister.height -
+                binding.nsvRegister.paddingBottom -
+                dp(56)
+
+            val delta = when {
+                rect.bottom > visibleBottom -> rect.bottom - visibleBottom
+                rect.top < visibleTop -> rect.top - visibleTop
+                else -> 0
+            }
+
+            if (delta != 0) {
+                binding.nsvRegister.smoothScrollBy(0, delta)
+            }
+        }
+    }
+
+    private fun dp(value: Int): Int {
+        return (value * resources.displayMetrics.density).toInt()
     }
 
     private fun setupClickListeners() {

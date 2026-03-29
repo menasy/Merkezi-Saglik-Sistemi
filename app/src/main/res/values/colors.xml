@@ -33,5 +33,5 @@
 
     <color name="register_chip_bg">#1FFFFFFF</color>
     <color name="register_chip_text">#EAF4FF</color>
-    <color name="register_card_stroke">#D9E6F7</color>
+    <color name="register_card_stroke">#CDEDEB</color>
 </resources>

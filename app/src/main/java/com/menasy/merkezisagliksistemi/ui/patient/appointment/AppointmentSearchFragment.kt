@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -12,6 +13,7 @@ import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.DateValidatorPointForward
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
+import com.google.android.material.textfield.TextInputLayout
 import com.menasy.merkezisagliksistemi.R
 import com.menasy.merkezisagliksistemi.databinding.FragmentAppointmentSearchBinding
 import com.menasy.merkezisagliksistemi.ui.common.base.BaseFragment
@@ -51,6 +53,7 @@ class AppointmentSearchFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupToolbar()
         setupSearchableDropdowns()
         setupListeners()
         observeUiEvents(viewModel.uiEvents)
@@ -58,25 +61,45 @@ class AppointmentSearchFragment : BaseFragment() {
         viewModel.loadInitialData()
     }
 
-    private fun setupSearchableDropdowns() {
-        configureSearchableDropdown(binding.actCity)
-        configureSearchableDropdown(binding.actDistrict)
-        configureSearchableDropdown(binding.actBranch)
-        configureSearchableDropdown(binding.actHospital)
-        configureSearchableDropdown(binding.actDoctor)
+    private fun setupToolbar() {
+        binding.btnBackSearch.setOnClickListener {
+            findNavController().navigateUp()
+        }
     }
 
-    private fun configureSearchableDropdown(input: MaterialAutoCompleteTextView) {
+    private fun setupSearchableDropdowns() {
+        configureSearchableDropdown(binding.tilCity, binding.actCity)
+        configureSearchableDropdown(binding.tilDistrict, binding.actDistrict)
+        configureSearchableDropdown(binding.tilBranch, binding.actBranch)
+        configureSearchableDropdown(binding.tilHospital, binding.actHospital)
+        configureSearchableDropdown(binding.tilDoctor, binding.actDoctor)
+    }
+
+    private fun configureSearchableDropdown(
+        layout: TextInputLayout,
+        input: MaterialAutoCompleteTextView
+    ) {
         input.threshold = 1
 
         input.setOnClickListener {
-            if (input.isEnabled) {
-                input.showDropDown()
-            }
+            if (!input.isEnabled) return@setOnClickListener
+            enableTextInputMode(input)
+            input.requestFocus()
+            input.setSelection(input.text?.length ?: 0)
         }
 
-        input.setOnFocusChangeListener { _, hasFocus ->
-            if (hasFocus && input.isEnabled && input.adapter != null && input.adapter.count > 0) {
+        layout.setEndIconOnClickListener {
+            if (!input.isEnabled) return@setEndIconOnClickListener
+            disableTextInputMode(input)
+            input.requestFocus()
+
+            // Filter'ı temizle ve tamamlanınca dropdown'u göster
+            val adapter = input.adapter as? ArrayAdapter<*>
+            if (adapter != null) {
+                adapter.filter.filter("") {
+                    input.post { input.showDropDown() }
+                }
+            } else {
                 input.showDropDown()
             }
         }
@@ -87,31 +110,39 @@ class AppointmentSearchFragment : BaseFragment() {
             showDateRangePicker()
         }
 
-        binding.actCity.setOnItemClickListener { _, _, position, _ ->
-            cityOptions.getOrNull(position)?.id?.let { cityId ->
-                viewModel.onCitySelected(cityId)
-            }
+        binding.actCity.setOnItemClickListener { _, _, _, _ ->
+            val selectedText = binding.actCity.text.toString()
+            val cityId = cityOptions.firstOrNull { it.label == selectedText }?.id
+            cityId?.let { viewModel.onCitySelected(it) }
+            disableTextInputMode(binding.actCity)
         }
 
-        binding.actDistrict.setOnItemClickListener { _, _, position, _ ->
-            val districtId = districtOptions.getOrNull(position)?.id
+        binding.actDistrict.setOnItemClickListener { _, _, _, _ ->
+            val selectedText = binding.actDistrict.text.toString()
+            val districtId = districtOptions.firstOrNull { it.label == selectedText }?.id
             viewModel.onDistrictSelected(districtId)
+            disableTextInputMode(binding.actDistrict)
         }
 
-        binding.actBranch.setOnItemClickListener { _, _, position, _ ->
-            branchOptions.getOrNull(position)?.id?.let { branchId ->
-                viewModel.onBranchSelected(branchId)
-            }
+        binding.actBranch.setOnItemClickListener { _, _, _, _ ->
+            val selectedText = binding.actBranch.text.toString()
+            val branchId = branchOptions.firstOrNull { it.label == selectedText }?.id
+            branchId?.let { viewModel.onBranchSelected(it) }
+            disableTextInputMode(binding.actBranch)
         }
 
-        binding.actHospital.setOnItemClickListener { _, _, position, _ ->
-            val hospitalId = hospitalOptions.getOrNull(position)?.id
+        binding.actHospital.setOnItemClickListener { _, _, _, _ ->
+            val selectedText = binding.actHospital.text.toString()
+            val hospitalId = hospitalOptions.firstOrNull { it.label == selectedText }?.id
             viewModel.onHospitalSelected(hospitalId)
+            disableTextInputMode(binding.actHospital)
         }
 
-        binding.actDoctor.setOnItemClickListener { _, _, position, _ ->
-            val doctorId = doctorOptions.getOrNull(position)?.id
+        binding.actDoctor.setOnItemClickListener { _, _, _, _ ->
+            val selectedText = binding.actDoctor.text.toString()
+            val doctorId = doctorOptions.firstOrNull { it.label == selectedText }?.id
             viewModel.onDoctorSelected(doctorId)
+            disableTextInputMode(binding.actDoctor)
         }
 
         binding.btnSearchAppointments.setOnClickListener {
@@ -152,7 +183,7 @@ class AppointmentSearchFragment : BaseFragment() {
                 bindDoctorOptions(state)
                 bindDateRange(state.startDateMillis, state.endDateMillis)
 
-                bindDoctorFieldEnabled(state.isDoctorFieldEnabled)
+                bindFieldEnabledState(state)
             }
         }
     }
@@ -162,8 +193,8 @@ class AppointmentSearchFragment : BaseFragment() {
             DropdownOption(id = city.id, label = city.name)
         }
         updateDropdown(
-            labels = cityOptions.map { it.label },
-            selectedLabel = cityOptions.firstOrNull { it.id == state.selectedCityId }?.label,
+            options = cityOptions,
+            selectedId = state.selectedCityId,
             input = binding.actCity
         )
     }
@@ -174,9 +205,8 @@ class AppointmentSearchFragment : BaseFragment() {
                 DropdownOption(id = district.id, label = district.name)
             }
         updateDropdown(
-            labels = districtOptions.map { it.label },
-            selectedLabel = districtOptions.firstOrNull { it.id == state.selectedDistrictId }?.label
-                ?: FARKETMEZ,
+            options = districtOptions,
+            selectedId = state.selectedDistrictId,
             input = binding.actDistrict
         )
     }
@@ -186,8 +216,8 @@ class AppointmentSearchFragment : BaseFragment() {
             DropdownOption(id = branch.id, label = branch.name)
         }
         updateDropdown(
-            labels = branchOptions.map { it.label },
-            selectedLabel = branchOptions.firstOrNull { it.id == state.selectedBranchId }?.label,
+            options = branchOptions,
+            selectedId = state.selectedBranchId,
             input = binding.actBranch
         )
     }
@@ -198,9 +228,8 @@ class AppointmentSearchFragment : BaseFragment() {
                 DropdownOption(id = hospital.id, label = hospital.name)
             }
         updateDropdown(
-            labels = hospitalOptions.map { it.label },
-            selectedLabel = hospitalOptions.firstOrNull { it.id == state.selectedHospitalId }?.label
-                ?: FARKETMEZ,
+            options = hospitalOptions,
+            selectedId = state.selectedHospitalId,
             input = binding.actHospital
         )
     }
@@ -211,20 +240,59 @@ class AppointmentSearchFragment : BaseFragment() {
                 DropdownOption(id = doctor.id, label = doctor.fullName)
             }
         updateDropdown(
-            labels = doctorOptions.map { it.label },
-            selectedLabel = doctorOptions.firstOrNull { it.id == state.selectedDoctorId }?.label
-                ?: FARKETMEZ,
+            options = doctorOptions,
+            selectedId = state.selectedDoctorId,
             input = binding.actDoctor
         )
     }
 
-    private fun bindDoctorFieldEnabled(isEnabled: Boolean) {
-        binding.tilDoctor.isEnabled = isEnabled
-        binding.actDoctor.isEnabled = isEnabled
-        binding.tilDoctor.hint = if (isEnabled) {
-            "Hekim (Opsiyonel)"
-        } else {
-            "Hekim (Önce hastane seçin)"
+    private fun bindFieldEnabledState(state: AppointmentSearchUiState) {
+        bindDropdownField(
+            layout = binding.tilDistrict,
+            input = binding.actDistrict,
+            isEnabled = state.isDistrictFieldEnabled,
+            enabledHint = "İlçe (Opsiyonel)",
+            disabledHint = "İlçe (Önce il seçin)"
+        )
+
+        bindDropdownField(
+            layout = binding.tilBranch,
+            input = binding.actBranch,
+            isEnabled = state.isBranchFieldEnabled,
+            enabledHint = "Poliklinik *",
+            disabledHint = "Poliklinik (Önce il seçin)"
+        )
+
+        bindDropdownField(
+            layout = binding.tilHospital,
+            input = binding.actHospital,
+            isEnabled = state.isHospitalFieldEnabled,
+            enabledHint = "Hastane (Opsiyonel)",
+            disabledHint = "Hastane (Önce poliklinik seçin)"
+        )
+
+        bindDropdownField(
+            layout = binding.tilDoctor,
+            input = binding.actDoctor,
+            isEnabled = state.isDoctorFieldEnabled,
+            enabledHint = "Hekim (Opsiyonel)",
+            disabledHint = "Hekim (Önce hastane seçin)"
+        )
+    }
+
+    private fun bindDropdownField(
+        layout: TextInputLayout,
+        input: MaterialAutoCompleteTextView,
+        isEnabled: Boolean,
+        enabledHint: String,
+        disabledHint: String
+    ) {
+        layout.isEnabled = isEnabled
+        input.isEnabled = isEnabled
+        layout.hint = if (isEnabled) enabledHint else disabledHint
+
+        if (!isEnabled) {
+            disableTextInputMode(input)
         }
     }
 
@@ -259,22 +327,40 @@ class AppointmentSearchFragment : BaseFragment() {
     }
 
     private fun updateDropdown(
-        labels: List<String>,
-        selectedLabel: String?,
+        options: List<DropdownOption>,
+        selectedId: String?,
         input: MaterialAutoCompleteTextView
     ) {
         val adapter = ArrayAdapter(
             requireContext(),
             R.layout.item_dropdown_option,
             android.R.id.text1,
-            labels
+            options
         )
         input.setAdapter(adapter)
-        if (selectedLabel == null) {
+        val selectedOption = options.firstOrNull { it.id == selectedId }
+        if (selectedOption == null) {
             input.setText("", false)
         } else {
-            input.setText(selectedLabel, false)
+            input.setText(selectedOption.label, false)
         }
+    }
+
+    private fun enableTextInputMode(input: MaterialAutoCompleteTextView) {
+        input.showSoftInputOnFocus = true
+        input.post {
+            inputMethodManager()?.showSoftInput(input, InputMethodManager.SHOW_IMPLICIT)
+        }
+    }
+
+    private fun disableTextInputMode(input: MaterialAutoCompleteTextView) {
+        input.showSoftInputOnFocus = false
+        inputMethodManager()?.hideSoftInputFromWindow(input.windowToken, 0)
+    }
+
+    private fun inputMethodManager(): InputMethodManager? {
+        val safeContext = context ?: return null
+        return safeContext.getSystemService(InputMethodManager::class.java)
     }
 
     private fun formatDate(millis: Long): String {
@@ -292,7 +378,9 @@ class AppointmentSearchFragment : BaseFragment() {
     private data class DropdownOption(
         val id: String?,
         val label: String
-    )
+    ) {
+        override fun toString(): String = label
+    }
 
     private companion object {
         const val FARKETMEZ = "Fark etmez"

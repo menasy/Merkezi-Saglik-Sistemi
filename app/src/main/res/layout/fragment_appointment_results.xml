@@ -7,29 +7,52 @@
     android:background="@color/background"
     tools:context="com.menasy.merkezisagliksistemi.ui.patient.appointment.AppointmentResultsFragment">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbarResults"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutResultsTitleRow"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/surface"
-        android:minHeight="?attr/actionBarSize"
-        android:navigationIcon="@drawable/ic_arrow_back_24"
-        android:title="Randevu Sonuçları"
-        android:titleTextColor="@color/text_primary"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvResultsPageTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Randevu Sonuçları"
+            android:textAppearance="?attr/textAppearanceHeadlineSmall"
+            android:textColor="@color/text_primary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnBackResults"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btnBackResults"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/bg_top_back_button"
+            android:contentDescription="Geri"
+            android:padding="6dp"
+            android:src="@drawable/ic_arrow_back_24"
+            android:tint="@color/primary_dark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:id="@+id/layoutResultHeader"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbarResults">
+        app:layout_constraintTop_toBottomOf="@id/layoutResultsTitleRow">
 
         <TextView
             android:id="@+id/tvResultSummary"

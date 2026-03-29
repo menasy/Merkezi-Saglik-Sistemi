@@ -47,6 +47,9 @@ data class AppointmentSearchUiState(
     val selectedDoctorId: String? = null,
     val startDateMillis: Long? = null,
     val endDateMillis: Long? = null,
+    val isDistrictFieldEnabled: Boolean = false,
+    val isBranchFieldEnabled: Boolean = false,
+    val isHospitalFieldEnabled: Boolean = false,
     val isDoctorFieldEnabled: Boolean = false
 )
 
@@ -60,23 +63,29 @@ class AppointmentSearchViewModel(
 
     private val _uiState = MutableStateFlow(AppointmentSearchUiState())
     val uiState: StateFlow<AppointmentSearchUiState> = _uiState.asStateFlow()
+    private var allBranches: List<Branch> = emptyList()
+    private var isInitialized = false
 
     fun loadInitialData() {
+        if (isInitialized) return
+        isInitialized = true
+
         viewModelScope.launch {
             _uiState.update { it.copy(isLoading = true) }
 
             try {
                 val cities = getCitiesUseCase()
                 val branches = getBranchesUseCase()
+                allBranches = branches
 
                 _uiState.update {
                     it.copy(
                         isLoading = false,
-                        cities = cities,
-                        branches = branches
+                        cities = cities
                     )
                 }
             } catch (error: Exception) {
+                isInitialized = false
                 onDataLoadFailure(error)
             }
         }
@@ -89,19 +98,24 @@ class AppointmentSearchViewModel(
                     isLoading = true,
                     selectedCityId = cityId,
                     selectedDistrictId = null,
+                    selectedBranchId = null,
                     selectedHospitalId = null,
                     selectedDoctorId = null,
                     districts = emptyList(),
+                    branches = emptyList(),
                     hospitals = emptyList(),
                     doctors = emptyList(),
+                    isDistrictFieldEnabled = true,
+                    isBranchFieldEnabled = true,
+                    isHospitalFieldEnabled = false,
                     isDoctorFieldEnabled = false
                 )
             }
 
             try {
                 val districts = getDistrictsByCityUseCase(cityId)
-                _uiState.update { it.copy(districts = districts) }
-                refreshHospitals()
+                _uiState.update { it.copy(isLoading = false, districts = districts) }
+                refreshAvailableBranches()
             } catch (error: Exception) {
                 onDataLoadFailure(error)
             }
@@ -109,22 +123,33 @@ class AppointmentSearchViewModel(
     }
 
     fun onDistrictSelected(districtId: String?) {
+        val currentState = _uiState.value
+        if (currentState.selectedCityId.isNullOrBlank()) return
+
         viewModelScope.launch {
             _uiState.update {
                 it.copy(
                     selectedDistrictId = districtId,
+                    selectedBranchId = null,
                     selectedHospitalId = null,
                     selectedDoctorId = null,
+                    branches = emptyList(),
                     hospitals = emptyList(),
                     doctors = emptyList(),
+                    isDistrictFieldEnabled = true,
+                    isBranchFieldEnabled = true,
+                    isHospitalFieldEnabled = false,
                     isDoctorFieldEnabled = false
                 )
             }
-            refreshHospitals()
+            refreshAvailableBranches()
         }
     }
 
     fun onBranchSelected(branchId: String) {
+        val currentState = _uiState.value
+        if (currentState.selectedCityId.isNullOrBlank()) return
+
         viewModelScope.launch {
             _uiState.update {
                 it.copy(
@@ -133,6 +158,7 @@ class AppointmentSearchViewModel(
                     selectedDoctorId = null,
                     hospitals = emptyList(),
                     doctors = emptyList(),
+                    isHospitalFieldEnabled = false,
                     isDoctorFieldEnabled = false
                 )
             }
@@ -149,6 +175,7 @@ class AppointmentSearchViewModel(
                     selectedHospitalId = hospitalId,
                     selectedDoctorId = null,
                     doctors = emptyList(),
+                    isHospitalFieldEnabled = !it.selectedBranchId.isNullOrBlank(),
                     isDoctorFieldEnabled = isSpecificHospitalSelected
                 )
             }
@@ -208,7 +235,38 @@ class AppointmentSearchViewModel(
     private suspend fun refreshHospitals() {
         val currentState = _uiState.value
         val cityId = currentState.selectedCityId ?: run {
-            _uiState.update { it.copy(isLoading = false) }
+            _uiState.update {
+                it.copy(
+                    isLoading = false,
+                    selectedDistrictId = null,
+                    selectedBranchId = null,
+                    selectedHospitalId = null,
+                    selectedDoctorId = null,
+                    districts = emptyList(),
+                    hospitals = emptyList(),
+                    doctors = emptyList(),
+                    isDistrictFieldEnabled = false,
+                    isBranchFieldEnabled = false,
+                    isHospitalFieldEnabled = false,
+                    isDoctorFieldEnabled = false
+                )
+            }
+            return
+        }
+
+        val selectedBranchId = currentState.selectedBranchId
+        if (selectedBranchId.isNullOrBlank()) {
+            _uiState.update {
+                it.copy(
+                    isLoading = false,
+                    selectedHospitalId = null,
+                    selectedDoctorId = null,
+                    hospitals = emptyList(),
+                    doctors = emptyList(),
+                    isHospitalFieldEnabled = false,
+                    isDoctorFieldEnabled = false
+                )
+            }
             return
         }
 
@@ -220,13 +278,8 @@ class AppointmentSearchViewModel(
                 districtId = currentState.selectedDistrictId
             )
 
-            val selectedBranchId = currentState.selectedBranchId
-            val filteredHospitals = if (selectedBranchId.isNullOrBlank()) {
-                hospitals
-            } else {
-                hospitals.filter { hospital ->
-                    hospital.branchIds.isEmpty() || selectedBranchId in hospital.branchIds
-                }
+            val filteredHospitals = hospitals.filter { hospital ->
+                hospital.branchIds.isEmpty() || selectedBranchId in hospital.branchIds
             }
 
             _uiState.update {
@@ -236,6 +289,61 @@ class AppointmentSearchViewModel(
                     selectedHospitalId = null,
                     selectedDoctorId = null,
                     doctors = emptyList(),
+                    isHospitalFieldEnabled = true,
+                    isDoctorFieldEnabled = false
+                )
+            }
+        } catch (error: Exception) {
+            onDataLoadFailure(error)
+        }
+    }
+
+    private suspend fun refreshAvailableBranches() {
+        val currentState = _uiState.value
+        val cityId = currentState.selectedCityId ?: run {
+            _uiState.update {
+                it.copy(
+                    branches = emptyList(),
+                    selectedBranchId = null,
+                    selectedHospitalId = null,
+                    selectedDoctorId = null,
+                    hospitals = emptyList(),
+                    doctors = emptyList(),
+                    isBranchFieldEnabled = false,
+                    isHospitalFieldEnabled = false,
+                    isDoctorFieldEnabled = false
+                )
+            }
+            return
+        }
+
+        _uiState.update { it.copy(isLoading = true) }
+
+        try {
+            val locationHospitals = getHospitalsByDistrictUseCase(
+                cityId = cityId,
+                districtId = currentState.selectedDistrictId
+            )
+
+            val availableBranchIds = locationHospitals
+                .flatMap { hospital -> hospital.branchIds }
+                .toSet()
+
+            val filteredBranches = allBranches
+                .filter { branch -> branch.id in availableBranchIds }
+                .sortedBy { branch -> branch.name }
+
+            _uiState.update {
+                it.copy(
+                    isLoading = false,
+                    branches = filteredBranches,
+                    selectedBranchId = null,
+                    selectedHospitalId = null,
+                    selectedDoctorId = null,
+                    hospitals = emptyList(),
+                    doctors = emptyList(),
+                    isBranchFieldEnabled = true,
+                    isHospitalFieldEnabled = false,
                     isDoctorFieldEnabled = false
                 )
             }

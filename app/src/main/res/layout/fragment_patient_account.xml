@@ -26,16 +26,18 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tvAccountTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/account_todo_title"
-                android:textAppearance="?attr/textAppearanceHeadlineMedium"
+                android:text="@string/account_title"
+                android:textAppearance="?attr/textAppearanceHeadlineSmall"
                 android:textColor="@color/text_primary" />
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardAccountInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="14dp"
                 app:cardBackgroundColor="@color/surface"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="0dp"
@@ -46,24 +48,81 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="20dp">
+                    android:padding="16dp">
 
                     <TextView
+                        android:id="@+id/tvInfoCardTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/account_todo_description"
-                        android:textAppearance="?attr/textAppearanceBodyLarge"
+                        android:text="@string/account_info_card_title"
+                        android:textAppearance="?attr/textAppearanceTitleMedium"
+                        android:textColor="@color/text_primary"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvAccountFullNameLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/account_info_full_name"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:textColor="@color/text_secondary" />
+
+                    <TextView
+                        android:id="@+id/tvAccountFullNameValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="-"
+                        android:textAppearance="?attr/textAppearanceTitleSmall"
                         android:textColor="@color/text_primary" />
 
                     <TextView
+                        android:id="@+id/tvAccountRoleLabel"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="@string/account_todo_hint"
+                        android:layout_marginTop="14dp"
+                        android:text="@string/account_info_role"
                         android:textAppearance="?attr/textAppearanceBodyMedium"
                         android:textColor="@color/text_secondary" />
+
+                    <TextView
+                        android:id="@+id/tvAccountRoleValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="-"
+                        android:textAppearance="?attr/textAppearanceTitleSmall"
+                        android:textColor="@color/text_primary" />
+
+                    <TextView
+                        android:id="@+id/tvAccountUserIdLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:text="@string/account_info_user_id"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:textColor="@color/text_secondary" />
+
+                    <TextView
+                        android:id="@+id/tvAccountUserIdValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="-"
+                        android:textAppearance="?attr/textAppearanceTitleSmall"
+                        android:textColor="@color/text_primary" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogout"
+                style="@style/Widget.MerkeziSaglik.PrimaryButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/error"
+                android:text="@string/account_logout" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

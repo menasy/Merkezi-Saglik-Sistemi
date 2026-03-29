@@ -15,8 +15,11 @@
     <string name="prescriptions_todo_title">Reçetelerim</string>
     <string name="prescriptions_todo_description">TODO: Aktif ve geçmiş reçeteler bu alanda görüntülenecek.</string>
     <string name="prescriptions_todo_hint">Bu alan ilerleyen sprintte filtreleme ve detay sayfası ile genişletilecek.</string>
-    <string name="account_todo_title">Hesabım</string>
-    <string name="account_todo_description">TODO: Profil bilgileri, güvenlik ve çıkış işlemleri bu ekrana taşınacak.</string>
-    <string name="account_todo_hint">Bu bölümde kısa süre içinde kişisel bilgiler ve tercih ayarları yer alacak.</string>
+    <string name="account_title">Hesabım</string>
+    <string name="account_info_card_title">Profil Bilgileri</string>
+    <string name="account_info_full_name">Ad Soyad</string>
+    <string name="account_info_role">Rol</string>
+    <string name="account_info_user_id">Kullanıcı ID</string>
+    <string name="account_logout">Çıkış Yap</string>
     <string name="message_close">Mesajı kapat</string>
 </resources>
