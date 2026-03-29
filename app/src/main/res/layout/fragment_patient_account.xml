@@ -30,8 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/account_title"
-                android:textAppearance="?attr/textAppearanceHeadlineSmall"
-                android:textColor="@color/text_primary" />
+                android:textAppearance="@style/TextAppearance.MerkeziSaglik.PageTitle" />
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardAccountInfo"
@@ -117,11 +116,11 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnLogout"
-                style="@style/Widget.MerkeziSaglik.PrimaryButton"
-                android:layout_width="match_parent"
+                style="@style/Widget.MerkeziSaglik.Button.Danger"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:backgroundTint="@color/error"
+                android:layout_gravity="center_horizontal"
                 android:text="@string/account_logout" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

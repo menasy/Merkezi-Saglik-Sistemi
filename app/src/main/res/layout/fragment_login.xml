@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="#FDFDFD"
     tools:context="com.menasy.merkezisagliksistemi.ui.auth.login.LoginFragment">
 
     <androidx.core.widget.NestedScrollView
@@ -13,7 +13,6 @@
         android:layout_height="0dp"
         android:clipToPadding="false"
         android:fillViewport="true"
-        android:paddingHorizontal="24dp"
         android:paddingVertical="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,7 +28,8 @@
                 android:id="@+id/layoutLoginBody"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
+                android:paddingHorizontal="24dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -40,8 +40,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Giriş Yap"
-                    android:textAppearance="?attr/textAppearanceHeadlineMedium"
-                    android:textColor="@color/text_primary" />
+                    android:textAppearance="@style/TextAppearance.MerkeziSaglik.PageTitle" />
 
                 <TextView
                     android:id="@+id/tvLoginSubtitle"
@@ -115,12 +114,12 @@
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnLogin"
-                            android:layout_width="match_parent"
+                            style="@style/Widget.MerkeziSaglik.Button.Large"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="24dp"
-                            android:text="Giriş Yap"
-                            android:textColor="@color/background"
-                            app:backgroundTint="@color/primary" />
+                            android:layout_gravity="center_horizontal"
+                            android:text="Giriş Yap" />
 
                         <TextView
                             android:id="@+id/tvGoRegister"
@@ -134,6 +133,20 @@
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ivLoginLogo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name"
+                android:maxHeight="300dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/merkezi_saglik_sistemi_logo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layoutLoginBody" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 

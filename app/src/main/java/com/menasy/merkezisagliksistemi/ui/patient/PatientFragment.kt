@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.menasy.merkezisagliksistemi.R
 import com.menasy.merkezisagliksistemi.databinding.FragmentPatientHomeBinding
+import com.menasy.merkezisagliksistemi.di.SessionCache
 
 class PatientHomeFragment : Fragment() {
 
@@ -26,9 +27,19 @@ class PatientHomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        bindWelcomeMessage()
+
         binding.btnTakeAppointment.setOnClickListener {
             navigateToAppointmentSearch()
         }
+    }
+
+    private fun bindWelcomeMessage() {
+        val displayName = SessionCache.fullName?.takeIf { it.isNotBlank() }
+            ?: SessionCache.userId?.takeIf { it.isNotBlank() }
+            ?: getString(R.string.home_welcome_default_user)
+
+        binding.tvWelcomeUser.text = getString(R.string.home_welcome_user_format, displayName)
     }
 
     private fun navigateToAppointmentSearch() {

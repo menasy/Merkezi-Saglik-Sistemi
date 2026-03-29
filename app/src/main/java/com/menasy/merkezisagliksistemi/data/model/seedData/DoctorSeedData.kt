@@ -205,7 +205,6 @@ private val LAST_NAMES = listOf(
     "Sağlam", "Tok", "Uzun", "Varol", "Yalçın", "Zaman", "Akan", "Bayar", "Çiçek", "Dursun",
     "Erol", "Fidaner", "Güven", "Harman", "İnan", "Kahraman", "Levent", "Mavzer", "Nazlı", "Okur",
     "Poyraz", "Reşit", "Sönmez", "Turhan", "Ülker", "Vatan", "Yakut", "Zeytin", "Altan", "Bircan",
-    // Daha fazla soyadı
     "Özkan", "Şen", "Güneyli", "Tekelioğlu", "Yörük", "Çınar", "Özbek", "Şenel", "Gümüş", "Toraman",
     "Özçelik", "Şanlı", "Güngör", "Türeli", "Yücel", "Çetiner", "Özdoğan", "Şimşir", "Gülay", "Tunçyılmaz",
     "Özgür", "Şekerci", "Güneşli", "Topkan", "Yüksek", "Çetinkaya", "Özyurt", "Şirin", "Gündoğdu", "Tokeri"

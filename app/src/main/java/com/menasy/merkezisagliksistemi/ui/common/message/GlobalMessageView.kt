@@ -79,7 +79,6 @@ class GlobalMessageView @JvmOverloads constructor(
     private fun applyVisualState(message: UiMessage) {
         val style = styleFor(message.type)
 
-        binding.ivAccent.setColorFilter(style.accentColor)
         binding.ivTypeIcon.setImageResource(style.iconRes)
         binding.ivTypeIcon.setColorFilter(style.accentColor)
         binding.tvTitle.setTextColor(style.accentColor)

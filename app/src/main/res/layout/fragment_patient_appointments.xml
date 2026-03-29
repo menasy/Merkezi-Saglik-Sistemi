@@ -29,8 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/appointments_todo_title"
-                android:textAppearance="?attr/textAppearanceHeadlineMedium"
-                android:textColor="@color/text_primary" />
+                android:textAppearance="@style/TextAppearance.MerkeziSaglik.PageTitle" />
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
@@ -67,9 +66,11 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnStartAppointmentFlow"
-                android:layout_width="match_parent"
+                style="@style/Widget.MerkeziSaglik.Button.Medium"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:layout_gravity="center_horizontal"
                 android:text="@string/appointments_start_flow" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

@@ -5,87 +5,201 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="4dp"
-    android:layout_marginTop="8dp"
+    android:layout_marginTop="12dp"
     android:layout_marginBottom="4dp"
+    android:clickable="true"
+    android:focusable="true"
     app:cardBackgroundColor="@color/surface"
-    app:cardCornerRadius="14dp"
-    app:cardElevation="0dp"
-    app:strokeColor="@color/primary_light"
-    app:strokeWidth="1dp">
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp"
+    app:strokeWidth="0dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:paddingHorizontal="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="18dp">
+
+        <!-- Row 1: Patient Avatar + Name + Favorite Star -->
+        <ImageView
+            android:id="@+id/ivPatientAvatar"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_appointment_patient_avatar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvDoctorName"
+            android:id="@+id/tvPatientName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:textColor="@color/text_primary"
-            app:layout_constraintEnd_toStartOf="@id/tvDaysLeft"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Uzm. Dr. Mehmet Yilmaz" />
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/ivPatientAvatar"
+            app:layout_constraintEnd_toStartOf="@id/ivFavorite"
+            app:layout_constraintStart_toEndOf="@id/ivPatientAvatar"
+            app:layout_constraintTop_toTopOf="@id/ivPatientAvatar"
+            tools:text="ÖMER KIZILTAŞ" />
 
-        <TextView
-            android:id="@+id/tvDaysLeft"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_pill_primary_light"
-            android:paddingHorizontal="10dp"
-            android:paddingVertical="4dp"
-            android:textAppearance="?attr/textAppearanceBodySmall"
-            android:textColor="@color/text_primary"
-            app:layout_constraintBaseline_toBaselineOf="@id/tvDoctorName"
+        <ImageView
+            android:id="@+id/ivFavorite"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:contentDescription="Favori"
+            android:src="@drawable/ic_appointment_favorite_outline"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:text="2 gun kaldi" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tvAppointmentDate"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textAppearance="?attr/textAppearanceBodyMedium"
-            android:textColor="@color/text_primary"
-            app:layout_constraintEnd_toEndOf="parent"
+        <!-- Row 2: Hospital with H icon -->
+        <ImageView
+            android:id="@+id/ivHospitalIcon"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="14dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_appointment_hospital"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvDoctorName"
-            tools:text="12 Mayis 2026, Pazartesi" />
+            app:layout_constraintTop_toBottomOf="@id/ivPatientAvatar" />
 
         <TextView
             android:id="@+id/tvHospitalName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:maxLines="2"
             android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/ivHospitalIcon"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivHospitalIcon"
+            app:layout_constraintTop_toTopOf="@id/ivHospitalIcon"
+            tools:text="MARDİN KIZILTEPE DEVLET HASTANESİ" />
+
+        <!-- Row 3: Branch with pill icon -->
+        <ImageView
+            android:id="@+id/ivBranchIcon"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_appointment_branch"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAppointmentDate"
-            tools:text="Ankara Sehir Hastanesi" />
+            app:layout_constraintTop_toBottomOf="@id/ivHospitalIcon" />
 
         <TextView
             android:id="@+id/tvBranchName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:textAppearance="?attr/textAppearanceBodySmall"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/ivBranchIcon"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvHospitalName"
-            tools:text="Kardiyoloji" />
+            app:layout_constraintStart_toEndOf="@id/ivBranchIcon"
+            app:layout_constraintTop_toTopOf="@id/ivBranchIcon"
+            tools:text="Fiziksel Tıp ve Rehabilitasyon" />
 
+        <!-- Row 4: Doctor with infusion icon -->
+        <ImageView
+            android:id="@+id/ivDoctorIcon"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_appointment_doctor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivBranchIcon" />
+
+        <TextView
+            android:id="@+id/tvDoctorName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/ivDoctorIcon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivDoctorIcon"
+            app:layout_constraintTop_toTopOf="@id/ivDoctorIcon"
+            tools:text="Fzk.Ted.Plk.Uz.Dr.Ömer KIZILTAŞ" />
+
+        <!-- Row 5: Labels - EN YAKIN TARİH + X Gün Var -->
+        <TextView
+            android:id="@+id/tvNearestDateLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="EN YAKIN TARİH"
+            android:textColor="@color/appointment_card_label"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivDoctorIcon" />
+
+        <TextView
+            android:id="@+id/tvDaysLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:textColor="@color/appointment_card_days_left"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@id/tvNearestDateLabel"
+            app:layout_constraintStart_toEndOf="@id/tvNearestDateLabel"
+            tools:text="3 Gün Var" />
+
+        <!-- Row 6: Calendar + Date -->
+        <ImageView
+            android:id="@+id/ivCalendarIcon"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_appointment_calendar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvNearestDateLabel" />
+
+        <TextView
+            android:id="@+id/tvAppointmentDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/ivCalendarIcon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivCalendarIcon"
+            app:layout_constraintTop_toTopOf="@id/ivCalendarIcon"
+            tools:text="31.03.2026 Salı" />
+
+        <!-- Hidden button for click handling - invisible but functional -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCreateAppointment"
-            style="@style/Widget.Material3.Button.TonalButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:text="Randevu Olustur"
-            app:layout_constraintTop_toBottomOf="@id/tvBranchName" />
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>

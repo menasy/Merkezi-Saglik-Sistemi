@@ -3,7 +3,6 @@ package com.menasy.merkezisagliksistemi.ui.patient.appointment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -44,11 +43,10 @@ class DoctorDaySlotsAdapter(
             binding.chipGroupHours.removeAllViews()
 
             item.hourBlocks.forEachIndexed { hourIndex, hourBlock ->
-                val chip = createBaseChip().apply {
+                val chip = createHourChip().apply {
                     text = hourBlock.hourLabel
                     isEnabled = hourBlock.isEnabled
                     isChecked = item.selectedHourIndex == hourIndex
-                    alpha = if (hourBlock.isEnabled) 1f else 0.45f
 
                     setOnClickListener {
                         if (!hourBlock.isEnabled) return@setOnClickListener
@@ -78,11 +76,10 @@ class DoctorDaySlotsAdapter(
             binding.chipGroupSlots.removeAllViews()
 
             selectedHour.slots.forEach { slot ->
-                val slotChip = createBaseChip().apply {
+                val slotChip = createSlotChip().apply {
                     text = slot.timeLabel
                     isEnabled = slot.isAvailable
                     isChecked = item.selectedSlotLabel == slot.timeLabel
-                    alpha = if (slot.isAvailable) 1f else 0.45f
 
                     setOnClickListener {
                         if (!slot.isAvailable) return@setOnClickListener
@@ -95,11 +92,12 @@ class DoctorDaySlotsAdapter(
             }
         }
 
-        private fun createBaseChip(): Chip {
-            return Chip(binding.root.context, null, com.google.android.material.R.style.Widget_Material3_Chip_Filter).apply {
-                isCheckable = true
-                setTextColor(ContextCompat.getColor(context, R.color.text_primary))
-            }
+        private fun createHourChip(): Chip {
+            return Chip(binding.root.context, null, R.style.Widget_MerkeziSaglik_Chip_Hour)
+        }
+
+        private fun createSlotChip(): Chip {
+            return Chip(binding.root.context, null, R.style.Widget_MerkeziSaglik_Chip_Slot)
         }
     }
 

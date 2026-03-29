@@ -7,41 +7,40 @@
     android:background="@color/background"
     tools:context="com.menasy.merkezisagliksistemi.ui.patient.appointment.AppointmentConfirmationFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:id="@+id/layoutAppointmentConfirmationTitleRow"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="12dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/tvAppointmentConfirmationTitle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Randevu Onayı"
-            android:textAppearance="?attr/textAppearanceHeadlineSmall"
-            android:textColor="@color/text_primary"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btnBackAppointmentConfirmation"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <ImageButton
             android:id="@+id/btnBackAppointmentConfirmation"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@drawable/bg_top_back_button"
             android:contentDescription="Geri"
-            android:padding="6dp"
+            android:padding="8dp"
             android:src="@drawable/ic_arrow_back_24"
-            android:tint="@color/primary_dark"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:tint="@color/primary_dark" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tvAppointmentConfirmationTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Randevu Onayı"
+            android:textAppearance="@style/TextAppearance.MerkeziSaglik.PageTitle" />
+    </LinearLayout>
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nsvAppointmentConfirmation"
@@ -62,146 +61,247 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tvConfirmationIntro"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Randevu bilgilerinizi kontrol ederek onaylayin."
-                android:textAppearance="?attr/textAppearanceBodyMedium"
-                android:textColor="@color/text_secondary" />
-
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardAppointmentConfirmation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
                 app:cardBackgroundColor="@color/surface"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="0dp"
-                app:strokeColor="@color/primary_light"
-                app:strokeWidth="1dp">
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="20dp">
 
-                    <TextView
-                        android:id="@+id/tvConfirmDateLabel"
+                    <!-- Date Row -->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Tarih"
-                        android:textAppearance="?attr/textAppearanceBodySmall"
-                        android:textColor="@color/text_secondary" />
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/tvConfirmDateValue"
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:contentDescription="Tarih"
+                            android:src="@drawable/ic_appointment_calendar" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Tarih"
+                                android:textColor="@color/primary"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvConfirmDateValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:textColor="@color/text_primary"
+                                android:textSize="16sp"
+                                tools:text="30.03.2026 Pazartesi" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Time Row -->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:textAppearance="?attr/textAppearanceBodyLarge"
-                        android:textColor="@color/text_primary"
-                        tools:text="12 Mayis 2026, Pazartesi" />
+                        android:layout_marginTop="16dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/tvConfirmTimeLabel"
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:contentDescription="Saat"
+                            android:src="@drawable/ic_appointment_clock" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Saat"
+                                android:textColor="@color/primary"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvConfirmTimeValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:textColor="@color/text_primary"
+                                android:textSize="16sp"
+                                tools:text="08:30" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Dashed Divider -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="16dp"
+                        android:background="@drawable/divider_dashed"
+                        android:layerType="software" />
+
+                    <!-- Hospital Row -->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:text="Saat"
-                        android:textAppearance="?attr/textAppearanceBodySmall"
-                        android:textColor="@color/text_secondary" />
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/tvConfirmTimeValue"
+                        <FrameLayout
+                            android:layout_width="48dp"
+                            android:layout_height="48dp">
+
+                            <View
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:background="@drawable/bg_appointment_hospital_badge" />
+
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="Hastane"
+                                android:src="@drawable/ic_appointment_hospital" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:id="@+id/tvConfirmHospitalValue"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:textColor="@color/text_primary"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            tools:text="ŞIRNAK DEVLET HASTANESİ" />
+                    </LinearLayout>
+
+                    <!-- Branch Row -->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:textAppearance="?attr/textAppearanceBodyLarge"
-                        android:textColor="@color/text_primary"
-                        tools:text="09:20" />
+                        android:layout_marginTop="16dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/tvConfirmHospitalLabel"
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:contentDescription="Poliklinik"
+                            android:src="@drawable/ic_appointment_branch" />
+
+                        <TextView
+                            android:id="@+id/tvConfirmBranchValue"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_weight="1"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="15sp"
+                            tools:text="Beyin ve Sinir Cerrahisi" />
+                    </LinearLayout>
+
+                    <!-- Doctor Row -->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:text="Hastane"
-                        android:textAppearance="?attr/textAppearanceBodySmall"
-                        android:textColor="@color/text_secondary" />
+                        android:layout_marginTop="16dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/tvConfirmHospitalValue"
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:contentDescription="Doktor"
+                            android:src="@drawable/ic_appointment_patient_avatar" />
+
+                        <TextView
+                            android:id="@+id/tvConfirmDoctorValue"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="15sp"
+                            tools:text="GÜLÇİN BAŞ" />
+                    </LinearLayout>
+
+                    <!-- Add Note Button -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnAddNote"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:textAppearance="?attr/textAppearanceBodyLarge"
-                        android:textColor="@color/text_primary"
-                        tools:text="Ankara Sehir Hastanesi" />
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/bg_add_note_button"
+                        android:paddingVertical="12dp"
+                        android:text="Not Ekle"
+                        android:textAllCaps="false"
+                        android:textColor="@color/add_note_button_text"
+                        android:textSize="15sp"
+                        app:cornerRadius="8dp"
+                        app:strokeWidth="0dp" />
 
+                    <!-- Patient Section -->
                     <TextView
-                        android:id="@+id/tvConfirmDoctorLabel"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:text="Doktor"
-                        android:textAppearance="?attr/textAppearanceBodySmall"
-                        android:textColor="@color/text_secondary" />
-
-                    <TextView
-                        android:id="@+id/tvConfirmDoctorValue"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:textAppearance="?attr/textAppearanceBodyLarge"
-                        android:textColor="@color/text_primary"
-                        tools:text="Uzm. Dr. Ahmet Demir" />
-
-                    <TextView
-                        android:id="@+id/tvConfirmBranchLabel"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:text="Poliklinik"
-                        android:textAppearance="?attr/textAppearanceBodySmall"
-                        android:textColor="@color/text_secondary" />
-
-                    <TextView
-                        android:id="@+id/tvConfirmBranchValue"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:textAppearance="?attr/textAppearanceBodyLarge"
-                        android:textColor="@color/text_primary"
-                        tools:text="Kardiyoloji" />
-
-                    <TextView
-                        android:id="@+id/tvConfirmPatientLabel"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="20dp"
                         android:text="Randevu Sahibi"
-                        android:textAppearance="?attr/textAppearanceBodySmall"
-                        android:textColor="@color/text_secondary" />
+                        android:textColor="@color/primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tvConfirmPatientValue"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:textAppearance="?attr/textAppearanceBodyLarge"
+                        android:layout_marginTop="4dp"
                         android:textColor="@color/text_primary"
-                        tools:text="Ayse Yilmaz" />
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        tools:text="MEHMET NASİM YILMAZ" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
+            <!-- Confirm Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnConfirmAppointment"
+                style="@style/Widget.MerkeziSaglik.Button.Large"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Randevu Onayla" />
+                android:layout_marginTop="20dp"
+                android:paddingVertical="16dp"
+                android:text="Randevuyu Onayla"
+                android:textAllCaps="false"
+                android:textSize="16sp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

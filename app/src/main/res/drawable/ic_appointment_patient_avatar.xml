@@ -1,0 +1,22 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="40dp"
+    android:height="40dp"
+    android:viewportWidth="40"
+    android:viewportHeight="40">
+    <!-- Outer circle (light teal background) -->
+    <path
+        android:fillColor="#E8F5F4"
+        android:pathData="M20,20m-20,0a20,20 0,1 1,40 0a20,20 0,1 1,-40 0" />
+    <!-- Head -->
+    <path
+        android:fillColor="#46B4AF"
+        android:pathData="M20,10c2.76,0 5,2.24 5,5s-2.24,5 -5,5 -5,-2.24 -5,-5 2.24,-5 5,-5z" />
+    <!-- Body -->
+    <path
+        android:fillColor="#46B4AF"
+        android:pathData="M20,22c-4.42,0 -8,1.79 -8,4v2h16v-2c0,-2.21 -3.58,-4 -8,-4z" />
+    <!-- Tie/medical detail -->
+    <path
+        android:fillColor="#2F8F8A"
+        android:pathData="M20,22l-1.5,3h3l-1.5,-3z" />
+</vector>

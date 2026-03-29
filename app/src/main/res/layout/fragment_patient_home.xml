@@ -29,6 +29,7 @@
                 android:id="@+id/layoutPatientBody"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -36,85 +37,31 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.1">
 
+                <ImageView
+                    android:id="@+id/ivHomeLogo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/cd_home_logo"
+                    android:maxHeight="300dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/merkezi_saglik_sistemi_logo" />
+
                 <TextView
-                    android:id="@+id/tvTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Hasta Ana Sayfa"
-                    android:textAppearance="?attr/textAppearanceHeadlineMedium"
-                    android:textColor="@color/text_primary" />
-
-                <TextView
-                    android:id="@+id/tvPatientSubtitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Randevu arama, saat seçme ve onay adımlarına buradan başlayabilirsiniz."
-                    android:textAppearance="?attr/textAppearanceBodyMedium"
-                    android:textColor="@color/text_secondary" />
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cardPatientSummary"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    app:cardBackgroundColor="@color/surface"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="0dp"
-                    app:strokeColor="@color/primary_light"
-                    app:strokeWidth="1dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="20dp">
-
-                        <TextView
-                            android:id="@+id/tvPatientSummaryTitle"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Hoş geldiniz"
-                            android:textAppearance="?attr/textAppearanceTitleMedium"
-                            android:textColor="@color/text_primary" />
-
-                        <TextView
-                            android:id="@+id/tvPatientSummaryDescription"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Seçilen tarih aralığına göre uygun doktor ve saatleri listeleyebilirsiniz."
-                            android:textAppearance="?attr/textAppearanceBodyMedium"
-                            android:textColor="@color/text_secondary" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cardPatientFutureArea"
-                    android:layout_width="match_parent"
+                    android:id="@+id/tvWelcomeUser"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="14dp"
-                    android:layout_marginBottom="20dp"
-                    app:cardBackgroundColor="@color/surface"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="0dp"
-                    app:strokeColor="@color/primary_light"
-                    app:strokeWidth="1dp">
-
-                    <TextView
-                        android:id="@+id/tvPatientFutureAreaDescription"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="20dp"
-                        android:text="Akış: Tarih/filtre seçimi -> uygun randevular -> saat seçimi -> randevu onayı"
-                        android:textAppearance="?attr/textAppearanceBodyMedium"
-                        android:textColor="@color/text_secondary" />
-                </com.google.android.material.card.MaterialCardView>
+                    android:gravity="center"
+                    android:text="@string/home_welcome_title"
+                    android:textAppearance="@style/TextAppearance.MerkeziSaglik.PageTitle" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnTakeAppointment"
-                    android:layout_width="match_parent"
+                    style="@style/Widget.MerkeziSaglik.Button.Large"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
                     android:layout_marginBottom="20dp"
                     android:text="Randevu Al" />
             </LinearLayout>

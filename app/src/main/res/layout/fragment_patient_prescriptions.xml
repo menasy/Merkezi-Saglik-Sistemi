@@ -29,8 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/prescriptions_todo_title"
-                android:textAppearance="?attr/textAppearanceHeadlineMedium"
-                android:textColor="@color/text_primary" />
+                android:textAppearance="@style/TextAppearance.MerkeziSaglik.PageTitle" />
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"

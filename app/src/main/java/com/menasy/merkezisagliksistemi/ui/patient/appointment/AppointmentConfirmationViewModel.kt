@@ -72,6 +72,13 @@ class AppointmentConfirmationViewModel(
         )
     }
 
+    fun addNote() {
+        publishInfo(
+            title = "Bilgilendirme",
+            description = "Not ekleme özelliği yakında aktif olacak."
+        )
+    }
+
     private fun formatDate(millis: Long): String {
         val date = Instant.ofEpochMilli(millis).atZone(ZoneId.systemDefault()).toLocalDate()
         return DATE_FORMATTER.format(date)
@@ -79,6 +86,6 @@ class AppointmentConfirmationViewModel(
 
     private companion object {
         val DATE_FORMATTER: DateTimeFormatter =
-            DateTimeFormatter.ofPattern("dd MMMM yyyy, EEEE", Locale.forLanguageTag("tr-TR"))
+            DateTimeFormatter.ofPattern("dd.MM.yyyy EEEE", Locale.forLanguageTag("tr-TR"))
     }
 }

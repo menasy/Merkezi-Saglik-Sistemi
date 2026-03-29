@@ -22,4 +22,8 @@
     <string name="account_info_user_id">Kullanıcı ID</string>
     <string name="account_logout">Çıkış Yap</string>
     <string name="message_close">Mesajı kapat</string>
+    <string name="home_welcome_title">Hoş geldin</string>
+    <string name="home_welcome_user_format">Hoş geldin, %1$s</string>
+    <string name="home_welcome_default_user">Kullanıcı</string>
+    <string name="cd_home_logo">Ana sayfa logosu</string>
 </resources>

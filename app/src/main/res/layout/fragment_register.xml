@@ -31,9 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Hasta Kaydı"
-                android:textColor="@color/primary_dark"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textAppearance="@style/TextAppearance.MerkeziSaglik.PageTitle" />
 
             <TextView
                 android:id="@+id/tvRegisterSubtitle"
@@ -227,11 +225,11 @@
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnRegister"
-                        style="@style/Widget.MerkeziSaglik.PrimaryButton"
-                        android:layout_width="match_parent"
+                        style="@style/Widget.MerkeziSaglik.Button.Large"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        app:backgroundTint="@color/primary"
+                        android:layout_gravity="center_horizontal"
                         android:text="Kaydı Tamamla" />
 
                     <TextView

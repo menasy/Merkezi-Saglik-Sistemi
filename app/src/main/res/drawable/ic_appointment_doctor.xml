@@ -1,0 +1,14 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="28dp"
+    android:height="28dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- IV Bag / Infusion icon in teal -->
+    <path
+        android:fillColor="#46B4AF"
+        android:pathData="M7,2v2h1v1.17c-1.17,0.41 -2,1.52 -2,2.83v10c0,1.66 1.34,3 3,3h6c1.66,0 3,-1.34 3,-3V8c0,-1.31 -0.83,-2.42 -2,-2.83V3h1V2H7zM10,4h4v1h-4V4zM16,8v10c0,0.55 -0.45,1 -1,1H9c-0.55,0 -1,-0.45 -1,-1V8c0,-0.55 0.45,-1 1,-1h6c0.55,0 1,0.45 1,1z" />
+    <!-- Cross on bag -->
+    <path
+        android:fillColor="#46B4AF"
+        android:pathData="M11,10h2v2h2v2h-2v2h-2v-2H9v-2h2z" />
+</vector>

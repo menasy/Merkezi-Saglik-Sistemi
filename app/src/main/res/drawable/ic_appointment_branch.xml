@@ -1,0 +1,13 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="28dp"
+    android:height="28dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Pill/capsule icon in teal color -->
+    <path
+        android:fillColor="#46B4AF"
+        android:pathData="M4.22,11.29l5.1,-5.1c1.08,-1.08 2.48,-1.62 3.89,-1.62s2.81,0.54 3.89,1.62l2.72,2.72c2.14,2.14 2.14,5.64 0,7.78l-5.1,5.1c-2.14,2.14 -5.64,2.14 -7.78,0l-2.72,-2.72c-2.14,-2.14 -2.14,-5.64 0,-7.78zM5.64,17.65l2.72,2.72c0.78,0.78 1.8,1.17 2.83,1.17 1.02,0 2.05,-0.39 2.83,-1.17l5.1,-5.1c1.56,-1.56 1.56,-4.09 0,-5.65l-2.72,-2.72c-1.56,-1.56 -4.09,-1.56 -5.65,0l-5.1,5.1c-1.56,1.56 -1.56,4.09 0,5.65z" />
+    <path
+        android:fillColor="#46B4AF"
+        android:pathData="M8.11,16.95l7.78,-7.78 1.06,1.06 -7.78,7.78z" />
+</vector>

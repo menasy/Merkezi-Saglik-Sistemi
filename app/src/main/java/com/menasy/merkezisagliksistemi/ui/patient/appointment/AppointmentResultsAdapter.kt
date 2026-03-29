@@ -6,6 +6,10 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.menasy.merkezisagliksistemi.databinding.ItemAppointmentResultBinding
+import java.time.Instant
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
+import java.util.Locale
 
 class AppointmentResultsAdapter(
     private val onCreateAppointmentClick: (AppointmentResultUiModel) -> Unit
@@ -31,14 +35,51 @@ class AppointmentResultsAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: AppointmentResultUiModel) {
+            // Patient name (using doctor name as patient identifier for now)
+            binding.tvPatientName.text = extractPatientName(item.doctorName)
+            
+            // Doctor info
             binding.tvDoctorName.text = item.doctorName
             binding.tvBranchName.text = item.branchName
-            binding.tvHospitalName.text = item.hospitalName
-            binding.tvAppointmentDate.text = item.appointmentDateLabel
-            binding.tvDaysLeft.text = item.daysLeftText
+            binding.tvHospitalName.text = item.hospitalName.uppercase(Locale.forLanguageTag("tr-TR"))
+            
+            // Date formatting for short display
+            binding.tvAppointmentDate.text = formatShortDate(item.appointmentDateMillis)
+            
+            // Days left with "Gün Var" format
+            binding.tvDaysLeft.text = formatDaysLeft(item.daysLeftText)
 
-            binding.btnCreateAppointment.setOnClickListener {
+            // Make entire card clickable
+            binding.root.setOnClickListener {
                 onCreateAppointmentClick(item)
+            }
+        }
+        
+        private fun extractPatientName(doctorName: String): String {
+            // Extract surname part from doctor name for patient display
+            val parts = doctorName.split(" ")
+            return if (parts.size >= 2) {
+                parts.takeLast(2).joinToString(" ").uppercase(Locale.forLanguageTag("tr-TR"))
+            } else {
+                doctorName.uppercase(Locale.forLanguageTag("tr-TR"))
+            }
+        }
+        
+        private fun formatShortDate(millis: Long): String {
+            val date = Instant.ofEpochMilli(millis)
+                .atZone(ZoneId.systemDefault())
+                .toLocalDate()
+            val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy EEEE", Locale.forLanguageTag("tr-TR"))
+            return formatter.format(date)
+        }
+        
+        private fun formatDaysLeft(daysLeftText: String): String {
+            // Convert "X gün kaldı" to "X Gün Var"
+            val number = daysLeftText.filter { it.isDigit() }
+            return if (number.isNotEmpty()) {
+                "$number Gün Var"
+            } else {
+                daysLeftText
             }
         }
     }
