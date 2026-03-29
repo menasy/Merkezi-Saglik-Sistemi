@@ -63,10 +63,6 @@ class AppointmentConfirmationFragment : BaseFragment() {
         binding.btnConfirmAppointment.setOnClickListener {
             viewModel.confirm()
         }
-
-        binding.btnAddNote.setOnClickListener {
-            viewModel.addNote()
-        }
     }
 
     private fun observeUiState() {

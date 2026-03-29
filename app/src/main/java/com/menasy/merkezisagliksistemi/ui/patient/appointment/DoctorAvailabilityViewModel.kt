@@ -6,7 +6,7 @@ import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
 import java.util.Locale
-import kotlin.math.abs
+import com.menasy.merkezisagliksistemi.domain.usecase.GetDoctorUnavailableSlotsUseCase
 import com.menasy.merkezisagliksistemi.ui.common.base.BaseViewModel
 import com.menasy.merkezisagliksistemi.ui.common.error.AppErrorReason
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -44,7 +44,9 @@ data class DoctorAvailabilityUiState(
     val selectedSummaryText: String? = null
 )
 
-class DoctorAvailabilityViewModel : BaseViewModel() {
+class DoctorAvailabilityViewModel(
+    private val getDoctorUnavailableSlotsUseCase: GetDoctorUnavailableSlotsUseCase
+) : BaseViewModel() {
 
     private val _uiState = MutableStateFlow(DoctorAvailabilityUiState())
     val uiState: StateFlow<DoctorAvailabilityUiState> = _uiState.asStateFlow()
@@ -194,17 +196,14 @@ class DoctorAvailabilityViewModel : BaseViewModel() {
         val normalizedStartHour = slotStartHour.coerceIn(0, 23)
         val normalizedEndHour = slotEndHour.coerceIn(normalizedStartHour + 1, 24)
         val normalizedSlotDuration = slotDurationMinutes.coerceAtLeast(5)
+        val unavailableSlotLabels = getDoctorUnavailableSlotsUseCase(doctorId, localDate)
 
         return (normalizedStartHour until normalizedEndHour).map { hour ->
             val slots = mutableListOf<SlotUiModel>()
             var minute = 0
             while (minute < 60) {
                 val timeLabel = String.format(Locale.ROOT, "%02d:%02d", hour, minute)
-                val isAvailable = isSlotAvailable(
-                    doctorId = doctorId,
-                    date = localDate,
-                    timeLabel = timeLabel
-                )
+                val isAvailable = timeLabel !in unavailableSlotLabels
                 slots.add(
                     SlotUiModel(
                         timeLabel = timeLabel,
@@ -220,16 +219,6 @@ class DoctorAvailabilityViewModel : BaseViewModel() {
                 slots = slots
             )
         }
-    }
-
-    private fun isSlotAvailable(
-        doctorId: String,
-        date: LocalDate,
-        timeLabel: String
-    ): Boolean {
-        val hashInput = "$doctorId|$date|$timeLabel"
-        val hashValue = abs(hashInput.hashCode())
-        return hashValue % 4 != 0
     }
 
     private fun millisToLocalDate(millis: Long): LocalDate {

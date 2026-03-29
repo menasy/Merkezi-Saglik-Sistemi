@@ -98,7 +98,10 @@
     </style>
 
     <style name="Widget.MerkeziSaglik.Button.Danger" parent="Widget.MerkeziSaglik.Button.Medium">
-        <item name="android:background">@drawable/bg_logout_button</item>
+        <item name="android:backgroundTint">@color/button_danger_background_tint</item>
+        <item name="backgroundTint">@color/button_danger_background_tint</item>
+        <item name="strokeWidth">0dp</item>
+        <item name="cornerRadius">10dp</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
 

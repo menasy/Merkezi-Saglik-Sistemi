@@ -5,14 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.menasy.merkezisagliksistemi.R
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.menasy.merkezisagliksistemi.databinding.FragmentPatientAppointmentsBinding
+import kotlinx.coroutines.launch
 
 class PatientAppointmentsFragment : Fragment() {
 
     private var _binding: FragmentPatientAppointmentsBinding? = null
     private val binding get() = _binding!!
+
+    private val viewModel: PatientAppointmentsViewModel by viewModels()
+    private lateinit var adapter: PatientAppointmentsAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,9 +30,68 @@ class PatientAppointmentsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnStartAppointmentFlow.setOnClickListener {
-            if (findNavController().currentDestination?.id == R.id.patientAppointmentsFragment) {
-                findNavController().navigate(R.id.action_patientAppointmentsFragment_to_appointmentSearchFragment)
+        setupAdapter()
+        setupTabs()
+        observeUiState()
+    }
+
+    private fun setupAdapter() {
+        adapter = PatientAppointmentsAdapter(
+            onCancelClick = { appointment ->
+                viewModel.cancelAppointment(appointment)
+            }
+        )
+        binding.rvAppointments.adapter = adapter
+    }
+
+    private fun setupTabs() {
+        binding.tabActive.setOnClickListener {
+            viewModel.selectTab(AppointmentTab.ACTIVE)
+        }
+
+        binding.tabPast.setOnClickListener {
+            viewModel.selectTab(AppointmentTab.PAST)
+        }
+    }
+
+    private fun observeUiState() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.uiState.collect { state ->
+                // Loading
+                binding.progressBar.visibility = if (state.isLoading) View.VISIBLE else View.GONE
+
+                // Tab selection
+                updateTabSelection(state.selectedTab)
+
+                // Appointments list
+                val appointments = when (state.selectedTab) {
+                    AppointmentTab.ACTIVE -> state.activeAppointments
+                    AppointmentTab.PAST -> state.pastAppointments
+                }
+                adapter.submitList(appointments)
+
+                // Empty state
+                val isEmpty = appointments.isEmpty() && !state.isLoading
+                binding.layoutEmpty.visibility = if (isEmpty) View.VISIBLE else View.GONE
+                binding.rvAppointments.visibility = if (isEmpty) View.GONE else View.VISIBLE
+                binding.tvEmptyMessage.text = state.emptyMessage
+            }
+        }
+    }
+
+    private fun updateTabSelection(selectedTab: AppointmentTab) {
+        when (selectedTab) {
+            AppointmentTab.ACTIVE -> {
+                binding.tvTabActive.setTextColor(requireContext().getColor(com.menasy.merkezisagliksistemi.R.color.primary))
+                binding.tvTabPast.setTextColor(requireContext().getColor(com.menasy.merkezisagliksistemi.R.color.text_secondary))
+                binding.indicatorActive.visibility = View.VISIBLE
+                binding.indicatorPast.visibility = View.INVISIBLE
+            }
+            AppointmentTab.PAST -> {
+                binding.tvTabActive.setTextColor(requireContext().getColor(com.menasy.merkezisagliksistemi.R.color.text_secondary))
+                binding.tvTabPast.setTextColor(requireContext().getColor(com.menasy.merkezisagliksistemi.R.color.primary))
+                binding.indicatorActive.visibility = View.INVISIBLE
+                binding.indicatorPast.visibility = View.VISIBLE
             }
         }
     }

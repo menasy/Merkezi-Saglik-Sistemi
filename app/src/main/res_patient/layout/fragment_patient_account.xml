@@ -121,6 +121,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_gravity="center_horizontal"
+                android:backgroundTint="@color/button_danger_background_tint"
+                app:backgroundTint="@color/button_danger_background_tint"
                 android:text="@string/account_logout" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

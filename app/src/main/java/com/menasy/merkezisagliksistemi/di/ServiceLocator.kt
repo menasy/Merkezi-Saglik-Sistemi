@@ -5,18 +5,21 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.menasy.merkezisagliksistemi.data.remote.firebase.AuthDataSource
 import com.menasy.merkezisagliksistemi.data.remote.local.BranchDataSource
 import com.menasy.merkezisagliksistemi.data.remote.local.CityDataSource
+import com.menasy.merkezisagliksistemi.data.remote.local.DoctorAvailabilityDataSource
 import com.menasy.merkezisagliksistemi.data.remote.local.DistrictDataSource
 import com.menasy.merkezisagliksistemi.data.remote.local.DoctorDataSource
 import com.menasy.merkezisagliksistemi.data.remote.local.HospitalDataSource
 import com.menasy.merkezisagliksistemi.data.repository.AuthRepository
 import com.menasy.merkezisagliksistemi.data.repository.BranchRepository
 import com.menasy.merkezisagliksistemi.data.repository.CityRepository
+import com.menasy.merkezisagliksistemi.data.repository.DoctorAvailabilityRepository
 import com.menasy.merkezisagliksistemi.data.repository.DistrictRepository
 import com.menasy.merkezisagliksistemi.data.repository.DoctorRepository
 import com.menasy.merkezisagliksistemi.data.repository.HospitalRepository
 import com.menasy.merkezisagliksistemi.domain.usecase.GetBranchesUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetCitiesUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetCurrentUserUseCase
+import com.menasy.merkezisagliksistemi.domain.usecase.GetDoctorUnavailableSlotsUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetDistrictsByCityUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetDoctorsUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetHospitalsByDistrictUseCase
@@ -61,6 +64,10 @@ object ServiceLocator {
         DoctorDataSource()
     }
 
+    private val doctorAvailabilityDataSource: DoctorAvailabilityDataSource by lazy {
+        DoctorAvailabilityDataSource()
+    }
+
     private val authRepository: AuthRepository by lazy {
         AuthRepository(authDataSource)
     }
@@ -83,6 +90,10 @@ object ServiceLocator {
 
     private val doctorRepository: DoctorRepository by lazy {
         DoctorRepository(doctorDataSource)
+    }
+
+    private val doctorAvailabilityRepository: DoctorAvailabilityRepository by lazy {
+        DoctorAvailabilityRepository(doctorAvailabilityDataSource)
     }
 
     fun provideLoginUserUseCase(): LoginUserUseCase {
@@ -119,5 +130,9 @@ object ServiceLocator {
 
     fun provideGetDoctorsUseCase(): GetDoctorsUseCase {
         return GetDoctorsUseCase(doctorRepository)
+    }
+
+    fun provideGetDoctorUnavailableSlotsUseCase(): GetDoctorUnavailableSlotsUseCase {
+        return GetDoctorUnavailableSlotsUseCase(doctorAvailabilityRepository)
     }
 }

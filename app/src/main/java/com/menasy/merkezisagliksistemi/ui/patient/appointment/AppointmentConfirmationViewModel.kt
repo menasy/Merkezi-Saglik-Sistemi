@@ -72,13 +72,6 @@ class AppointmentConfirmationViewModel(
         )
     }
 
-    fun addNote() {
-        publishInfo(
-            title = "Bilgilendirme",
-            description = "Not ekleme özelliği yakında aktif olacak."
-        )
-    }
-
     private fun formatDate(millis: Long): String {
         val date = Instant.ofEpochMilli(millis).atZone(ZoneId.systemDefault()).toLocalDate()
         return DATE_FORMATTER.format(date)
