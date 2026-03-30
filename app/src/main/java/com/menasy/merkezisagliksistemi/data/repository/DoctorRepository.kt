@@ -33,4 +33,8 @@ class DoctorRepository(
     fun getDoctorByUserId(userId: String): Doctor? {
         return doctorDataSource.getDoctorByUserId(userId)
     }
+
+    fun hasDoctorProfileByUserId(userId: String): Boolean {
+        return doctorDataSource.hasDoctorProfileByUserId(userId)
+    }
 }

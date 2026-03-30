@@ -157,6 +157,16 @@ object AppErrorMapper {
                 description = "Randevu oluşturulurken bir hata oluştu. Lütfen tekrar deneyin."
             )
 
+            AppErrorReason.ACTIVE_APPOINTMENT_EXISTS_FOR_DOCTOR -> UiMessage.warning(
+                title = "Aktif Randevu Mevcut",
+                description = "Bu doktordan zaten aktif bir randevunuz bulunmaktadır."
+            )
+
+            AppErrorReason.MAX_ACTIVE_APPOINTMENTS_REACHED -> UiMessage.warning(
+                title = "Randevu Limiti Doldu",
+                description = "Aynı anda en fazla 5 aktif randevunuz olabilir."
+            )
+
             AppErrorReason.INVALID_USER_ROLE -> UiMessage.error(
                 title = "Hesap Türü Geçersiz",
                 description = "Kullanıcı rolü doğrulanamadı."
@@ -190,6 +200,16 @@ object AppErrorMapper {
             AppErrorReason.NO_ACTIVE_SESSION -> UiMessage.warning(
                 title = "Oturum Bulunamadı",
                 description = "Devam etmek için tekrar giriş yapın."
+            )
+
+            AppErrorReason.DOCTOR_UID_MISMATCH -> UiMessage.error(
+                title = "Doktor Eşleşmesi Bulunamadı",
+                description = "Bu doktor hesabının UID bilgisi local profil ile eşleşmiyor."
+            )
+
+            AppErrorReason.DOCTOR_LOGIN_NOT_ALLOWED -> UiMessage.warning(
+                title = "Doktor Girişi Yetkisiz",
+                description = "Bu doktor profili için uygulama giriş yetkisi kapalı."
             )
 
             AppErrorReason.DOCTOR_PROFILE_NOT_FOUND -> UiMessage.error(

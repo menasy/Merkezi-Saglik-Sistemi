@@ -4,7 +4,7 @@ import com.menasy.merkezisagliksistemi.data.model.Doctor
 import java.io.File
 
 /**
- * Doktor seed listesini okunabilir JSON çıktısı olarak dışa aktarır.
+ * Test/raporlama için doktor seed listesini okunabilir JSON çıktısı olarak dışa aktarır.
  */
 object DoctorSeedSchemaExporter {
 

@@ -65,7 +65,7 @@ dependencies {
 tasks.register("exportDoctorSchema", Test) {
     def unitTestTask = tasks.named("testDebugUnitTest", Test).get()
     group = "verification"
-    description = "Exports generated doctor seed list to build/reports/seed/DoctorsSchema.json"
+    description = "Exports doctor seed list to build/reports/seed/DoctorsSchema.json"
 
     testClassesDirs = unitTestTask.testClassesDirs
     classpath = unitTestTask.classpath

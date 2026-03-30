@@ -31,20 +31,22 @@ class LoginUserUseCase(
         return when (loginResult.role) {
             "doctor" -> handleDoctorLogin(loginResult)
             "patient" -> handlePatientLogin(loginResult)
-            else -> Result.success(loginResult).also {
-                SessionCache.populate(
-                    userId = loginResult.uid,
-                    role = loginResult.role,
-                    fullName = loginResult.fullName
-                )
-            }
+            else -> Result.failure(AppException(AppErrorReason.INVALID_USER_ROLE))
         }
     }
 
     private fun handleDoctorLogin(loginResult: LoginResult): Result<LoginResult> {
         // Firebase UID ile local seed'den doktor profilini bul
         val doctor = doctorRepository.getDoctorByUserId(loginResult.uid)
-            ?: return Result.failure(AppException(AppErrorReason.DOCTOR_PROFILE_NOT_FOUND))
+            ?: return Result.failure(
+                AppException(
+                    reason = if (doctorRepository.hasDoctorProfileByUserId(loginResult.uid)) {
+                        AppErrorReason.DOCTOR_LOGIN_NOT_ALLOWED
+                    } else {
+                        AppErrorReason.DOCTOR_UID_MISMATCH
+                    }
+                )
+            )
 
         // Session cache'i doktor bilgileriyle doldur
         SessionCache.populateDoctor(

@@ -39,7 +39,11 @@ class DoctorSeedDataTest {
 
     @Test
     fun `no duplicate user IDs`() {
-        val duplicates = doctors.groupingBy { it.userId }.eachCount().filter { it.value > 1 }
+        val duplicates = doctors
+            .mapNotNull { it.userId }
+            .groupingBy { it }
+            .eachCount()
+            .filter { it.value > 1 }
         assertTrue(
             "Found ${duplicates.size} duplicate user IDs: ${duplicates.keys.take(5)}",
             duplicates.isEmpty()
@@ -47,13 +51,36 @@ class DoctorSeedDataTest {
     }
 
     @Test
-    fun `all doctors should have non-blank fields`() {
+    fun `all doctors should have non-blank required fields`() {
         val invalidDoctors = doctors.filter {
-            it.id.isBlank() || it.userId.isNullOrBlank() || it.fullName.isBlank() ||
+            it.id.isBlank() || it.fullName.isBlank() ||
                 it.hospitalId.isBlank() || it.branchId.isBlank() || it.roomInfo.isBlank()
         }
         assertTrue(
             "Found ${invalidDoctors.size} doctors with blank fields",
+            invalidDoctors.isEmpty()
+        )
+    }
+
+    @Test
+    fun `exactly two doctors should be login enabled`() {
+        val loginEnabledDoctors = doctors.filter { it.canLogin }
+        assertEquals(
+            "Expected exactly 2 login enabled doctors but found ${loginEnabledDoctors.size}",
+            2,
+            loginEnabledDoctors.size
+        )
+    }
+
+    @Test
+    fun `login enabled doctor rules should be consistent`() {
+        val invalidDoctors = doctors.filter { doctor ->
+            (doctor.canLogin && doctor.userId.isNullOrBlank()) ||
+                (!doctor.canLogin && !doctor.userId.isNullOrBlank())
+        }
+
+        assertTrue(
+            "Found ${invalidDoctors.size} doctors violating login rules: ${invalidDoctors.take(5).map { it.id }}",
             invalidDoctors.isEmpty()
         )
     }

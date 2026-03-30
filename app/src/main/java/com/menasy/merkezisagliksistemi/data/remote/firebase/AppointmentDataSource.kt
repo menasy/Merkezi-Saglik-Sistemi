@@ -53,14 +53,35 @@ class AppointmentDataSource(
      * Creates an appointment using Firestore transaction to prevent double-booking.
      * 
      * Transaction flow:
-     * 1. Check if lock exists for the slot
-     * 2. If lock exists → abort with SLOT_ALREADY_TAKEN error
-     * 3. If no lock → create lock + appointment atomically
+     * 1. Validate business rules (active appointment limits)
+     * 2. Check if lock exists for the slot
+     * 3. If lock exists → abort with SLOT_ALREADY_TAKEN error
+     * 4. If no lock → create lock + appointment atomically
+     *
+     * Business Rules:
+     * - A patient cannot have more than one active appointment with the same doctor
+     * - A patient cannot have more than 5 active appointments in total
      *
      * @return Result containing the appointment ID on success
      */
     suspend fun createAppointmentWithLock(appointment: Appointment): Result<String> {
         return try {
+            // Fetch patient's active appointments before transaction
+            val activeAppointments = getPatientActiveAppointments(appointment.patientId)
+
+            // Business Rule 1: Check if patient already has an active appointment with this doctor
+            val hasActiveAppointmentWithDoctor = activeAppointments.any { 
+                it.doctorId == appointment.doctorId 
+            }
+            if (hasActiveAppointmentWithDoctor) {
+                return Result.failure(AppException(AppErrorReason.ACTIVE_APPOINTMENT_EXISTS_FOR_DOCTOR))
+            }
+
+            // Business Rule 2: Check if patient has reached the maximum active appointments limit
+            if (activeAppointments.size >= MAX_ACTIVE_APPOINTMENTS) {
+                return Result.failure(AppException(AppErrorReason.MAX_ACTIVE_APPOINTMENTS_REACHED))
+            }
+
             val lockId = buildLockId(
                 doctorId = appointment.doctorId,
                 date = appointment.appointmentDate,
@@ -100,6 +121,21 @@ class AppointmentDataSource(
             Result.failure(e)
         } catch (e: Exception) {
             Result.failure(e)
+        }
+    }
+
+    /**
+     * Gets all active (SCHEDULED) appointments for a patient.
+     */
+    private suspend fun getPatientActiveAppointments(patientId: String): List<Appointment> {
+        val snapshot = firestore.collection(APPOINTMENTS_COLLECTION)
+            .whereEqualTo(FIELD_PATIENT_ID, patientId)
+            .whereEqualTo(FIELD_STATUS, AppointmentStatus.SCHEDULED.name)
+            .get()
+            .await()
+
+        return snapshot.documents.mapNotNull { doc ->
+            doc.toObject(Appointment::class.java)
         }
     }
 
@@ -199,5 +235,7 @@ class AppointmentDataSource(
         const val FIELD_CREATED_AT = "createdAt"
         const val FIELD_DATE = "date"
         const val FIELD_TIME = "time"
+
+        const val MAX_ACTIVE_APPOINTMENTS = 5
     }
 }

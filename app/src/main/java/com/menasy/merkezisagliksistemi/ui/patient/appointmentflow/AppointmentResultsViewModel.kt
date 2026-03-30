@@ -5,20 +5,25 @@ import com.menasy.merkezisagliksistemi.data.model.Doctor
 import com.menasy.merkezisagliksistemi.domain.usecase.GetBranchesUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetDoctorsUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetHospitalsByDistrictUseCase
+import com.menasy.merkezisagliksistemi.domain.usecase.GetNearestAvailableDateUseCase
 import com.menasy.merkezisagliksistemi.ui.common.base.BaseViewModel
 import com.menasy.merkezisagliksistemi.ui.common.error.OperationType
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.sync.Semaphore
+import kotlinx.coroutines.sync.withPermit
 import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
 import java.util.Locale
-import kotlin.math.abs
 
 data class AppointmentResultUiModel(
     val doctorId: String,
@@ -27,9 +32,9 @@ data class AppointmentResultUiModel(
     val hospitalName: String,
     val branchId: String,
     val branchName: String,
-    val appointmentDateMillis: Long,
-    val appointmentDateLabel: String,
-    val daysLeftText: String,
+    val nearestAvailableDateMillis: Long,
+    val nearestAvailableDateLabel: String,
+    val nearestAvailableRelativeText: String,
     val slotStartHour: Int,
     val slotEndHour: Int,
     val slotDurationMinutes: Int
@@ -45,7 +50,8 @@ data class AppointmentResultsUiState(
 class AppointmentResultsViewModel(
     private val getDoctorsUseCase: GetDoctorsUseCase,
     private val getHospitalsByDistrictUseCase: GetHospitalsByDistrictUseCase,
-    private val getBranchesUseCase: GetBranchesUseCase
+    private val getBranchesUseCase: GetBranchesUseCase,
+    private val getNearestAvailableDateUseCase: GetNearestAvailableDateUseCase
 ) : BaseViewModel() {
 
     private val _uiState = MutableStateFlow(AppointmentResultsUiState())
@@ -132,16 +138,40 @@ class AppointmentResultsViewModel(
                 val startDate = millisToLocalDate(args.startDateMillis)
                 val endDate = millisToLocalDate(args.endDateMillis)
 
-                val appointmentItems = filteredDoctors
-                    .map { doctor ->
-                        doctor.toAppointmentResult(
-                            startDate = startDate,
-                            endDate = endDate,
-                            hospitalName = hospitalNameMap[doctor.hospitalId] ?: "Hastane Bilgisi Yok",
-                            branchName = branchNameMap[doctor.branchId] ?: "Poliklinik Bilgisi Yok"
+                val semaphore = Semaphore(NEAREST_DATE_LOOKUP_PARALLELISM)
+                val appointmentItems = coroutineScope {
+                    filteredDoctors.map { doctor ->
+                        async {
+                            semaphore.withPermit {
+                                doctor.toAppointmentResultOrNull(
+                                    startDate = startDate,
+                                    endDate = endDate,
+                                    hospitalName = hospitalNameMap[doctor.hospitalId]
+                                        ?: "Hastane Bilgisi Yok",
+                                    branchName = branchNameMap[doctor.branchId]
+                                        ?: "Poliklinik Bilgisi Yok"
+                                )
+                            }
+                        }
+                    }.awaitAll().filterNotNull()
+                }.sortedBy { item -> item.nearestAvailableDateMillis }
+
+                if (appointmentItems.isEmpty()) {
+                    _uiState.update {
+                        it.copy(
+                            isLoading = false,
+                            appointments = emptyList(),
+                            resultSummary = "0 uygun randevu bulundu",
+                            emptyMessage = "Seçilen tarih aralığında uygun seans bulunamadı."
                         )
                     }
-                    .sortedBy { item -> item.appointmentDateMillis }
+                    publishInfo(
+                        title = "Uygun Seans Bulunamadı",
+                        description = "Seçilen tarih aralığında hekimler için boş seans bulunamadı."
+                    )
+                    isLoaded = true
+                    return@launch
+                }
 
                 _uiState.update {
                     it.copy(
@@ -163,16 +193,25 @@ class AppointmentResultsViewModel(
         publishError(error, OperationType.FETCH_DATA)
     }
 
-    private fun Doctor.toAppointmentResult(
+    private suspend fun Doctor.toAppointmentResultOrNull(
         startDate: LocalDate,
         endDate: LocalDate,
         hospitalName: String,
         branchName: String
-    ): AppointmentResultUiModel {
-        val appointmentDate = generateNearestDate(doctorId = id, startDate = startDate, endDate = endDate)
-        val appointmentDateMillis = appointmentDate.atStartOfDay(ZoneId.systemDefault()).toInstant()
+    ): AppointmentResultUiModel? {
+        val appointmentDate = getNearestAvailableDateUseCase(
+            doctorId = id,
+            startDate = startDate,
+            endDate = endDate,
+            slotStartHour = slotStartHour,
+            slotEndHour = slotEndHour,
+            slotDurationMinutes = slotDurationMinutes
+        ) ?: return null
+
+        val appointmentDateMillis = appointmentDate
+            .atStartOfDay(ZoneId.systemDefault())
+            .toInstant()
             .toEpochMilli()
-        val daysLeft = ChronoUnit.DAYS.between(LocalDate.now(), appointmentDate).toInt().coerceAtLeast(0)
 
         return AppointmentResultUiModel(
             doctorId = id,
@@ -181,24 +220,25 @@ class AppointmentResultsViewModel(
             hospitalName = hospitalName,
             branchId = branchId,
             branchName = branchName,
-            appointmentDateMillis = appointmentDateMillis,
-            appointmentDateLabel = DISPLAY_DATE_FORMATTER.format(appointmentDate),
-            daysLeftText = if (daysLeft <= 1) "1 gün kaldı" else "$daysLeft gün kaldı",
+            nearestAvailableDateMillis = appointmentDateMillis,
+            nearestAvailableDateLabel = EXACT_DATE_FORMATTER.format(appointmentDate),
+            nearestAvailableRelativeText = buildRelativeDateLabel(appointmentDate),
             slotStartHour = slotStartHour,
             slotEndHour = slotEndHour,
             slotDurationMinutes = slotDurationMinutes
         )
     }
 
-    private fun generateNearestDate(
-        doctorId: String,
-        startDate: LocalDate,
-        endDate: LocalDate
-    ): LocalDate {
-        val dayCount = ChronoUnit.DAYS.between(startDate, endDate).toInt() + 1
-        val normalizedDayCount = dayCount.coerceAtLeast(1)
-        val offset = abs(doctorId.hashCode()) % normalizedDayCount
-        return startDate.plusDays(offset.toLong())
+    private fun buildRelativeDateLabel(appointmentDate: LocalDate): String {
+        val daysLeft = ChronoUnit.DAYS.between(LocalDate.now(), appointmentDate)
+            .toInt()
+            .coerceAtLeast(0)
+
+        return when (daysLeft) {
+            0 -> "Bugün"
+            1 -> "Yarın"
+            else -> "$daysLeft gün sonra"
+        }
     }
 
     private fun millisToLocalDate(millis: Long): LocalDate {
@@ -208,7 +248,8 @@ class AppointmentResultsViewModel(
     }
 
     private companion object {
-        val DISPLAY_DATE_FORMATTER: DateTimeFormatter =
-            DateTimeFormatter.ofPattern("dd MMMM yyyy, EEEE", Locale.forLanguageTag("tr-TR"))
+        const val NEAREST_DATE_LOOKUP_PARALLELISM = 8
+        val EXACT_DATE_FORMATTER: DateTimeFormatter =
+            DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.forLanguageTag("tr-TR"))
     }
 }

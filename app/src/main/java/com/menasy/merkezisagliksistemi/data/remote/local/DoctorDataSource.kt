@@ -58,7 +58,15 @@ class DoctorDataSource {
      * @return Eşleşen doktor profili veya null
      */
     fun getDoctorByUserId(userId: String): Doctor? {
-        return doctorsByUserId[userId]
+        return loginEnabledDoctorsByUserId[userId]
+    }
+
+    /**
+     * Firebase Auth UID ile seed'de doktor profili var mı kontrol eder.
+     * Login yetkisi kontrolü yapmaz.
+     */
+    fun hasDoctorProfileByUserId(userId: String): Boolean {
+        return allDoctorsByUserId.containsKey(userId)
     }
 
     private fun resolveBranchAliasIds(branchId: String): Set<String> {
@@ -92,9 +100,14 @@ class DoctorDataSource {
         val doctorsById: Map<String, Doctor> = seededDoctors.associateBy { it.id }
         val seedBranchById = seededBranches.associateBy { it.id }
 
-        // userId'si olan doktorları userId ile index'le
-        val doctorsByUserId: Map<String, Doctor> = seededDoctors
+        // userId'si olan tüm doktorları index'le (canLogin true/false fark etmez)
+        val allDoctorsByUserId: Map<String, Doctor> = seededDoctors
             .filter { !it.userId.isNullOrBlank() }
+            .associateBy { it.userId!! }
+
+        // Login yetkisi olan doktorları index'le
+        val loginEnabledDoctorsByUserId: Map<String, Doctor> = seededDoctors
+            .filter { !it.userId.isNullOrBlank() && it.canLogin }
             .associateBy { it.userId!! }
     }
 }

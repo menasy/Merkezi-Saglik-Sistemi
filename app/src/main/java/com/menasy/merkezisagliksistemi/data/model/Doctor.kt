@@ -13,6 +13,7 @@ package com.menasy.merkezisagliksistemi.data.model
  * @property slotStartHour Günlük mesai başlangıç saati
  * @property slotEndHour Günlük mesai bitiş saati
  * @property slotDurationMinutes Randevu slot süresi (dakika)
+ * @property canLogin Uygulamaya giriş yetkisi var mı
  */
 data class Doctor(
     val id: String = "",
@@ -23,12 +24,12 @@ data class Doctor(
     val roomInfo: String = "",
     val slotStartHour: Int = 9,
     val slotEndHour: Int = 17,
-    val slotDurationMinutes: Int = 20
+    val slotDurationMinutes: Int = 20,
+    val canLogin: Boolean = !userId.isNullOrBlank()
 ) {
-    /**
-     * Bu doktorun Firebase Auth hesabı ile giriş yapıp yapamayacağını belirtir.
-     */
-    val canLogin: Boolean
-        get() = !userId.isNullOrBlank()
-    //Doktorların db şeması build/repoorts/
+    init {
+        require(!canLogin || !userId.isNullOrBlank()) {
+            "Doctor with canLogin=true must have non-null userId: $id"
+        }
+    }
 }

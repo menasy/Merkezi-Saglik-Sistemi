@@ -27,6 +27,7 @@ import com.menasy.merkezisagliksistemi.domain.usecase.GetDoctorUnavailableSlotsU
 import com.menasy.merkezisagliksistemi.domain.usecase.GetDistrictsByCityUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetDoctorsUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetHospitalsByDistrictUseCase
+import com.menasy.merkezisagliksistemi.domain.usecase.GetNearestAvailableDateUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.LoginUserUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.LogoutUserUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.ObserveOccupiedTimesUseCase
@@ -153,6 +154,10 @@ object ServiceLocator {
 
     fun provideObserveOccupiedTimesUseCase(): ObserveOccupiedTimesUseCase {
         return ObserveOccupiedTimesUseCase(appointmentRepository)
+    }
+
+    fun provideGetNearestAvailableDateUseCase(): GetNearestAvailableDateUseCase {
+        return GetNearestAvailableDateUseCase(provideObserveOccupiedTimesUseCase())
     }
 
     fun provideCreateAppointmentUseCase(): CreateAppointmentUseCase {

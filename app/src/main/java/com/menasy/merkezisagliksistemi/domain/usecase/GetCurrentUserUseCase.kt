@@ -29,4 +29,12 @@ class GetCurrentUserUseCase(
     fun getDoctorIdByUserId(userId: String): String? {
         return doctorRepository.getDoctorByUserId(userId)?.id
     }
+
+    /**
+     * Firebase UID için seed'de doktor profili var mı kontrol eder.
+     * Login yetkisi olmasa bile profile bakar.
+     */
+    fun hasDoctorProfileByUserId(userId: String): Boolean {
+        return doctorRepository.hasDoctorProfileByUserId(userId)
+    }
 }

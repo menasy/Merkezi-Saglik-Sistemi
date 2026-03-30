@@ -12,7 +12,8 @@ class AppointmentResultsViewModelFactory : ViewModelProvider.Factory {
             return AppointmentResultsViewModel(
                 getDoctorsUseCase = ServiceLocator.provideGetDoctorsUseCase(),
                 getHospitalsByDistrictUseCase = ServiceLocator.provideGetHospitalsByDistrictUseCase(),
-                getBranchesUseCase = ServiceLocator.provideGetBranchesUseCase()
+                getBranchesUseCase = ServiceLocator.provideGetBranchesUseCase(),
+                getNearestAvailableDateUseCase = ServiceLocator.provideGetNearestAvailableDateUseCase()
             ) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")

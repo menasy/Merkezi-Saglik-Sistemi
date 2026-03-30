@@ -50,12 +50,16 @@ class SplashViewModel(
         roleResult.fold(
             onSuccess = { role ->
                 val fullName = fullNameResult.getOrElse { "" }
-                populateSessionCache(
+                val isSessionReady = populateSessionCache(
                     userId = currentUserId,
                     role = role,
                     fullName = fullName
                 )
-                navigateByRole(role)
+                if (isSessionReady) {
+                    navigateByRole(role)
+                } else {
+                    _navigationState.value = SplashNavigationState.GoToLogin
+                }
             },
             onFailure = { exception ->
                 publishError(
@@ -67,7 +71,7 @@ class SplashViewModel(
         )
     }
 
-    private fun populateSessionCache(userId: String, role: String, fullName: String) {
+    private fun populateSessionCache(userId: String, role: String, fullName: String): Boolean {
         when (role) {
             "doctor" -> {
                 val doctorId = getCurrentUserUseCase.getDoctorIdByUserId(userId)
@@ -78,18 +82,31 @@ class SplashViewModel(
                         fullName = fullName,
                         doctorId = doctorId
                     )
+                    return true
                 } else {
-                    // Doktor profili bulunamadı - hata göster ve login'e yönlendir
-                    publishError(AppErrorReason.DOCTOR_PROFILE_NOT_FOUND)
+                    publishError(
+                        reason = if (getCurrentUserUseCase.hasDoctorProfileByUserId(userId)) {
+                            AppErrorReason.DOCTOR_LOGIN_NOT_ALLOWED
+                        } else {
+                            AppErrorReason.DOCTOR_UID_MISMATCH
+                        }
+                    )
                     SessionCache.clear()
+                    return false
                 }
             }
-            else -> {
+            "patient" -> {
                 SessionCache.populate(
                     userId = userId,
                     role = role,
                     fullName = fullName
                 )
+                return true
+            }
+            else -> {
+                publishError(AppErrorReason.INVALID_USER_ROLE)
+                SessionCache.clear()
+                return false
             }
         }
     }
