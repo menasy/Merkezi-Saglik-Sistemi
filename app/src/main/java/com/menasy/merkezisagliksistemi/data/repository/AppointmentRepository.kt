@@ -44,4 +44,27 @@ class AppointmentRepository(
     fun observePatientAppointments(patientId: String): Flow<List<Appointment>> {
         return appointmentDataSource.observePatientAppointments(patientId)
     }
+
+    /**
+     * Gets the count of overdue appointments for a doctor.
+     * Overdue = SCHEDULED status + appointment datetime is in the past.
+     */
+    suspend fun getDoctorOverdueAppointmentCount(doctorId: String): Result<Int> {
+        return appointmentDataSource.getDoctorOverdueAppointmentCount(doctorId)
+    }
+
+    /**
+     * Gets the count of all scheduled appointments for a doctor.
+     * This includes both future and past appointments with SCHEDULED status.
+     */
+    suspend fun getDoctorScheduledAppointmentCount(doctorId: String): Result<Int> {
+        return appointmentDataSource.getDoctorScheduledAppointmentCount(doctorId)
+    }
+
+    /**
+     * Gets the count of appointments completed today for a doctor.
+     */
+    suspend fun getDoctorCompletedTodayCount(doctorId: String, todayDate: String): Result<Int> {
+        return appointmentDataSource.getDoctorCompletedTodayCount(doctorId, todayDate)
+    }
 }

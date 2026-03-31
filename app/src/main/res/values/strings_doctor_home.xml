@@ -1,0 +1,19 @@
+<resources>
+    <!-- Doctor Home Screen -->
+    <string name="doctor_home_welcome_label">Hoş geldiniz</string>
+    <string name="doctor_home_summary_title">Günlük Özet</string>
+    <string name="doctor_home_pending_title">Planlanan Randevular</string>
+    <string name="doctor_home_pending_caption">Toplam planlanan</string>
+    <string name="doctor_home_completed_title">Tamamlanan Muayeneler</string>
+    <string name="doctor_home_completed_caption">Bugün tamamlanan</string>
+    <string name="doctor_home_footer_note">Sayfa randevu akışlarına göre otomatik güncellenir. Son veriyi görmek için aşağı kaydırıp tekrar ziyaret edebilirsiniz.</string>
+    <string name="doctor_home_branch_unknown">Branş bilgisi bulunamadı</string>
+    <string name="doctor_home_hospital_unknown">Hastane bilgisi bulunamadı</string>
+    <string name="doctor_home_retry">Tekrar Dene</string>
+
+    <!-- Content Descriptions -->
+    <string name="doctor_home_branch_cd">Doktor branş bilgisi</string>
+    <string name="doctor_home_hospital_cd">Doktor hastane bilgisi</string>
+    <string name="doctor_home_pending_cd">Bekleyen randevu ikonu</string>
+    <string name="doctor_home_completed_cd">Tamamlanan muayene ikonu</string>
+</resources>

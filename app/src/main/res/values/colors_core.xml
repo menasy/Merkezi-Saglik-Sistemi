@@ -15,4 +15,6 @@
 
     <color name="text_primary">#1A1A1A</color>
     <color name="text_secondary">#666666</color>
+
+    <color name="divider">#E0E0E0</color>
 </resources>

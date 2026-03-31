@@ -23,6 +23,7 @@ import com.menasy.merkezisagliksistemi.domain.usecase.CreateAppointmentUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetBranchesUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetCitiesUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetCurrentUserUseCase
+import com.menasy.merkezisagliksistemi.domain.usecase.GetDoctorHomeSummaryUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetDoctorUnavailableSlotsUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetDistrictsByCityUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetDoctorsUseCase
@@ -177,6 +178,15 @@ object ServiceLocator {
             doctorDataSource = doctorDataSource,
             hospitalDataSource = hospitalDataSource,
             branchDataSource = branchDataSource
+        )
+    }
+
+    fun provideGetDoctorHomeSummaryUseCase(): GetDoctorHomeSummaryUseCase {
+        return GetDoctorHomeSummaryUseCase(
+            appointmentRepository = appointmentRepository,
+            doctorRepository = doctorRepository,
+            branchRepository = branchRepository,
+            hospitalRepository = hospitalRepository
         )
     }
 }

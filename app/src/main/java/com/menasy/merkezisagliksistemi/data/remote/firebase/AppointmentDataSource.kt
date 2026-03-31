@@ -219,6 +219,83 @@ class AppointmentDataSource(
         }
     }
 
+    /**
+     * Gets the count of overdue appointments for a doctor.
+     * Overdue = SCHEDULED status + appointment datetime is in the past.
+     */
+    suspend fun getDoctorOverdueAppointmentCount(doctorId: String): Result<Int> {
+        return try {
+            val snapshot = firestore.collection(APPOINTMENTS_COLLECTION)
+                .whereEqualTo(FIELD_DOCTOR_ID, doctorId)
+                .whereEqualTo(FIELD_STATUS, AppointmentStatus.SCHEDULED.name)
+                .get()
+                .await()
+
+            val appointments = snapshot.documents.mapNotNull { doc ->
+                doc.toObject(Appointment::class.java)
+            }
+
+            val now = System.currentTimeMillis()
+            val overdueCount = appointments.count { appointment ->
+                val appointmentMillis = parseAppointmentToMillis(
+                    appointment.appointmentDate,
+                    appointment.appointmentTime
+                )
+                appointmentMillis < now
+            }
+
+            Result.success(overdueCount)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    /**
+     * Gets the count of all scheduled appointments for a doctor.
+     * This includes both future and past appointments with SCHEDULED status.
+     */
+    suspend fun getDoctorScheduledAppointmentCount(doctorId: String): Result<Int> {
+        return try {
+            val snapshot = firestore.collection(APPOINTMENTS_COLLECTION)
+                .whereEqualTo(FIELD_DOCTOR_ID, doctorId)
+                .whereEqualTo(FIELD_STATUS, AppointmentStatus.SCHEDULED.name)
+                .get()
+                .await()
+
+            Result.success(snapshot.size())
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    /**
+     * Gets the count of appointments completed today for a doctor.
+     */
+    suspend fun getDoctorCompletedTodayCount(doctorId: String, todayDate: String): Result<Int> {
+        return try {
+            val snapshot = firestore.collection(APPOINTMENTS_COLLECTION)
+                .whereEqualTo(FIELD_DOCTOR_ID, doctorId)
+                .whereEqualTo(FIELD_STATUS, AppointmentStatus.COMPLETED.name)
+                .whereEqualTo(FIELD_APPOINTMENT_DATE, todayDate)
+                .get()
+                .await()
+
+            Result.success(snapshot.size())
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    private fun parseAppointmentToMillis(dateStr: String, timeStr: String): Long {
+        return try {
+            val formatter = java.time.format.DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
+            val dateTime = java.time.LocalDateTime.parse("$dateStr $timeStr", formatter)
+            dateTime.atZone(java.time.ZoneId.systemDefault()).toInstant().toEpochMilli()
+        } catch (e: Exception) {
+            0L
+        }
+    }
+
     private fun buildLockId(doctorId: String, date: String, time: String): String {
         return "${doctorId}_${date}_${time}"
     }

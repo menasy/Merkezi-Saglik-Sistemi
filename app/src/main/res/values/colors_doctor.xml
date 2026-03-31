@@ -1,0 +1,13 @@
+<resources>
+    <color name="doctor_home_hero_start">#EAF8F7</color>
+    <color name="doctor_home_hero_end">#DFF2F0</color>
+    <color name="doctor_home_hero_stroke">#B9E1DE</color>
+
+    <color name="doctor_home_chip_bg">#E6FFFFFF</color>
+    <color name="doctor_home_chip_stroke">#99CFE8E5</color>
+
+    <color name="doctor_home_pending_bg">#EEF4FF</color>
+    <color name="doctor_home_pending_icon_bg">#DDE9FF</color>
+    <color name="doctor_home_completed_bg">#EDF9F2</color>
+    <color name="doctor_home_completed_icon_bg">#D9F1E4</color>
+</resources>
