@@ -1,0 +1,9 @@
+<resources>
+    <string name="doctor_appointments_title">Randevular</string>
+    <string name="doctor_appointments_todo_description">TODO: Doktorun aktif ve geçmiş randevuları bu alanda listelenecek.</string>
+    <string name="doctor_appointments_todo_hint">Bu ekran bir sonraki sprintte filtreleme, onaylama ve durum güncelleme aksiyonları ile genişletilecek.</string>
+
+    <string name="doctor_prescriptions_title">Reçeteler</string>
+    <string name="doctor_prescriptions_todo_description">TODO: Doktorun yazdığı reçeteler bu bölümde görüntülenecek.</string>
+    <string name="doctor_prescriptions_todo_hint">Bu ekran yakında reçete oluşturma, düzenleme ve geçmiş kayıtlarını listeleme desteği alacak.</string>
+</resources>

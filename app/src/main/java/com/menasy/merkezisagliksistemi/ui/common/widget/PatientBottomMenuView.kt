@@ -10,9 +10,11 @@ import android.view.View
 import android.view.animation.PathInterpolator
 import android.widget.FrameLayout
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.IdRes
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import com.menasy.merkezisagliksistemi.R
 import com.menasy.merkezisagliksistemi.databinding.ViewPatientBottomMenuBinding
 
@@ -21,6 +23,11 @@ class PatientBottomMenuView @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
+
+    enum class Role {
+        PATIENT,
+        DOCTOR
+    }
 
     enum class Tab {
         HOME,
@@ -42,6 +49,7 @@ class PatientBottomMenuView @JvmOverloads constructor(
     private val idleTypeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
     private val selectedTypeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
     private val selectInterpolator = PathInterpolator(0.4f, 0f, 0.2f, 1f)
+    private var role: Role = Role.PATIENT
     private var selectedTab: Tab = Tab.HOME
     private var onTabSelectedListener: ((Tab) -> Unit)? = null
 
@@ -75,7 +83,20 @@ class PatientBottomMenuView @JvmOverloads constructor(
 
     init {
         setupClickListeners()
+        applyRole(role)
         setSelectedTab(Tab.HOME, animate = false)
+    }
+
+    fun setRole(rawRole: String?) {
+        val resolvedRole = if (rawRole.equals(ROLE_DOCTOR, ignoreCase = true)) {
+            Role.DOCTOR
+        } else {
+            Role.PATIENT
+        }
+
+        if (resolvedRole == role) return
+        role = resolvedRole
+        applyRole(role)
     }
 
     fun setOnTabSelectedListener(listener: (Tab) -> Unit) {
@@ -83,9 +104,16 @@ class PatientBottomMenuView @JvmOverloads constructor(
     }
 
     fun setSelectedTab(tab: Tab, animate: Boolean) {
-        selectedTab = tab
+        val visibleTabs = visibleTabsByRole(role)
+        val targetTab = when {
+            tab in visibleTabs -> tab
+            visibleTabs.isNotEmpty() -> visibleTabs.first()
+            else -> return
+        }
+        selectedTab = targetTab
         items.forEach { (currentTab, item) ->
-            if (currentTab == tab) {
+            if (!item.surface.isVisible) return@forEach
+            if (currentTab == targetTab) {
                 applySelectedState(item, animate)
             } else {
                 applyIdleState(item)
@@ -96,6 +124,7 @@ class PatientBottomMenuView @JvmOverloads constructor(
     private fun setupClickListeners() {
         items.forEach { (tab, item) ->
             item.surface.setOnClickListener {
+                if (!item.surface.isVisible) return@setOnClickListener
                 if (selectedTab == tab) {
                     animateReselect(item.surface)
                     return@setOnClickListener
@@ -155,9 +184,106 @@ class PatientBottomMenuView @JvmOverloads constructor(
 
     private fun dp(value: Float): Float = value * resources.displayMetrics.density
 
+    private fun applyRole(role: Role) {
+        when (role) {
+            Role.PATIENT -> applyPatientLabels()
+            Role.DOCTOR -> applyDoctorLabels()
+        }
+        applyVisibility(role)
+        applyWeights(role)
+        setSelectedTab(selectedTab, animate = false)
+    }
+
+    private fun applyPatientLabels() {
+        binding.tvHome.text = context.getString(R.string.bottom_menu_home)
+        binding.tvSearch.text = context.getString(R.string.bottom_menu_search)
+        binding.tvAppointments.text = context.getString(R.string.bottom_menu_appointments)
+        binding.tvPrescriptions.text = context.getString(R.string.bottom_menu_prescriptions)
+        binding.tvAccount.text = context.getString(R.string.bottom_menu_account)
+
+        binding.ivHome.contentDescription = context.getString(R.string.cd_bottom_menu_home)
+        binding.ivSearch.contentDescription = context.getString(R.string.cd_bottom_menu_search)
+        binding.ivAppointments.contentDescription = context.getString(R.string.cd_bottom_menu_appointments)
+        binding.ivPrescriptions.contentDescription = context.getString(R.string.cd_bottom_menu_prescriptions)
+        binding.ivAccount.contentDescription = context.getString(R.string.cd_bottom_menu_account)
+    }
+
+    private fun applyDoctorLabels() {
+        binding.tvHome.text = context.getString(R.string.doctor_bottom_menu_home)
+        binding.tvAppointments.text = context.getString(R.string.doctor_bottom_menu_appointments)
+        binding.tvPrescriptions.text = context.getString(R.string.doctor_bottom_menu_prescriptions)
+        binding.tvAccount.text = context.getString(R.string.doctor_bottom_menu_account)
+
+        binding.ivHome.contentDescription = context.getString(R.string.cd_doctor_bottom_menu_home)
+        binding.ivAppointments.contentDescription = context.getString(R.string.cd_doctor_bottom_menu_appointments)
+        binding.ivPrescriptions.contentDescription = context.getString(R.string.cd_doctor_bottom_menu_prescriptions)
+        binding.ivAccount.contentDescription = context.getString(R.string.cd_doctor_bottom_menu_account)
+    }
+
+    private fun applyVisibility(role: Role) {
+        items.forEach { (tab, item) ->
+            item.surface.isVisible = tab in visibleTabsByRole(role)
+        }
+    }
+
+    private fun applyWeights(role: Role) {
+        val visibleTabs = visibleTabsByRole(role)
+        items.forEach { (tab, item) ->
+            val layoutParams = item.surface.layoutParams as? LinearLayout.LayoutParams ?: return@forEach
+            layoutParams.weight = when (role) {
+                Role.PATIENT -> if (tab == Tab.APPOINTMENTS) 1.1f else 1f
+                Role.DOCTOR -> 1f
+            }
+            val edgeMargin = dp(2f).toInt()
+            layoutParams.marginStart = if (tab == visibleTabs.firstOrNull()) 0 else edgeMargin
+            layoutParams.marginEnd = if (tab == visibleTabs.lastOrNull()) 0 else edgeMargin
+            item.surface.layoutParams = layoutParams
+        }
+    }
+
+    private fun visibleTabsByRole(role: Role): List<Tab> {
+        return when (role) {
+            Role.PATIENT -> PATIENT_TABS
+            Role.DOCTOR -> DOCTOR_TABS
+        }
+    }
+
     companion object {
+        private const val ROLE_DOCTOR = "doctor"
+        private val PATIENT_TABS = listOf(
+            Tab.HOME,
+            Tab.SEARCH,
+            Tab.APPOINTMENTS,
+            Tab.PRESCRIPTIONS,
+            Tab.ACCOUNT
+        )
+        private val DOCTOR_TABS = listOf(
+            Tab.HOME,
+            Tab.APPOINTMENTS,
+            Tab.PRESCRIPTIONS,
+            Tab.ACCOUNT
+        )
+
         @JvmStatic
-        fun destinationToTab(@IdRes destinationId: Int): Tab? {
+        fun destinationToTab(@IdRes destinationId: Int, role: String?): Tab? {
+            return if (role.equals(ROLE_DOCTOR, ignoreCase = true)) {
+                destinationToDoctorTab(destinationId)
+            } else {
+                destinationToPatientTab(destinationId)
+            }
+        }
+
+        @JvmStatic
+        fun isPatientDestination(@IdRes destinationId: Int): Boolean {
+            return destinationToPatientTab(destinationId) != null
+        }
+
+        @JvmStatic
+        fun isDoctorDestination(@IdRes destinationId: Int): Boolean {
+            return destinationToDoctorTab(destinationId) != null
+        }
+
+        private fun destinationToPatientTab(@IdRes destinationId: Int): Tab? {
             return when (destinationId) {
                 R.id.patientHomeFragment -> Tab.HOME
                 R.id.appointmentSearchFragment,
@@ -171,14 +297,34 @@ class PatientBottomMenuView @JvmOverloads constructor(
             }
         }
 
+        private fun destinationToDoctorTab(@IdRes destinationId: Int): Tab? {
+            return when (destinationId) {
+                R.id.doctorHomeFragment -> Tab.HOME
+                R.id.doctorAppointmentsFragment -> Tab.APPOINTMENTS
+                R.id.doctorPrescriptionsFragment -> Tab.PRESCRIPTIONS
+                R.id.doctorAccountFragment -> Tab.ACCOUNT
+                else -> null
+            }
+        }
+
         @JvmStatic
-        fun tabToDestination(tab: Tab): Int {
-            return when (tab) {
-                Tab.HOME -> R.id.patientHomeFragment
-                Tab.SEARCH -> R.id.appointmentSearchFragment
-                Tab.APPOINTMENTS -> R.id.patientAppointmentsFragment
-                Tab.PRESCRIPTIONS -> R.id.patientPrescriptionsFragment
-                Tab.ACCOUNT -> R.id.patientAccountFragment
+        fun tabToDestination(tab: Tab, role: String?): Int? {
+            return if (role.equals(ROLE_DOCTOR, ignoreCase = true)) {
+                when (tab) {
+                    Tab.HOME -> R.id.doctorHomeFragment
+                    Tab.SEARCH -> null
+                    Tab.APPOINTMENTS -> R.id.doctorAppointmentsFragment
+                    Tab.PRESCRIPTIONS -> R.id.doctorPrescriptionsFragment
+                    Tab.ACCOUNT -> R.id.doctorAccountFragment
+                }
+            } else {
+                when (tab) {
+                    Tab.HOME -> R.id.patientHomeFragment
+                    Tab.SEARCH -> R.id.appointmentSearchFragment
+                    Tab.APPOINTMENTS -> R.id.patientAppointmentsFragment
+                    Tab.PRESCRIPTIONS -> R.id.patientPrescriptionsFragment
+                    Tab.ACCOUNT -> R.id.patientAccountFragment
+                }
             }
         }
     }

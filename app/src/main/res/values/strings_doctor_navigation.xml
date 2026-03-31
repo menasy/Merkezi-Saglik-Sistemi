@@ -1,0 +1,11 @@
+<resources>
+    <string name="doctor_bottom_menu_home">Anasayfa</string>
+    <string name="doctor_bottom_menu_appointments">Randevular</string>
+    <string name="doctor_bottom_menu_prescriptions">Reçeteler</string>
+    <string name="doctor_bottom_menu_account">Hesabım</string>
+
+    <string name="cd_doctor_bottom_menu_home">Doktor ana sayfa sekmesi</string>
+    <string name="cd_doctor_bottom_menu_appointments">Doktor randevular sekmesi</string>
+    <string name="cd_doctor_bottom_menu_prescriptions">Doktor reçeteler sekmesi</string>
+    <string name="cd_doctor_bottom_menu_account">Doktor hesabım sekmesi</string>
+</resources>

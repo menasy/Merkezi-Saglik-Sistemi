@@ -132,4 +132,19 @@
         android:name="com.menasy.merkezisagliksistemi.ui.doctor.home.DoctorHomeFragment"
         android:label="DoctorHome" />
 
+    <fragment
+        android:id="@+id/doctorAppointmentsFragment"
+        android:name="com.menasy.merkezisagliksistemi.ui.doctor.appointments.DoctorAppointmentsFragment"
+        android:label="DoctorAppointments" />
+
+    <fragment
+        android:id="@+id/doctorPrescriptionsFragment"
+        android:name="com.menasy.merkezisagliksistemi.ui.doctor.prescriptions.DoctorPrescriptionsFragment"
+        android:label="DoctorPrescriptions" />
+
+    <fragment
+        android:id="@+id/doctorAccountFragment"
+        android:name="com.menasy.merkezisagliksistemi.ui.doctor.account.DoctorAccountFragment"
+        android:label="DoctorAccount" />
+
 </navigation>
