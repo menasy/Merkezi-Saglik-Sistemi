@@ -1,6 +1,15 @@
 # Merkezi Saglik Sistemi
 
-Bu dokuman, projenin 29 Mart 2026 itibariyla guncel durumunu anlatir.
+<table>
+  <tr>
+    <td valign="top" width="70%">
+      Bu dokuman, projenin 29 Mart 2026 itibariyla guncel durumunu anlatir.
+    </td>
+    <td align="right" valign="top" width="30%">
+      <img src="./merkezi-saglik-sistemi-logo.png" alt="Merkezi Saglik Sistemi Logo" width="170" />
+    </td>
+  </tr>
+</table>
 
 ## 1) Proje Ozeti
 
