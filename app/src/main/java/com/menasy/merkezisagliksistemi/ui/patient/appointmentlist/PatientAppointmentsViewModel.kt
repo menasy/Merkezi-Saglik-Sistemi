@@ -55,7 +55,7 @@ class PatientAppointmentsViewModel(
         _uiState.value = _uiState.value.copy(
             selectedTab = tab,
             emptyMessage = when (tab) {
-                AppointmentTab.ACTIVE -> "Henüz aktif randevunuz yok"
+                AppointmentTab.ACTIVE -> "Aktif randevunuz bulunmuyor."
                 AppointmentTab.PAST -> "Geçmiş randevunuz bulunmuyor"
             }
         )
@@ -161,7 +161,7 @@ class PatientAppointmentsViewModel(
             activeAppointments = active,
             pastAppointments = past,
             emptyMessage = when (state.selectedTab) {
-                AppointmentTab.ACTIVE -> "Henüz aktif randevunuz yok"
+                AppointmentTab.ACTIVE -> "Aktif randevunuz bulunmuyor."
                 AppointmentTab.PAST -> "Geçmiş randevunuz bulunmuyor"
             }
         )

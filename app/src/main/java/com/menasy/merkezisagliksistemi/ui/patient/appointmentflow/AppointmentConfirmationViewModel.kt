@@ -13,8 +13,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import java.time.Instant
-import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 
@@ -131,12 +129,12 @@ class AppointmentConfirmationViewModel(
     }
 
     private fun formatDate(millis: Long): String {
-        val date = Instant.ofEpochMilli(millis).atZone(ZoneId.systemDefault()).toLocalDate()
+        val date = DateTimeUtils.millisToLocalDate(millis)
         return DATE_FORMATTER.format(date)
     }
 
     private fun formatDateForFirestore(millis: Long): String {
-        val date = Instant.ofEpochMilli(millis).atZone(ZoneId.systemDefault()).toLocalDate()
+        val date = DateTimeUtils.millisToLocalDate(millis)
         return DATE_FIRESTORE_FORMATTER.format(date)
     }
 

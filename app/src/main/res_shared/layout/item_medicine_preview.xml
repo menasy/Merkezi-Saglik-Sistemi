@@ -91,6 +91,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_xs"
+                        android:ellipsize="end"
+                        android:maxLines="1"
                         android:textColor="@color/text_primary"
                         android:textSize="@dimen/text_size_body"
                         android:textStyle="bold"
@@ -188,9 +190,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/spacing_sm"
                     android:layout_weight="1"
-                    android:textStyle="bold"
+                    android:ellipsize="end"
+                    android:maxLines="3"
                     android:textColor="@color/text_primary"
                     android:textSize="@dimen/text_size_body_sm"
+                    android:textStyle="bold"
                     tools:text="Gece yatmadan önce almayın." />
             </LinearLayout>
         </LinearLayout>

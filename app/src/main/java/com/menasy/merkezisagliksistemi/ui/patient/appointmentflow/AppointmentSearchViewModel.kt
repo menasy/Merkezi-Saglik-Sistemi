@@ -14,13 +14,12 @@ import com.menasy.merkezisagliksistemi.domain.usecase.GetHospitalsByDistrictUseC
 import com.menasy.merkezisagliksistemi.ui.common.base.BaseViewModel
 import com.menasy.merkezisagliksistemi.ui.common.error.AppErrorReason
 import com.menasy.merkezisagliksistemi.ui.common.error.OperationType
+import com.menasy.merkezisagliksistemi.utils.DateTimeUtils
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import java.time.LocalDate
-import java.time.ZoneId
 import java.util.concurrent.TimeUnit
 
 data class AppointmentSearchCriteria(
@@ -431,10 +430,7 @@ class AppointmentSearchViewModel(
     }
 
     private fun getTodayStartMillis(): Long {
-        return LocalDate.now()
-            .atStartOfDay(ZoneId.systemDefault())
-            .toInstant()
-            .toEpochMilli()
+        return DateTimeUtils.todayStartMillis()
     }
 
     private companion object {

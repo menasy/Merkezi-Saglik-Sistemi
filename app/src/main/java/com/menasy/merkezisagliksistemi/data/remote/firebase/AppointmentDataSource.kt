@@ -422,6 +422,24 @@ class AppointmentDataSource(
     }
 
     /**
+     * Gets the total count of completed appointments for a doctor (all time).
+     */
+    suspend fun getDoctorTotalCompletedCount(doctorId: String): Result<Int> {
+        return try {
+            val count = firestore.collection(APPOINTMENTS_COLLECTION)
+                .whereEqualTo(FIELD_DOCTOR_ID, doctorId)
+                .whereEqualTo(FIELD_STATUS, AppointmentStatus.COMPLETED.name)
+                .get()
+                .await()
+                .size()
+
+            Result.success(count)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    /**
      * Gets the count of appointments completed today for a doctor.
      */
     suspend fun getDoctorCompletedTodayCount(doctorId: String, todayDate: String): Result<Int> {

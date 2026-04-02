@@ -4,5 +4,6 @@
     <string name="account_info_full_name">Ad Soyad</string>
     <string name="account_info_role">Rol</string>
     <string name="account_info_user_id">Kullanıcı ID</string>
+    <string name="account_info_doctor_id">Doktor ID</string>
     <string name="account_logout">Çıkış Yap</string>
 </resources>

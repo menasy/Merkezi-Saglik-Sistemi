@@ -105,6 +105,7 @@ class MedicineSelectionAdapter(
             binding.tvMedicineDosage.setTextColor(if (isSelected) selectedDosageColor else defaultDosageColor)
         }
 
+        @Suppress("DEPRECATION")
         private fun handleToggleClick() {
             val position = adapterPosition
             if (position != RecyclerView.NO_POSITION) {

@@ -88,6 +88,7 @@ class AppointmentMapper(
                         value.copy(createdAtMillis = normalizedCreatedAtMillis)
                     }
                 }
+                val examinationNote = appointment.examinationNote.trim()
 
                 past.add(
                     uiModel.copy(
@@ -99,6 +100,7 @@ class AppointmentMapper(
                             null
                         },
                         actionStyle = AppointmentActionStyle.PRIMARY,
+                        examinationNote = examinationNote,
                         prescription = prescription
                     )
                 )
@@ -189,6 +191,7 @@ class AppointmentMapper(
                             value.copy(createdAtMillis = dateTimeMillis)
                         }
                     }
+                    val examinationNote = appointment.examinationNote.trim()
                     past.add(
                         dateTime to commonItem.copy(
                             isPastStyle = true,
@@ -200,6 +203,7 @@ class AppointmentMapper(
                                 null
                             },
                             actionStyle = AppointmentActionStyle.PRIMARY,
+                            examinationNote = examinationNote,
                             prescription = prescription
                         )
                     )
@@ -286,6 +290,7 @@ class AppointmentMapper(
             appointmentTimeLabel = appointment.appointmentTime,
             appointmentStatusLabel = resolveAppointmentStatusLabel(appointment.status),
             medicineCount = normalizedPrescription.medicines.size,
+            examinationNote = appointment.examinationNote.trim(),
             note = normalizedPrescription.note.trim(),
             prescription = normalizedPrescription
         )

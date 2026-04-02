@@ -23,15 +23,14 @@
     <string name="doctor_appointments_created_at_label">Oluşturulma Tarihi</string>
     <string name="doctor_appointments_medicines_label">İlaç Listesi</string>
     <string name="doctor_appointments_medicines_label_with_count">İlaç Listesi (%1$d)</string>
+    <string name="doctor_appointments_notes_section_label">Doktor Notları</string>
     <string name="doctor_appointments_doctor_note_label">Doktor Açıklaması</string>
+    <string name="doctor_appointments_examination_note_label">Muayene Notu</string>
+    <string name="doctor_appointments_prescription_note_label">Reçete Notu</string>
+    <string name="doctor_appointments_note_empty_fallback">Not girilmemiş</string>
     <string name="doctor_appointments_close">Kapat</string>
     <string name="doctor_appointments_unknown_date">Tarih bilgisi yok</string>
     <string name="doctor_appointments_no_medicines">İlaç bilgisi bulunmuyor.</string>
-    <string name="doctor_appointments_no_doctor_note">Doktor notu girilmemiş.</string>
-    <string name="doctor_appointments_medicine_dosage">Doz: %1$s</string>
-    <string name="doctor_appointments_medicine_frequency">Sıklık: %1$s</string>
-    <string name="doctor_appointments_medicine_usage">Kullanım: %1$s</string>
-    <string name="doctor_appointments_medicine_note">Not: %1$s</string>
 
     <string name="doctor_examination_title">Muayene Süreci</string>
     <string name="doctor_examination_patient_info_section">Hasta ve Randevu Bilgileri</string>
@@ -51,17 +50,11 @@
     <string name="doctor_examination_no_medicine_selected">Henüz ilaç seçilmedi.</string>
     <string name="doctor_examination_medicine_dialog_title">İlaç Seçimi</string>
     <string name="doctor_examination_all_medicines_added">Eklenebilecek başka ilaç bulunmuyor.</string>
-    <string name="doctor_examination_medicine_option_format">%1$s • %2$s</string>
-    <string name="doctor_examination_medicine_dosage">Doz: %1$s</string>
     <string name="doctor_examination_medicine_dosage_label">Doz</string>
-    <string name="doctor_examination_medicine_frequency">Sıklık: %1$s</string>
     <string name="doctor_examination_medicine_frequency_label">Sıklık</string>
-    <string name="doctor_examination_medicine_usage">Kullanım: %1$s</string>
     <string name="doctor_examination_medicine_usage_label">Kullanım</string>
     <string name="doctor_examination_medicine_note">Özel Not: %1$s</string>
-    <string name="doctor_examination_medicine_note_empty">Özel Not: -</string>
     <string name="doctor_examination_medicine_edit_note">Notu Düzenle</string>
-    <string name="doctor_examination_medicine_remove">Sil</string>
     <string name="doctor_examination_medicine_remove_icon_cd">İlacı kaldır</string>
     <string name="doctor_examination_medicine_note_hint">Bu ilaç için özel not (opsiyonel)</string>
     <string name="doctor_examination_medicine_note_dialog_title">%1$s için Özel Not</string>
@@ -71,8 +64,8 @@
     <string name="doctor_examination_doctor_note_hint">Reçete veya tedavi ile ilgili doktor açıklaması (opsiyonel).</string>
     <string name="doctor_examination_mark_missed">Hasta Gelmedi</string>
     <string name="doctor_examination_complete">Tamamla</string>
-    <string name="doctor_examination_missed_confirm_title">Hasta Gelmedi Olarak İşaretle</string>
-    <string name="doctor_examination_missed_confirm_message">Bu işlemden sonra randevu MISSED durumuna alınacaktır. Devam etmek istiyor musunuz?</string>
+    <string name="doctor_examination_missed_confirm_title">Hasta Randevuya Katılmadı Olarak Kaydet</string>
+    <string name="doctor_examination_missed_confirm_message">Bu işlemden sonra randevu, hastanın randevuya katılmadığı şekilde kaydedilecektir. Bu işlem geri alınamaz.</string>
     <string name="doctor_examination_cancel">Vazgeç</string>
     <string name="doctor_examination_confirm">Onayla</string>
     <string name="doctor_examination_medicine_search_hint">İlaç ara...</string>
@@ -84,6 +77,14 @@
     <string name="doctor_prescriptions_filter_today">Bugün</string>
     <string name="doctor_prescriptions_filter_range">Tarih Aralığı</string>
     <string name="doctor_prescriptions_filter_all">Tümü</string>
-    <string name="doctor_prescriptions_empty_state">Bu doktora ait kayıtlı reçete bulunmuyor.</string>
     <string name="doctor_prescriptions_empty_icon_cd">Reçete yok</string>
+
+    <!-- Doctor Account Screen -->
+    <string name="doctor_account_branch_cd">Branş</string>
+    <string name="doctor_account_hospital_cd">Hastane</string>
+    <string name="doctor_account_info_section_title">HESAP BİLGİLERİ</string>
+    <string name="doctor_account_doctor_id_label">Doktor ID</string>
+    <string name="doctor_account_uid_label">Kullanıcı ID</string>
+    <string name="doctor_account_total_examinations_label">Toplam Muayene</string>
+    <string name="doctor_account_total_examinations_subtitle">Tamamlanan muayene sayısı</string>
 </resources>

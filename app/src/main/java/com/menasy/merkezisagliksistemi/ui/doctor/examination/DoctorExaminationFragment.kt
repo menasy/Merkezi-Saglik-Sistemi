@@ -14,11 +14,13 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.menasy.merkezisagliksistemi.R
 import com.menasy.merkezisagliksistemi.data.model.Medicine
+import com.menasy.merkezisagliksistemi.databinding.DialogMarkPatientMissedBinding
 import com.menasy.merkezisagliksistemi.databinding.DialogMedicineNoteEditBinding
 import com.menasy.merkezisagliksistemi.databinding.FragmentDoctorExaminationBinding
 import com.menasy.merkezisagliksistemi.di.ServiceLocator
 import com.menasy.merkezisagliksistemi.ui.common.base.BaseFragment
 import com.menasy.merkezisagliksistemi.ui.common.message.UiMessage
+import com.menasy.merkezisagliksistemi.ui.common.util.DialogWindowSizer
 import kotlinx.coroutines.launch
 
 class DoctorExaminationFragment : BaseFragment() {
@@ -118,14 +120,7 @@ class DoctorExaminationFragment : BaseFragment() {
         }
 
         binding.btnMarkPatientMissed.setOnClickListener {
-            MaterialAlertDialogBuilder(requireContext())
-                .setTitle(getString(R.string.doctor_examination_missed_confirm_title))
-                .setMessage(getString(R.string.doctor_examination_missed_confirm_message))
-                .setNegativeButton(R.string.doctor_examination_cancel, null)
-                .setPositiveButton(R.string.doctor_examination_confirm) { _, _ ->
-                    viewModel.markPatientMissed()
-                }
-                .show()
+            showMarkPatientMissedDialog()
         }
 
         binding.btnCompleteExamination.setOnClickListener {
@@ -217,6 +212,25 @@ class DoctorExaminationFragment : BaseFragment() {
         showMedicineSelectionBottomSheet()
     }
 
+    private fun showMarkPatientMissedDialog() {
+        val dialogBinding = DialogMarkPatientMissedBinding.inflate(layoutInflater)
+        val dialog = MaterialAlertDialogBuilder(requireContext())
+            .setView(dialogBinding.root)
+            .create()
+
+        dialogBinding.btnCancel.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialogBinding.btnConfirm.setOnClickListener {
+            viewModel.markPatientMissed()
+            dialog.dismiss()
+        }
+
+        dialog.show()
+        DialogWindowSizer.applyCenteredDialogBounds(dialog, dialogBinding.root, requireContext())
+    }
+
     private fun showMedicineNoteDialog(medicine: Medicine) {
         val dialogBinding = DialogMedicineNoteEditBinding.inflate(layoutInflater)
         dialogBinding.tvDialogTitle.text = getString(
@@ -242,6 +256,7 @@ class DoctorExaminationFragment : BaseFragment() {
         }
 
         dialog.show()
+        DialogWindowSizer.applyCenteredDialogBounds(dialog, dialogBinding.root, requireContext())
     }
 
     override fun onDestroyView() {

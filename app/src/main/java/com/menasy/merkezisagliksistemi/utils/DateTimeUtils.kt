@@ -1,5 +1,6 @@
 package com.menasy.merkezisagliksistemi.utils
 
+import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
@@ -99,12 +100,22 @@ object DateTimeUtils {
     fun dateStringToMillis(dateStr: String): Long {
         return try {
             val date = LocalDate.parse(dateStr, dateFormatter)
-            date.atStartOfDay(systemZoneId)
-                .toInstant()
-                .toEpochMilli()
+            localDateToStartOfDayMillis(date)
         } catch (e: Exception) {
             0L
         }
+    }
+
+    fun millisToLocalDate(millis: Long): LocalDate {
+        return Instant.ofEpochMilli(millis)
+            .atZone(systemZoneId)
+            .toLocalDate()
+    }
+
+    fun localDateToStartOfDayMillis(date: LocalDate): Long {
+        return date.atStartOfDay(systemZoneId)
+            .toInstant()
+            .toEpochMilli()
     }
 
     fun currentLocalDate(): LocalDate {
@@ -113,5 +124,9 @@ object DateTimeUtils {
 
     fun currentLocalDateTime(): LocalDateTime {
         return LocalDateTime.now(systemZoneId)
+    }
+
+    fun todayStartMillis(): Long {
+        return localDateToStartOfDayMillis(currentLocalDate())
     }
 }

@@ -8,7 +8,7 @@
     app:cardBackgroundColor="@color/surface"
     app:cardCornerRadius="@dimen/card_corner_radius_sm"
     app:cardElevation="0dp"
-    app:strokeColor="@color/message_card_stroke"
+    app:strokeColor="@color/divider"
     app:strokeWidth="@dimen/card_stroke_width">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,23 +16,24 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/selected_medicine_card_padding">
 
+        <!-- Medicine Icon -->
         <ImageView
             android:id="@+id/ivMedicineIcon"
             android:layout_width="@dimen/icon_size_sm"
             android:layout_height="@dimen/icon_size_sm"
-            android:layout_marginTop="2dp"
             android:contentDescription="@null"
             android:src="@drawable/ic_bottom_prescriptions_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/status_completed_text" />
+            app:layout_constraintTop_toTopOf="@id/tvMedicineName"
+            app:tint="@color/primary" />
 
+        <!-- Medicine Name -->
         <TextView
             android:id="@+id/tvMedicineName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_sm"
-            android:layout_marginEnd="@dimen/spacing_sm"
+            android:layout_marginEnd="@dimen/spacing_md"
             android:ellipsize="end"
             android:maxLines="2"
             android:textColor="@color/text_primary"
@@ -43,18 +44,20 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Parol 500 mg Tablet" />
 
+        <!-- Remove Button - Compact size, subtle style -->
         <ImageButton
             android:id="@+id/btnRemoveMedicine"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:background="@drawable/bg_selected_medicine_remove_button"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/doctor_examination_medicine_remove_icon_cd"
-            android:padding="6dp"
+            android:padding="2dp"
             android:src="@drawable/ic_message_close_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:tint="@color/error" />
 
+        <!-- Metrics Row -->
         <LinearLayout
             android:id="@+id/layoutMetrics"
             android:layout_width="0dp"
@@ -65,6 +68,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvMedicineName">
 
+            <!-- Dosage Metric -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -98,6 +102,7 @@
                     tools:text="500 mg" />
             </LinearLayout>
 
+            <!-- Frequency Metric -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -132,6 +137,7 @@
             </LinearLayout>
         </LinearLayout>
 
+        <!-- Usage Row -->
         <LinearLayout
             android:id="@+id/layoutUsage"
             android:layout_width="0dp"
@@ -168,52 +174,50 @@
                 tools:text="Tok karnına 1 tablet" />
         </LinearLayout>
 
+        <!-- Doctor Note (if exists) -->
         <TextView
             android:id="@+id/layoutDoctorNote"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_sm"
             android:background="@drawable/bg_selected_medicine_note"
-            android:drawablePadding="@dimen/spacing_xs"
+            android:drawablePadding="@dimen/spacing_sm"
+            android:ellipsize="end"
             android:maxLines="4"
             android:padding="@dimen/spacing_sm"
-            android:textColor="@color/text_primary"
+            android:textColor="@color/primary_dark"
             android:textSize="@dimen/text_size_body_sm"
             android:visibility="gone"
             app:drawableStartCompat="@drawable/ic_info_24"
-            app:drawableTint="@color/primary_dark"
+            app:drawableTint="@color/primary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layoutUsage"
             tools:text="Gece yatmadan önce almayın."
             tools:visibility="visible" />
 
+        <!-- Edit Note Button - Clean text button, no icon -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnEditMedicineNote"
-            style="@style/Widget.Material3.Button.OutlinedButton"
+            style="@style/Widget.Material3.Button.TextButton"
             android:layout_width="wrap_content"
-            android:layout_height="36dp"
+            android:layout_height="32dp"
             android:layout_marginTop="@dimen/spacing_sm"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:minWidth="0dp"
-            android:paddingHorizontal="@dimen/spacing_sm"
+            android:paddingHorizontal="@dimen/spacing_md"
             android:text="@string/doctor_examination_medicine_edit_note"
             android:textAllCaps="false"
             android:textColor="@color/primary_dark"
             android:textSize="@dimen/text_size_body_sm"
+            android:textStyle="bold"
             app:backgroundTint="@color/primary_surface"
-            app:cornerRadius="10dp"
-            app:icon="@drawable/ic_info_24"
-            app:iconGravity="textStart"
-            app:iconPadding="6dp"
-            app:iconSize="16dp"
-            app:iconTint="@color/primary_dark"
+            app:cornerRadius="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layoutDoctorNote"
-            app:strokeColor="@color/primary_light"
-            app:strokeWidth="1dp"
-            tools:layout_constraintTop_toBottomOf="@id/layoutUsage" />
+            app:rippleColor="@color/primary_light" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>

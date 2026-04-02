@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:clipToPadding="false"
+    android:paddingBottom="@dimen/spacing_lg"
     android:fillViewport="true">
 
     <LinearLayout
@@ -34,6 +36,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/spacing_md"
                 android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="2"
                 android:text="@string/doctor_appointments_prescription_dialog_title"
                 android:textColor="@color/primary_dark"
                 android:textSize="@dimen/text_size_headline"
@@ -232,12 +236,142 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
+            <!-- Notes Section -->
+            <TextView
+                android:id="@+id/tvNotesTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_lg"
+                android:drawablePadding="@dimen/spacing_sm"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_size_body_lg"
+                android:textStyle="bold"
+                android:text="@string/doctor_appointments_notes_section_label"
+                app:drawableStartCompat="@drawable/ic_doctor_24"
+                app:drawableTint="@color/primary" />
+
+            <LinearLayout
+                android:id="@+id/layoutNotes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_sm"
+                android:orientation="vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardNotesContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/surface"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/message_card_stroke"
+                    app:strokeWidth="@dimen/card_stroke_width">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/card_padding">
+
+                        <LinearLayout
+                            android:id="@+id/cardExaminationNote"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_selected_medicine_note"
+                            android:orientation="vertical"
+                            android:padding="@dimen/spacing_md">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="@dimen/icon_size_sm"
+                                android:layout_height="@dimen/icon_size_sm"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_examination_count_24"
+                                app:tint="@color/primary_dark" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/spacing_sm"
+                                android:text="@string/doctor_appointments_examination_note_label"
+                                android:textColor="@color/text_primary"
+                                android:textSize="@dimen/text_size_body"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvExaminationNoteValue"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_sm"
+                            android:lineSpacingExtra="4dp"
+                            android:textColor="@color/text_primary"
+                            android:textSize="@dimen/text_size_body"
+                            tools:text="Muayene sırasında akut bir bulgu izlenmedi, semptomlar stabil." />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="@dimen/spacing_sm"
+                            android:background="@color/section_divider" />
+
+                        <LinearLayout
+                            android:id="@+id/cardPrescriptionNote"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_selected_medicine_note"
+                            android:orientation="vertical"
+                            android:padding="@dimen/spacing_md">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="@dimen/icon_size_sm"
+                                    android:layout_height="@dimen/icon_size_sm"
+                                    android:contentDescription="@null"
+                                    android:src="@drawable/ic_bottom_prescriptions_24"
+                                    app:tint="@color/secondary_dark" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/spacing_sm"
+                                    android:text="@string/doctor_appointments_prescription_note_label"
+                                    android:textColor="@color/text_primary"
+                                    android:textSize="@dimen/text_size_body"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/tvPrescriptionNoteValue"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/spacing_sm"
+                                android:lineSpacingExtra="4dp"
+                                android:textColor="@color/text_primary"
+                                android:textSize="@dimen/text_size_body"
+                                tools:text="İlaçları tok karnına alması ve 7 gün sonra kontrol randevusu oluşturması önerildi." />
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
             <!-- Medicines Section Title -->
             <TextView
                 android:id="@+id/tvMedicinesTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_xl"
+                android:layout_marginTop="@dimen/spacing_lg"
                 android:drawablePadding="@dimen/spacing_sm"
                 android:text="@string/doctor_appointments_medicines_label"
                 android:textColor="@color/text_primary"
@@ -263,46 +397,6 @@
                     tools:visibility="gone" />
             </LinearLayout>
 
-            <!-- Doctor Note Section -->
-            <LinearLayout
-                android:id="@+id/layoutDoctorNote"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_xl"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawablePadding="@dimen/spacing_sm"
-                    android:text="@string/doctor_appointments_doctor_note_label"
-                    android:textColor="@color/text_primary"
-                    android:textSize="@dimen/text_size_body_lg"
-                    android:textStyle="bold"
-                    app:drawableStartCompat="@drawable/ic_info_24"
-                    app:drawableTint="@color/primary" />
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_sm"
-                    app:cardBackgroundColor="@color/doctor_home_chip_bg"
-                    app:cardCornerRadius="@dimen/card_corner_radius_sm"
-                    app:cardElevation="0dp"
-                    app:strokeColor="@color/doctor_home_chip_stroke"
-                    app:strokeWidth="@dimen/card_stroke_width">
-
-                    <TextView
-                        android:id="@+id/tvDoctorNoteValue"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="@dimen/card_padding"
-                        android:textColor="@color/text_primary"
-                        android:textSize="@dimen/text_size_body"
-                        tools:text="Yemek sonrası kullanım önerildi." />
-                </com.google.android.material.card.MaterialCardView>
-            </LinearLayout>
-
             <!-- Close Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnClosePreview"
@@ -310,6 +404,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/action_button_height"
                 android:layout_marginTop="@dimen/spacing_xl"
+                android:maxLines="1"
                 android:text="@string/doctor_appointments_close"
                 android:textAllCaps="false" />
         </LinearLayout>

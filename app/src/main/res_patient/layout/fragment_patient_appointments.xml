@@ -14,6 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
         android:layout_marginTop="20dp"
+        android:ellipsize="end"
+        android:maxLines="2"
         android:text="Randevularım"
         android:textAppearance="@style/TextAppearance.MerkeziSaglik.PageTitle"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,10 +48,10 @@
                 android:id="@+id/tvTabActive"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:autoSizeMaxTextSize="13sp"
-                android:autoSizeMinTextSize="10sp"
-                android:autoSizeStepGranularity="1sp"
-                android:autoSizeTextType="uniform"
+                app:autoSizeMaxTextSize="13sp"
+                app:autoSizeMinTextSize="10sp"
+                app:autoSizeStepGranularity="1sp"
+                app:autoSizeTextType="uniform"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="AKTİF RANDEVULARIM"
@@ -79,10 +81,10 @@
                 android:id="@+id/tvTabPast"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:autoSizeMaxTextSize="13sp"
-                android:autoSizeMinTextSize="10sp"
-                android:autoSizeStepGranularity="1sp"
-                android:autoSizeTextType="uniform"
+                app:autoSizeMaxTextSize="13sp"
+                app:autoSizeMinTextSize="10sp"
+                app:autoSizeStepGranularity="1sp"
+                app:autoSizeTextType="uniform"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="GEÇMİŞ RANDEVULARIM"
@@ -133,17 +135,18 @@
             android:alpha="0.3"
             android:contentDescription="Randevu yok"
             android:src="@drawable/ic_bottom_appointments_24"
-            android:tint="@color/text_secondary" />
+            app:tint="@color/text_secondary" />
 
         <TextView
             android:id="@+id/tvEmptyMessage"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:gravity="center"
+            android:maxLines="3"
             android:textColor="@color/text_secondary"
             android:textSize="16sp"
-            tools:text="Henüz aktif randevunuz yok" />
+            tools:text="Aktif randevunuz bulunmuyor." />
     </LinearLayout>
 
     <!-- Loading State -->

@@ -61,10 +61,10 @@
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:background="@drawable/bg_top_back_button"
-                    android:contentDescription="Geri"
+                    android:contentDescription="@string/common_back"
                     android:padding="6dp"
                     android:src="@drawable/ic_arrow_back_24"
-                    android:tint="@color/primary_dark"
+                    app:tint="@color/primary_dark"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -138,8 +138,13 @@
 
                             <TextView
                                 android:id="@+id/tvPatientName"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/spacing_sm"
+                                android:layout_weight="1"
+                                android:ellipsize="end"
+                                android:gravity="end"
+                                android:maxLines="2"
                                 android:textColor="@color/text_primary"
                                 android:textSize="@dimen/text_size_subtitle"
                                 android:textStyle="bold"
@@ -172,8 +177,13 @@
 
                             <TextView
                                 android:id="@+id/tvAppointmentDate"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/spacing_sm"
+                                android:layout_weight="1"
+                                android:ellipsize="start"
+                                android:gravity="end"
+                                android:maxLines="1"
                                 android:textColor="@color/text_primary"
                                 android:textSize="@dimen/text_size_body"
                                 tools:text="1 Nisan 2026 Çarşamba" />
@@ -200,8 +210,13 @@
 
                             <TextView
                                 android:id="@+id/tvAppointmentTime"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/spacing_sm"
+                                android:layout_weight="1"
+                                android:ellipsize="start"
+                                android:gravity="end"
+                                android:maxLines="1"
                                 android:textColor="@color/text_primary"
                                 android:textSize="@dimen/text_size_body"
                                 android:textStyle="bold"
@@ -224,8 +239,10 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="0.4"
+                                android:layout_weight="1"
                                 android:drawablePadding="@dimen/spacing_sm"
+                                android:ellipsize="end"
+                                android:maxLines="1"
                                 android:text="@string/doctor_examination_hospital_label"
                                 android:textColor="@color/text_secondary"
                                 android:textSize="@dimen/text_size_body_sm"
@@ -236,8 +253,11 @@
                                 android:id="@+id/tvHospitalName"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="0.6"
+                                android:layout_marginStart="@dimen/spacing_sm"
+                                android:layout_weight="1"
+                                android:ellipsize="end"
                                 android:gravity="end"
+                                android:maxLines="2"
                                 android:textColor="@color/text_primary"
                                 android:textSize="@dimen/text_size_body"
                                 tools:text="Ankara Bilkent Şehir Hastanesi" />
@@ -264,9 +284,14 @@
 
                             <TextView
                                 android:id="@+id/tvBranchName"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/spacing_sm"
+                                android:layout_weight="1"
                                 android:background="@drawable/bg_doctor_branch_badge"
+                                android:ellipsize="end"
+                                android:gravity="end"
+                                android:maxLines="2"
                                 android:paddingHorizontal="@dimen/badge_padding_horizontal"
                                 android:paddingVertical="@dimen/badge_padding_vertical"
                                 android:textColor="@color/primary_dark"
@@ -296,8 +321,13 @@
 
                             <TextView
                                 android:id="@+id/tvDoctorName"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/spacing_sm"
+                                android:layout_weight="1"
+                                android:ellipsize="end"
+                                android:gravity="end"
+                                android:maxLines="2"
                                 android:textColor="@color/text_primary"
                                 android:textSize="@dimen/text_size_body"
                                 tools:text="Dr. Mehmet Yıldız" />
@@ -438,6 +468,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:ellipsize="end"
+                                android:maxLines="2"
                                 android:text="@string/doctor_examination_selected_medicines_title"
                                 android:textColor="@color/text_primary"
                                 android:textSize="@dimen/text_size_body_lg"
@@ -448,6 +480,7 @@
                                 style="@style/Widget.MerkeziSaglik.Button.Compact"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:minWidth="0dp"
                                 android:text="@string/doctor_examination_add_medicine"
                                 android:textAllCaps="false" />
                         </LinearLayout>
@@ -521,6 +554,7 @@
                     android:layout_height="@dimen/action_button_height"
                     android:layout_marginEnd="@dimen/spacing_sm"
                     android:layout_weight="1"
+                    android:minWidth="0dp"
                     android:text="@string/doctor_examination_mark_missed"
                     android:textAllCaps="false" />
 
@@ -531,6 +565,7 @@
                     android:layout_height="@dimen/action_button_height"
                     android:layout_marginStart="@dimen/spacing_sm"
                     android:layout_weight="1"
+                    android:minWidth="0dp"
                     android:text="@string/doctor_examination_complete"
                     android:textAllCaps="false" />
             </LinearLayout>

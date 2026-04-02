@@ -6,7 +6,6 @@
     <string name="doctor_home_pending_caption">Zamanı geçmiş planlı</string>
     <string name="doctor_home_completed_title">Tamamlanan Muayeneler</string>
     <string name="doctor_home_completed_caption">Bugün tamamlanan</string>
-    <string name="doctor_home_footer_note">Sayfa randevu akışlarına göre otomatik güncellenir. Son veriyi görmek için aşağı kaydırıp tekrar ziyaret edebilirsiniz.</string>
     <string name="doctor_home_branch_unknown">Branş bilgisi bulunamadı</string>
     <string name="doctor_home_hospital_unknown">Hastane bilgisi bulunamadı</string>
     <string name="doctor_home_retry">Tekrar Dene</string>

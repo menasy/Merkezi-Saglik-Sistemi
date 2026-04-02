@@ -23,9 +23,8 @@ import com.menasy.merkezisagliksistemi.R
 import com.menasy.merkezisagliksistemi.databinding.FragmentAppointmentSearchBinding
 import com.menasy.merkezisagliksistemi.ui.common.base.BaseFragment
 import com.menasy.merkezisagliksistemi.ui.common.message.UiMessage
+import com.menasy.merkezisagliksistemi.utils.DateTimeUtils
 import kotlinx.coroutines.launch
-import java.time.Instant
-import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 
@@ -510,9 +509,7 @@ class AppointmentSearchFragment : BaseFragment() {
     }
 
     private fun formatDate(millis: Long): String {
-        val localDate = Instant.ofEpochMilli(millis)
-            .atZone(ZoneId.systemDefault())
-            .toLocalDate()
+        val localDate = DateTimeUtils.millisToLocalDate(millis)
         return dateFormatter.format(localDate)
     }
 

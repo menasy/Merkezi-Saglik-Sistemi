@@ -9,6 +9,7 @@ data class Appointment(
     val appointmentDate: String = "",
     val appointmentTime: String = "",
     val status: String = AppointmentStatus.SCHEDULED.name,
+    val examinationNote: String = "",
     val createdAt: Long = System.currentTimeMillis(),
     val completedAt: Long = 0L
 )

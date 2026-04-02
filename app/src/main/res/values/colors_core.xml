@@ -12,11 +12,6 @@
     <color name="error_dark">#A80A0E</color>
 
     <color name="success">#1B7F4A</color>
-    <color name="success_light">#EDF9F2</color>
-    <color name="success_dark">#156B3C</color>
-
-    <color name="warning">#B26A00</color>
-    <color name="warning_light">#FFF8E6</color>
 
     <color name="background">#F9F9F9</color>
     <color name="surface">#FFFFFF</color>

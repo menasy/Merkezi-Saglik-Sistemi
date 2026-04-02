@@ -147,3 +147,26 @@ Yerelde kullanilan dogrulama komutlari:
 2. `./gradlew :app:assembleDebug`
 
 Her iki komut da basarili gecmektedir.
+
+## 12) Uygulama Kullanimi
+
+### Hasta kullanimi (normal akiş)
+1. Uygulamayi ac.
+2. `Kayit Ol` ekranindan yeni hasta hesabi olustur.
+3. Kayit sonrasi `Giris Yap` ekranindan e-posta/sifre ile login ol.
+4. Patient tarafinda randevu arama, olusturma ve listeleme akislarini test et.
+
+### Doktor kullanimi (test hesabi)
+Doktor hesaplari sistemde seed + Firestore `users` kaydi ile tanimlidir.  
+Testte doktor tarafini denemek icin asagidaki hesaplarla login olabilirsin:
+
+| Doktor | Hastane | Email | Sifre |
+|---|---|---|---|
+| Prof. Dr. Yunus Yıldız | Istanbul Mehmet Akif Ersoy Gogus Kalp ve Damar Cerrahisi EAH | `doctor2@gmail.com` | `User123` |
+| Prof. Dr. Mehmet Nasim Yılmaz | Adana Sehir Hastanesi | `doctor3@gmail.com` | `User123` |
+| Prof. Dr. Mahsum Turgut | Basaksehir Cam ve Sakura Sehir Hastanesi | `doctor1@gmail.com` | `User123` |
+
+Notlar:
+1. Doktor login'i icin Firestore tarafinda `users/{uid}` dokumani olmalidir.
+2. `users/{uid}` icinde en az su alanlar bulunmalidir: `id`, `fullName`, `email`, `role = "doctor"`, `createdAt`.
+3. Doktorun `DoctorSeedData.kt` icindeki `userId` degeri, Firebase Auth UID ile birebir ayni olmalidir.

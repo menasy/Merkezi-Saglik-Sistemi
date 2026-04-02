@@ -15,20 +15,19 @@
     <!-- Card dimensions -->
     <dimen name="card_corner_radius">14dp</dimen>
     <dimen name="card_corner_radius_sm">12dp</dimen>
+    <dimen name="card_corner_radius_lg">20dp</dimen>
     <dimen name="card_padding">16dp</dimen>
     <dimen name="card_stroke_width">1dp</dimen>
 
+    <!-- Dialog dimensions -->
+    <dimen name="dialog_content_padding">20dp</dimen>
+
     <!-- Button dimensions -->
     <dimen name="button_corner_radius">12dp</dimen>
-    <dimen name="button_corner_radius_lg">15dp</dimen>
-    <dimen name="button_min_height">44dp</dimen>
-    <dimen name="button_padding_horizontal">16dp</dimen>
-    <dimen name="button_padding_vertical">10dp</dimen>
 
     <!-- Filter button -->
     <dimen name="filter_button_height">42dp</dimen>
     <dimen name="filter_button_padding_h">14dp</dimen>
-    <dimen name="filter_button_padding_v">10dp</dimen>
 
     <!-- Badge/Chip -->
     <dimen name="badge_corner_radius">8dp</dimen>
@@ -38,10 +37,6 @@
     <!-- List item -->
     <dimen name="list_item_margin_top">12dp</dimen>
     <dimen name="list_item_padding">14dp</dimen>
-
-    <!-- Section -->
-    <dimen name="section_title_margin_top">20dp</dimen>
-    <dimen name="section_content_margin_top">12dp</dimen>
 
     <!-- Icon sizes -->
     <dimen name="icon_size_sm">18dp</dimen>

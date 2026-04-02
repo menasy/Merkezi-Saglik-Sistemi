@@ -8,6 +8,7 @@ import com.menasy.merkezisagliksistemi.domain.usecase.GetHospitalsByDistrictUseC
 import com.menasy.merkezisagliksistemi.domain.usecase.GetNearestAvailableDateUseCase
 import com.menasy.merkezisagliksistemi.ui.common.base.BaseViewModel
 import com.menasy.merkezisagliksistemi.ui.common.error.OperationType
+import com.menasy.merkezisagliksistemi.utils.DateTimeUtils
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
@@ -18,9 +19,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Semaphore
 import kotlinx.coroutines.sync.withPermit
-import java.time.Instant
 import java.time.LocalDate
-import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
 import java.util.Locale
@@ -135,8 +134,8 @@ class AppointmentResultsViewModel(
 
                 val hospitalNameMap = hospitals.associateBy({ it.id }, { it.name })
                 val branchNameMap = branches.associateBy({ it.id }, { it.name })
-                val startDate = millisToLocalDate(args.startDateMillis)
-                val endDate = millisToLocalDate(args.endDateMillis)
+                val startDate = DateTimeUtils.millisToLocalDate(args.startDateMillis)
+                val endDate = DateTimeUtils.millisToLocalDate(args.endDateMillis)
 
                 val semaphore = Semaphore(NEAREST_DATE_LOOKUP_PARALLELISM)
                 val appointmentItems = coroutineScope {
@@ -208,10 +207,7 @@ class AppointmentResultsViewModel(
             slotDurationMinutes = slotDurationMinutes
         ) ?: return null
 
-        val appointmentDateMillis = appointmentDate
-            .atStartOfDay(ZoneId.systemDefault())
-            .toInstant()
-            .toEpochMilli()
+        val appointmentDateMillis = DateTimeUtils.localDateToStartOfDayMillis(appointmentDate)
 
         return AppointmentResultUiModel(
             doctorId = id,
@@ -230,7 +226,7 @@ class AppointmentResultsViewModel(
     }
 
     private fun buildRelativeDateLabel(appointmentDate: LocalDate): String {
-        val daysLeft = ChronoUnit.DAYS.between(LocalDate.now(), appointmentDate)
+        val daysLeft = ChronoUnit.DAYS.between(DateTimeUtils.currentLocalDate(), appointmentDate)
             .toInt()
             .coerceAtLeast(0)
 
@@ -239,12 +235,6 @@ class AppointmentResultsViewModel(
             1 -> "Yarın"
             else -> "$daysLeft gün sonra"
         }
-    }
-
-    private fun millisToLocalDate(millis: Long): LocalDate {
-        return Instant.ofEpochMilli(millis)
-            .atZone(ZoneId.systemDefault())
-            .toLocalDate()
     }
 
     private companion object {

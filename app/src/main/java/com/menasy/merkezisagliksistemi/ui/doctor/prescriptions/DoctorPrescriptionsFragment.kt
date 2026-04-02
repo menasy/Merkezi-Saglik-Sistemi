@@ -21,10 +21,7 @@ import com.menasy.merkezisagliksistemi.databinding.FragmentDoctorPrescriptionsBi
 import com.menasy.merkezisagliksistemi.di.ServiceLocator
 import com.menasy.merkezisagliksistemi.ui.common.adapter.PrescriptionRecordsAdapter
 import com.menasy.merkezisagliksistemi.ui.common.util.DialogWindowSizer
-import java.time.Instant
-import java.time.ZoneId
-import java.time.format.DateTimeFormatter
-import java.util.Locale
+import com.menasy.merkezisagliksistemi.ui.common.util.PrescriptionPreviewDialogBinder
 import kotlinx.coroutines.launch
 
 class DoctorPrescriptionsFragment : Fragment() {
@@ -64,7 +61,8 @@ class DoctorPrescriptionsFragment : Fragment() {
             onItemClick = { item ->
                 showPrescriptionPreviewDialog(
                     personName = item.personName,
-                    prescription = item.prescription
+                    prescription = item.prescription,
+                    examinationNote = item.examinationNote
                 )
             }
         )
@@ -137,22 +135,24 @@ class DoctorPrescriptionsFragment : Fragment() {
 
     private fun showPrescriptionPreviewDialog(
         personName: String,
-        prescription: Prescription
+        prescription: Prescription,
+        examinationNote: String
     ) {
         if (resources.configuration.smallestScreenWidthDp >= TABLET_WIDTH_DP) {
-            showPrescriptionAsCenteredDialog(personName, prescription)
+            showPrescriptionAsCenteredDialog(personName, prescription, examinationNote)
         } else {
-            showPrescriptionAsBottomSheet(personName, prescription)
+            showPrescriptionAsBottomSheet(personName, prescription, examinationNote)
         }
     }
 
     private fun showPrescriptionAsBottomSheet(
         personName: String,
-        prescription: Prescription
+        prescription: Prescription,
+        examinationNote: String
     ) {
         val dialog = BottomSheetDialog(requireContext())
         val dialogBinding = DialogPrescriptionPreviewBinding.inflate(layoutInflater)
-        bindPrescriptionPreview(dialogBinding, personName, prescription)
+        bindPrescriptionPreview(dialogBinding, personName, prescription, examinationNote)
         dialog.setContentView(dialogBinding.root)
         dialogBinding.btnClosePreview.setOnClickListener { dialog.dismiss() }
         dialog.show()
@@ -160,10 +160,11 @@ class DoctorPrescriptionsFragment : Fragment() {
 
     private fun showPrescriptionAsCenteredDialog(
         personName: String,
-        prescription: Prescription
+        prescription: Prescription,
+        examinationNote: String
     ) {
         val dialogBinding = DialogPrescriptionPreviewBinding.inflate(layoutInflater)
-        bindPrescriptionPreview(dialogBinding, personName, prescription)
+        bindPrescriptionPreview(dialogBinding, personName, prescription, examinationNote)
 
         val dialog = MaterialAlertDialogBuilder(requireContext())
             .setView(dialogBinding.root)
@@ -177,65 +178,18 @@ class DoctorPrescriptionsFragment : Fragment() {
     private fun bindPrescriptionPreview(
         dialogBinding: DialogPrescriptionPreviewBinding,
         personName: String,
-        prescription: Prescription
+        prescription: Prescription,
+        examinationNote: String
     ) {
-        dialogBinding.tvPersonNameLabel.text =
-            getString(R.string.doctor_appointments_patient_name_label)
-        dialogBinding.tvPrescriptionCodeValue.text = prescription.prescriptionCode
-        dialogBinding.tvPatientNameValue.text = personName
-
-        dialogBinding.tvCreatedAtValue.text = if (prescription.createdAtMillis > 0L) {
-            Instant.ofEpochMilli(prescription.createdAtMillis)
-                .atZone(ZoneId.systemDefault())
-                .toLocalDateTime()
-                .format(PREVIEW_DATE_TIME_FORMATTER)
-        } else {
-            getString(R.string.doctor_appointments_unknown_date)
-        }
-        dialogBinding.tvMedicinesTitle.text = getString(
-            R.string.doctor_appointments_medicines_label_with_count,
-            prescription.medicines.size
+        PrescriptionPreviewDialogBinder.bind(
+            context = requireContext(),
+            inflater = layoutInflater,
+            dialogBinding = dialogBinding,
+            personNameLabelRes = R.string.doctor_appointments_patient_name_label,
+            personName = personName,
+            prescription = prescription,
+            examinationNote = examinationNote
         )
-
-        // Populate medicines as individual cards
-        dialogBinding.layoutMedicines.removeAllViews()
-        if (prescription.medicines.isEmpty()) {
-            val emptyText = android.widget.TextView(requireContext()).apply {
-                text = getString(R.string.doctor_appointments_no_medicines)
-                setTextColor(resources.getColor(R.color.text_secondary, null))
-                textSize = 14f
-                setPadding(0, 16, 0, 16)
-            }
-            dialogBinding.layoutMedicines.addView(emptyText)
-        } else {
-            prescription.medicines.forEach { medicine ->
-                val medicineBinding = com.menasy.merkezisagliksistemi.databinding.ItemMedicinePreviewBinding.inflate(
-                    layoutInflater,
-                    dialogBinding.layoutMedicines,
-                    false
-                )
-                medicineBinding.tvMedicineName.text = medicine.medicineName
-                medicineBinding.tvMedicineDosage.text = medicine.dosage.ifBlank { "-" }
-                medicineBinding.tvMedicineFrequency.text = medicine.frequency.ifBlank { "-" }
-                medicineBinding.tvMedicineUsage.text = medicine.usageDescription.ifBlank { "-" }
-
-                if (medicine.doctorNote.isNotBlank()) {
-                    medicineBinding.layoutMedicineNote.visibility = View.VISIBLE
-                    medicineBinding.tvMedicineNote.text = medicine.doctorNote
-                } else {
-                    medicineBinding.layoutMedicineNote.visibility = View.GONE
-                }
-
-                dialogBinding.layoutMedicines.addView(medicineBinding.root)
-            }
-        }
-
-        // Doctor note section
-        val hasNote = prescription.note.isNotBlank()
-        dialogBinding.layoutDoctorNote.isVisible = hasNote
-        if (hasNote) {
-            dialogBinding.tvDoctorNoteValue.text = prescription.note
-        }
     }
 
     override fun onDestroyView() {
@@ -246,8 +200,5 @@ class DoctorPrescriptionsFragment : Fragment() {
     private companion object {
         const val DATE_RANGE_PICKER_TAG = "doctor_prescriptions_range_picker"
         const val TABLET_WIDTH_DP = 600
-
-        val PREVIEW_DATE_TIME_FORMATTER: DateTimeFormatter =
-            DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm", Locale.forLanguageTag("tr-TR"))
     }
 }

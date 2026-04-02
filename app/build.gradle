@@ -26,6 +26,7 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
+        coreLibraryDesugaringEnabled true
     }
     buildFeatures {
         viewBinding true
@@ -60,7 +61,7 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.8.1"
     implementation "androidx.navigation:navigation-fragment-ktx:2.8.9"
     implementation "androidx.navigation:navigation-ui-ktx:2.8.9"
-}
+    coreLibraryDesugaring libs.desugar.jdk.libs}
 
 tasks.register("exportDoctorSchema", Test) {
     def unitTestTask = tasks.named("testDebugUnitTest", Test).get()

@@ -256,8 +256,8 @@ class DoctorExaminationViewModel(
 
                 when (targetStatus) {
                     AppointmentStatus.MISSED -> publishSuccess(
-                        title = "Hasta Gelmedi İşaretlendi",
-                        description = "Randevu MISSED durumuna alındı."
+                        title = "Hasta Katılmadı Olarak Kaydedildi",
+                        description = "Randevu, hastanın katılmadığı şekilde kaydedildi."
                     )
 
                     AppointmentStatus.COMPLETED -> {
@@ -269,7 +269,7 @@ class DoctorExaminationViewModel(
                         } else {
                             publishSuccess(
                                 title = "Muayene Tamamlandı",
-                                description = "Randevu COMPLETED durumuna alındı."
+                                description = "Randevu başarıyla tamamlandı."
                             )
                         }
                     }

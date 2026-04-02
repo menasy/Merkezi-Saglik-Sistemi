@@ -43,6 +43,7 @@ data class PatientAppointmentItem(
     val actionText: String? = if (isActive) "İptal Et" else null,
     val actionType: AppointmentActionType? = if (isActive) AppointmentActionType.CANCEL else null,
     val actionStyle: AppointmentActionStyle = AppointmentActionStyle.DANGER,
+    val examinationNote: String = "",
     val prescription: Prescription? = null
 )
 

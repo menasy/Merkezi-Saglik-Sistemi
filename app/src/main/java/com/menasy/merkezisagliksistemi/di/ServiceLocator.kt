@@ -219,4 +219,8 @@ object ServiceLocator {
             hospitalRepository = hospitalRepository
         )
     }
+
+    fun provideAppointmentRepository(): AppointmentRepository {
+        return appointmentRepository
+    }
 }

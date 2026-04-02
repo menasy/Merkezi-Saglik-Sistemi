@@ -13,6 +13,7 @@ data class PrescriptionListItem(
     val appointmentTimeLabel: String,
     val appointmentStatusLabel: String,
     val medicineCount: Int,
+    val examinationNote: String,
     val note: String,
     val prescription: Prescription
 )

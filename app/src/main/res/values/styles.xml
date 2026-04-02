@@ -79,8 +79,10 @@
         <item name="android:insetBottom">0dp</item>
         <item name="android:minHeight">0dp</item>
         <item name="android:minWidth">0dp</item>
-        <item name="android:paddingHorizontal">20dp</item>
-        <item name="android:paddingVertical">12dp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
         <item name="android:background">@drawable/bg_common_button</item>
         <item name="android:elevation">5dp</item>
         <item name="android:stateListAnimator">@animator/common_button_state_animator</item>
@@ -89,32 +91,26 @@
 
     <style name="Widget.MerkeziSaglik.Button.Compact" parent="Widget.MerkeziSaglik.CommonButton">
         <item name="android:textSize">14sp</item>
-        <item name="android:paddingHorizontal">16dp</item>
-        <item name="android:paddingVertical">9dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingTop">9dp</item>
+        <item name="android:paddingBottom">9dp</item>
     </style>
 
     <style name="Widget.MerkeziSaglik.Button.Medium" parent="Widget.MerkeziSaglik.CommonButton">
         <item name="android:textSize">16sp</item>
-        <item name="android:paddingHorizontal">20dp</item>
-        <item name="android:paddingVertical">11dp</item>
-    </style>
-
-    <style name="Widget.MerkeziSaglik.Button.Danger" parent="Widget.MerkeziSaglik.Button.Medium">
-        <item name="android:backgroundTint">@color/button_danger_background_tint</item>
-        <item name="backgroundTint">@color/button_danger_background_tint</item>
-        <item name="strokeWidth">0dp</item>
-        <item name="cornerRadius">10dp</item>
-        <item name="android:textColor">@android:color/white</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:paddingTop">11dp</item>
+        <item name="android:paddingBottom">11dp</item>
     </style>
 
     <style name="Widget.MerkeziSaglik.Button.Large" parent="Widget.MerkeziSaglik.CommonButton">
         <item name="android:textSize">16sp</item>
-        <item name="android:paddingHorizontal">22dp</item>
-        <item name="android:paddingVertical">12dp</item>
-    </style>
-
-    <style name="Widget.MerkeziSaglik.PrimaryButton" parent="Widget.MerkeziSaglik.Button.Large">
-        <item name="android:minHeight">46dp</item>
+        <item name="android:paddingStart">22dp</item>
+        <item name="android:paddingEnd">22dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
     </style>
 
     <!-- Action Button Base -->
@@ -127,7 +123,8 @@
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
         <item name="android:minWidth">@dimen/action_button_min_width</item>
-        <item name="android:paddingHorizontal">@dimen/spacing_lg</item>
+        <item name="android:paddingStart">@dimen/spacing_lg</item>
+        <item name="android:paddingEnd">@dimen/spacing_lg</item>
         <item name="cornerRadius">@dimen/button_corner_radius</item>
         <item name="android:elevation">2dp</item>
     </style>

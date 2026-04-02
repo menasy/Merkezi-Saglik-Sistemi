@@ -88,6 +88,13 @@ class AppointmentRepository(
     }
 
     /**
+     * Gets the total count of completed appointments for a doctor (all time).
+     */
+    suspend fun getDoctorTotalCompletedCount(doctorId: String): Result<Int> {
+        return appointmentDataSource.getDoctorTotalCompletedCount(doctorId)
+    }
+
+    /**
      * Gets the count of appointments completed today for a doctor.
      */
     suspend fun getDoctorCompletedTodayCount(doctorId: String, todayDate: String): Result<Int> {

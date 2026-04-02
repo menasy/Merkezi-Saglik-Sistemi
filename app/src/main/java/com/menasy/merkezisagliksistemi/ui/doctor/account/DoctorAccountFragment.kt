@@ -13,6 +13,7 @@ import com.menasy.merkezisagliksistemi.databinding.FragmentDoctorAccountBinding
 import com.menasy.merkezisagliksistemi.di.ServiceLocator
 import com.menasy.merkezisagliksistemi.di.SessionCache
 import com.menasy.merkezisagliksistemi.domain.usecase.GetCurrentUserUseCase
+import com.menasy.merkezisagliksistemi.domain.usecase.GetDoctorHomeSummaryUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.LogoutUserUseCase
 import kotlinx.coroutines.launch
 
@@ -20,11 +21,18 @@ class DoctorAccountFragment : Fragment() {
 
     private var _binding: FragmentDoctorAccountBinding? = null
     private val binding get() = _binding!!
+
     private val getCurrentUserUseCase: GetCurrentUserUseCase by lazy {
         ServiceLocator.provideGetCurrentUserUseCase()
     }
+    private val getDoctorHomeSummaryUseCase: GetDoctorHomeSummaryUseCase by lazy {
+        ServiceLocator.provideGetDoctorHomeSummaryUseCase()
+    }
     private val logoutUserUseCase: LogoutUserUseCase by lazy {
         ServiceLocator.provideLogoutUserUseCase()
+    }
+    private val appointmentRepository by lazy {
+        ServiceLocator.provideAppointmentRepository()
     }
 
     override fun onCreateView(
@@ -44,9 +52,12 @@ class DoctorAccountFragment : Fragment() {
     }
 
     private fun bindSessionInfo() {
-        binding.tvAccountFullNameValue.text = SessionCache.fullName?.ifBlank { "-" } ?: "-"
-        binding.tvAccountRoleValue.text = roleToLabel(SessionCache.role)
-        binding.tvAccountUserIdValue.text = SessionCache.userId ?: "-"
+        binding.tvDoctorName.text = SessionCache.fullName?.ifBlank { "-" } ?: "-"
+        binding.tvBranchValue.text = getString(R.string.doctor_home_branch_unknown)
+        binding.tvHospitalValue.text = getString(R.string.doctor_home_hospital_unknown)
+        binding.tvDoctorIdValue.text = SessionCache.doctorId?.ifBlank { "-" } ?: "-"
+        binding.tvUidValue.text = SessionCache.userId?.ifBlank { "-" } ?: "-"
+        binding.tvExaminationValue.text = "-"
     }
 
     private fun refreshUserInfoIfNeeded() {
@@ -71,7 +82,8 @@ class DoctorAccountFragment : Fragment() {
 
             when (resolvedRole) {
                 "doctor" -> {
-                    val doctorId = SessionCache.doctorId ?: getCurrentUserUseCase.getDoctorIdByUserId(currentUserId)
+                    val doctorId = SessionCache.doctorId
+                        ?: getCurrentUserUseCase.getDoctorIdByUserId(currentUserId)
                     if (!doctorId.isNullOrBlank()) {
                         SessionCache.populateDoctor(
                             userId = currentUserId,
@@ -90,9 +102,31 @@ class DoctorAccountFragment : Fragment() {
                 }
             }
 
-            binding.tvAccountFullNameValue.text = resolvedFullName?.ifBlank { "-" } ?: "-"
-            binding.tvAccountRoleValue.text = roleToLabel(resolvedRole)
-            binding.tvAccountUserIdValue.text = currentUserId
+            binding.tvDoctorName.text = resolvedFullName?.ifBlank { "-" } ?: "-"
+            val resolvedDoctorId = SessionCache.doctorId?.ifBlank { null }
+                ?: getCurrentUserUseCase.getDoctorIdByUserId(currentUserId)
+            binding.tvDoctorIdValue.text = resolvedDoctorId ?: "-"
+            binding.tvUidValue.text = currentUserId
+
+            if (resolvedRole == "doctor" && !resolvedDoctorId.isNullOrBlank()) {
+                val summary = getDoctorHomeSummaryUseCase(resolvedDoctorId).getOrNull()
+                if (summary != null) {
+                    binding.tvDoctorName.text = summary.doctorFullName.ifBlank {
+                        resolvedFullName?.ifBlank { "-" } ?: "-"
+                    }
+                    binding.tvBranchValue.text = summary.branchName.ifBlank {
+                        getString(R.string.doctor_home_branch_unknown)
+                    }
+                    binding.tvHospitalValue.text = summary.hospitalName.ifBlank {
+                        getString(R.string.doctor_home_hospital_unknown)
+                    }
+                }
+
+                val totalCompleted = appointmentRepository
+                    .getDoctorTotalCompletedCount(resolvedDoctorId)
+                    .getOrNull() ?: 0
+                binding.tvExaminationValue.text = totalCompleted.toString()
+            }
         }
     }
 
@@ -104,15 +138,6 @@ class DoctorAccountFragment : Fragment() {
                 .setPopUpTo(navController.graph.id, true)
                 .build()
             navController.navigate(R.id.loginFragment, null, options)
-        }
-    }
-
-    private fun roleToLabel(role: String?): String {
-        return when (role) {
-            "patient" -> "Hasta"
-            "doctor" -> "Doktor"
-            null, "" -> "-"
-            else -> role
         }
     }
 
