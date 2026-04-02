@@ -24,7 +24,6 @@
     <string name="doctor_appointments_medicines_label">İlaç Listesi</string>
     <string name="doctor_appointments_medicines_label_with_count">İlaç Listesi (%1$d)</string>
     <string name="doctor_appointments_notes_section_label">Doktor Notları</string>
-    <string name="doctor_appointments_doctor_note_label">Doktor Açıklaması</string>
     <string name="doctor_appointments_examination_note_label">Muayene Notu</string>
     <string name="doctor_appointments_prescription_note_label">Reçete Notu</string>
     <string name="doctor_appointments_note_empty_fallback">Not girilmemiş</string>
@@ -80,7 +79,6 @@
     <string name="doctor_prescriptions_empty_icon_cd">Reçete yok</string>
 
     <!-- Doctor Account Screen -->
-    <string name="doctor_account_branch_cd">Branş</string>
     <string name="doctor_account_hospital_cd">Hastane</string>
     <string name="doctor_account_info_section_title">HESAP BİLGİLERİ</string>
     <string name="doctor_account_doctor_id_label">Doktor ID</string>

@@ -92,16 +92,23 @@ Sistem akışı özetle şu şekilde çalışır:
 8. `Reçeteler` ekranında oluşturduğu reçeteleri izler.
 9. Hesap ekranından çıkış yapar.
 
-### 6.3 Test Doktor Hesapları
-| Doktor | Hastane | Email | Şifre |
-|---|---|---|---|
-| Prof. Dr. Yunus Yıldız | Istanbul Mehmet Akif Ersoy Gogus Kalp ve Damar Cerrahisi EAH | `doctor2@gmail.com` | `User123` |
-| Prof. Dr. Mehmet Nasim Yılmaz | Adana Sehir Hastanesi | `doctor3@gmail.com` | `User123` |
-| Prof. Dr. Mahsum Turgut | Basaksehir Cam ve Sakura Sehir Hastanesi | `doctor1@gmail.com` | `User123` |
+### 6.3 Test Doktor Hesapları (Seed Veriye Göre Doğrulanmış)
+Bu tablo doğrudan aşağıdaki seed kaynaklarının birleştirilmesiyle hazırlanmıştır:
+- `DoctorSeedData.kt` (doktor hesap/kimlik/slot alanları)
+- `HospitalSeedData.kt` (hastane adı, şehir/ilçe ID)
+- `DistrictSeedData.kt` + `CitySeedData.kt` (ilçe/şehir adları)
+- `BranchSeedData.kt` (poliklinik adı)
+
+| Email | Şifre | Doktor Adı | Doktor ID | Firebase UID (`userId`) | Şehir | İlçe | Hastane | Poliklinik (Branş) | Oda | Mesai | Slot Süresi | `canLogin` |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| `doctor1@gmail.com` | `User123` | Prof. Dr. Mahsum Turgut | `dr_625541_beyin_ve_sinir_cerrahisi_1` | `Psr9erbNe2Ne9nfM8WcnIWxFtPA2` | Adana | Yüreğir | Adana Şehir Hastanesi (`625541`) | Beyin ve Sinir Cerrahisi (`beyin_ve_sinir_cerrahisi`) | `A1-108` | `00:00-24:00` | `5 dk` | `true` |
+| `doctor3@gmail.com` | `User123` | Prof. Dr. Mehmet Nasim Yılmaz | `dr_625541_beyin_ve_sinir_cerrahisi_2` | `0Dx8rSDRWThCra2VPoguGjrQs3O2` | Adana | Yüreğir | Adana Şehir Hastanesi (`625541`) | Beyin ve Sinir Cerrahisi (`beyin_ve_sinir_cerrahisi`) | `A1-111` | `00:00-24:00` | `10 dk` | `true` |
+| `doctor2@gmail.com` | `User123` | Prof. Dr. Yunus Yıldız | `dr_322024_kardiyoloji_1` | `karIWsUYC7ZMRj2GPtr02wmTMxF2` | İstanbul | Küçükçekmece | İstanbul Mehmet Akif Ersoy Göğüs Kalp ve Damar Cerrahisi Eğitim ve Araştırma Hastanesi (`322024`) | Kardiyoloji (`kardiyoloji`) | `C1-109` | `00:00-24:00` | `10 dk` | `true` |
 
 Notlar:
 - Hasta kullanıcılar uygulama içinden kayıt olabilir.
 - Doktor kullanıcılar uygulama içinden kayıt olmaz.
+- Seed veride giriş yetkili doktor sayısı 3'tür (yalnızca yukarıdaki hesaplar).
 - Doktor hesapları Firebase Auth + Firestore tarafında ön tanımlı olmalıdır.
 
 ## 7. Mimari Yapı

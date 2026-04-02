@@ -43,7 +43,7 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_beyin_ve_sinir_cerrahisi_1",
         userId = "Psr9erbNe2Ne9nfM8WcnIWxFtPA2",
-        fullName = "Prof. Dr. Mehmet Emin Esen",
+        fullName = "Prof. Dr. Mahsum Turgut",
         branchId = "beyin_ve_sinir_cerrahisi",
         hospitalId = "625541",
         roomInfo = "A1-108",
@@ -51,8 +51,12 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
         slotEndHour = 24,
         slotDurationMinutes = 5,
         canLogin = true
-        //email: doctor1@gmail.com
-        //pass: User123
+        // email: doctor1@gmail.com
+        // pass: User123
+        // sehir: Adana
+        // ilce: Yuregir
+        // hastane: Adana Sehir Hastanesi
+        // brans: Beyin ve Sinir Cerrahisi
     ),
     Doctor(
         id = "dr_625541_beyin_ve_sinir_cerrahisi_2",
@@ -61,12 +65,16 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
         branchId = "beyin_ve_sinir_cerrahisi",
         hospitalId = "625541",
         roomInfo = "A1-111",
-        slotStartHour = 9,
-        slotEndHour = 17,
-        slotDurationMinutes = 20,
+        slotStartHour = 0,
+        slotEndHour = 24,
+        slotDurationMinutes = 10,
         canLogin = true
-        //email: doctor3@gmail.com
-        //pass: User123
+        // email: doctor3@gmail.com
+        // pass: User123
+        // sehir: Adana
+        // ilce: Yuregir
+        // hastane: Adana Sehir Hastanesi
+        // brans: Beyin ve Sinir Cerrahisi
     ),
     Doctor(
         id = "dr_625541_cocuk_sagligi_ve_hastaliklari_1",
@@ -39316,17 +39324,21 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
         branchId = "kardiyoloji",
         hospitalId = "322024",
         roomInfo = "C1-109",
-        slotStartHour = 9,
-        slotEndHour = 17,
-        slotDurationMinutes = 20,
+        slotStartHour = 0,
+        slotEndHour = 24,
+        slotDurationMinutes = 10,
         canLogin = true
-        //email: doctor2@gmail.com
-        //pass: User123
+        // email: doctor2@gmail.com
+        // pass: User123
+        // sehir: Istanbul
+        // ilce: Kucukcekmece
+        // hastane: Istanbul Mehmet Akif Ersoy Gogus Kalp ve Damar Cerrahisi EAH
+        // brans: Kardiyoloji
     ),
     Doctor(
         id = "dr_322024_kardiyoloji_2",
         userId = null,
-        fullName = "Prof. Dr. Doktor 056",
+        fullName = "Prof. Dr. Doktor Yusuf Yıldız",
         branchId = "kardiyoloji",
         hospitalId = "322024",
         roomInfo = "C1-112",
@@ -39577,17 +39589,16 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     ),
     Doctor(
         id = "dr_27911_beyin_ve_sinir_cerrahisi_1",
-        userId = "Psr9erbNe2Ne9nfM8WcnIWxFtPA2",
-        fullName = "Prof. Dr. Mahsum Turgut",
+        userId = null,
+        fullName = "Prof. Dr. Yusuf Akçay",
         branchId = "beyin_ve_sinir_cerrahisi",
         hospitalId = "27911",
         roomInfo = "A1-108",
         slotStartHour = 9,
         slotEndHour = 17,
         slotDurationMinutes = 20,
-        canLogin = true
-        // email: doctor1@gmail.com
-        // pass: User123
+        canLogin = false
+        
     ),
     Doctor(
         id = "dr_27911_beyin_ve_sinir_cerrahisi_2",
