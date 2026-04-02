@@ -1,5 +1,6 @@
 package com.menasy.merkezisagliksistemi.ui.patient.appointmentlist
 
+import android.content.Context
 import android.content.res.ColorStateList
 import android.view.LayoutInflater
 import android.view.View
@@ -9,11 +10,23 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.menasy.merkezisagliksistemi.R
+import com.menasy.merkezisagliksistemi.data.model.Prescription
 import com.menasy.merkezisagliksistemi.databinding.ItemPatientAppointmentBinding
 import java.time.Instant
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.util.Locale
+
+enum class AppointmentActionType {
+    CANCEL,
+    EXAMINE,
+    VIEW_PRESCRIPTION
+}
+
+enum class AppointmentActionStyle {
+    DANGER,
+    PRIMARY
+}
 
 data class PatientAppointmentItem(
     val id: String,
@@ -23,11 +36,18 @@ data class PatientAppointmentItem(
     val dateMillis: Long,
     val timeLabel: String,
     val status: String,
-    val isActive: Boolean
+    val isActive: Boolean,
+    val isPastStyle: Boolean = !isActive,
+    val statusTextOverride: String? = null,
+    val personIconRes: Int = R.drawable.ic_appointment_doctor,
+    val actionText: String? = if (isActive) "İptal Et" else null,
+    val actionType: AppointmentActionType? = if (isActive) AppointmentActionType.CANCEL else null,
+    val actionStyle: AppointmentActionStyle = AppointmentActionStyle.DANGER,
+    val prescription: Prescription? = null
 )
 
 class PatientAppointmentsAdapter(
-    private val onCancelClick: (PatientAppointmentItem) -> Unit
+    private val onActionClick: (PatientAppointmentItem) -> Unit
 ) : ListAdapter<PatientAppointmentItem, PatientAppointmentsAdapter.ViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -36,7 +56,7 @@ class PatientAppointmentsAdapter(
             parent,
             false
         )
-        return ViewHolder(binding, onCancelClick)
+        return ViewHolder(binding, onActionClick)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -45,40 +65,28 @@ class PatientAppointmentsAdapter(
 
     class ViewHolder(
         private val binding: ItemPatientAppointmentBinding,
-        private val onCancelClick: (PatientAppointmentItem) -> Unit
+        private val onActionClick: (PatientAppointmentItem) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: PatientAppointmentItem) {
             val context = binding.root.context
-            val isPastAppointment = !item.isActive
+            val isPastAppointment = item.isPastStyle
             val isCancelled = item.status == "CANCELLED"
 
-            // Parse date
             val date = Instant.ofEpochMilli(item.dateMillis)
                 .atZone(ZoneId.systemDefault())
                 .toLocalDate()
 
-            // Day number
             binding.tvAppointmentDay.text = date.dayOfMonth.toString()
-
-            // Month, year and day of week
             val dateFormatter = DateTimeFormatter.ofPattern("MMMM yyyy EEEE", Locale.forLanguageTag("tr-TR"))
             binding.tvAppointmentDateLabel.text = dateFormatter.format(date)
-
-            // Time
             binding.tvAppointmentTime.text = item.timeLabel
-
-            // Hospital
             binding.tvHospitalName.text = item.hospitalName.uppercase(Locale.getDefault())
-
-            // Branch
             binding.tvBranchName.text = item.branchName
-
-            // Doctor
             binding.tvDoctorName.text = item.doctorName
+            binding.ivDoctorIcon.setImageResource(item.personIconRes)
 
-            // Status
-            val statusText = when {
+            val statusText = item.statusTextOverride ?: when {
                 isCancelled -> "İptal Edildi"
                 item.isActive -> "Aktif Randevu"
                 item.status == "COMPLETED" -> "Tamamlandı"
@@ -135,22 +143,43 @@ class PatientAppointmentsAdapter(
                     context,
                     when {
                         isCancelled -> R.color.error
+                        item.status == "COMPLETED" -> R.color.success
+                        item.status == "MISSED" -> R.color.error
                         isPastAppointment -> R.color.text_secondary
                         else -> R.color.primary
                     }
                 )
             )
 
-            // Buttons visibility - only show for active appointments
-            binding.layoutButtons.visibility = if (item.isActive) View.VISIBLE else View.GONE
-
-            // Button clicks
-            binding.btnCancelAppointment.setOnClickListener {
-                onCancelClick(item)
+            if (item.actionText.isNullOrBlank()) {
+                binding.layoutButtons.visibility = View.GONE
+                binding.btnCancelAppointment.setOnClickListener(null)
+            } else {
+                binding.layoutButtons.visibility = View.VISIBLE
+                binding.btnCancelAppointment.text = item.actionText
+                applyActionStyle(context, item.actionStyle)
+                binding.btnCancelAppointment.setOnClickListener {
+                    onActionClick(item)
+                }
             }
         }
 
-        private fun resolveColor(context: android.content.Context, colorRes: Int): Int {
+        private fun applyActionStyle(context: Context, style: AppointmentActionStyle) {
+            when (style) {
+                AppointmentActionStyle.DANGER -> {
+                    val dangerColor = resolveColor(context, R.color.button_danger_background_tint)
+                    binding.btnCancelAppointment.backgroundTintList = ColorStateList.valueOf(dangerColor)
+                }
+                AppointmentActionStyle.PRIMARY -> {
+                    val primaryColor = resolveColor(context, R.color.primary)
+                    binding.btnCancelAppointment.backgroundTintList = ColorStateList.valueOf(primaryColor)
+                }
+            }
+            binding.btnCancelAppointment.setTextColor(resolveColor(context, android.R.color.white))
+            binding.btnCancelAppointment.strokeWidth = 0
+        }
+
+        private fun resolveColor(context: Context, colorRes: Int): Int {
             return ContextCompat.getColor(context, colorRes)
         }
     }

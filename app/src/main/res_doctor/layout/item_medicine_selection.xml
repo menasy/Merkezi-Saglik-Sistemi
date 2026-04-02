@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/spacing_sm"
+    android:background="@drawable/bg_medicine_selection_item"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    android:gravity="center_vertical"
+    android:minHeight="@dimen/medicine_selection_item_height"
+    android:orientation="horizontal"
+    android:paddingHorizontal="@dimen/spacing_md"
+    android:paddingVertical="@dimen/spacing_md">
+
+    <View
+        android:id="@+id/viewSelectionIndicator"
+        android:layout_width="@dimen/spacing_xs"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="@dimen/spacing_md"
+        android:background="@drawable/bg_medicine_selection_indicator"
+        android:visibility="invisible"
+        tools:visibility="visible" />
+
+    <CheckBox
+        android:id="@+id/cbMedicine"
+        android:layout_width="@dimen/medicine_selection_checkbox_size"
+        android:layout_height="@dimen/medicine_selection_checkbox_size"
+        android:button="@drawable/selector_checkbox" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_md"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvMedicineName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_size_body_lg"
+            android:textStyle="bold"
+            tools:text="Parol 500 mg Tablet" />
+
+        <TextView
+            android:id="@+id/tvMedicineDosage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xs"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/text_size_body_sm"
+            android:visibility="gone"
+            tools:text="500 mg • Günde 3 kez"
+            tools:visibility="visible" />
+    </LinearLayout>
+
+</LinearLayout>

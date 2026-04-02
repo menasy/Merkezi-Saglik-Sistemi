@@ -2,8 +2,8 @@
     <!-- Doctor Home Screen -->
     <string name="doctor_home_welcome_label">Hoş geldiniz</string>
     <string name="doctor_home_summary_title">Günlük Özet</string>
-    <string name="doctor_home_pending_title">Planlanan Randevular</string>
-    <string name="doctor_home_pending_caption">Toplam planlanan</string>
+    <string name="doctor_home_pending_title">Bekleyen Randevular</string>
+    <string name="doctor_home_pending_caption">Zamanı geçmiş planlı</string>
     <string name="doctor_home_completed_title">Tamamlanan Muayeneler</string>
     <string name="doctor_home_completed_caption">Bugün tamamlanan</string>
     <string name="doctor_home_footer_note">Sayfa randevu akışlarına göre otomatik güncellenir. Son veriyi görmek için aşağı kaydırıp tekrar ziyaret edebilirsiniz.</string>

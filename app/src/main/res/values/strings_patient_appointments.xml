@@ -1,6 +1,0 @@
-<resources>
-    <string name="appointments_todo_title">Randevularım</string>
-    <string name="appointments_todo_description">TODO: Geçmiş ve yaklaşan randevular bu ekranda listelenecek.</string>
-    <string name="appointments_todo_hint">Şimdilik mevcut randevu alma akışını aşağıdaki butondan başlatabilirsin.</string>
-    <string name="appointments_start_flow">Randevu Akışını Başlat</string>
-</resources>

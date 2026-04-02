@@ -6,34 +6,39 @@ import com.menasy.merkezisagliksistemi.data.remote.firebase.AppointmentDataSourc
 import com.menasy.merkezisagliksistemi.data.remote.firebase.AuthDataSource
 import com.menasy.merkezisagliksistemi.data.remote.local.BranchDataSource
 import com.menasy.merkezisagliksistemi.data.remote.local.CityDataSource
-import com.menasy.merkezisagliksistemi.data.remote.local.DoctorAvailabilityDataSource
 import com.menasy.merkezisagliksistemi.data.remote.local.DistrictDataSource
 import com.menasy.merkezisagliksistemi.data.remote.local.DoctorDataSource
 import com.menasy.merkezisagliksistemi.data.remote.local.HospitalDataSource
+import com.menasy.merkezisagliksistemi.data.remote.local.MedicineDataSource
 import com.menasy.merkezisagliksistemi.data.repository.AppointmentRepository
 import com.menasy.merkezisagliksistemi.data.repository.AuthRepository
 import com.menasy.merkezisagliksistemi.data.repository.BranchRepository
 import com.menasy.merkezisagliksistemi.data.repository.CityRepository
-import com.menasy.merkezisagliksistemi.data.repository.DoctorAvailabilityRepository
 import com.menasy.merkezisagliksistemi.data.repository.DistrictRepository
 import com.menasy.merkezisagliksistemi.data.repository.DoctorRepository
 import com.menasy.merkezisagliksistemi.data.repository.HospitalRepository
+import com.menasy.merkezisagliksistemi.data.repository.MedicineRepository
 import com.menasy.merkezisagliksistemi.domain.usecase.CancelAppointmentUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.CreateAppointmentUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetBranchesUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetCitiesUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetCurrentUserUseCase
+import com.menasy.merkezisagliksistemi.domain.usecase.GetDoctorExaminationAppointmentUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetDoctorHomeSummaryUseCase
-import com.menasy.merkezisagliksistemi.domain.usecase.GetDoctorUnavailableSlotsUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetDistrictsByCityUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetDoctorsUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetHospitalsByDistrictUseCase
+import com.menasy.merkezisagliksistemi.domain.usecase.GetMedicinesUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.GetNearestAvailableDateUseCase
+import com.menasy.merkezisagliksistemi.domain.usecase.GetPrescriptionPreviewsByAppointmentIdsUseCase
+import com.menasy.merkezisagliksistemi.domain.usecase.GetUserFullNamesByIdsUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.LoginUserUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.LogoutUserUseCase
+import com.menasy.merkezisagliksistemi.domain.usecase.ObserveDoctorAppointmentsUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.ObserveOccupiedTimesUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.ObservePatientAppointmentsUseCase
 import com.menasy.merkezisagliksistemi.domain.usecase.RegisterPatientUseCase
+import com.menasy.merkezisagliksistemi.domain.usecase.UpdateDoctorAppointmentResultUseCase
 import com.menasy.merkezisagliksistemi.ui.patient.appointmentlist.AppointmentMapper
 
 object ServiceLocator {
@@ -77,8 +82,8 @@ object ServiceLocator {
         DoctorDataSource()
     }
 
-    private val doctorAvailabilityDataSource: DoctorAvailabilityDataSource by lazy {
-        DoctorAvailabilityDataSource()
+    private val medicineDataSource: MedicineDataSource by lazy {
+        MedicineDataSource()
     }
 
     private val authRepository: AuthRepository by lazy {
@@ -109,8 +114,8 @@ object ServiceLocator {
         DoctorRepository(doctorDataSource)
     }
 
-    private val doctorAvailabilityRepository: DoctorAvailabilityRepository by lazy {
-        DoctorAvailabilityRepository(doctorAvailabilityDataSource)
+    private val medicineRepository: MedicineRepository by lazy {
+        MedicineRepository(medicineDataSource)
     }
 
     fun provideLoginUserUseCase(): LoginUserUseCase {
@@ -149,8 +154,8 @@ object ServiceLocator {
         return GetDoctorsUseCase(doctorRepository)
     }
 
-    fun provideGetDoctorUnavailableSlotsUseCase(): GetDoctorUnavailableSlotsUseCase {
-        return GetDoctorUnavailableSlotsUseCase(doctorAvailabilityRepository)
+    fun provideGetMedicinesUseCase(): GetMedicinesUseCase {
+        return GetMedicinesUseCase(medicineRepository)
     }
 
     fun provideObserveOccupiedTimesUseCase(): ObserveOccupiedTimesUseCase {
@@ -169,8 +174,33 @@ object ServiceLocator {
         return ObservePatientAppointmentsUseCase(appointmentRepository)
     }
 
+    fun provideObserveDoctorAppointmentsUseCase(): ObserveDoctorAppointmentsUseCase {
+        return ObserveDoctorAppointmentsUseCase(appointmentRepository)
+    }
+
     fun provideCancelAppointmentUseCase(): CancelAppointmentUseCase {
         return CancelAppointmentUseCase(appointmentRepository)
+    }
+
+    fun provideGetUserFullNamesByIdsUseCase(): GetUserFullNamesByIdsUseCase {
+        return GetUserFullNamesByIdsUseCase(appointmentRepository)
+    }
+
+    fun provideGetPrescriptionPreviewsByAppointmentIdsUseCase(): GetPrescriptionPreviewsByAppointmentIdsUseCase {
+        return GetPrescriptionPreviewsByAppointmentIdsUseCase(appointmentRepository)
+    }
+
+    fun provideGetDoctorExaminationAppointmentUseCase(): GetDoctorExaminationAppointmentUseCase {
+        return GetDoctorExaminationAppointmentUseCase(
+            appointmentRepository = appointmentRepository,
+            doctorRepository = doctorRepository,
+            hospitalRepository = hospitalRepository,
+            branchRepository = branchRepository
+        )
+    }
+
+    fun provideUpdateDoctorAppointmentResultUseCase(): UpdateDoctorAppointmentResultUseCase {
+        return UpdateDoctorAppointmentResultUseCase(appointmentRepository)
     }
 
     fun provideAppointmentMapper(): AppointmentMapper {

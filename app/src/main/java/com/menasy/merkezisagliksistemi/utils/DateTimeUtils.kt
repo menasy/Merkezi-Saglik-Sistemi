@@ -3,6 +3,7 @@ package com.menasy.merkezisagliksistemi.utils
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
+import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
 /**
@@ -12,6 +13,8 @@ object DateTimeUtils {
 
     private val dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
     private val timeFormatter = DateTimeFormatter.ofPattern("HH:mm")
+    private val systemZoneId: ZoneId
+        get() = ZoneId.systemDefault()
 
     /**
      * Parses appointment date and time strings into LocalDateTime.
@@ -20,13 +23,24 @@ object DateTimeUtils {
      * @param timeStr Time string in "HH:mm" format
      * @return LocalDateTime representing the appointment date and time
      */
-    fun parseAppointmentDateTime(dateStr: String, timeStr: String): LocalDateTime {
+    fun parseAppointmentDateTime(dateStr: String, timeStr: String): LocalDateTime? {
         return try {
             val date = LocalDate.parse(dateStr, dateFormatter)
             val time = LocalTime.parse(timeStr, timeFormatter)
             LocalDateTime.of(date, time)
         } catch (e: Exception) {
-            LocalDateTime.MIN
+            null
+        }
+    }
+
+    /**
+     * Parses appointment time label into LocalTime.
+     */
+    fun parseAppointmentTime(timeStr: String): LocalTime? {
+        return try {
+            LocalTime.parse(timeStr, timeFormatter)
+        } catch (e: Exception) {
+            null
         }
     }
 
@@ -37,9 +51,43 @@ object DateTimeUtils {
      * @param timeStr Time string in "HH:mm" format
      * @return true if the appointment is in the future, false otherwise
      */
-    fun isAppointmentInFuture(dateStr: String, timeStr: String): Boolean {
+    fun isAppointmentInFuture(
+        dateStr: String,
+        timeStr: String,
+        referenceDateTime: LocalDateTime = currentLocalDateTime()
+    ): Boolean {
         val appointmentDateTime = parseAppointmentDateTime(dateStr, timeStr)
-        return appointmentDateTime.isAfter(LocalDateTime.now())
+        return appointmentDateTime?.isAfter(referenceDateTime) == true
+    }
+
+    /**
+     * Determines if slot time is strictly after the reference time.
+     */
+    fun isAppointmentInFuture(
+        date: LocalDate,
+        timeStr: String,
+        referenceDateTime: LocalDateTime = currentLocalDateTime()
+    ): Boolean {
+        val appointmentTime = parseAppointmentTime(timeStr) ?: return false
+        val appointmentDateTime = LocalDateTime.of(date, appointmentTime)
+        return appointmentDateTime.isAfter(referenceDateTime)
+    }
+
+    /**
+     * Filters slot labels to keep only strictly future slots.
+     */
+    fun filterFutureSlotLabels(
+        date: LocalDate,
+        slotLabels: Collection<String>,
+        referenceDateTime: LocalDateTime = currentLocalDateTime()
+    ): List<String> {
+        return slotLabels.filter { slotLabel ->
+            isAppointmentInFuture(
+                date = date,
+                timeStr = slotLabel,
+                referenceDateTime = referenceDateTime
+            )
+        }
     }
 
     /**
@@ -51,12 +99,19 @@ object DateTimeUtils {
     fun dateStringToMillis(dateStr: String): Long {
         return try {
             val date = LocalDate.parse(dateStr, dateFormatter)
-            date.atStartOfDay()
-                .atZone(java.time.ZoneId.systemDefault())
+            date.atStartOfDay(systemZoneId)
                 .toInstant()
                 .toEpochMilli()
         } catch (e: Exception) {
             0L
         }
+    }
+
+    fun currentLocalDate(): LocalDate {
+        return LocalDate.now(systemZoneId)
+    }
+
+    fun currentLocalDateTime(): LocalDateTime {
+        return LocalDateTime.now(systemZoneId)
     }
 }

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common spacing -->
+    <dimen name="spacing_xs">4dp</dimen>
+    <dimen name="spacing_sm">8dp</dimen>
+    <dimen name="spacing_md">12dp</dimen>
+    <dimen name="spacing_lg">16dp</dimen>
+    <dimen name="spacing_xl">20dp</dimen>
+    <dimen name="spacing_xxl">24dp</dimen>
+
+    <!-- Page margins -->
+    <dimen name="page_horizontal_margin">20dp</dimen>
+    <dimen name="page_vertical_margin">20dp</dimen>
+
+    <!-- Card dimensions -->
+    <dimen name="card_corner_radius">14dp</dimen>
+    <dimen name="card_corner_radius_sm">12dp</dimen>
+    <dimen name="card_padding">16dp</dimen>
+    <dimen name="card_stroke_width">1dp</dimen>
+
+    <!-- Button dimensions -->
+    <dimen name="button_corner_radius">12dp</dimen>
+    <dimen name="button_corner_radius_lg">15dp</dimen>
+    <dimen name="button_min_height">44dp</dimen>
+    <dimen name="button_padding_horizontal">16dp</dimen>
+    <dimen name="button_padding_vertical">10dp</dimen>
+
+    <!-- Filter button -->
+    <dimen name="filter_button_height">42dp</dimen>
+    <dimen name="filter_button_padding_h">14dp</dimen>
+    <dimen name="filter_button_padding_v">10dp</dimen>
+
+    <!-- Badge/Chip -->
+    <dimen name="badge_corner_radius">8dp</dimen>
+    <dimen name="badge_padding_horizontal">10dp</dimen>
+    <dimen name="badge_padding_vertical">5dp</dimen>
+
+    <!-- List item -->
+    <dimen name="list_item_margin_top">12dp</dimen>
+    <dimen name="list_item_padding">14dp</dimen>
+
+    <!-- Section -->
+    <dimen name="section_title_margin_top">20dp</dimen>
+    <dimen name="section_content_margin_top">12dp</dimen>
+
+    <!-- Icon sizes -->
+    <dimen name="icon_size_sm">18dp</dimen>
+    <dimen name="icon_size_md">24dp</dimen>
+    <dimen name="icon_size_lg">32dp</dimen>
+
+    <!-- Text sizes -->
+    <dimen name="text_size_caption">11sp</dimen>
+    <dimen name="text_size_body_sm">12sp</dimen>
+    <dimen name="text_size_body">13sp</dimen>
+    <dimen name="text_size_body_lg">14sp</dimen>
+    <dimen name="text_size_subtitle">15sp</dimen>
+    <dimen name="text_size_title">16sp</dimen>
+    <dimen name="text_size_headline">18sp</dimen>
+
+    <!-- Action Button -->
+    <dimen name="action_button_height">48dp</dimen>
+    <dimen name="action_button_min_width">120dp</dimen>
+
+    <!-- Medicine Selection -->
+    <dimen name="medicine_selection_search_height">52dp</dimen>
+    <dimen name="medicine_selection_item_height">56dp</dimen>
+    <dimen name="medicine_selection_checkbox_size">24dp</dimen>
+
+    <!-- Selected Medicine Card -->
+    <dimen name="selected_medicine_card_padding">12dp</dimen>
+    <dimen name="selected_medicine_header_padding_v">10dp</dimen>
+</resources>

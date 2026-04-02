@@ -6,12 +6,14 @@ import android.os.SystemClock
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.view.inputmethod.InputMethodManager
+import android.widget.ArrayAdapter
+import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import androidx.core.content.ContextCompat
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.DateValidatorPointForward
 import com.google.android.material.datepicker.MaterialDatePicker
@@ -87,18 +89,22 @@ class AppointmentSearchFragment : BaseFragment() {
         input: MaterialAutoCompleteTextView
     ) {
         input.threshold = 1
+        input.setDropDownAnchor(layout.id)
+        input.post { updateDropdownPopupMetrics(input) }
 
         input.setOnClickListener {
             if (handleDisabledInteraction(input.id)) return@setOnClickListener
             enableTextInputMode(input)
             input.requestFocus()
             input.setSelection(input.text?.length ?: 0)
+            updateDropdownPopupMetrics(input)
         }
 
         layout.setEndIconOnClickListener {
             if (handleDisabledInteraction(input.id)) return@setEndIconOnClickListener
             disableTextInputMode(input)
             input.requestFocus()
+            updateDropdownPopupMetrics(input)
 
             // Filter'ı temizle ve tamamlanınca dropdown'u göster
             val adapter = input.adapter as? ArrayAdapter<*>
@@ -337,9 +343,15 @@ class AppointmentSearchFragment : BaseFragment() {
     private fun bindDateRange(startDateMillis: Long?, endDateMillis: Long?) {
         val startText = startDateMillis?.let { millis -> formatDate(millis) } ?: "-"
         val endText = endDateMillis?.let { millis -> formatDate(millis) } ?: "-"
+        val dateButtonText = when {
+            startDateMillis == null || endDateMillis == null -> "Tarih Seçiniz"
+            startText == endText -> startText
+            else -> "$startText - $endText"
+        }
 
         binding.tvStartDateValue.text = "Başlangıç: $startText"
         binding.tvEndDateValue.text = "Bitiş: $endText"
+        binding.btnSelectDateRange.text = dateButtonText
     }
 
     private fun showDateRangePicker() {
@@ -376,12 +388,50 @@ class AppointmentSearchFragment : BaseFragment() {
             options
         )
         input.setAdapter(adapter)
+        updateDropdownPopupMetrics(input)
         val selectedOption = options.firstOrNull { it.id == selectedId }
         if (selectedOption == null) {
             input.setText("", false)
         } else {
             input.setText(selectedOption.label, false)
         }
+    }
+
+    private fun updateDropdownPopupMetrics(input: MaterialAutoCompleteTextView) {
+        val anchorWidth = resolveDropDownAnchorWidth(input)
+        if (anchorWidth > 0) {
+            input.dropDownWidth = anchorWidth
+        }
+        input.dropDownHeight = calculateDropdownMaxHeight()
+    }
+
+    private fun resolveDropDownAnchorWidth(input: MaterialAutoCompleteTextView): Int {
+        val dropDownAnchorId = input.dropDownAnchor
+        val anchorWidth = if (dropDownAnchorId != View.NO_ID) {
+            binding.root.findViewById<View>(dropDownAnchorId)?.width ?: 0
+        } else {
+            0
+        }
+        return if (anchorWidth > 0) anchorWidth else input.width
+    }
+
+    private fun calculateDropdownMaxHeight(): Int {
+        val rootView = _binding?.root ?: return dpToPx(DEFAULT_DROPDOWN_MAX_HEIGHT_DP)
+        val displayHeight = resources.displayMetrics.heightPixels
+        val imeBottomInset = ViewCompat.getRootWindowInsets(rootView)
+            ?.getInsets(WindowInsetsCompat.Type.ime())
+            ?.bottom
+            ?: 0
+
+        val maxByRatio = (displayHeight * DROPDOWN_MAX_HEIGHT_RATIO).toInt()
+        val availableHeight = displayHeight - imeBottomInset - dpToPx(DROPDOWN_VERTICAL_MARGIN_DP)
+        val targetHeight = minOf(maxByRatio, availableHeight)
+
+        return targetHeight.coerceAtLeast(dpToPx(MIN_DROPDOWN_HEIGHT_DP))
+    }
+
+    private fun dpToPx(dp: Int): Int {
+        return (dp * resources.displayMetrics.density).toInt()
     }
 
     private fun enableTextInputMode(input: MaterialAutoCompleteTextView) {
@@ -488,5 +538,9 @@ class AppointmentSearchFragment : BaseFragment() {
         const val DISABLED_MESSAGE_COOLDOWN_MS = 1_200L
         const val ENABLED_FIELD_ALPHA = 1f
         const val DISABLED_FIELD_ALPHA = 0.62f
+        const val MIN_DROPDOWN_HEIGHT_DP = 160
+        const val DEFAULT_DROPDOWN_MAX_HEIGHT_DP = 320
+        const val DROPDOWN_VERTICAL_MARGIN_DP = 116
+        const val DROPDOWN_MAX_HEIGHT_RATIO = 0.5f
     }
 }

@@ -47,9 +47,9 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
         branchId = "beyin_ve_sinir_cerrahisi",
         hospitalId = "625541",
         roomInfo = "A1-108",
-        slotStartHour = 9,
-        slotEndHour = 17,
-        slotDurationMinutes = 20,
+        slotStartHour = 0,
+        slotEndHour = 24,
+        slotDurationMinutes = 5,
         canLogin = true
     ),
     Doctor(

@@ -8,6 +8,7 @@ import com.menasy.merkezisagliksistemi.domain.usecase.GetCurrentUserUseCase
 import com.menasy.merkezisagliksistemi.ui.common.base.BaseViewModel
 import com.menasy.merkezisagliksistemi.ui.common.error.AppErrorReason
 import com.menasy.merkezisagliksistemi.ui.common.error.OperationType
+import com.menasy.merkezisagliksistemi.utils.DateTimeUtils
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -91,12 +92,19 @@ class AppointmentConfirmationViewModel(
         _uiState.value = _uiState.value.copy(isCreating = true)
 
         viewModelScope.launch {
+            val appointmentDate = formatDateForFirestore(args.dateMillis)
+            if (!DateTimeUtils.isAppointmentInFuture(appointmentDate, args.timeLabel)) {
+                _uiState.value = _uiState.value.copy(isCreating = false)
+                publishError(AppErrorReason.PAST_APPOINTMENT_TIME_NOT_ALLOWED)
+                return@launch
+            }
+
             val appointment = Appointment(
                 patientId = patientId,
                 doctorId = args.doctorId,
                 hospitalId = args.hospitalId,
                 branchId = args.branchId,
-                appointmentDate = formatDateForFirestore(args.dateMillis),
+                appointmentDate = appointmentDate,
                 appointmentTime = args.timeLabel
             )
 

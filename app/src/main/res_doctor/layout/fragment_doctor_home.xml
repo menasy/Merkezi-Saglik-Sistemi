@@ -329,24 +329,17 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.card.MaterialCardView
+            <ImageView
+                android:id="@+id/ivDoctorHomeLogo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                app:cardBackgroundColor="@color/surface"
-                app:cardCornerRadius="14dp"
-                app:cardElevation="0dp"
-                app:strokeColor="@color/divider"
-                app:strokeWidth="1dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="14dp"
-                    android:text="@string/doctor_home_footer_note"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="12sp" />
-            </com.google.android.material.card.MaterialCardView>
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="8dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/cd_home_logo"
+                android:maxHeight="180dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/merkezi_saglik_sistemi_logo" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

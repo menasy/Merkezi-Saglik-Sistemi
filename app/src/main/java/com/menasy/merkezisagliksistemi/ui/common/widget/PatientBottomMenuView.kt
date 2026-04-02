@@ -300,7 +300,8 @@ class PatientBottomMenuView @JvmOverloads constructor(
         private fun destinationToDoctorTab(@IdRes destinationId: Int): Tab? {
             return when (destinationId) {
                 R.id.doctorHomeFragment -> Tab.HOME
-                R.id.doctorAppointmentsFragment -> Tab.APPOINTMENTS
+                R.id.doctorAppointmentsFragment,
+                R.id.doctorExaminationFragment -> Tab.APPOINTMENTS
                 R.id.doctorPrescriptionsFragment -> Tab.PRESCRIPTIONS
                 R.id.doctorAccountFragment -> Tab.ACCOUNT
                 else -> null

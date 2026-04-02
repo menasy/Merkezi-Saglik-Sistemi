@@ -69,6 +69,13 @@ class AppointmentSearchViewModel(
     fun loadInitialData() {
         if (isInitialized) return
         isInitialized = true
+        val todayStartMillis = getTodayStartMillis()
+        _uiState.update {
+            it.copy(
+                startDateMillis = it.startDateMillis ?: todayStartMillis,
+                endDateMillis = it.endDateMillis ?: todayStartMillis
+            )
+        }
 
         viewModelScope.launch {
             _uiState.update { it.copy(isLoading = true) }

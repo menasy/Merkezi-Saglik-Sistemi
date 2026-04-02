@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/spacing_sm"
+    app:cardBackgroundColor="@color/surface"
+    app:cardCornerRadius="@dimen/card_corner_radius_sm"
+    app:cardElevation="0dp"
+    app:strokeColor="@color/message_card_stroke"
+    app:strokeWidth="@dimen/card_stroke_width">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/selected_medicine_card_padding">
+
+        <ImageView
+            android:id="@+id/ivMedicineIcon"
+            android:layout_width="@dimen/icon_size_sm"
+            android:layout_height="@dimen/icon_size_sm"
+            android:layout_marginTop="2dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_bottom_prescriptions_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/status_completed_text" />
+
+        <TextView
+            android:id="@+id/tvMedicineName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_sm"
+            android:layout_marginEnd="@dimen/spacing_sm"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_size_body_lg"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/btnRemoveMedicine"
+            app:layout_constraintStart_toEndOf="@id/ivMedicineIcon"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Parol 500 mg Tablet" />
+
+        <ImageButton
+            android:id="@+id/btnRemoveMedicine"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_selected_medicine_remove_button"
+            android:contentDescription="@string/doctor_examination_medicine_remove_icon_cd"
+            android:padding="6dp"
+            android:src="@drawable/ic_message_close_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/error" />
+
+        <LinearLayout
+            android:id="@+id/layoutMetrics"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvMedicineName">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/spacing_xs"
+                android:layout_weight="1"
+                android:background="@drawable/bg_selected_medicine_metric"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/spacing_sm"
+                android:paddingVertical="@dimen/spacing_xs">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/doctor_examination_medicine_dosage_label"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/text_size_body_sm" />
+
+                <TextView
+                    android:id="@+id/tvMedicineDosage"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_xs"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:gravity="end"
+                    android:maxLines="1"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/text_size_body_sm"
+                    android:textStyle="bold"
+                    tools:text="500 mg" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_xs"
+                android:layout_weight="1"
+                android:background="@drawable/bg_selected_medicine_metric"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/spacing_sm"
+                android:paddingVertical="@dimen/spacing_xs">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/doctor_examination_medicine_frequency_label"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/text_size_body_sm" />
+
+                <TextView
+                    android:id="@+id/tvMedicineFrequency"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_xs"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:gravity="end"
+                    android:maxLines="1"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/text_size_body_sm"
+                    android:textStyle="bold"
+                    tools:text="Günde 3 kez" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutUsage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_sm"
+            android:background="@drawable/bg_selected_medicine_metric"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/spacing_sm"
+            android:paddingVertical="@dimen/spacing_xs"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutMetrics">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/doctor_examination_medicine_usage_label"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_size_body_sm" />
+
+            <TextView
+                android:id="@+id/tvMedicineUsage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_xs"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:gravity="end"
+                android:maxLines="2"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_size_body_sm"
+                android:textStyle="bold"
+                tools:text="Tok karnına 1 tablet" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/layoutDoctorNote"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_sm"
+            android:background="@drawable/bg_selected_medicine_note"
+            android:drawablePadding="@dimen/spacing_xs"
+            android:maxLines="4"
+            android:padding="@dimen/spacing_sm"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_size_body_sm"
+            android:visibility="gone"
+            app:drawableStartCompat="@drawable/ic_info_24"
+            app:drawableTint="@color/primary_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutUsage"
+            tools:text="Gece yatmadan önce almayın."
+            tools:visibility="visible" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEditMedicineNote"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginTop="@dimen/spacing_sm"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:minWidth="0dp"
+            android:paddingHorizontal="@dimen/spacing_sm"
+            android:text="@string/doctor_examination_medicine_edit_note"
+            android:textAllCaps="false"
+            android:textColor="@color/primary_dark"
+            android:textSize="@dimen/text_size_body_sm"
+            app:backgroundTint="@color/primary_surface"
+            app:cornerRadius="10dp"
+            app:icon="@drawable/ic_info_24"
+            app:iconGravity="textStart"
+            app:iconPadding="6dp"
+            app:iconSize="16dp"
+            app:iconTint="@color/primary_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutDoctorNote"
+            app:strokeColor="@color/primary_light"
+            app:strokeWidth="1dp"
+            tools:layout_constraintTop_toBottomOf="@id/layoutUsage" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

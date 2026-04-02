@@ -10,4 +10,22 @@
     <color name="doctor_home_pending_icon_bg">#DDE9FF</color>
     <color name="doctor_home_completed_bg">#EDF9F2</color>
     <color name="doctor_home_completed_icon_bg">#D9F1E4</color>
+
+    <!-- Status Badge Colors -->
+    <color name="status_completed_text">#1B7F4A</color>
+    <color name="status_pending_text">#1D5AC0</color>
+    <color name="status_missed_bg">#FFEAEC</color>
+    <color name="status_missed_text">#C41B25</color>
+
+    <!-- Filter Button Colors -->
+    <color name="filter_button_idle_start">#FFFFFF</color>
+    <color name="filter_button_idle_end">#E6E6E6</color>
+
+    <!-- Section Colors -->
+    <color name="section_header_bg">#F5F9F8</color>
+    <color name="section_divider">#E8EEED</color>
+
+    <!-- Prescription Card -->
+    <color name="prescription_code_text">#0066CC</color>
+    <color name="prescription_summary_bg">#E0F5F4</color>
 </resources>

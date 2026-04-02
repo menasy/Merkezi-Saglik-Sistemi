@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Dialog Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/section_header_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/page_horizontal_margin"
+            android:paddingVertical="@dimen/spacing_lg">
+
+            <ImageView
+                android:layout_width="@dimen/icon_size_md"
+                android:layout_height="@dimen/icon_size_md"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_bottom_prescriptions_24"
+                app:tint="@color/primary_dark" />
+
+            <TextView
+                android:id="@+id/tvDialogTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_md"
+                android:layout_weight="1"
+                android:text="@string/doctor_appointments_prescription_dialog_title"
+                android:textColor="@color/primary_dark"
+                android:textSize="@dimen/text_size_headline"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Dialog Content -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/page_horizontal_margin"
+            android:paddingVertical="@dimen/spacing_lg">
+
+            <!-- Prescription Info Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/surface"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/message_card_stroke"
+                app:strokeWidth="@dimen/card_stroke_width">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/card_padding">
+
+                    <!-- Prescription Code Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <FrameLayout
+                            android:layout_width="@dimen/icon_size_lg"
+                            android:layout_height="@dimen/icon_size_lg"
+                            android:background="@drawable/bg_prescription_preview_info_icon"
+                            android:foregroundGravity="center">
+
+                            <ImageView
+                                android:layout_width="@dimen/icon_size_sm"
+                                android:layout_height="@dimen/icon_size_sm"
+                                android:layout_gravity="center"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_bottom_prescriptions_24"
+                                app:tint="@color/prescription_code_text" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_md"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/doctor_appointments_prescription_code_label"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="@dimen/text_size_body_sm" />
+
+                            <TextView
+                                android:id="@+id/tvPrescriptionCodeValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/spacing_xs"
+                                android:background="@drawable/bg_doctor_home_info_chip"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:paddingHorizontal="@dimen/badge_padding_horizontal"
+                                android:paddingVertical="@dimen/spacing_xs"
+                                android:textColor="@color/prescription_code_text"
+                                android:textSize="@dimen/text_size_body"
+                                android:textStyle="bold"
+                                tools:text="REC-2026-0012" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="@dimen/spacing_sm"
+                        android:background="@color/section_divider" />
+
+                    <!-- Person Name Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <FrameLayout
+                            android:layout_width="@dimen/icon_size_lg"
+                            android:layout_height="@dimen/icon_size_lg"
+                            android:background="@drawable/bg_prescription_preview_info_icon"
+                            android:foregroundGravity="center">
+
+                            <ImageView
+                                android:layout_width="@dimen/icon_size_sm"
+                                android:layout_height="@dimen/icon_size_sm"
+                                android:layout_gravity="center"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_form_person_24"
+                                app:tint="@color/primary_dark" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_md"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvPersonNameLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/doctor_appointments_patient_name_label"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="@dimen/text_size_body_sm" />
+
+                            <TextView
+                                android:id="@+id/tvPatientNameValue"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/spacing_xs"
+                                android:ellipsize="end"
+                                android:maxLines="2"
+                                android:textColor="@color/text_primary"
+                                android:textSize="@dimen/text_size_body_lg"
+                                android:textStyle="bold"
+                                tools:text="Ahmet Demir" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="@dimen/spacing_sm"
+                        android:background="@color/section_divider" />
+
+                    <!-- Created At Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <FrameLayout
+                            android:layout_width="@dimen/icon_size_lg"
+                            android:layout_height="@dimen/icon_size_lg"
+                            android:background="@drawable/bg_prescription_preview_info_icon"
+                            android:foregroundGravity="center">
+
+                            <ImageView
+                                android:layout_width="@dimen/icon_size_sm"
+                                android:layout_height="@dimen/icon_size_sm"
+                                android:layout_gravity="center"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_form_calendar_24"
+                                app:tint="@color/primary_dark" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_md"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/doctor_appointments_created_at_label"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="@dimen/text_size_body_sm" />
+
+                            <TextView
+                                android:id="@+id/tvCreatedAtValue"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/spacing_xs"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:textColor="@color/text_primary"
+                                android:textSize="@dimen/text_size_body"
+                                android:textStyle="bold"
+                                tools:text="31.03.2026 15:10" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Medicines Section Title -->
+            <TextView
+                android:id="@+id/tvMedicinesTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xl"
+                android:drawablePadding="@dimen/spacing_sm"
+                android:text="@string/doctor_appointments_medicines_label"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_size_body_lg"
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/ic_bottom_prescriptions_24"
+                app:drawableTint="@color/primary" />
+
+            <!-- Medicines RecyclerView Container -->
+            <LinearLayout
+                android:id="@+id/layoutMedicines"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_sm"
+                android:orientation="vertical">
+
+                <!-- Medicines will be added programmatically or via RecyclerView -->
+                <TextView
+                    android:id="@+id/tvMedicinesValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    tools:visibility="gone" />
+            </LinearLayout>
+
+            <!-- Doctor Note Section -->
+            <LinearLayout
+                android:id="@+id/layoutDoctorNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xl"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/spacing_sm"
+                    android:text="@string/doctor_appointments_doctor_note_label"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/text_size_body_lg"
+                    android:textStyle="bold"
+                    app:drawableStartCompat="@drawable/ic_info_24"
+                    app:drawableTint="@color/primary" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_sm"
+                    app:cardBackgroundColor="@color/doctor_home_chip_bg"
+                    app:cardCornerRadius="@dimen/card_corner_radius_sm"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/doctor_home_chip_stroke"
+                    app:strokeWidth="@dimen/card_stroke_width">
+
+                    <TextView
+                        android:id="@+id/tvDoctorNoteValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/card_padding"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/text_size_body"
+                        tools:text="Yemek sonrası kullanım önerildi." />
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <!-- Close Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnClosePreview"
+                style="@style/Widget.MerkeziSaglik.Button.Action.Primary"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/action_button_height"
+                android:layout_marginTop="@dimen/spacing_xl"
+                android:text="@string/doctor_appointments_close"
+                android:textAllCaps="false" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

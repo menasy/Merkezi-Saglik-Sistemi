@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/page_horizontal_margin"
+    android:layout_marginTop="@dimen/list_item_margin_top"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardBackgroundColor="@color/surface"
+    app:cardCornerRadius="@dimen/card_corner_radius"
+    app:cardElevation="0dp"
+    app:strokeColor="@color/message_card_stroke"
+    app:strokeWidth="@dimen/card_stroke_width">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/list_item_padding">
+
+        <!-- Header: Person Name + Status Badge -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvPersonName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_size_subtitle"
+                android:textStyle="bold"
+                tools:text="Ayşe Demir" />
+
+            <TextView
+                android:id="@+id/tvStatusValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_status_badge_completed"
+                android:paddingHorizontal="@dimen/badge_padding_horizontal"
+                android:paddingVertical="@dimen/badge_padding_vertical"
+                android:textColor="@color/status_completed_text"
+                android:textSize="@dimen/text_size_caption"
+                android:textStyle="bold"
+                tools:text="Tamamlandı" />
+        </LinearLayout>
+
+        <!-- Prescription Code -->
+        <TextView
+            android:id="@+id/tvPrescriptionCodeValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_sm"
+            android:drawablePadding="6dp"
+            android:textColor="@color/prescription_code_text"
+            android:textSize="@dimen/text_size_body"
+            android:textStyle="bold"
+            app:drawableStartCompat="@drawable/ic_bottom_prescriptions_24"
+            app:drawableTint="@color/prescription_code_text"
+            tools:text="RX-AB12CD-99310" />
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="@dimen/spacing_md"
+            android:background="@color/divider" />
+
+        <!-- Info Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Hospital + Branch -->
+            <TextView
+                android:id="@+id/tvHospitalBranch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_size_body_sm"
+                app:drawableStartCompat="@drawable/ic_hospital_24"
+                app:drawableTint="@color/text_secondary"
+                tools:text="Ankara Bilkent Şehir Hastanesi • Kardiyoloji" />
+
+            <!-- Appointment Date/Time -->
+            <TextView
+                android:id="@+id/tvAppointmentDateTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xs"
+                android:drawablePadding="8dp"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_size_body_sm"
+                app:drawableStartCompat="@drawable/ic_appointment_calendar"
+                app:drawableTint="@color/text_secondary"
+                tools:text="Randevu: 01.04.2026 10:20" />
+        </LinearLayout>
+
+        <!-- Footer: Created At + Medicine Count -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvCreatedAtValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_size_body_sm"
+                tools:text="Oluşturulma: 31.03.2026 15:10" />
+
+            <TextView
+                android:id="@+id/tvMedicineCountValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_doctor_home_info_chip"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_size_body_sm"
+                android:textStyle="bold"
+                tools:text="2 İlaç" />
+        </LinearLayout>
+
+        <!-- Doctor Note (if exists) -->
+        <TextView
+            android:id="@+id/tvNoteValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:background="@drawable/bg_section_card"
+            android:maxLines="2"
+            android:padding="@dimen/spacing_sm"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_size_body"
+            android:visibility="gone"
+            tools:text="Tok karnına kullanım önerildi."
+            tools:visibility="visible" />
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -68,6 +68,13 @@ class RegisterFragment : BaseFragment() {
             genderList
         )
         binding.actvGender.setAdapter(adapter)
+        binding.actvGender.setDropDownAnchor(binding.tilGender.id)
+        binding.actvGender.post {
+            val anchorWidth = binding.tilGender.width
+            if (anchorWidth > 0) {
+                binding.actvGender.dropDownWidth = anchorWidth
+            }
+        }
     }
 
     private fun setupBirthDatePicker() {
