@@ -42,32 +42,44 @@ val doctors: List<Doctor> = buildList(capacity = 6592) {
 private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_beyin_ve_sinir_cerrahisi_1",
-        userId = "TTfX5Jl5oMfXdjpVUSIHfhP8vzh1",
-        fullName = "Uzm. Dr. Ayşe Raşit",
+        userId = "Psr9erbNe2Ne9nfM8WcnIWxFtPA2",
+        fullName = "Prof. Dr. Mahsum Turgut",
         branchId = "beyin_ve_sinir_cerrahisi",
         hospitalId = "625541",
         roomInfo = "A1-108",
-        slotStartHour = 9,
-        slotEndHour = 17,
-        slotDurationMinutes = 20,
+        slotStartHour = 0,
+        slotEndHour = 24,
+        slotDurationMinutes = 5,
         canLogin = true
+        // email: doctor1@gmail.com
+        // pass: User123
+        // sehir: Adana
+        // ilce: Yuregir
+        // hastane: Adana Sehir Hastanesi
+        // brans: Beyin ve Sinir Cerrahisi
     ),
     Doctor(
         id = "dr_625541_beyin_ve_sinir_cerrahisi_2",
-        userId = "qY8jL2vN4pR6sT1uW3xZ5cB7dF9h",
-        fullName = "Doç. Dr. Fatma Pala",
+        userId = "0Dx8rSDRWThCra2VPoguGjrQs3O2",
+        fullName = "Prof. Dr. Mehmet Nasim Yılmaz",
         branchId = "beyin_ve_sinir_cerrahisi",
         hospitalId = "625541",
         roomInfo = "A1-111",
-        slotStartHour = 9,
-        slotEndHour = 17,
-        slotDurationMinutes = 20,
+        slotStartHour = 0,
+        slotEndHour = 24,
+        slotDurationMinutes = 10,
         canLogin = true
+        // email: doctor3@gmail.com
+        // pass: User123
+        // sehir: Adana
+        // ilce: Yuregir
+        // hastane: Adana Sehir Hastanesi
+        // brans: Beyin ve Sinir Cerrahisi
     ),
     Doctor(
         id = "dr_625541_cocuk_sagligi_ve_hastaliklari_1",
         userId = null,
-        fullName = "Uzm. Dr. Hülya Turhan",
+        fullName = "Prof. Dr. Eren Baygül",
         branchId = "cocuk_sagligi_ve_hastaliklari",
         hospitalId = "625541",
         roomInfo = "B1-100",
@@ -79,7 +91,7 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_cocuk_sagligi_ve_hastaliklari_2",
         userId = null,
-        fullName = "Dr. İnci Ülker",
+        fullName = "Prof. Dr. Salih Yılmaz",
         branchId = "cocuk_sagligi_ve_hastaliklari",
         hospitalId = "625541",
         roomInfo = "B1-103",
@@ -91,7 +103,7 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_deri_ve_zuhrevi_hastaliklari_1",
         userId = null,
-        fullName = "Doç. Dr. Oğuz Topkan",
+        fullName = "Prof. Dr. Erhan Esen",
         branchId = "deri_ve_zuhrevi_hastaliklari",
         hospitalId = "625541",
         roomInfo = "C1-108",
@@ -103,7 +115,7 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_deri_ve_zuhrevi_hastaliklari_2",
         userId = null,
-        fullName = "Dr. Orhan Güneşli",
+        fullName = "Prof. Dr. Kerem Aydın",
         branchId = "deri_ve_zuhrevi_hastaliklari",
         hospitalId = "625541",
         roomInfo = "C1-111",
@@ -115,7 +127,7 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_dis_hekimligi_1",
         userId = null,
-        fullName = "Uzm. Dr. Dilara Polat",
+        fullName = "Prof. Dr. Hakan Arslan",
         branchId = "dis_hekimligi",
         hospitalId = "625541",
         roomInfo = "D1-104",
@@ -127,7 +139,7 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_dis_hekimligi_2",
         userId = null,
-        fullName = "Doç. Dr. Ebru Kaplan",
+        fullName = "Prof. Dr. Murat Demir",
         branchId = "dis_hekimligi",
         hospitalId = "625541",
         roomInfo = "D1-107",
@@ -139,7 +151,7 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_fizik_tedavi_ve_rehabilitasyon_1",
         userId = null,
-        fullName = "Dr. Yusuf Türeli",
+        fullName = "Prof. Dr. Selim Karataş",
         branchId = "fizik_tedavi_ve_rehabilitasyon",
         hospitalId = "625541",
         roomInfo = "E1-106",
@@ -151,7 +163,7 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_fizik_tedavi_ve_rehabilitasyon_2",
         userId = null,
-        fullName = "Uzm. Dr. Ömer Denizli",
+        fullName = "Prof. Dr. Cem Yıldırım",
         branchId = "fizik_tedavi_ve_rehabilitasyon",
         hospitalId = "625541",
         roomInfo = "E1-109",
@@ -163,7 +175,7 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_genel_cerrahi_1",
         userId = null,
-        fullName = "Doç. Dr. Osman Yıldırım",
+        fullName = "Prof. Dr. Tuna Çelik",
         branchId = "genel_cerrahi",
         hospitalId = "625541",
         roomInfo = "F1-102",
@@ -175,7 +187,7 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_genel_cerrahi_2",
         userId = null,
-        fullName = "Op. Dr. Poyraz Öztan",
+        fullName = "Prof. Dr. Barış Şahin",
         branchId = "genel_cerrahi",
         hospitalId = "625541",
         roomInfo = "F1-105",
@@ -187,7 +199,7 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_gogus_cerrahisi_1",
         userId = null,
-        fullName = "Uzm. Dr. Elçin Irmak",
+        fullName = "Prof. Dr. Okan Eren",
         branchId = "gogus_cerrahisi",
         hospitalId = "625541",
         roomInfo = "G1-100",
@@ -199,7 +211,7 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_gogus_cerrahisi_2",
         userId = null,
-        fullName = "Doç. Dr. Fulya Halıcı",
+        fullName = "Prof. Dr. Kaan Polat",
         branchId = "gogus_cerrahisi",
         hospitalId = "625541",
         roomInfo = "G1-103",
@@ -211,7 +223,7 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_gogus_hastaliklari_1",
         userId = null,
-        fullName = "Dr. Cihan Kurt",
+        fullName = "Prof. Dr. Levent Korkmaz",
         branchId = "gogus_hastaliklari",
         hospitalId = "625541",
         roomInfo = "H1-107",
@@ -223,7 +235,7 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_gogus_hastaliklari_2",
         userId = null,
-        fullName = "Uzm. Dr. Ferhat Acar",
+        fullName = "Prof. Dr. Alper Yalçın",
         branchId = "gogus_hastaliklari",
         hospitalId = "625541",
         roomInfo = "H1-110",
@@ -235,7 +247,7 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_goz_hastaliklari_1",
         userId = null,
-        fullName = "Doç. Dr. Necip Erkan",
+        fullName = "Prof. Dr. Burak Güneş",
         branchId = "goz_hastaliklari",
         hospitalId = "625541",
         roomInfo = "A2-100",
@@ -247,7 +259,7 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_goz_hastaliklari_2",
         userId = null,
-        fullName = "Dr. Özcan Durak",
+        fullName = "Prof. Dr. Deniz Özkan",
         branchId = "goz_hastaliklari",
         hospitalId = "625541",
         roomInfo = "A2-103",
@@ -259,7 +271,7 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_ic_hastaliklari_1",
         userId = null,
-        fullName = "Uzm. Dr. Figen Işık",
+        fullName = "Prof. Dr. Tolga Kaplan",
         branchId = "ic_hastaliklari",
         hospitalId = "625541",
         roomInfo = "B2-106",
@@ -271,7 +283,7 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_ic_hastaliklari_2",
         userId = null,
-        fullName = "Doç. Dr. Gülşah Ilgın",
+        fullName = "Prof. Dr. Emrah Çetin",
         branchId = "ic_hastaliklari",
         hospitalId = "625541",
         roomInfo = "B2-109",
@@ -283,7 +295,7 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_kadin_hastaliklari_ve_dogum_1",
         userId = null,
-        fullName = "Op. Dr. İlhan Çınar",
+        fullName = "Prof. Dr. Gökhan Uzun",
         branchId = "kadin_hastaliklari_ve_dogum",
         hospitalId = "625541",
         roomInfo = "C2-100",
@@ -295,7 +307,7 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_kadin_hastaliklari_ve_dogum_2",
         userId = null,
-        fullName = "Uzm. Dr. Metin Yörük",
+        fullName = "Prof. Dr. Sercan Aksoy",
         branchId = "kadin_hastaliklari_ve_dogum",
         hospitalId = "625541",
         roomInfo = "C2-103",
@@ -307,7 +319,7 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_kardiyoloji_1",
         userId = null,
-        fullName = "Doç. Dr. Aylin Canlı",
+        fullName = "Prof. Dr. Volkan Kaya",
         branchId = "kardiyoloji",
         hospitalId = "625541",
         roomInfo = "D2-109",
@@ -319,7 +331,7 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_kardiyoloji_2",
         userId = null,
-        fullName = "Dr. Başak Bakır",
+        fullName = "Prof. Dr. Onur Koç",
         branchId = "kardiyoloji",
         hospitalId = "625541",
         roomInfo = "D2-112",
@@ -331,7 +343,7 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_kulak_burun_bogaz_hastaliklari_1",
         userId = null,
-        fullName = "Uzm. Dr. Mehmet Özyurt",
+        fullName = "Prof. Dr. Serhat Turan",
         branchId = "kulak_burun_bogaz_hastaliklari",
         hospitalId = "625541",
         roomInfo = "E2-105",
@@ -343,7 +355,7 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_kulak_burun_bogaz_hastaliklari_2",
         userId = null,
-        fullName = "Doç. Dr. Mustafa Şirin",
+        fullName = "Prof. Dr. Bora Yılmaz",
         branchId = "kulak_burun_bogaz_hastaliklari",
         hospitalId = "625541",
         roomInfo = "E2-108",
@@ -355,7 +367,7 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_noroloji_1",
         userId = null,
-        fullName = "Dr. Latif Öztan",
+        fullName = "Prof. Dr. Rıza Akgün",
         branchId = "noroloji",
         hospitalId = "625541",
         roomInfo = "F2-108",
@@ -367,7 +379,7 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_noroloji_2",
         userId = null,
-        fullName = "Uzm. Dr. Mahir Aydın",
+        fullName = "Prof. Dr. Yalçın Eroğlu",
         branchId = "noroloji",
         hospitalId = "625541",
         roomInfo = "F2-111",
@@ -379,7 +391,7 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_ortopedi_ve_travmatoloji_1",
         userId = null,
-        fullName = "Doç. Dr. Berna Çiçek",
+        fullName = "Prof. Dr. Alican Taş",
         branchId = "ortopedi_ve_travmatoloji",
         hospitalId = "625541",
         roomInfo = "G2-101",
@@ -391,7 +403,7 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_ortopedi_ve_travmatoloji_2",
         userId = null,
-        fullName = "Dr. Ceyda Özkan",
+        fullName = "Prof. Dr. Mert Karahan",
         branchId = "ortopedi_ve_travmatoloji",
         hospitalId = "625541",
         roomInfo = "G2-104",
@@ -403,7 +415,7 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_ruh_sagligi_ve_hastaliklari_1",
         userId = null,
-        fullName = "Uzm. Dr. Sinan Yıldırım",
+        fullName = "Prof. Dr. Caner Özdemir",
         branchId = "ruh_sagligi_ve_hastaliklari",
         hospitalId = "625541",
         roomInfo = "H2-100",
@@ -415,7 +427,7 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_ruh_sagligi_ve_hastaliklari_2",
         userId = null,
-        fullName = "Doç. Dr. Volkan Öztan",
+        fullName = "Prof. Dr. Sinan Tunca",
         branchId = "ruh_sagligi_ve_hastaliklari",
         hospitalId = "625541",
         roomInfo = "H2-103",
@@ -427,7 +439,7 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_uroloji_1",
         userId = null,
-        fullName = "Dr. Hüsnü Sönmez",
+        fullName = "Prof. Dr. Tamer Toprak",
         branchId = "uroloji",
         hospitalId = "625541",
         roomInfo = "A3-108",
@@ -439,7 +451,7 @@ private fun doctorsChunk001(): List<Doctor> = listOf(
     Doctor(
         id = "dr_625541_uroloji_2",
         userId = null,
-        fullName = "Uzm. Dr. Kağan Reşit",
+        fullName = "Prof. Dr. Harun Duman",
         branchId = "uroloji",
         hospitalId = "625541",
         roomInfo = "A3-111",
@@ -15073,7 +15085,7 @@ private fun doctorsChunk007(): List<Doctor> = listOf(
     Doctor(
         id = "dr_223429_noroloji_2",
         userId = null,
-        fullName = "Uzm. Dr. Kadir Yılmaz",
+        fullName = "Prof. Dr. Kadir Yılmaz",
         branchId = "noroloji",
         hospitalId = "223429",
         roomInfo = "E1-111",
@@ -24145,7 +24157,7 @@ private fun doctorsChunk011(): List<Doctor> = listOf(
     Doctor(
         id = "dr_349922_cocuk_sagligi_ve_hastaliklari_1",
         userId = null,
-        fullName = "Uzm. Dr. Rauf Bozkurt",
+        fullName = "Prof. Dr. Ömer Yılmaz",
         branchId = "cocuk_sagligi_ve_hastaliklari",
         hospitalId = "349922",
         roomInfo = "A1-100",
@@ -24157,7 +24169,7 @@ private fun doctorsChunk011(): List<Doctor> = listOf(
     Doctor(
         id = "dr_349922_cocuk_sagligi_ve_hastaliklari_2",
         userId = null,
-        fullName = "Dr. Harun Duman",
+        fullName = "Prof. Dr. Mehmet Nuri Turgut",
         branchId = "cocuk_sagligi_ve_hastaliklari",
         hospitalId = "349922",
         roomInfo = "A1-103",
@@ -24169,7 +24181,7 @@ private fun doctorsChunk011(): List<Doctor> = listOf(
     Doctor(
         id = "dr_349922_deri_ve_zuhrevi_hastaliklari_1",
         userId = null,
-        fullName = "Doç. Dr. Neslihan Metin",
+        fullName = "Prof. Dr. Şehmus Okşak",
         branchId = "deri_ve_zuhrevi_hastaliklari",
         hospitalId = "349922",
         roomInfo = "B1-108",
@@ -24181,7 +24193,7 @@ private fun doctorsChunk011(): List<Doctor> = listOf(
     Doctor(
         id = "dr_349922_deri_ve_zuhrevi_hastaliklari_2",
         userId = null,
-        fullName = "Dr. Meral Maraş",
+        fullName = "Prof. Dr. Aziz Yılmaz",
         branchId = "deri_ve_zuhrevi_hastaliklari",
         hospitalId = "349922",
         roomInfo = "B1-111",
@@ -24193,7 +24205,7 @@ private fun doctorsChunk011(): List<Doctor> = listOf(
     Doctor(
         id = "dr_349922_genel_cerrahi_1",
         userId = null,
-        fullName = "Uzm. Dr. Zeki Sağlam",
+        fullName = "Prof. Dr. Recep Fırat",
         branchId = "genel_cerrahi",
         hospitalId = "349922",
         roomInfo = "C1-102",
@@ -24205,7 +24217,7 @@ private fun doctorsChunk011(): List<Doctor> = listOf(
     Doctor(
         id = "dr_349922_genel_cerrahi_2",
         userId = null,
-        fullName = "Doç. Dr. Yiğit Tok",
+        fullName = "Prof. Dr. Metin Akçay",
         branchId = "genel_cerrahi",
         hospitalId = "349922",
         roomInfo = "C1-105",
@@ -24217,7 +24229,7 @@ private fun doctorsChunk011(): List<Doctor> = listOf(
     Doctor(
         id = "dr_349922_goz_hastaliklari_1",
         userId = null,
-        fullName = "Dr. Can Gümüş",
+        fullName = "Prof. Dr. Umut Erdem",
         branchId = "goz_hastaliklari",
         hospitalId = "349922",
         roomInfo = "D1-100",
@@ -24229,7 +24241,7 @@ private fun doctorsChunk011(): List<Doctor> = listOf(
     Doctor(
         id = "dr_349922_goz_hastaliklari_2",
         userId = null,
-        fullName = "Uzm. Dr. Emre Toraman",
+        fullName = "Prof. Dr. Şehmus Yılmaz",
         branchId = "goz_hastaliklari",
         hospitalId = "349922",
         roomInfo = "D1-103",
@@ -24241,7 +24253,7 @@ private fun doctorsChunk011(): List<Doctor> = listOf(
     Doctor(
         id = "dr_349922_ic_hastaliklari_1",
         userId = null,
-        fullName = "Doç. Dr. Leyla Şahin",
+        fullName = "Prof. Dr. Bilal Yılmaz",
         branchId = "ic_hastaliklari",
         hospitalId = "349922",
         roomInfo = "E1-106",
@@ -24253,7 +24265,7 @@ private fun doctorsChunk011(): List<Doctor> = listOf(
     Doctor(
         id = "dr_349922_ic_hastaliklari_2",
         userId = null,
-        fullName = "Dr. Kübra Yıldız",
+        fullName = "Prof. Dr. Muhammet Baş",
         branchId = "ic_hastaliklari",
         hospitalId = "349922",
         roomInfo = "E1-109",
@@ -24265,7 +24277,7 @@ private fun doctorsChunk011(): List<Doctor> = listOf(
     Doctor(
         id = "dr_349922_kadin_hastaliklari_ve_dogum_1",
         userId = null,
-        fullName = "Uzm. Dr. Yunus Günay",
+        fullName = "Prof. Dr. Erdal Bal",
         branchId = "kadin_hastaliklari_ve_dogum",
         hospitalId = "349922",
         roomInfo = "F1-100",
@@ -24277,7 +24289,7 @@ private fun doctorsChunk011(): List<Doctor> = listOf(
     Doctor(
         id = "dr_349922_kadin_hastaliklari_ve_dogum_2",
         userId = null,
-        fullName = "Doç. Dr. Vedat Ferdi",
+        fullName = "Prof. Dr. Ertuğrul Köse",
         branchId = "kadin_hastaliklari_ve_dogum",
         hospitalId = "349922",
         roomInfo = "F1-103",
@@ -24289,7 +24301,7 @@ private fun doctorsChunk011(): List<Doctor> = listOf(
     Doctor(
         id = "dr_349922_kulak_burun_bogaz_hastaliklari_1",
         userId = null,
-        fullName = "Dr. Şebnem Hazar",
+        fullName = "Prof. Dr. Bünyamin Akçay",
         branchId = "kulak_burun_bogaz_hastaliklari",
         hospitalId = "349922",
         roomInfo = "G1-105",
@@ -24301,7 +24313,7 @@ private fun doctorsChunk011(): List<Doctor> = listOf(
     Doctor(
         id = "dr_349922_kulak_burun_bogaz_hastaliklari_2",
         userId = null,
-        fullName = "Uzm. Dr. Sabiha Hacıoğlu",
+        fullName = "Prof. Dr. Sedat Baş",
         branchId = "kulak_burun_bogaz_hastaliklari",
         hospitalId = "349922",
         roomInfo = "G1-108",
@@ -24313,7 +24325,7 @@ private fun doctorsChunk011(): List<Doctor> = listOf(
     Doctor(
         id = "dr_349922_ortopedi_ve_travmatoloji_1",
         userId = null,
-        fullName = "Doç. Dr. Esra Bayrak",
+        fullName = "Prof. Dr. Bilal Turgut",
         branchId = "ortopedi_ve_travmatoloji",
         hospitalId = "349922",
         roomInfo = "H1-101",
@@ -24325,7 +24337,7 @@ private fun doctorsChunk011(): List<Doctor> = listOf(
     Doctor(
         id = "dr_349922_ortopedi_ve_travmatoloji_2",
         userId = null,
-        fullName = "Dr. Seda Karataş",
+        fullName = "Prof. Dr. Bahattin Yılmaz",
         branchId = "ortopedi_ve_travmatoloji",
         hospitalId = "349922",
         roomInfo = "H1-104",
@@ -24337,7 +24349,7 @@ private fun doctorsChunk011(): List<Doctor> = listOf(
     Doctor(
         id = "dr_349922_ruh_sagligi_ve_hastaliklari_1",
         userId = null,
-        fullName = "Uzm. Dr. Yavuz Uslu",
+        fullName = "Prof. Dr. Ayşe Turgut",
         branchId = "ruh_sagligi_ve_hastaliklari",
         hospitalId = "349922",
         roomInfo = "A2-100",
@@ -24349,7 +24361,7 @@ private fun doctorsChunk011(): List<Doctor> = listOf(
     Doctor(
         id = "dr_349922_ruh_sagligi_ve_hastaliklari_2",
         userId = null,
-        fullName = "Doç. Dr. Yasin Toprak",
+        fullName = "Prof. Dr. Cihan Kılıç",
         branchId = "ruh_sagligi_ve_hastaliklari",
         hospitalId = "349922",
         roomInfo = "A2-103",
@@ -24361,7 +24373,7 @@ private fun doctorsChunk011(): List<Doctor> = listOf(
     Doctor(
         id = "dr_349922_uroloji_1",
         userId = null,
-        fullName = "Dr. Canan Aksoy",
+        fullName = "Prof. Dr. Nihat Sarı",
         branchId = "uroloji",
         hospitalId = "349922",
         roomInfo = "B2-108",
@@ -24373,7 +24385,7 @@ private fun doctorsChunk011(): List<Doctor> = listOf(
     Doctor(
         id = "dr_349922_uroloji_2",
         userId = null,
-        fullName = "Uzm. Dr. Belgin Taş",
+        fullName = "Prof. Dr. Rauf Keskin",
         branchId = "uroloji",
         hospitalId = "349922",
         roomInfo = "B2-111",
@@ -36688,7 +36700,7 @@ private fun doctorsChunk016(): List<Doctor> = listOf(
     Doctor(
         id = "dr_3324_cocuk_sagligi_ve_hastaliklari_1",
         userId = null,
-        fullName = "Uzm. Dr. Serkan Hazar",
+        fullName = "Prof. Dr. Emine Yılmaz",
         branchId = "cocuk_sagligi_ve_hastaliklari",
         hospitalId = "3324",
         roomInfo = "A1-100",
@@ -36700,7 +36712,7 @@ private fun doctorsChunk016(): List<Doctor> = listOf(
     Doctor(
         id = "dr_3324_cocuk_sagligi_ve_hastaliklari_2",
         userId = null,
-        fullName = "Dr. Tolga Işık",
+        fullName = "Prof. Dr. Zafer Gök",
         branchId = "cocuk_sagligi_ve_hastaliklari",
         hospitalId = "3324",
         roomInfo = "A1-103",
@@ -36712,7 +36724,7 @@ private fun doctorsChunk016(): List<Doctor> = listOf(
     Doctor(
         id = "dr_3324_deri_ve_zuhrevi_hastaliklari_1",
         userId = null,
-        fullName = "Doç. Dr. Doğan Tekelioğlu",
+        fullName = "Prof. Dr. Yavuz Uçar",
         branchId = "deri_ve_zuhrevi_hastaliklari",
         hospitalId = "3324",
         roomInfo = "B1-108",
@@ -36724,7 +36736,7 @@ private fun doctorsChunk016(): List<Doctor> = listOf(
     Doctor(
         id = "dr_3324_deri_ve_zuhrevi_hastaliklari_2",
         userId = null,
-        fullName = "Dr. Efe Yörük",
+        fullName = "Prof. Dr. Poyraz Yüce",
         branchId = "deri_ve_zuhrevi_hastaliklari",
         hospitalId = "3324",
         roomInfo = "B1-111",
@@ -36736,7 +36748,7 @@ private fun doctorsChunk016(): List<Doctor> = listOf(
     Doctor(
         id = "dr_3324_dis_hekimligi_1",
         userId = null,
-        fullName = "Uzm. Dr. Rüya Zengin",
+        fullName = "Prof. Dr. Koray Deniz",
         branchId = "dis_hekimligi",
         hospitalId = "3324",
         roomInfo = "C1-104",
@@ -36748,7 +36760,7 @@ private fun doctorsChunk016(): List<Doctor> = listOf(
     Doctor(
         id = "dr_3324_dis_hekimligi_2",
         userId = null,
-        fullName = "Doç. Dr. Sevgi Yaşar",
+        fullName = "Prof. Dr. Yiğit Atay",
         branchId = "dis_hekimligi",
         hospitalId = "3324",
         roomInfo = "C1-107",
@@ -36760,7 +36772,7 @@ private fun doctorsChunk016(): List<Doctor> = listOf(
     Doctor(
         id = "dr_3324_fizik_tedavi_ve_rehabilitasyon_1",
         userId = null,
-        fullName = "Dr. Rasim Reyhan",
+        fullName = "Prof. Dr. Çağrı Tamer",
         branchId = "fizik_tedavi_ve_rehabilitasyon",
         hospitalId = "3324",
         roomInfo = "D1-106",
@@ -36772,7 +36784,7 @@ private fun doctorsChunk016(): List<Doctor> = listOf(
     Doctor(
         id = "dr_3324_fizik_tedavi_ve_rehabilitasyon_2",
         userId = null,
-        fullName = "Uzm. Dr. Süleyman Sağlam",
+        fullName = "Prof. Dr. İsmail Doğan",
         branchId = "fizik_tedavi_ve_rehabilitasyon",
         hospitalId = "3324",
         roomInfo = "D1-109",
@@ -36784,7 +36796,7 @@ private fun doctorsChunk016(): List<Doctor> = listOf(
     Doctor(
         id = "dr_3324_gogus_hastaliklari_1",
         userId = null,
-        fullName = "Doç. Dr. Coşkun Bulut",
+        fullName = "Prof. Dr. Nazım Ceylan",
         branchId = "gogus_hastaliklari",
         hospitalId = "3324",
         roomInfo = "E1-107",
@@ -36792,11 +36804,12 @@ private fun doctorsChunk016(): List<Doctor> = listOf(
         slotEndHour = 17,
         slotDurationMinutes = 20,
         canLogin = false
+
     ),
     Doctor(
         id = "dr_3324_gogus_hastaliklari_2",
         userId = null,
-        fullName = "Dr. Ayşe Ercan",
+        fullName = "Prof. Dr. Rasim Korkut",
         branchId = "gogus_hastaliklari",
         hospitalId = "3324",
         roomInfo = "E1-110",
@@ -36808,7 +36821,7 @@ private fun doctorsChunk016(): List<Doctor> = listOf(
     Doctor(
         id = "dr_3324_goz_hastaliklari_1",
         userId = null,
-        fullName = "Uzm. Dr. Gülay Bulut",
+        fullName = "Prof. Dr. Talat Durmaz",
         branchId = "goz_hastaliklari",
         hospitalId = "3324",
         roomInfo = "F1-100",
@@ -36820,7 +36833,7 @@ private fun doctorsChunk016(): List<Doctor> = listOf(
     Doctor(
         id = "dr_3324_goz_hastaliklari_2",
         userId = null,
-        fullName = "Doç. Dr. Hülya İnal",
+        fullName = "Prof. Dr. Ferhat Akçay",
         branchId = "goz_hastaliklari",
         hospitalId = "3324",
         roomInfo = "F1-103",
@@ -36832,7 +36845,7 @@ private fun doctorsChunk016(): List<Doctor> = listOf(
     Doctor(
         id = "dr_3324_kulak_burun_bogaz_hastaliklari_1",
         userId = null,
-        fullName = "Dr. Necati Bozkurt",
+        fullName = "Prof. Dr. Özgür Gür",
         branchId = "kulak_burun_bogaz_hastaliklari",
         hospitalId = "3324",
         roomInfo = "G1-105",
@@ -36844,7 +36857,7 @@ private fun doctorsChunk016(): List<Doctor> = listOf(
     Doctor(
         id = "dr_3324_kulak_burun_bogaz_hastaliklari_2",
         userId = null,
-        fullName = "Uzm. Dr. Oğuz Şimşek",
+        fullName = "Prof. Dr. Mustafa Özer",
         branchId = "kulak_burun_bogaz_hastaliklari",
         hospitalId = "3324",
         roomInfo = "G1-108",
@@ -36856,7 +36869,7 @@ private fun doctorsChunk016(): List<Doctor> = listOf(
     Doctor(
         id = "dr_3324_noroloji_1",
         userId = null,
-        fullName = "Doç. Dr. Cansu Nalbant",
+        fullName = "Prof. Dr. Berkan Acar",
         branchId = "noroloji",
         hospitalId = "3324",
         roomInfo = "H1-108",
@@ -36868,7 +36881,7 @@ private fun doctorsChunk016(): List<Doctor> = listOf(
     Doctor(
         id = "dr_3324_noroloji_2",
         userId = null,
-        fullName = "Dr. Dilara Önder",
+        fullName = "Prof. Dr. Fırat Güler",
         branchId = "noroloji",
         hospitalId = "3324",
         roomInfo = "H1-111",
@@ -36880,7 +36893,7 @@ private fun doctorsChunk016(): List<Doctor> = listOf(
     Doctor(
         id = "dr_3324_ortopedi_ve_travmatoloji_1",
         userId = null,
-        fullName = "Uzm. Dr. Ali Fırat",
+        fullName = "Prof. Dr. Suat Şener",
         branchId = "ortopedi_ve_travmatoloji",
         hospitalId = "3324",
         roomInfo = "A2-101",
@@ -36892,7 +36905,7 @@ private fun doctorsChunk016(): List<Doctor> = listOf(
     Doctor(
         id = "dr_3324_ortopedi_ve_travmatoloji_2",
         userId = null,
-        fullName = "Doç. Dr. Yusuf Görgün",
+        fullName = "Prof. Dr. Doktor 049",
         branchId = "ortopedi_ve_travmatoloji",
         hospitalId = "3324",
         roomInfo = "A2-104",
@@ -36904,7 +36917,7 @@ private fun doctorsChunk016(): List<Doctor> = listOf(
     Doctor(
         id = "dr_3324_ruh_sagligi_ve_hastaliklari_1",
         userId = null,
-        fullName = "Dr. Nazım Narin",
+        fullName = "Prof. Dr. Doktor 050",
         branchId = "ruh_sagligi_ve_hastaliklari",
         hospitalId = "3324",
         roomInfo = "B2-100",
@@ -36916,7 +36929,7 @@ private fun doctorsChunk016(): List<Doctor> = listOf(
     Doctor(
         id = "dr_3324_ruh_sagligi_ve_hastaliklari_2",
         userId = null,
-        fullName = "Uzm. Dr. Osman Nalbant",
+        fullName = "Prof. Dr. Doktor 051",
         branchId = "ruh_sagligi_ve_hastaliklari",
         hospitalId = "3324",
         roomInfo = "B2-103",
@@ -39259,7 +39272,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_322024_dis_hekimligi_1",
         userId = null,
-        fullName = "Uzm. Dr. Gizem Erkan",
+        fullName = "Prof. Dr. Doktor 052",
         branchId = "dis_hekimligi",
         hospitalId = "322024",
         roomInfo = "A1-104",
@@ -39271,7 +39284,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_322024_dis_hekimligi_2",
         userId = null,
-        fullName = "Doç. Dr. Damla Durak",
+        fullName = "Prof. Dr. Doktor 053",
         branchId = "dis_hekimligi",
         hospitalId = "322024",
         roomInfo = "A1-107",
@@ -39283,7 +39296,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_322024_goz_hastaliklari_1",
         userId = null,
-        fullName = "Dr. Açelya Özgür",
+        fullName = "Prof. Dr. Doktor 054",
         branchId = "goz_hastaliklari",
         hospitalId = "322024",
         roomInfo = "B1-100",
@@ -39295,7 +39308,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_322024_goz_hastaliklari_2",
         userId = null,
-        fullName = "Uzm. Dr. Begüm Şekerci",
+        fullName = "Prof. Dr. Doktor 055",
         branchId = "goz_hastaliklari",
         hospitalId = "322024",
         roomInfo = "B1-103",
@@ -39306,20 +39319,26 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     ),
     Doctor(
         id = "dr_322024_kardiyoloji_1",
-        userId = null,
-        fullName = "Doç. Dr. Erdem Karadağ",
+        userId = "karIWsUYC7ZMRj2GPtr02wmTMxF2",
+        fullName = "Prof. Dr. Yunus Yıldız",
         branchId = "kardiyoloji",
         hospitalId = "322024",
         roomInfo = "C1-109",
-        slotStartHour = 9,
-        slotEndHour = 17,
-        slotDurationMinutes = 20,
-        canLogin = false
+        slotStartHour = 0,
+        slotEndHour = 24,
+        slotDurationMinutes = 10,
+        canLogin = true
+        // email: doctor2@gmail.com
+        // pass: User123
+        // sehir: Istanbul
+        // ilce: Kucukcekmece
+        // hastane: Istanbul Mehmet Akif Ersoy Gogus Kalp ve Damar Cerrahisi EAH
+        // brans: Kardiyoloji
     ),
     Doctor(
         id = "dr_322024_kardiyoloji_2",
         userId = null,
-        fullName = "Dr. Ferit Karataş",
+        fullName = "Prof. Dr. Doktor Yusuf Yıldız",
         branchId = "kardiyoloji",
         hospitalId = "322024",
         roomInfo = "C1-112",
@@ -39571,7 +39590,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_beyin_ve_sinir_cerrahisi_1",
         userId = null,
-        fullName = "Op. Dr. Hakan Fidaner",
+        fullName = "Prof. Dr. Yusuf Akçay",
         branchId = "beyin_ve_sinir_cerrahisi",
         hospitalId = "27911",
         roomInfo = "A1-108",
@@ -39579,11 +39598,12 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
         slotEndHour = 17,
         slotDurationMinutes = 20,
         canLogin = false
+        
     ),
     Doctor(
         id = "dr_27911_beyin_ve_sinir_cerrahisi_2",
         userId = null,
-        fullName = "Uzm. Dr. Kaan Erol",
+        fullName = "Prof. Dr. Yusuf Akçay",
         branchId = "beyin_ve_sinir_cerrahisi",
         hospitalId = "27911",
         roomInfo = "A1-111",
@@ -39595,7 +39615,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_cocuk_sagligi_ve_hastaliklari_1",
         userId = null,
-        fullName = "Doç. Dr. Fırat Şenel",
+        fullName = "Prof. Dr. Doktor 057",
         branchId = "cocuk_sagligi_ve_hastaliklari",
         hospitalId = "27911",
         roomInfo = "B1-100",
@@ -39607,7 +39627,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_cocuk_sagligi_ve_hastaliklari_2",
         userId = null,
-        fullName = "Uzm. Dr. Güven Gümüş",
+        fullName = "Prof. Dr. Doktor 058",
         branchId = "cocuk_sagligi_ve_hastaliklari",
         hospitalId = "27911",
         roomInfo = "B1-103",
@@ -39619,7 +39639,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_deri_ve_zuhrevi_hastaliklari_1",
         userId = null,
-        fullName = "Uzm. Dr. Tülay Erdem",
+        fullName = "Prof. Dr. Doktor 059",
         branchId = "deri_ve_zuhrevi_hastaliklari",
         hospitalId = "27911",
         roomInfo = "C1-108",
@@ -39631,7 +39651,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_deri_ve_zuhrevi_hastaliklari_2",
         userId = null,
-        fullName = "Doç. Dr. Umay Bulut",
+        fullName = "Prof. Dr. Doktor 060",
         branchId = "deri_ve_zuhrevi_hastaliklari",
         hospitalId = "27911",
         roomInfo = "C1-111",
@@ -39643,7 +39663,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_dis_hekimligi_1",
         userId = null,
-        fullName = "Dr. Okan Aslan",
+        fullName = "Prof. Dr. Yusuf Yılmaz",
         branchId = "dis_hekimligi",
         hospitalId = "27911",
         roomInfo = "D1-104",
@@ -39655,7 +39675,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_dis_hekimligi_2",
         userId = null,
-        fullName = "Uzm. Dr. Umut Kılıç",
+        fullName = "Prof. Dr. Ömer Turgut",
         branchId = "dis_hekimligi",
         hospitalId = "27911",
         roomInfo = "D1-107",
@@ -39667,7 +39687,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_fizik_tedavi_ve_rehabilitasyon_1",
         userId = null,
-        fullName = "Doç. Dr. Fatma Öztan",
+        fullName = "Prof. Dr. Doktor 061",
         branchId = "fizik_tedavi_ve_rehabilitasyon",
         hospitalId = "27911",
         roomInfo = "E1-106",
@@ -39679,7 +39699,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_fizik_tedavi_ve_rehabilitasyon_2",
         userId = null,
-        fullName = "Dr. Emine Poyraz",
+        fullName = "Prof. Dr. Mikail Yılmaz",
         branchId = "fizik_tedavi_ve_rehabilitasyon",
         hospitalId = "27911",
         roomInfo = "E1-109",
@@ -39691,7 +39711,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_genel_cerrahi_1",
         userId = null,
-        fullName = "Uzm. Dr. İnci Çelik",
+        fullName = "Prof. Dr. Emircan İnce",
         branchId = "genel_cerrahi",
         hospitalId = "27911",
         roomInfo = "F1-102",
@@ -39703,7 +39723,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_genel_cerrahi_2",
         userId = null,
-        fullName = "Doç. Dr. Jülide Şahin",
+        fullName = "Prof. Dr. Doktor 062",
         branchId = "genel_cerrahi",
         hospitalId = "27911",
         roomInfo = "F1-105",
@@ -39715,7 +39735,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_gogus_cerrahisi_1",
         userId = null,
-        fullName = "Op. Dr. Orhan Raşit",
+        fullName = "Prof. Dr. Doktor 063",
         branchId = "gogus_cerrahisi",
         hospitalId = "27911",
         roomInfo = "G1-100",
@@ -39727,7 +39747,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_gogus_cerrahisi_2",
         userId = null,
-        fullName = "Uzm. Dr. Polat Şeker",
+        fullName = "Prof. Dr. Fatih Zengin",
         branchId = "gogus_cerrahisi",
         hospitalId = "27911",
         roomInfo = "G1-103",
@@ -39739,7 +39759,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_gogus_hastaliklari_1",
         userId = null,
-        fullName = "Doç. Dr. Ebru Gökçe",
+        fullName = "Prof. Dr. Doktor 064",
         branchId = "gogus_hastaliklari",
         hospitalId = "27911",
         roomInfo = "H1-107",
@@ -39751,7 +39771,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_gogus_hastaliklari_2",
         userId = null,
-        fullName = "Dr. Feyza Hacıoğlu",
+        fullName = "Prof. Dr. Osman Selçuk",
         branchId = "gogus_hastaliklari",
         hospitalId = "27911",
         roomInfo = "H1-110",
@@ -39763,7 +39783,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_goz_hastaliklari_1",
         userId = null,
-        fullName = "Uzm. Dr. Ömer Dinç",
+        fullName = "Prof. Dr. Doktor 065",
         branchId = "goz_hastaliklari",
         hospitalId = "27911",
         roomInfo = "A2-100",
@@ -39775,7 +39795,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_goz_hastaliklari_2",
         userId = null,
-        fullName = "Doç. Dr. Hasan Bayrak",
+        fullName = "Prof. Dr. Doktor 066",
         branchId = "goz_hastaliklari",
         hospitalId = "27911",
         roomInfo = "A2-103",
@@ -39787,7 +39807,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_ic_hastaliklari_1",
         userId = null,
-        fullName = "Dr. Poyraz Mutlu",
+        fullName = "Prof. Dr. Doktor 067",
         branchId = "ic_hastaliklari",
         hospitalId = "27911",
         roomInfo = "B2-106",
@@ -39799,7 +39819,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_ic_hastaliklari_2",
         userId = null,
-        fullName = "Uzm. Dr. Rıza Metin",
+        fullName = "Prof. Dr. Doktor 068",
         branchId = "ic_hastaliklari",
         hospitalId = "27911",
         roomInfo = "B2-109",
@@ -39811,7 +39831,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_kadin_hastaliklari_ve_dogum_1",
         userId = null,
-        fullName = "Doç. Dr. Tuğba Kaplan",
+        fullName = "Prof. Dr. Doktor 069",
         branchId = "kadin_hastaliklari_ve_dogum",
         hospitalId = "27911",
         roomInfo = "C2-100",
@@ -39823,7 +39843,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_kadin_hastaliklari_ve_dogum_2",
         userId = null,
-        fullName = "Op. Dr. Serap Polat",
+        fullName = "Prof. Dr. Doktor 070",
         branchId = "kadin_hastaliklari_ve_dogum",
         hospitalId = "27911",
         roomInfo = "C2-103",
@@ -39835,7 +39855,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_kardiyoloji_1",
         userId = null,
-        fullName = "Uzm. Dr. Ferit Tunçyılmaz",
+        fullName = "Prof. Dr. Doktor 071",
         branchId = "kardiyoloji",
         hospitalId = "27911",
         roomInfo = "D2-109",
@@ -39847,7 +39867,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_kardiyoloji_2",
         userId = null,
-        fullName = "Doç. Dr. Erdem Gülay",
+        fullName = "Prof. Dr. Doktor 072",
         branchId = "kardiyoloji",
         hospitalId = "27911",
         roomInfo = "D2-112",
@@ -39859,7 +39879,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_kulak_burun_bogaz_hastaliklari_1",
         userId = null,
-        fullName = "Dr. Begüm Tokeri",
+        fullName = "Prof. Dr. Doktor 073",
         branchId = "kulak_burun_bogaz_hastaliklari",
         hospitalId = "27911",
         roomInfo = "E2-105",
@@ -39871,7 +39891,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_kulak_burun_bogaz_hastaliklari_2",
         userId = null,
-        fullName = "Uzm. Dr. Açelya Gündoğdu",
+        fullName = "Prof. Dr. Doktor 074",
         branchId = "kulak_burun_bogaz_hastaliklari",
         hospitalId = "27911",
         roomInfo = "E2-108",
@@ -39883,7 +39903,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_noroloji_1",
         userId = null,
-        fullName = "Doç. Dr. Damla Yalçın",
+        fullName = "Prof. Dr. Doktor 075",
         branchId = "noroloji",
         hospitalId = "27911",
         roomInfo = "F2-108",
@@ -39895,7 +39915,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_noroloji_2",
         userId = null,
-        fullName = "Dr. Gizem Zaman",
+        fullName = "Prof. Dr. Doktor 076",
         branchId = "noroloji",
         hospitalId = "27911",
         roomInfo = "F2-111",
@@ -39907,7 +39927,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_ortopedi_ve_travmatoloji_1",
         userId = null,
-        fullName = "Uzm. Dr. Cemil Özel",
+        fullName = "Prof. Dr. Doktor 077",
         branchId = "ortopedi_ve_travmatoloji",
         hospitalId = "27911",
         roomInfo = "G2-101",
@@ -39919,7 +39939,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_ortopedi_ve_travmatoloji_2",
         userId = null,
-        fullName = "Doç. Dr. İlker Okur",
+        fullName = "Prof. Dr. Doktor 078",
         branchId = "ortopedi_ve_travmatoloji",
         hospitalId = "27911",
         roomInfo = "G2-104",
@@ -39931,7 +39951,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_ruh_sagligi_ve_hastaliklari_1",
         userId = null,
-        fullName = "Dr. Kadriye Varol",
+        fullName = "Prof. Dr. Recep Yılmaz",
         branchId = "ruh_sagligi_ve_hastaliklari",
         hospitalId = "27911",
         roomInfo = "H2-100",
@@ -39943,7 +39963,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_ruh_sagligi_ve_hastaliklari_2",
         userId = null,
-        fullName = "Uzm. Dr. Işıl Yalçın",
+        fullName = "Prof. Dr. Doktor 079",
         branchId = "ruh_sagligi_ve_hastaliklari",
         hospitalId = "27911",
         roomInfo = "H2-103",
@@ -39955,7 +39975,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_uroloji_1",
         userId = null,
-        fullName = "Doç. Dr. Şenol Koçak",
+        fullName = "Prof. Dr. Doktor 080",
         branchId = "uroloji",
         hospitalId = "27911",
         roomInfo = "A3-108",
@@ -39967,7 +39987,7 @@ private fun doctorsChunk017(): List<Doctor> = listOf(
     Doctor(
         id = "dr_27911_uroloji_2",
         userId = null,
-        fullName = "Dr. Selçuk Irmak",
+        fullName = "Prof. Dr. Doktor 081",
         branchId = "uroloji",
         hospitalId = "27911",
         roomInfo = "A3-111",
@@ -58675,7 +58695,7 @@ private fun doctorsChunk025(): List<Doctor> = listOf(
     Doctor(
         id = "dr_1840_deri_ve_zuhrevi_hastaliklari_1",
         userId = null,
-        fullName = "Dr. Taylan Zorlu",
+        fullName = "Prof. Dr. Fatih Nemli",
         branchId = "deri_ve_zuhrevi_hastaliklari",
         hospitalId = "1840",
         roomInfo = "A1-108",
@@ -58687,7 +58707,7 @@ private fun doctorsChunk025(): List<Doctor> = listOf(
     Doctor(
         id = "dr_1840_deri_ve_zuhrevi_hastaliklari_2",
         userId = null,
-        fullName = "Uzm. Dr. Sarp Akgün",
+        fullName = "Prof. Dr. Doktor 082",
         branchId = "deri_ve_zuhrevi_hastaliklari",
         hospitalId = "1840",
         roomInfo = "A1-111",
@@ -58699,7 +58719,7 @@ private fun doctorsChunk025(): List<Doctor> = listOf(
     Doctor(
         id = "dr_1840_ic_hastaliklari_1",
         userId = null,
-        fullName = "Doç. Dr. İbrahim Tunçyılmaz",
+        fullName = "Prof. Dr. Doktor 083",
         branchId = "ic_hastaliklari",
         hospitalId = "1840",
         roomInfo = "B1-106",
@@ -58711,7 +58731,7 @@ private fun doctorsChunk025(): List<Doctor> = listOf(
     Doctor(
         id = "dr_1840_ic_hastaliklari_2",
         userId = null,
-        fullName = "Dr. Hüseyin Özgür",
+        fullName = "Prof. Dr. Doktor 084",
         branchId = "ic_hastaliklari",
         hospitalId = "1840",
         roomInfo = "B1-109",
@@ -58723,7 +58743,7 @@ private fun doctorsChunk025(): List<Doctor> = listOf(
     Doctor(
         id = "dr_1840_noroloji_1",
         userId = null,
-        fullName = "Uzm. Dr. Hazal Kara",
+        fullName = "Prof. Dr. Doktor 085",
         branchId = "noroloji",
         hospitalId = "1840",
         roomInfo = "C1-108",
@@ -58735,7 +58755,7 @@ private fun doctorsChunk025(): List<Doctor> = listOf(
     Doctor(
         id = "dr_1840_noroloji_2",
         userId = null,
-        fullName = "Doç. Dr. Gülşen Koç",
+        fullName = "Prof. Dr. Abdullah Çoban",
         branchId = "noroloji",
         hospitalId = "1840",
         roomInfo = "C1-111",
@@ -59215,7 +59235,7 @@ private fun doctorsChunk025(): List<Doctor> = listOf(
     Doctor(
         id = "dr_188229_kardiyoloji_2",
         userId = null,
-        fullName = "Dr. Metin Akçay",
+        fullName = "Prof. Dr. Doktor 086",
         branchId = "kardiyoloji",
         hospitalId = "188229",
         roomInfo = "B1-112",
@@ -66880,7 +66900,7 @@ private fun doctorsChunk028(): List<Doctor> = listOf(
     Doctor(
         id = "dr_1247_kulak_burun_bogaz_hastaliklari_2",
         userId = null,
-        fullName = "Doç. Dr. Fatih Zengin",
+        fullName = "Prof. Dr. Doktor 087",
         branchId = "kulak_burun_bogaz_hastaliklari",
         hospitalId = "1247",
         roomInfo = "C1-108",
@@ -71410,7 +71430,7 @@ private fun doctorsChunk030(): List<Doctor> = listOf(
     Doctor(
         id = "dr_166_beyin_ve_sinir_cerrahisi_1",
         userId = null,
-        fullName = "Uzm. Dr. Hülya Baş",
+        fullName = "Prof. Dr. Doktor 088",
         branchId = "beyin_ve_sinir_cerrahisi",
         hospitalId = "166",
         roomInfo = "A1-108",
@@ -71422,7 +71442,7 @@ private fun doctorsChunk030(): List<Doctor> = listOf(
     Doctor(
         id = "dr_166_beyin_ve_sinir_cerrahisi_2",
         userId = null,
-        fullName = "Doç. Dr. Gülay Esen",
+        fullName = "Prof. Dr. Doktor 089",
         branchId = "beyin_ve_sinir_cerrahisi",
         hospitalId = "166",
         roomInfo = "A1-111",
@@ -71434,7 +71454,7 @@ private fun doctorsChunk030(): List<Doctor> = listOf(
     Doctor(
         id = "dr_166_genel_cerrahi_1",
         userId = null,
-        fullName = "Op. Dr. Ayşe Mavzer",
+        fullName = "Prof. Dr. Doktor 090",
         branchId = "genel_cerrahi",
         hospitalId = "166",
         roomInfo = "B1-102",
@@ -71446,7 +71466,7 @@ private fun doctorsChunk030(): List<Doctor> = listOf(
     Doctor(
         id = "dr_166_genel_cerrahi_2",
         userId = null,
-        fullName = "Uzm. Dr. Coşkun Nazlı",
+        fullName = "Prof. Dr. Doktor 091",
         branchId = "genel_cerrahi",
         hospitalId = "166",
         roomInfo = "B1-105",
@@ -71458,7 +71478,7 @@ private fun doctorsChunk030(): List<Doctor> = listOf(
     Doctor(
         id = "dr_166_kardiyoloji_1",
         userId = null,
-        fullName = "Doç. Dr. Süleyman Gökçe",
+        fullName = "Prof. Dr. Doktor 092",
         branchId = "kardiyoloji",
         hospitalId = "166",
         roomInfo = "C1-109",
@@ -71470,7 +71490,7 @@ private fun doctorsChunk030(): List<Doctor> = listOf(
     Doctor(
         id = "dr_166_kardiyoloji_2",
         userId = null,
-        fullName = "Dr. Rasim Fidan",
+        fullName = "Prof. Dr. Doktor 093",
         branchId = "kardiyoloji",
         hospitalId = "166",
         roomInfo = "C1-112",

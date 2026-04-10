@@ -8,12 +8,11 @@ import com.menasy.merkezisagliksistemi.domain.usecase.GetCurrentUserUseCase
 import com.menasy.merkezisagliksistemi.ui.common.base.BaseViewModel
 import com.menasy.merkezisagliksistemi.ui.common.error.AppErrorReason
 import com.menasy.merkezisagliksistemi.ui.common.error.OperationType
+import com.menasy.merkezisagliksistemi.utils.DateTimeUtils
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import java.time.Instant
-import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 
@@ -91,12 +90,19 @@ class AppointmentConfirmationViewModel(
         _uiState.value = _uiState.value.copy(isCreating = true)
 
         viewModelScope.launch {
+            val appointmentDate = formatDateForFirestore(args.dateMillis)
+            if (!DateTimeUtils.isAppointmentInFuture(appointmentDate, args.timeLabel)) {
+                _uiState.value = _uiState.value.copy(isCreating = false)
+                publishError(AppErrorReason.PAST_APPOINTMENT_TIME_NOT_ALLOWED)
+                return@launch
+            }
+
             val appointment = Appointment(
                 patientId = patientId,
                 doctorId = args.doctorId,
                 hospitalId = args.hospitalId,
                 branchId = args.branchId,
-                appointmentDate = formatDateForFirestore(args.dateMillis),
+                appointmentDate = appointmentDate,
                 appointmentTime = args.timeLabel
             )
 
@@ -123,12 +129,12 @@ class AppointmentConfirmationViewModel(
     }
 
     private fun formatDate(millis: Long): String {
-        val date = Instant.ofEpochMilli(millis).atZone(ZoneId.systemDefault()).toLocalDate()
+        val date = DateTimeUtils.millisToLocalDate(millis)
         return DATE_FORMATTER.format(date)
     }
 
     private fun formatDateForFirestore(millis: Long): String {
-        val date = Instant.ofEpochMilli(millis).atZone(ZoneId.systemDefault()).toLocalDate()
+        val date = DateTimeUtils.millisToLocalDate(millis)
         return DATE_FIRESTORE_FORMATTER.format(date)
     }
 

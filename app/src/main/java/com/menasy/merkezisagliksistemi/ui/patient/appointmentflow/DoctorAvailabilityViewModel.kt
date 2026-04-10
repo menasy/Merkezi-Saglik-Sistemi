@@ -2,6 +2,7 @@ package com.menasy.merkezisagliksistemi.ui.patient.appointmentflow
 
 import java.time.Instant
 import java.time.LocalDate
+import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
@@ -11,6 +12,7 @@ import com.menasy.merkezisagliksistemi.domain.usecase.ObserveOccupiedTimesUseCas
 import com.menasy.merkezisagliksistemi.ui.common.base.BaseViewModel
 import com.menasy.merkezisagliksistemi.ui.common.error.AppErrorReason
 import com.menasy.merkezisagliksistemi.ui.common.error.OperationType
+import com.menasy.merkezisagliksistemi.utils.DateTimeUtils
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -103,33 +105,43 @@ class DoctorAvailabilityViewModel(
     }
 
     private fun updateDayAvailability(dateString: String, occupiedSlots: Set<String>) {
-        val currentArgs = args ?: return
+        if (args == null) return
         val currentState = _uiState.value
 
         val updatedDays = currentState.dayAvailabilities.map { day ->
             if (day.dateString == dateString) {
-                rebuildDayWithOccupiedSlots(day, occupiedSlots, currentArgs)
+                rebuildDayWithOccupiedSlots(day, occupiedSlots)
             } else {
                 day
             }
         }
 
-        val selectedDateString = currentState.selectedDateMillis?.let { millis ->
-            millisToLocalDate(millis).format(DATE_STRING_FORMATTER)
-        }
+        val selectedDate = currentState.selectedDateMillis?.let(::millisToLocalDate)
+        val selectedDateString = selectedDate?.format(DATE_STRING_FORMATTER)
         val selectedTimeLabel = currentState.selectedTimeLabel
 
         val isSelectedSlotStillAvailable = if (selectedDateString == dateString && selectedTimeLabel != null) {
-            selectedTimeLabel !in occupiedSlots
+            selectedDate?.let { date ->
+                selectedTimeLabel !in occupiedSlots &&
+                    isSlotBookable(date, selectedTimeLabel)
+            } == true
         } else {
             true
         }
 
         if (!isSelectedSlotStillAvailable) {
-            publishWarning(
-                title = "Saat Doldu",
-                description = "Seçtiğiniz saat başka bir hasta tarafından alındı. Lütfen başka bir saat seçin."
-            )
+            val isPastSlot = selectedDate?.let { date ->
+                selectedTimeLabel != null && !isSlotBookable(date, selectedTimeLabel)
+            } == true
+
+            if (isPastSlot) {
+                publishError(AppErrorReason.PAST_APPOINTMENT_TIME_NOT_ALLOWED)
+            } else {
+                publishWarning(
+                    title = "Saat Doldu",
+                    description = "Seçtiğiniz saat başka bir hasta tarafından alındı. Lütfen başka bir saat seçin."
+                )
+            }
             _uiState.value = currentState.copy(
                 dayAvailabilities = updatedDays,
                 selectedDateMillis = null,
@@ -143,24 +155,45 @@ class DoctorAvailabilityViewModel(
 
     private fun rebuildDayWithOccupiedSlots(
         day: DayAvailabilityUiModel,
-        occupiedSlots: Set<String>,
-        availabilityArgs: DoctorAvailabilityArgs
+        occupiedSlots: Set<String>
     ): DayAvailabilityUiModel {
-        val updatedHourBlocks = day.hourBlocks.map { hourBlock ->
-            val updatedSlots = hourBlock.slots.map { slot ->
-                slot.copy(isAvailable = slot.timeLabel !in occupiedSlots)
+        val dayDate = millisToLocalDate(day.dateMillis)
+        val referenceNow = DateTimeUtils.currentLocalDateTime()
+        val selectedHourLabel = day.selectedHourIndex?.let { index ->
+            day.hourBlocks.getOrNull(index)?.hourLabel
+        }
+
+        val updatedHourBlocks = day.hourBlocks.mapNotNull { hourBlock ->
+            val updatedSlots = hourBlock.slots.mapNotNull { slot ->
+                val isFutureSlot = isSlotBookable(
+                    date = dayDate,
+                    timeLabel = slot.timeLabel,
+                    referenceDateTime = referenceNow
+                )
+                if (!isFutureSlot) {
+                    null
+                } else {
+                    slot.copy(isAvailable = slot.timeLabel !in occupiedSlots)
+                }
             }
-            hourBlock.copy(
-                slots = updatedSlots,
-                isEnabled = updatedSlots.any { it.isAvailable }
-            )
+
+            if (updatedSlots.isEmpty()) {
+                null
+            } else {
+                hourBlock.copy(
+                    slots = updatedSlots,
+                    isEnabled = updatedSlots.any { it.isAvailable }
+                )
+            }
         }
 
         val openSlotCount = updatedHourBlocks.sumOf { hour -> hour.slots.count { slot -> slot.isAvailable } }
 
-        val updatedSelectedHourIndex = day.selectedHourIndex?.let { index ->
-            val hourBlock = updatedHourBlocks.getOrNull(index)
-            if (hourBlock?.isEnabled == true) index else null
+        val updatedSelectedHourIndex = selectedHourLabel?.let { label ->
+            val newIndex = updatedHourBlocks.indexOfFirst { hourBlock ->
+                hourBlock.hourLabel == label
+            }
+            if (newIndex >= 0 && updatedHourBlocks[newIndex].isEnabled) newIndex else null
         }
 
         val updatedSelectedSlotLabel = if (updatedSelectedHourIndex != null && day.selectedSlotLabel != null) {
@@ -208,10 +241,19 @@ class DoctorAvailabilityViewModel(
     fun onSlotSelected(dayIndex: Int, slotTimeLabel: String) {
         val currentState = _uiState.value
         val selectedDay = currentState.dayAvailabilities.getOrNull(dayIndex) ?: return
+        val selectedDate = millisToLocalDate(selectedDay.dateMillis)
         val selectedHourIndex = selectedDay.selectedHourIndex ?: return
         val selectedHour = selectedDay.hourBlocks.getOrNull(selectedHourIndex) ?: return
         val selectedSlot = selectedHour.slots.find { slot -> slot.timeLabel == slotTimeLabel } ?: return
-        if (!selectedSlot.isAvailable) return
+        if (!selectedSlot.isAvailable) {
+            refreshDayAvailability(selectedDay.dateString)
+            return
+        }
+        if (!isSlotBookable(selectedDate, slotTimeLabel)) {
+            publishError(AppErrorReason.PAST_APPOINTMENT_TIME_NOT_ALLOWED)
+            refreshDayAvailability(selectedDay.dateString)
+            return
+        }
 
         val updatedDays = currentState.dayAvailabilities.mapIndexed { index, day ->
             if (index == dayIndex) {
@@ -245,6 +287,21 @@ class DoctorAvailabilityViewModel(
             publishError(AppErrorReason.SLOT_SELECTION_REQUIRED)
             return null
         }
+        val selectedDate = millisToLocalDate(selectedDateMillis)
+        val selectedDateString = selectedDate.format(DATE_STRING_FORMATTER)
+
+        if (!isSlotBookable(selectedDate, selectedTimeLabel)) {
+            publishError(AppErrorReason.PAST_APPOINTMENT_TIME_NOT_ALLOWED)
+            refreshDayAvailability(selectedDateString)
+            return null
+        }
+
+        val occupiedSlots = occupiedSlotsCache[selectedDateString].orEmpty()
+        if (selectedTimeLabel in occupiedSlots) {
+            publishError(AppErrorReason.SLOT_ALREADY_TAKEN)
+            refreshDayAvailability(selectedDateString)
+            return null
+        }
 
         return AppointmentConfirmationArgs(
             doctorId = currentArgs.doctorId,
@@ -261,7 +318,11 @@ class DoctorAvailabilityViewModel(
     private fun generateDayAvailabilities(availabilityArgs: DoctorAvailabilityArgs): List<DayAvailabilityUiModel> {
         val startDate = millisToLocalDate(availabilityArgs.searchArgs.startDateMillis)
         val endDate = millisToLocalDate(availabilityArgs.searchArgs.endDateMillis)
-        val dates = buildDateRange(startDate, endDate).take(MAX_DAY_COUNT)
+        val today = DateTimeUtils.currentLocalDate()
+        val normalizedStartDate = if (startDate.isBefore(today)) today else startDate
+        val normalizedEndDate = if (endDate.isBefore(normalizedStartDate)) normalizedStartDate else endDate
+        val referenceNow = DateTimeUtils.currentLocalDateTime()
+        val dates = buildDateRange(normalizedStartDate, normalizedEndDate).take(MAX_DAY_COUNT)
 
         return dates.map { localDate ->
             val dayMillis = localDate.atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli()
@@ -269,7 +330,9 @@ class DoctorAvailabilityViewModel(
             val hourBlocks = buildHourBlocks(
                 slotStartHour = availabilityArgs.slotStartHour,
                 slotEndHour = availabilityArgs.slotEndHour,
-                slotDurationMinutes = availabilityArgs.slotDurationMinutes
+                slotDurationMinutes = availabilityArgs.slotDurationMinutes,
+                slotDate = localDate,
+                referenceDateTime = referenceNow
             )
 
             val openSlotCount = hourBlocks.sumOf { hour -> hour.slots.count { slot -> slot.isAvailable } }
@@ -300,32 +363,62 @@ class DoctorAvailabilityViewModel(
     private fun buildHourBlocks(
         slotStartHour: Int,
         slotEndHour: Int,
-        slotDurationMinutes: Int
+        slotDurationMinutes: Int,
+        slotDate: LocalDate,
+        referenceDateTime: LocalDateTime
     ): List<HourBlockUiModel> {
         val normalizedStartHour = slotStartHour.coerceIn(0, 23)
         val normalizedEndHour = slotEndHour.coerceIn(normalizedStartHour + 1, 24)
         val normalizedSlotDuration = slotDurationMinutes.coerceAtLeast(5)
 
-        return (normalizedStartHour until normalizedEndHour).map { hour ->
+        return (normalizedStartHour until normalizedEndHour).mapNotNull { hour ->
             val slots = mutableListOf<SlotUiModel>()
             var minute = 0
             while (minute < 60) {
                 val timeLabel = String.format(Locale.ROOT, "%02d:%02d", hour, minute)
-                slots.add(
-                    SlotUiModel(
-                        timeLabel = timeLabel,
-                        isAvailable = true
-                    )
+                val isFutureSlot = isSlotBookable(
+                    date = slotDate,
+                    timeLabel = timeLabel,
+                    referenceDateTime = referenceDateTime
                 )
+                if (isFutureSlot) {
+                    slots.add(
+                        SlotUiModel(
+                            timeLabel = timeLabel,
+                            isAvailable = true
+                        )
+                    )
+                }
                 minute += normalizedSlotDuration
             }
 
-            HourBlockUiModel(
-                hourLabel = String.format(Locale.ROOT, "%02d:00", hour),
-                isEnabled = true,
-                slots = slots
-            )
+            if (slots.isEmpty()) {
+                null
+            } else {
+                HourBlockUiModel(
+                    hourLabel = String.format(Locale.ROOT, "%02d:00", hour),
+                    isEnabled = true,
+                    slots = slots
+                )
+            }
         }
+    }
+
+    private fun refreshDayAvailability(dateString: String) {
+        val occupiedSlots = occupiedSlotsCache[dateString].orEmpty()
+        updateDayAvailability(dateString, occupiedSlots)
+    }
+
+    private fun isSlotBookable(
+        date: LocalDate,
+        timeLabel: String,
+        referenceDateTime: LocalDateTime = DateTimeUtils.currentLocalDateTime()
+    ): Boolean {
+        return DateTimeUtils.isAppointmentInFuture(
+            date = date,
+            timeStr = timeLabel,
+            referenceDateTime = referenceDateTime
+        )
     }
 
     private fun millisToLocalDate(millis: Long): LocalDate {

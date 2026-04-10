@@ -7,10 +7,7 @@
     <color name="message_card_stroke">#E5E7EB</color>
 
     <color name="common_button_bg">#3B82F6</color>
-    <color name="common_button_bg_disabled">#B7CBF6</color>
     <color name="common_button_fill">#2563EB</color>
-    <color name="common_button_fill_disabled">#9CB3E6</color>
     <color name="common_button_text">#FFFFFF</color>
-    <color name="common_button_text_disabled">#E8F0FF</color>
     <color name="common_button_text_pressed">#FFFFFF</color>
 </resources>

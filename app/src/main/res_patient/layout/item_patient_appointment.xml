@@ -5,9 +5,8 @@
     android:id="@+id/cardAppointment"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="20dp"
-    android:layout_marginTop="16dp"
-    android:clipToOutline="true"
+    android:layout_marginHorizontal="@dimen/page_horizontal_margin"
+    android:layout_marginTop="@dimen/list_item_margin_top"
     app:cardBackgroundColor="@color/surface"
     app:cardCornerRadius="12dp"
     app:cardElevation="0dp"
@@ -41,8 +40,8 @@
                 android:background="@drawable/bg_appointment_card_header"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingHorizontal="16dp"
-                android:paddingVertical="12dp">
+                android:paddingHorizontal="@dimen/card_padding"
+                android:paddingVertical="@dimen/spacing_md">
 
                 <TextView
                     android:id="@+id/tvAppointmentDay"
@@ -57,8 +56,14 @@
                     android:id="@+id/tvAppointmentDateLabel"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
+                    android:layout_marginStart="@dimen/spacing_md"
                     android:layout_weight="1"
+                    app:autoSizeMaxTextSize="15sp"
+                    app:autoSizeMinTextSize="12sp"
+                    app:autoSizeStepGranularity="1sp"
+                    app:autoSizeTextType="uniform"
+                    android:ellipsize="end"
+                    android:maxLines="1"
                     android:textColor="@android:color/white"
                     android:textSize="15sp"
                     tools:text="Temmuz 2026 Çarşamba" />
@@ -67,15 +72,16 @@
                     android:id="@+id/ivAppointmentClock"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="@dimen/spacing_sm"
                     android:contentDescription="Saat"
                     android:src="@drawable/ic_appointment_clock"
-                    android:tint="@android:color/white" />
+                    app:tint="@android:color/white" />
 
                 <TextView
                     android:id="@+id/tvAppointmentTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:maxLines="1"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -87,13 +93,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="@dimen/card_padding">
 
                 <!-- Hospital Name -->
                 <TextView
                     android:id="@+id/tvHospitalName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="2"
                     android:textColor="@color/text_secondary"
                     android:textSize="14sp"
                     android:textStyle="bold"
@@ -120,6 +128,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:maxLines="2"
                         android:textColor="@color/text_primary"
                         android:textSize="14sp"
                         tools:text="Endoskopi" />
@@ -146,6 +156,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:maxLines="2"
                         android:textColor="@color/text_primary"
                         android:textSize="14sp"
                         tools:text="Uzm. Dr. Elif Kaya" />
@@ -167,7 +179,7 @@
                     android:id="@+id/layoutButtons"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="@dimen/spacing_lg"
                     android:gravity="center"
                     android:orientation="horizontal">
 
@@ -177,6 +189,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/button_danger_background_tint"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:minHeight="44dp"
                         android:paddingVertical="10dp"
                         android:text="İptal Et"
                         android:textAllCaps="false"

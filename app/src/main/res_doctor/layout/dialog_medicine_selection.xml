@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_bottom_sheet">
+
+    <!-- Header -->
+    <LinearLayout
+        android:id="@+id/layoutHeader"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/section_header_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/page_horizontal_margin"
+        android:paddingVertical="@dimen/spacing_lg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="@dimen/icon_size_md"
+            android:layout_height="@dimen/icon_size_md"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_bottom_prescriptions_24"
+            app:tint="@color/primary_dark" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_md"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/doctor_examination_medicine_dialog_title"
+            android:textColor="@color/primary_dark"
+            android:textSize="@dimen/text_size_headline"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/btnClose"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/doctor_examination_cancel"
+            android:src="@drawable/ic_message_close_24"
+            app:tint="@color/text_secondary" />
+    </LinearLayout>
+
+    <!-- Search Input -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilSearch"
+        style="@style/Widget.MerkeziSaglik.TextInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/page_horizontal_margin"
+        android:layout_marginTop="@dimen/spacing_lg"
+        app:boxCornerRadiusBottomEnd="@dimen/card_corner_radius_sm"
+        app:boxCornerRadiusBottomStart="@dimen/card_corner_radius_sm"
+        app:boxCornerRadiusTopEnd="@dimen/card_corner_radius_sm"
+        app:boxCornerRadiusTopStart="@dimen/card_corner_radius_sm"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutHeader"
+        app:startIconDrawable="@drawable/ic_search_24"
+        app:startIconTint="@color/text_secondary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etSearch"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/medicine_selection_search_height"
+            android:hint="@string/doctor_examination_medicine_search_hint"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_secondary"
+            android:textSize="@dimen/text_size_body_lg" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Selection Info - use barrier to handle visibility -->
+    <TextView
+        android:id="@+id/tvSelectionInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/page_horizontal_margin"
+        android:layout_marginTop="@dimen/spacing_md"
+        android:textColor="@color/primary"
+        android:textSize="@dimen/text_size_body_sm"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilSearch"
+        app:layout_goneMarginTop="0dp"
+        tools:text="3 ilaç seçildi"
+        tools:visibility="visible" />
+
+    <!-- Barrier for list top positioning -->
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrierListTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="tilSearch,tvSelectionInfo" />
+
+    <!-- Medicine List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMedicines"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/spacing_sm"
+        android:clipToPadding="false"
+        android:nestedScrollingEnabled="true"
+        android:paddingHorizontal="@dimen/page_horizontal_margin"
+        android:paddingBottom="@dimen/spacing_sm"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@id/layoutActions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="wrap"
+        app:layout_constraintHeight_max="400dp"
+        app:layout_constraintHeight_min="280dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/barrierListTop"
+        app:layout_constraintVertical_bias="0"
+        tools:itemCount="6"
+        tools:listitem="@layout/item_medicine_selection" />
+
+    <!-- Empty State -->
+    <LinearLayout
+        android:id="@+id/layoutEmpty"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_xxl"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/layoutActions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_min="280dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/barrierListTop"
+        app:layout_constraintVertical_bias="0"
+        tools:visibility="gone">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:alpha="0.4"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_bottom_prescriptions_24"
+            app:tint="@color/text_secondary" />
+
+        <TextView
+            android:id="@+id/tvEmptyMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:gravity="center"
+            android:text="@string/doctor_examination_no_medicine_found"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/text_size_body" />
+    </LinearLayout>
+
+    <!-- Action Buttons -->
+    <LinearLayout
+        android:id="@+id/layoutActions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/surface"
+        android:elevation="4dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/page_horizontal_margin"
+        android:paddingVertical="@dimen/spacing_lg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCancel"
+            style="@style/Widget.MerkeziSaglik.Button.Action.Outlined"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/action_button_height"
+            android:layout_marginEnd="@dimen/spacing_sm"
+            android:layout_weight="1"
+            android:minWidth="0dp"
+            android:text="@string/doctor_examination_cancel"
+            android:textAllCaps="false" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddMedicines"
+            style="@style/Widget.MerkeziSaglik.Button.Action.Primary"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/action_button_height"
+            android:layout_marginStart="@dimen/spacing_sm"
+            android:layout_weight="1"
+            android:enabled="false"
+            android:minWidth="0dp"
+            android:text="@string/doctor_examination_add_medicines"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

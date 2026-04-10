@@ -1,6 +1,5 @@
 package com.menasy.merkezisagliksistemi.domain.usecase
 
-import com.menasy.merkezisagliksistemi.data.model.Doctor
 import com.menasy.merkezisagliksistemi.data.repository.AppointmentRepository
 import com.menasy.merkezisagliksistemi.data.repository.BranchRepository
 import com.menasy.merkezisagliksistemi.data.repository.DoctorRepository
@@ -13,7 +12,7 @@ import java.time.format.DateTimeFormatter
  *
  * Returns:
  * - Doctor profile information (name, branch)
- * - All scheduled appointment count (both past and future)
+ * - Pending overdue appointment count (SCHEDULED + time passed)
  * - Today's completed examination count
  */
 class GetDoctorHomeSummaryUseCase(
@@ -39,18 +38,20 @@ class GetDoctorHomeSummaryUseCase(
 
             val todayDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
 
-            val scheduledCountResult = appointmentRepository.getDoctorScheduledAppointmentCount(doctorId)
-            val scheduledCount = scheduledCountResult.getOrDefault(0)
+            val pendingCount = appointmentRepository
+                .getDoctorOverdueAppointmentCount(doctorId)
+                .getOrElse { throwable -> return Result.failure(throwable) }
 
-            val completedTodayResult = appointmentRepository.getDoctorCompletedTodayCount(doctorId, todayDate)
-            val completedTodayCount = completedTodayResult.getOrDefault(0)
+            val completedTodayCount = appointmentRepository
+                .getDoctorCompletedTodayCount(doctorId, todayDate)
+                .getOrElse { throwable -> return Result.failure(throwable) }
 
             Result.success(
                 DoctorHomeSummary(
                     doctorFullName = doctor.fullName,
                     branchName = branchName,
                     hospitalName = hospitalName,
-                    pendingAppointmentCount = scheduledCount,
+                    pendingAppointmentCount = pendingCount,
                     completedTodayCount = completedTodayCount
                 )
             )

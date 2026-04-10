@@ -1,5 +1,6 @@
 package com.menasy.merkezisagliksistemi.domain.usecase
 
+import com.menasy.merkezisagliksistemi.utils.DateTimeUtils
 import kotlinx.coroutines.flow.first
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -18,7 +19,13 @@ class GetNearestAvailableDateUseCase(
         slotEndHour: Int,
         slotDurationMinutes: Int
     ): LocalDate? {
-        if (endDate.isBefore(startDate)) return null
+        val referenceNow = DateTimeUtils.currentLocalDateTime()
+        val normalizedStartDate = if (startDate.isBefore(referenceNow.toLocalDate())) {
+            referenceNow.toLocalDate()
+        } else {
+            startDate
+        }
+        if (endDate.isBefore(normalizedStartDate)) return null
 
         val slotLabels = buildSlotLabels(
             slotStartHour = slotStartHour,
@@ -27,12 +34,17 @@ class GetNearestAvailableDateUseCase(
         )
         if (slotLabels.isEmpty()) return null
 
-        val totalDays = ChronoUnit.DAYS.between(startDate, endDate).toInt() + 1
+        val totalDays = ChronoUnit.DAYS.between(normalizedStartDate, endDate).toInt() + 1
         for (offset in 0 until totalDays) {
-            val date = startDate.plusDays(offset.toLong())
+            val date = normalizedStartDate.plusDays(offset.toLong())
             val dateString = date.format(DATE_STRING_FORMATTER)
             val occupiedSlots = observeOccupiedTimesUseCase(doctorId, dateString).first()
-            val hasAtLeastOneOpenSlot = slotLabels.any { slotLabel -> slotLabel !in occupiedSlots }
+            val futureSlots = DateTimeUtils.filterFutureSlotLabels(
+                date = date,
+                slotLabels = slotLabels,
+                referenceDateTime = referenceNow
+            )
+            val hasAtLeastOneOpenSlot = futureSlots.any { slotLabel -> slotLabel !in occupiedSlots }
             if (hasAtLeastOneOpenSlot) {
                 return date
             }

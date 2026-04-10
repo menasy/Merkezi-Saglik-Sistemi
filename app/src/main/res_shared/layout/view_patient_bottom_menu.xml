@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/radioInputs"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -12,7 +13,7 @@
     <LinearLayout
         android:id="@+id/surfaceHome"
         android:layout_width="0dp"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="2dp"
         android:layout_weight="1"
         android:background="@drawable/bg_bottom_menu_item_idle"
@@ -20,6 +21,7 @@
         android:focusable="true"
         android:foreground="?attr/selectableItemBackgroundBorderless"
         android:gravity="center"
+        android:minHeight="56dp"
         android:orientation="vertical"
         android:paddingHorizontal="1dp"
         android:paddingVertical="5dp">
@@ -30,23 +32,24 @@
             android:layout_height="18dp"
             android:contentDescription="@string/cd_bottom_menu_home"
             android:src="@drawable/ic_bottom_home_24"
-            android:tint="@color/bottom_menu_item_idle_text" />
+            app:tint="@color/bottom_menu_item_idle_text" />
 
         <TextView
             android:id="@+id/tvHome"
             style="@style/TextAppearance.MerkeziSaglik.BottomMenuLabel"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:ellipsize="end"
-            android:maxLines="1"
+            android:gravity="center"
+            android:maxLines="2"
             android:text="@string/bottom_menu_home" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/surfaceSearch"
         android:layout_width="0dp"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="2dp"
         android:layout_weight="1"
         android:background="@drawable/bg_bottom_menu_item_idle"
@@ -54,6 +57,7 @@
         android:focusable="true"
         android:foreground="?attr/selectableItemBackgroundBorderless"
         android:gravity="center"
+        android:minHeight="56dp"
         android:orientation="vertical"
         android:paddingHorizontal="1dp"
         android:paddingVertical="5dp">
@@ -64,23 +68,24 @@
             android:layout_height="18dp"
             android:contentDescription="@string/cd_bottom_menu_search"
             android:src="@drawable/ic_bottom_search_24"
-            android:tint="@color/bottom_menu_item_idle_text" />
+            app:tint="@color/bottom_menu_item_idle_text" />
 
         <TextView
             android:id="@+id/tvSearch"
             style="@style/TextAppearance.MerkeziSaglik.BottomMenuLabel"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:ellipsize="end"
-            android:maxLines="1"
+            android:gravity="center"
+            android:maxLines="2"
             android:text="@string/bottom_menu_search" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/surfaceAppointments"
         android:layout_width="0dp"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="2dp"
         android:layout_weight="1.1"
         android:background="@drawable/bg_bottom_menu_item_idle"
@@ -88,6 +93,7 @@
         android:focusable="true"
         android:foreground="?attr/selectableItemBackgroundBorderless"
         android:gravity="center"
+        android:minHeight="56dp"
         android:orientation="vertical"
         android:paddingHorizontal="1dp"
         android:paddingVertical="5dp">
@@ -98,23 +104,24 @@
             android:layout_height="18dp"
             android:contentDescription="@string/cd_bottom_menu_appointments"
             android:src="@drawable/ic_bottom_appointments_24"
-            android:tint="@color/bottom_menu_item_idle_text" />
+            app:tint="@color/bottom_menu_item_idle_text" />
 
         <TextView
             android:id="@+id/tvAppointments"
             style="@style/TextAppearance.MerkeziSaglik.BottomMenuLabel"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:ellipsize="end"
-            android:maxLines="1"
+            android:gravity="center"
+            android:maxLines="2"
             android:text="@string/bottom_menu_appointments" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/surfacePrescriptions"
         android:layout_width="0dp"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="2dp"
         android:layout_weight="1"
         android:background="@drawable/bg_bottom_menu_item_idle"
@@ -122,6 +129,7 @@
         android:focusable="true"
         android:foreground="?attr/selectableItemBackgroundBorderless"
         android:gravity="center"
+        android:minHeight="56dp"
         android:orientation="vertical"
         android:paddingHorizontal="1dp"
         android:paddingVertical="5dp">
@@ -132,23 +140,24 @@
             android:layout_height="18dp"
             android:contentDescription="@string/cd_bottom_menu_prescriptions"
             android:src="@drawable/ic_bottom_prescriptions_24"
-            android:tint="@color/bottom_menu_item_idle_text" />
+            app:tint="@color/bottom_menu_item_idle_text" />
 
         <TextView
             android:id="@+id/tvPrescriptions"
             style="@style/TextAppearance.MerkeziSaglik.BottomMenuLabel"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:ellipsize="end"
-            android:maxLines="1"
+            android:gravity="center"
+            android:maxLines="2"
             android:text="@string/bottom_menu_prescriptions" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/surfaceAccount"
         android:layout_width="0dp"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
         android:layout_weight="1"
         android:background="@drawable/bg_bottom_menu_item_idle"
@@ -156,6 +165,7 @@
         android:focusable="true"
         android:foreground="?attr/selectableItemBackgroundBorderless"
         android:gravity="center"
+        android:minHeight="56dp"
         android:orientation="vertical"
         android:paddingHorizontal="1dp"
         android:paddingVertical="5dp">
@@ -166,16 +176,17 @@
             android:layout_height="18dp"
             android:contentDescription="@string/cd_bottom_menu_account"
             android:src="@drawable/ic_bottom_account_24"
-            android:tint="@color/bottom_menu_item_idle_text" />
+            app:tint="@color/bottom_menu_item_idle_text" />
 
         <TextView
             android:id="@+id/tvAccount"
             style="@style/TextAppearance.MerkeziSaglik.BottomMenuLabel"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:ellipsize="end"
-            android:maxLines="1"
+            android:gravity="center"
+            android:maxLines="2"
             android:text="@string/bottom_menu_account" />
     </LinearLayout>
 

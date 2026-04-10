@@ -14,9 +14,13 @@ class CancelAppointmentUseCase(
      * - Removes the slot lock to allow re-booking
      *
      * @param appointmentId The ID of the appointment to cancel
+     * @param patientId The active patient ID that owns the appointment
      * @return Result indicating success or failure
      */
-    suspend operator fun invoke(appointmentId: String): Result<Unit> {
-        return appointmentRepository.cancelAppointment(appointmentId)
+    suspend operator fun invoke(appointmentId: String, patientId: String): Result<Unit> {
+        return appointmentRepository.cancelAppointment(
+            appointmentId = appointmentId,
+            patientId = patientId
+        )
     }
 }

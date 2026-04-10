@@ -135,7 +135,17 @@
     <fragment
         android:id="@+id/doctorAppointmentsFragment"
         android:name="com.menasy.merkezisagliksistemi.ui.doctor.appointments.DoctorAppointmentsFragment"
-        android:label="DoctorAppointments" />
+        android:label="DoctorAppointments">
+
+        <action
+            android:id="@+id/action_doctorAppointmentsFragment_to_doctorExaminationFragment"
+            app:destination="@id/doctorExaminationFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/doctorExaminationFragment"
+        android:name="com.menasy.merkezisagliksistemi.ui.doctor.examination.DoctorExaminationFragment"
+        android:label="DoctorExamination" />
 
     <fragment
         android:id="@+id/doctorPrescriptionsFragment"

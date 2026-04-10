@@ -2,6 +2,7 @@
     <color name="primary">#46B4AF</color>
     <color name="primary_dark">#2F8F8A</color>
     <color name="primary_light">#7ED1CC</color>
+    <color name="primary_surface">#F0F9F8</color>
 
     <color name="secondary">#0066CC</color>
     <color name="secondary_dark">#004A99</color>
@@ -10,6 +11,8 @@
     <color name="error">#D40D12</color>
     <color name="error_dark">#A80A0E</color>
 
+    <color name="success">#1B7F4A</color>
+
     <color name="background">#F9F9F9</color>
     <color name="surface">#FFFFFF</color>
 
@@ -17,4 +20,8 @@
     <color name="text_secondary">#666666</color>
 
     <color name="divider">#E0E0E0</color>
+
+    <!-- Medicine card colors - professional and subtle -->
+    <color name="medicine_header_bg">#F5F7FA</color>
+    <color name="medicine_header_icon">#5B6B7C</color>
 </resources>

@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">Merkezi Sağlik Sistemi</string>
+    <string name="common_back">Geri</string>
     <string name="message_close">Mesajı kapat</string>
+    <string name="prescription_records_hospital_branch_format">%1$s • %2$s</string>
+    <string name="prescription_records_appointment_format">Randevu: %1$s %2$s</string>
+    <string name="prescription_records_medicine_count_format">%1$d İlaç</string>
+    <string name="prescription_records_created_at_format">Oluşturulma: %1$s</string>
+    
+    <!-- Medicine Preview Labels -->
+    <string name="medicine_preview_dosage_label">Doz:</string>
+    <string name="medicine_preview_frequency_label">Sıklık:</string>
+    <string name="medicine_preview_usage_label">Kullanım:</string>
 </resources>

@@ -107,6 +107,11 @@ object AppErrorMapper {
                 description = "Geçmiş tarihler için randevu araması yapılamaz."
             )
 
+            AppErrorReason.PAST_APPOINTMENT_TIME_NOT_ALLOWED -> UiMessage.warning(
+                title = "Geçmiş Saat Seçilemez",
+                description = "Bu saat artık geçmişte kaldı. Lütfen ileri bir saat seçin."
+            )
+
             AppErrorReason.END_DATE_BEFORE_START -> UiMessage.warning(
                 title = "Geçersiz Tarih Aralığı",
                 description = "Bitiş tarihi başlangıç tarihinden önce olamaz."
@@ -149,7 +154,42 @@ object AppErrorMapper {
 
             AppErrorReason.APPOINTMENT_NOT_FOUND -> UiMessage.error(
                 title = "Randevu Bulunamadı",
-                description = "İptal edilmek istenen randevu bulunamadı."
+                description = "İlgili randevu kaydı sistemde bulunamadı."
+            )
+
+            AppErrorReason.APPOINTMENT_PATIENT_MISMATCH -> UiMessage.error(
+                title = "Randevu Erişimi Engellendi",
+                description = "Bu randevu sadece ilgili hasta tarafından yönetilebilir."
+            )
+
+            AppErrorReason.APPOINTMENT_CANCELLATION_NOT_ALLOWED -> UiMessage.warning(
+                title = "Randevu İptal Edilemedi",
+                description = "Randevu sadece planlı ve zamanı gelmemiş durumdayken iptal edilebilir."
+            )
+
+            AppErrorReason.APPOINTMENT_DOCTOR_MISMATCH -> UiMessage.error(
+                title = "Randevu Erişimi Engellendi",
+                description = "Bu randevuya erişim yetkiniz bulunmuyor."
+            )
+
+            AppErrorReason.APPOINTMENT_STATUS_INVALID_FOR_EXAMINATION -> UiMessage.warning(
+                title = "Muayene Başlatılamadı",
+                description = "Randevu sadece planlı durumdayken muayeneye alınabilir."
+            )
+
+            AppErrorReason.APPOINTMENT_TIME_NOT_REACHED -> UiMessage.warning(
+                title = "Muayene Zamanı Gelmedi",
+                description = "Randevu saati gelmeden muayene başlatılamaz."
+            )
+
+            AppErrorReason.PRESCRIPTION_DECISION_REQUIRED -> UiMessage.warning(
+                title = "Reçete Kararı Gerekli",
+                description = "Muayeneyi tamamlamak için reçete kararını seçin."
+            )
+
+            AppErrorReason.PRESCRIPTION_MEDICINE_REQUIRED -> UiMessage.warning(
+                title = "İlaç Seçimi Gerekli",
+                description = "Reçete gerekli seçildiğinde en az bir ilaç ekleyin."
             )
 
             AppErrorReason.APPOINTMENT_CREATION_FAILED -> UiMessage.error(

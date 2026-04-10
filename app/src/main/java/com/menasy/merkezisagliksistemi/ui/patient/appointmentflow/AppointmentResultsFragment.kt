@@ -12,9 +12,8 @@ import com.menasy.merkezisagliksistemi.R
 import com.menasy.merkezisagliksistemi.databinding.FragmentAppointmentResultsBinding
 import com.menasy.merkezisagliksistemi.ui.common.base.BaseFragment
 import com.menasy.merkezisagliksistemi.ui.common.error.AppErrorReason
+import com.menasy.merkezisagliksistemi.utils.DateTimeUtils
 import kotlinx.coroutines.launch
-import java.time.Instant
-import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 
@@ -125,9 +124,7 @@ class AppointmentResultsFragment : BaseFragment() {
     }
 
     private fun formatDate(dateMillis: Long): String {
-        val localDate = Instant.ofEpochMilli(dateMillis)
-            .atZone(ZoneId.systemDefault())
-            .toLocalDate()
+        val localDate = DateTimeUtils.millisToLocalDate(dateMillis)
         return DATE_FORMATTER.format(localDate)
     }
 

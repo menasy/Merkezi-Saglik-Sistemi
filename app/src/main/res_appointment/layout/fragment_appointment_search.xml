@@ -35,6 +35,8 @@
                     android:id="@+id/tvAppointmentTitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="2"
                     android:text="Genel Arama"
                     android:textAppearance="@style/TextAppearance.MerkeziSaglik.PageTitle"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -47,10 +49,10 @@
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:background="@drawable/bg_top_back_button"
-                    android:contentDescription="Geri"
+                    android:contentDescription="@string/common_back"
                     android:padding="6dp"
                     android:src="@drawable/ic_arrow_back_24"
-                    android:tint="@color/primary_dark"
+                    app:tint="@color/primary_dark"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -61,6 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                android:maxLines="2"
                 android:text="Tarih ve filtreleri seçerek uygun randevuyu bulun"
                 android:textAppearance="?attr/textAppearanceBodyMedium"
                 android:textColor="@color/text_secondary" />
@@ -112,6 +115,8 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:ellipsize="end"
+                            android:maxLines="1"
                             android:text="Başlangıç: -"
                             android:textAppearance="?attr/textAppearanceBodyMedium"
                             android:textColor="@color/text_primary" />
@@ -121,7 +126,9 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:ellipsize="end"
                             android:gravity="end"
+                            android:maxLines="1"
                             android:text="Bitiş: -"
                             android:textAppearance="?attr/textAppearanceBodyMedium"
                             android:textColor="@color/text_primary" />
